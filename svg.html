@@ -1,0 +1,133 @@
+<html>
+<style type="text/css">
+body {
+  margin: 0px;
+  padding: 0px;
+  font-family: sans-serif;
+}
+
+svg {
+  height: 100%;
+  width: 100%;
+}
+
+.html-wireframe {
+  color: black;
+  background-color: white;
+}
+
+.html-normal {
+  color: white;
+  background-color: black;
+}
+
+.shape-wireframe {
+  stroke: black;
+  fill: none;
+}
+
+.shape-normal {
+  stroke: none;
+  fill: white;
+  fill-opacity: 0.1;
+}
+
+#controls {
+  position: absolute;
+  right: 0px;
+  width: 250px;
+  background-color: rgba(128, 128, 128, 0.5);
+  padding: 10px;
+  margin: 10px;
+}
+</style>
+</html>
+<body ng-app="MyApp" ng-controller="MyController" ng-class="getHtmlClass()">
+
+<div id="controls">
+  <table>
+    <tr>
+      <td>Radius:</td>
+      <td>{{radius}}</td>
+      <td><input type="range" min="50" max="1000" ng-model="radius"></td>
+    </tr>
+    <tr>
+      <td>Guide Radius:</td>
+      <td>{{guideRadius}}</td>
+      <td><input type="range" min="50" max="1000" ng-model="guideRadius"></td>
+    </tr>
+    <tr>
+      <td>Samples:</td>
+      <td>{{numSamples}}</td>
+      <td><input type="range" min="1" max="64" ng-model="numSamples"></td>
+    </tr>
+  </table>
+  <input type="checkbox" ng-model="wireFrame">Wire frame
+</div>
+
+<svg>
+  <circle ng-repeat="point in samples"
+    ng-attr-cx="{{point.x}}"
+    ng-attr-cy="{{point.y}}"
+    ng-attr-r="{{radius}}"
+    ng-class="getShapeClass()"/>
+</svg>
+
+<script src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.6.0/underscore-min.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.20/angular.min.js"></script>
+<script>
+'use strict';
+
+var app = angular.module('MyApp', [])
+  .controller('MyController',
+    function($scope) {
+      $scope.center = { x: 500, y: 500 };
+      $scope.guideRadius = 300;
+      $scope.radius = 300;
+      $scope.numSamples = 32;
+      $scope.wireFrame = false;
+      $scope.samples = [];
+
+      $scope.$watchCollection('guideRadius', computeSamples);
+      $scope.$watchCollection('numSamples', computeSamples);
+
+      $scope.getShapeClass = function() {
+        return ($scope.wireFrame ? 'shape-wireframe' : 'shape-normal');
+      }
+
+      $scope.getHtmlClass = function() {
+        return ($scope.wireFrame ? 'html-wireframe' : 'html-normal');
+      }
+
+      function computeSamples() {
+        $scope.samples = translate(
+            $scope.center,
+            getNPointsOnCircle($scope.guideRadius, $scope.numSamples));
+      }
+
+      function translate(offset, points) {
+        return _.map(points, function(point) {
+          return { x: point.x + offset.x, y: point.y + offset.y };
+        });
+      }
+
+      function getNPointsOnCircle(radius, n) {
+        var alpha = Math.PI * 2 / n;
+        var points = [];
+
+        _.each(_.range(0, n),
+          function(i) {
+            var theta = alpha * i;
+            var pointOnCircle = {
+              x: Math.cos(theta) * radius,
+              y: Math.sin( theta ) * radius
+            };
+            points.push(pointOnCircle);
+          });
+
+        return points;
+      }
+    });
+</script>
+</body>
+</html>
