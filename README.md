@@ -3,4 +3,4 @@ visualizations
 
 AngularJS + SVG == Amaazing!
 
-http://rawgit.com/DietCokeOfEvil/visualizations/master/svg.html
+http://rawgit.com/DietCokeOfEvil/visualizations/master/rosette-circles.html
