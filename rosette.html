@@ -48,9 +48,18 @@
       </table>
       <input
         type="checkbox"
-        ng-model="wireFrame"
-        ng-change="computeSamples()">
+        ng-model="wireFrame">
         Wire frame
+      </input><br>
+      <input
+        type="checkbox"
+        ng-model="plotIntersections">
+        Plot Intersections
+      </input><br>
+      <input
+        type="checkbox"
+        ng-model="plotCenters">
+        Plot Centers
       </input>
     </div>
 
@@ -60,6 +69,22 @@
         ng-attr-cy="{{point.y}}"
         ng-attr-r="{{radius}}"
         ng-class="getShapeClass()"/>
+
+      <g ng-if="plotCenters">
+        <circle ng-repeat="point in samples"
+          ng-attr-cx="{{point.x}}"
+          ng-attr-cy="{{point.y}}"
+          r="2"
+          style="fill: red"/>
+      </g>
+
+      <g ng-if="plotIntersections">
+        <circle ng-repeat="point in intersections"
+          ng-attr-cx="{{point.x}}"
+          ng-attr-cy="{{point.y}}"
+          r="2"
+          style="fill: blue"/>
+      </g>
     </svg>
 
     <script src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.6.0/underscore-min.js"></script>
@@ -69,6 +94,6 @@
     <script type="text/coffeescript" src="geometry/point.coffee"></script>
     <script type="text/coffeescript" src="geometry/circle.coffee"></script>
     <script type="text/coffeescript" src="geometry/index.coffee"></script>
-    <script type="text/coffeescript" src="rosette-circles.coffee"></script>
+    <script type="text/coffeescript" src="rosette.coffee"></script>
   </body>
 </html>
