@@ -1,0 +1,40 @@
+body {
+  margin: 0px;
+  padding: 0px;
+  font-family: sans-serif;
+}
+
+svg {
+  height: 100%;
+  width: 100%;
+}
+
+.html-wireframe {
+  color: black;
+  background-color: white;
+}
+
+.html-normal {
+  color: white;
+  background-color: black;
+}
+
+.shape-wireframe {
+  stroke: black;
+  fill: none;
+}
+
+.shape-normal {
+  stroke: none;
+  fill: white;
+  fill-opacity: 0.1;
+}
+
+#controls {
+  position: absolute;
+  right: 0px;
+  width: 250px;
+  background-color: rgba(128, 128, 128, 0.5);
+  padding: 10px;
+  margin: 10px;
+}

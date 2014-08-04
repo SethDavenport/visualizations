@@ -1,0 +1,74 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body ng-controller="Controller" ng-class="getHtmlClass()">
+
+    <div id="controls">
+      <table>
+        <tr>
+          <td>Radius:</td>
+          <td>{{radius}}</td>
+          <td>
+            <input
+              type="range"
+              min="50"
+              max="1000"
+              ng-model="radius"
+              ng-change="computeSamples()">
+            </input>
+          </td>
+        </tr>
+        <tr>
+          <td>Guide Radius:</td>
+          <td>{{guideCircle.radius}}</td>
+          <td>
+            <input
+              type="range"
+              min="50"
+              max="1000"
+              ng-model="guideCircle.radius"
+              ng-change="computeSamples()">
+            </input>
+          </td>
+        </tr>
+        <tr>
+          <td>Samples:</td>
+          <td>{{numSamples}}</td>
+          <td>
+            <input
+              type="range"
+              min="1"
+              max="64"
+              ng-model="numSamples"
+              ng-change="computeSamples()">
+            </input>
+          </td>
+        </tr>
+      </table>
+      <input
+        type="checkbox"
+        ng-model="wireFrame"
+        ng-change="computeSamples()">
+        Wire frame
+      </input>
+    </div>
+
+    <svg>
+      <circle ng-repeat="point in samples"
+        ng-attr-cx="{{point.x}}"
+        ng-attr-cy="{{point.y}}"
+        ng-attr-r="{{radius}}"
+        ng-class="getShapeClass()"/>
+    </svg>
+
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.6.0/underscore-min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.20/angular.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/coffee-script/1.7.1/coffee-script.min.js"></script>
+
+    <script type="text/coffeescript" src="geometry/point.coffee"></script>
+    <script type="text/coffeescript" src="geometry/circle.coffee"></script>
+    <script type="text/coffeescript" src="geometry/index.coffee"></script>
+    <script type="text/coffeescript" src="rosette-circles.coffee"></script>
+  </body>
+</html>
