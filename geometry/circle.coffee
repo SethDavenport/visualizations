@@ -4,7 +4,7 @@ angular.module 'geometry.circle', [ 'geometry.point' ]
     class Circle
       constructor: (@center, @radius) ->
         throw TypeError "center must be a Point, was #{@center}" if !@center instanceof Point
-        throw TypeError "radius must be a finite Number, was #{@radius}" if !isFinite @radius
+        throw TypeError "radius must be a finite, positive Number, was #{@radius}" if !isFinite @radius or @radius <= 0
 
       equals: (other) ->
         return false if !other instanceof Circle
@@ -34,7 +34,7 @@ angular.module 'geometry.circle', [ 'geometry.point' ]
         e = c - a
         f = d - b
         p = Math.sqrt(Math.abs(e*e + f*f))
-        return [] if p > r + s
+        return [] if p > Math.abs(r) + Math.abs(s)
 
         r2 = r*r
         k = (p*p + r2 - s*s)/(2*p)
@@ -54,9 +54,9 @@ angular.module 'geometry.circle', [ 'geometry.point' ]
         x2 = a + eTimesKOverP - fOverPTimesSqrtR2minusK2
         y2 = b + fTimesKOverP + eOverPTimesSqrtR2minusK2
 
-        result = _.uniq([
+        result = [
           new Point(x1, y1),
-          new Point(x2, y2) ])
+          new Point(x2, y2) ]
 
         return result;
 
