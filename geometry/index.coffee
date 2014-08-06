@@ -1,4 +1,5 @@
 angular.module 'geometry', [
   'geometry.point',
-  'geometry.circle'
+  'geometry.circle',
+  'geometry.rosette'
   ]

@@ -14,5 +14,11 @@ angular.module 'geometry.point', []
         return false if !other instanceof Point
         return @x is other.x and @y is other.y
 
+      toString: ->
+        return "(#{@x}, #{@y})"
+
+      round: ->
+        return new Point(Math.round(@x), Math.round(@y))
+
     return Point
   ]

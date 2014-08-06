@@ -8,40 +8,40 @@
       <table>
         <tr>
           <td>Radius:</td>
-          <td>{{radius}}</td>
+          <td>{{rosette.radius}}</td>
           <td>
             <input
               type="range"
               min="50"
               max="1000"
-              ng-model="radius"
-              ng-change="computeSamples()">
+              ng-model="rosette.radius"
+              ng-change="recompute()">
             </input>
           </td>
         </tr>
         <tr>
           <td>Guide Radius:</td>
-          <td>{{guideCircle.radius}}</td>
+          <td>{{rosette.guideCircle.radius}}</td>
           <td>
             <input
               type="range"
               min="50"
               max="1000"
-              ng-model="guideCircle.radius"
-              ng-change="computeSamples()">
+              ng-model="rosette.guideCircle.radius"
+              ng-change="recompute()">
             </input>
           </td>
         </tr>
         <tr>
           <td>Samples:</td>
-          <td>{{numSamples}}</td>
+          <td>{{rosette.numCircles}}</td>
           <td>
             <input
               type="range"
               min="1"
               max="64"
-              ng-model="numSamples"
-              ng-change="computeSamples()">
+              ng-model="rosette.numCircles"
+              ng-change="recompute()">
             </input>
           </td>
         </tr>
@@ -53,33 +53,35 @@
       </input><br>
       <input
         type="checkbox"
-        ng-model="plotIntersections">
-        Plot Intersections
+        ng-model="plotVertices">
+        Plot Vertices
       </input><br>
       <input
         type="checkbox"
         ng-model="plotCenters">
         Plot Centers
-      </input>
+      </input><br>
+
+      Vertex Count: {{ vertices.length }}
     </div>
 
     <svg>
-      <circle ng-repeat="point in samples"
-        ng-attr-cx="{{point.x}}"
-        ng-attr-cy="{{point.y}}"
-        ng-attr-r="{{radius}}"
+      <circle ng-repeat="circle in circles"
+        ng-attr-cx="{{circle.center.x}}"
+        ng-attr-cy="{{circle.center.y}}"
+        ng-attr-r="{{circle.radius}}"
         ng-class="getShapeClass()"/>
 
       <g ng-if="plotCenters">
-        <circle ng-repeat="point in samples"
-          ng-attr-cx="{{point.x}}"
-          ng-attr-cy="{{point.y}}"
+        <circle ng-repeat="circle in circles"
+          ng-attr-cx="{{circle.center.x}}"
+          ng-attr-cy="{{circle.center.y}}"
           r="2"
           style="fill: red"/>
       </g>
 
-      <g ng-if="plotIntersections">
-        <circle ng-repeat="point in intersections"
+      <g ng-if="plotVertices">
+        <circle ng-repeat="point in vertices"
           ng-attr-cx="{{point.x}}"
           ng-attr-cy="{{point.y}}"
           r="2"
@@ -94,6 +96,7 @@
     <script type="text/coffeescript" src="geometry/point.coffee"></script>
     <script type="text/coffeescript" src="geometry/circle.coffee"></script>
     <script type="text/coffeescript" src="geometry/index.coffee"></script>
-    <script type="text/coffeescript" src="rosette.coffee"></script>
+    <script type="text/coffeescript" src="geometry/rosette.coffee"></script>
+    <script type="text/coffeescript" src="controller.coffee"></script>
   </body>
 </html>
