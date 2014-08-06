@@ -14,11 +14,37 @@ angular.module 'geometry.point', []
         return false if !other instanceof Point
         return @x is other.x and @y is other.y
 
+      distance: (other) ->
+        throw TypeError "other must be a Point, was #{other}" if !other instanceof Point
+
+        dx = @x - other.x
+        dy = @y - other.y
+        return Math.sqrt(dx*dx + dy*dy)
+
+      angle: (other) ->
+        throw TypeError "other must be a Point, was #{other}" if !other instanceof Point
+
+        dx = @x - other.x
+        dy = @y - other.y
+        return 0 if dx is 0 and dy is 0
+
+        if dx is 0
+          return if dy > 0 then Math.PI/2 else 3*Math.PI/2
+
+        if dy is 0
+          return if dx > 0 then 0 else Math.PI
+
+        alpha = Math.atan(Math.abs(dy/dx))
+        if dx < 0
+          return if dy < 0 then alpha else 2*Math.PI - alpha
+
+        return if dy < 0 then Math.PI - alpha else Math.PI + alpha
+
       toString: ->
         return "(#{@x}, #{@y})"
 
-      round: ->
-        return new Point(Math.round(@x), Math.round(@y))
+      toFixed: (n) ->
+        return new Point(@x.toFixed(n), @y.toFixed(n))
 
     return Point
   ]

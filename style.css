@@ -30,6 +30,20 @@ svg {
   fill-opacity: 0.1;
 }
 
+.vertex-0 { fill: red; }
+.vertex-1 { fill: orange; }
+.vertex-2 { fill: yellow; }
+.vertex-3 { fill: green; }
+.vertex-4 { fill: blue; }
+.vertex-5 { fill: purple; }
+
+.radial-0 { stroke: red;}
+.radial-1 { stroke: orange; }
+.radial-2 { stroke: yellow; }
+.radial-3 { stroke: green; }
+.radial-4 { stroke: blue; }
+.radial-5 { stroke: purple; }
+
 #controls {
   position: absolute;
   right: 0px;

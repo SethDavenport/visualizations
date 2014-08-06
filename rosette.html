@@ -58,11 +58,14 @@
       </input><br>
       <input
         type="checkbox"
+        ng-model="plotRadials">
+        Plot Radials
+      </input><br>
+      <input
+        type="checkbox"
         ng-model="plotCenters">
         Plot Centers
       </input><br>
-
-      Vertex Count: {{ vertices.length }}
     </div>
 
     <svg>
@@ -81,11 +84,22 @@
       </g>
 
       <g ng-if="plotVertices">
-        <circle ng-repeat="point in vertices"
-          ng-attr-cx="{{point.x}}"
-          ng-attr-cy="{{point.y}}"
-          r="2"
-          style="fill: blue"/>
+        <g ng-repeat="angle in angles">
+          <circle ng-repeat="point in vertices[angle]"
+            ng-attr-cx="{{point.x}}"
+            ng-attr-cy="{{point.y}}"
+            r="2"
+            ng-class="getVertexClass(angle)"/>
+        </g>
+      </g>
+
+      <g ng-if="plotRadials">
+        <g ng-repeat="angle in angles">
+          <path ng-class="getRadialClass(angle)"
+            ng-attr-d="{{getRadialPath(angle)}}"
+            stroke-width="1"
+            fill="none"/>
+        </g>
       </g>
     </svg>
 

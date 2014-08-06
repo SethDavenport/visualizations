@@ -15,7 +15,6 @@ angular.element(document).ready ->
         $scope.wireFrame = false
         $scope.circles = []
         $scope.vertices = []
-        $scope.uniqueVertices = []
 
         $scope.getShapeClass = () ->
           return if $scope.wireFrame then 'shape-wireframe' else 'shape-normal'
@@ -23,9 +22,22 @@ angular.element(document).ready ->
         $scope.getHtmlClass = () ->
           return if $scope.wireFrame then 'html-wireframe' else 'html-normal'
 
+        $scope.getVertexClass = (angle) ->
+          return ('vertex-' + _.indexOf($scope.angles, angle) % 6)
+
+        $scope.getRadialClass = (angle) ->
+          return ('radial-' + _.indexOf($scope.angles, angle) % 6)
+
+        $scope.getRadialPath = (angle) ->
+          result = "M #{$scope.rosette.guideCircle.center.x} #{$scope.rosette.guideCircle.center.y}"
+          _.each($scope.vertices[angle], (v) -> result += " L#{v.x} #{v.y}")
+          result += "Z"
+          return result
+
         $scope.recompute = () ->
           $scope.circles = $scope.rosette.computeCircles()
           $scope.vertices = $scope.rosette.computeVertices()
+          $scope.angles = _.keys $scope.vertices
 
         $scope.recompute()
       ]
