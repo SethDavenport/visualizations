@@ -29,19 +29,18 @@ angular.module 'geometry.point', []
         return 0 if dx is 0 and dy is 0
 
         if dx is 0
-          return if dy > 0 then Math.PI/2 else 3*Math.PI/2
-
-        if dy is 0
-          return if dx > 0 then 0 else Math.PI
+          return if dy < 0 then Math.PI/2 else 3*Math.PI/2
 
         alpha = Math.atan(Math.abs(dy/dx))
         if dx < 0
-          return if dy < 0 then alpha else 2*Math.PI - alpha
+          return if dy <= 0 then alpha else 2*Math.PI - alpha
 
         return if dy < 0 then Math.PI - alpha else Math.PI + alpha
 
-      toString: ->
-        return "(#{@x}, #{@y})"
+      toString: (decimals)->
+        displayX = if isFinite(decimals) then @x.toFixed(decimals) else @x
+        displayY = if isFinite(decimals) then @y.toFixed(decimals) else @y
+        return "(#{displayX}, #{displayY})"
 
       toFixed: (n) ->
         return new Point(@x.toFixed(n), @y.toFixed(n))

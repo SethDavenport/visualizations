@@ -8,11 +8,14 @@ angular.element(document).ready ->
 
       ($scope, Point, Circle, Rosette) ->
         $scope.rosette = new Rosette(
-          new Circle(new Point(400, 400), 300),
-          300,
-          32)
+          new Circle(new Point(400, 400), 70),
+          199,
+          14)
 
+        $scope.mode = 'CIRCLES'
         $scope.wireFrame = false
+        $scope.plotRadials = false
+        $scope.plotVertices = false
         $scope.circles = []
         $scope.vertices = []
 
@@ -25,14 +28,23 @@ angular.element(document).ready ->
         $scope.getVertexClass = (angle) ->
           return ('vertex-' + _.indexOf($scope.angles, angle) % 6)
 
+        $scope.getTextClass = (angle) ->
+          return ('text-' + _.indexOf($scope.angles, angle) % 6)
+
         $scope.getRadialClass = (angle) ->
           return ('radial-' + _.indexOf($scope.angles, angle) % 6)
 
         $scope.getRadialPath = (angle) ->
-          result = "M #{$scope.rosette.guideCircle.center.x} #{$scope.rosette.guideCircle.center.y}"
-          _.each($scope.vertices[angle], (v) -> result += " L#{v.x} #{v.y}")
+          result = ''
+          _.each($scope.vertices[angle], (v) ->
+            result += (if !result then 'M' else 'L')
+            result += "#{v.x} #{v.y} ")
           result += "Z"
           return result
+
+        $scope.getRadialLabelCoords = (angle) ->
+          [..., last] = $scope.vertices[angle]
+          return last;
 
         $scope.recompute = () ->
           $scope.circles = $scope.rosette.computeCircles()

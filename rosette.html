@@ -46,9 +46,16 @@
           </td>
         </tr>
       </table>
+      Render Mode:
+      <select ng-model="mode">
+        <option value="CIRCLES">Overlapping Circles</option>
+        <option value="GRID">Warped Grid</option>
+        <option value="NONE">None</option>
+      </select>
       <input
         type="checkbox"
-        ng-model="wireFrame">
+        ng-model="wireFrame"
+        ng-disabled="'CIRCLES' !== mode">
         Wire frame
       </input><br>
       <input
@@ -69,11 +76,13 @@
     </div>
 
     <svg>
-      <circle ng-repeat="circle in circles"
-        ng-attr-cx="{{circle.center.x}}"
-        ng-attr-cy="{{circle.center.y}}"
-        ng-attr-r="{{circle.radius}}"
-        ng-class="getShapeClass()"/>
+      <g ng-if="'CIRCLES' === mode">
+        <circle ng-repeat="circle in circles"
+          ng-attr-cx="{{circle.center.x}}"
+          ng-attr-cy="{{circle.center.y}}"
+          ng-attr-r="{{circle.radius}}"
+          ng-class="getShapeClass()"/>
+      </g>
 
       <g ng-if="plotCenters">
         <circle ng-repeat="circle in circles"
@@ -90,6 +99,10 @@
             ng-attr-cy="{{point.y}}"
             r="2"
             ng-class="getVertexClass(angle)"/>
+          <text ng-repeat="point in vertices[angle]"
+            ng-attr-x="{{point.x}}"
+            ng-attr-y="{{point.y}}"
+            ng-class="getTextClass(angle)">{{point.toString(1)}}, {{point.angle(rosette.guideCircle.center).toFixed(3)}}</text>
         </g>
       </g>
 
@@ -99,6 +112,9 @@
             ng-attr-d="{{getRadialPath(angle)}}"
             stroke-width="1"
             fill="none"/>
+          <text ng-attr-x="{{getRadialLabelCoords(angle).x}}"
+            ng-attr-y="{{getRadialLabelCoords(angle).y}}"
+            ng-class="getTextClass(angle)">{{ angle }}</text>
         </g>
       </g>
     </svg>
