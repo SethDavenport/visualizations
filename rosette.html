@@ -102,7 +102,7 @@
           <text ng-repeat="point in vertices[angle]"
             ng-attr-x="{{point.x}}"
             ng-attr-y="{{point.y}}"
-            ng-class="getTextClass(angle)">{{point.toString(1)}}, {{point.angle(rosette.guideCircle.center).toFixed(3)}}</text>
+            ng-class="getTextClass(angle)">({{angle}}, {{$index}})</text>
         </g>
       </g>
 
