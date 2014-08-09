@@ -15,19 +15,22 @@ angular.module 'geometry.rosette', [ 'geometry.point', 'geometry.circle' ]
         circles = @computeCircles()
 
         for i in [0 ... circles.length]
-          for j in [0 .. i]
+          for j in [0 ... i]
             vertices = vertices.concat circles[i].getIntersectionPoints circles[j]
 
-        # TODO: compute radial resolution as < 2PI/numCircles.
-        grid = _.chain vertices
+        return _.chain vertices
           .uniq (v) -> v.toString()
-          .map (v) => { angle: v.angle(@guideCircle.center).toFixed(2), point: v }
+          .map (v) => { angle: @normalizeAngle(v.angle(@guideCircle.center)), point: v }
           .groupBy 'angle'
           .sortBy 'angle'
           .map (groups) => _.pluck(groups, 'point')
           .map (vertices) => _.sortBy(vertices, (v) => v.distance(@guideCircle.center))
           .value()
-        return grid
+
+      normalizeAngle: (angle) ->
+        out = angle.toFixed(2)
+        out = '0.00' if out is (2*Math.PI).toFixed(2)
+        return out
 
     return Rosette
   ]
