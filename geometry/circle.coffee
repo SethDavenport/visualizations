@@ -3,15 +3,15 @@ angular.module 'geometry.circle', [ 'geometry.point' ]
 
     class Circle
       constructor: (@center, @radius) ->
-        throw TypeError "center must be a Point, was #{@center}" if !@center instanceof Point
-        throw TypeError "radius must be a finite, positive Number, was #{@radius}" if !isFinite @radius or @radius <= 0
+        throw TypeError "center must be a Point, was #{@center}" if @center not instanceof Point
+        throw TypeError "radius must be a finite, positive Number, was #{@radius}" if !isFinite(@radius) or @radius <= 0
 
       equals: (other) ->
         return false if !other instanceof Circle
         return @radius is other.radius and @center.equals other.center
 
       getNPointsOnPerimeter: (n) ->
-        throw TypeError "n must be an finite Number, was #{n}" if !isFinite n
+        throw TypeError "n must be a finite, positive Number, was #{n}" if !isFinite n
 
         alpha = Math.PI * 2 / n
 
@@ -21,7 +21,7 @@ angular.module 'geometry.circle', [ 'geometry.point' ]
           .add @center
 
       getIntersectionPoints: (other) ->
-        throw TypeError "other must be a Circle, was #{other}" if !other instanceof Circle 
+        throw TypeError "other must be a Circle, was #{other}" if other not instanceof Circle 
         return [] if @equals other
 
         a = @center.x

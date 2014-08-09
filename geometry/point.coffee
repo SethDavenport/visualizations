@@ -7,7 +7,7 @@ angular.module 'geometry.point', []
         throw TypeError "y must be a finite Number, was #{y}" if !isFinite(y)
 
       add: (point) ->
-        throw TypeError "point must be a Point, was #{point}" if !point instanceof Point
+        throw TypeError "point must be a Point, was #{point}" if point not instanceof Point
         return new Point @x + point.x, @y + point.y
 
       equals: (other) ->
@@ -15,14 +15,14 @@ angular.module 'geometry.point', []
         return @x is other.x and @y is other.y
 
       distance: (other) ->
-        throw TypeError "other must be a Point, was #{other}" if !other instanceof Point
+        throw TypeError "other must be a Point, was #{other}" if other not instanceof Point
 
         dx = @x - other.x
         dy = @y - other.y
         return Math.sqrt(dx*dx + dy*dy)
 
       angle: (other) ->
-        throw TypeError "other must be a Point, was #{other}" if !other instanceof Point
+        throw TypeError "other must be a Point, was #{other}" if other not instanceof Point
 
         dx = @x - other.x
         dy = @y - other.y
@@ -38,9 +38,9 @@ angular.module 'geometry.point', []
         return if dy < 0 then Math.PI - alpha else Math.PI + alpha
 
       toString: (decimals)->
-        displayX = if isFinite(decimals) then @x.toFixed(decimals) else @x
-        displayY = if isFinite(decimals) then @y.toFixed(decimals) else @y
-        return "(#{displayX}, #{displayY})"
+        if isFinite decimals
+          return @toFixed(decimals).toString();
+        return "(#{@x}, #{@y})"
 
       toFixed: (n) ->
         return new Point(@x.toFixed(n), @y.toFixed(n))
