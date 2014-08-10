@@ -29,7 +29,8 @@ angular.module 'geometry.rosette', [ 'geometry.point', 'geometry.circle' ]
 
       normalizeAngle: (angle) ->
         out = angle.toFixed(2)
-        out = '0.00' if out is (2*Math.PI).toFixed(2)
+        return '3.14' if out is '-3.14'
+        return '0.00' if out is '-0.00' # Why JS u so Borken?
         return out
 
     return Rosette

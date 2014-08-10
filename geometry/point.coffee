@@ -26,16 +26,7 @@ angular.module 'geometry.point', []
 
         dx = @x - other.x
         dy = @y - other.y
-        return 0 if dx is 0 and dy is 0
-
-        if dx is 0
-          return if dy < 0 then Math.PI/2 else 3*Math.PI/2
-
-        alpha = Math.atan(Math.abs(dy/dx))
-        if dx < 0
-          return if dy <= 0 then alpha else 2*Math.PI - alpha
-
-        return if dy < 0 then Math.PI - alpha else Math.PI + alpha
+        return Math.atan2 dy, dx
 
       toString: (decimals)->
         if isFinite decimals
