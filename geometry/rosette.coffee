@@ -1,5 +1,5 @@
-angular.module 'geometry.rosette', [ 'geometry.point', 'geometry.circle' ]
-  .factory 'Rosette', [ 'Point', 'Circle', (Point, Circle) ->
+angular.module 'geometry.rosette', [ 'geometry.point', 'geometry.circle', 'geometry.path' ]
+  .factory 'Rosette', [ 'Point', 'Circle', 'Path', (Point, Circle, Path) ->
 
     class Rosette
       constructor: (@guideCircle, @radius, @numCircles) ->
@@ -27,10 +27,45 @@ angular.module 'geometry.rosette', [ 'geometry.point', 'geometry.circle' ]
           .map (vertices) => _.sortBy(vertices, (v) => v.distance(@guideCircle.center))
           .value()
 
+      computeAngles: ->
+        return _.chain @computeVertices()
+          .keys()
+          .map (key) -> Number key
+          .value()
+
+      computeCells: ->
+        vertices = @computeVertices()
+        angles = @computeAngles()
+        cells = []
+
+        _.each angles, (angle) =>
+          _.each [0..@numCircles / 2], (distance) =>
+            currentRadial = angle
+            nextRadial = (angle+1)%angles.length
+            nextNextRadial = (angle+2)%angles.length
+
+            cell = new Path()
+            if 0 is (angle % 2)
+              cell.push vertices[currentRadial][distance] if vertices[currentRadial][distance]
+              cell.push vertices[nextRadial][distance] if vertices[nextRadial][distance]
+              cell.push vertices[nextNextRadial][distance] if vertices[nextNextRadial][distance]
+              cell.push vertices[nextRadial][distance-1] if vertices[nextRadial][distance-1]
+            else
+              cell.push vertices[currentRadial][distance] if vertices[currentRadial][distance]
+              cell.push vertices[nextRadial][distance+1] if vertices[nextRadial][distance+1]
+              cell.push vertices[nextNextRadial][distance] if vertices[nextNextRadial][distance]
+              cell.push vertices[nextRadial][distance] if vertices[nextRadial][distance]
+
+            # Todo: organize cells by grid position
+            if cell.vertices.length > 1
+              cells.push cell
+
+        return cells
+
       normalizeAngle: (angle) ->
         out = angle.toFixed(2)
         return '3.14' if out is '-3.14'
-        return '0.00' if out is '-0.00' # Why JS u so Borken?
+        return '0.00' if out is '-0.00' # Why JS u so borken?
         return out
 
     return Rosette

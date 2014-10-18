@@ -2,7 +2,7 @@
   <head>
     <link rel="stylesheet" href="style.css">
   </head>
-  <body ng-controller="Controller" ng-class="getHtmlClass()">
+  <body ng-controller="Controller" class="html-normal">
 
     <div id="controls">
       <table>
@@ -51,13 +51,7 @@
         <option value="CIRCLES">Overlapping Circles</option>
         <option value="GRID">Warped Grid</option>
         <option value="NONE">None</option>
-      </select>
-      <input
-        type="checkbox"
-        ng-model="wireFrame"
-        ng-disabled="'CIRCLES' !== mode">
-        Wire frame
-      </input><br>
+      </select><br>
       <input
         type="checkbox"
         ng-model="plotVertices">
@@ -73,19 +67,28 @@
         ng-model="plotCenters">
         Plot Centers
       </input><br>
+      <button ng-click="exportSvg()">Export SVG</button>
     </div>
 
     <svg>
       <g ng-if="'CIRCLES' === mode">
-        <circle ng-repeat="circle in circles"
+        <circle ng-repeat="circle in model.circles"
           ng-attr-cx="{{circle.center.x}}"
           ng-attr-cy="{{circle.center.y}}"
           ng-attr-r="{{circle.radius}}"
-          ng-class="getShapeClass()"/>
+          class="shape-normal"/>
+      </g>
+      <g ng-if="'GRID' === mode">
+        <path ng-repeat="cell in model.gridCells"
+          ng-attr-d="{{cell.toPolygonSVG()}}"
+          class="grid-cell"
+          stroke-width="1"
+          stroke="white"
+          ng-class="cell.cssClass"/>
       </g>
 
       <g ng-if="plotCenters">
-        <circle ng-repeat="circle in circles"
+        <circle ng-repeat="circle in model.circles"
           ng-attr-cx="{{circle.center.x}}"
           ng-attr-cy="{{circle.center.y}}"
           r="2"
@@ -93,28 +96,28 @@
       </g>
 
       <g ng-if="plotVertices">
-        <g ng-repeat="angle in angles">
-          <circle ng-repeat="point in vertices[angle]"
+        <g ng-repeat="angle in model.angles">
+          <circle ng-repeat="point in model.vertices[angle]"
             ng-attr-cx="{{point.x}}"
             ng-attr-cy="{{point.y}}"
             r="2"
-            ng-class="getVertexClass(angle)"/>
-          <text ng-repeat="point in vertices[angle]"
+            ng-class="model.vertexClasses[angle]"/>
+          <text ng-repeat="point in model.vertices[angle]"
             ng-attr-x="{{point.x}}"
             ng-attr-y="{{point.y}}"
-            ng-class="getTextClass(angle)">({{angle}}, {{$index}})</text>
+            ng-class="model.textClasses[angle]">({{angle}}, {{$index}})</text>
         </g>
       </g>
 
       <g ng-if="plotRadials">
-        <g ng-repeat="angle in angles">
-          <path ng-class="getRadialClass(angle)"
-            ng-attr-d="{{getRadialPath(angle)}}"
+        <g ng-repeat="angle in model.angles">
+          <path ng-class="model.radialClasses[angle]"
+            ng-attr-d="{{model.radialPaths[angle].toPolygonSVG()}}"
             stroke-width="1"
             fill="none"/>
-          <text ng-attr-x="{{getRadialLabelCoords(angle).x}}"
-            ng-attr-y="{{getRadialLabelCoords(angle).y}}"
-            ng-class="getTextClass(angle)">{{ angle }}</text>
+          <text ng-attr-x="{{model.radialLabelCoords[angle].x}}"
+            ng-attr-y="{{model.radialLabelCoords[angle].y}}"
+            ng-class="model.textClasses[angle]">{{ angle }}</text>
         </g>
       </g>
     </svg>
@@ -125,6 +128,7 @@
 
     <script type="text/coffeescript" src="geometry/point.coffee"></script>
     <script type="text/coffeescript" src="geometry/circle.coffee"></script>
+     <script type="text/coffeescript" src="geometry/path.coffee"></script>
     <script type="text/coffeescript" src="geometry/index.coffee"></script>
     <script type="text/coffeescript" src="geometry/rosette.coffee"></script>
     <script type="text/coffeescript" src="controller.coffee"></script>

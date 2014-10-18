@@ -60,5 +60,5 @@ angular.module 'geometry.circle', [ 'geometry.point' ]
 
         return result;
 
-    return Circle;
+    return Circle
   ]

@@ -1,55 +1,60 @@
 angular.element(document).ready ->
   angular.module 'rosette', ['geometry']
     .controller 'Controller', [
-      '$scope',
-      'Point',
-      'Circle',
-      'Rosette',
+      '$scope'
+      'Point'
+      'Circle'
+      'Path'
+      'Rosette'
 
-      ($scope, Point, Circle, Rosette) ->
+      ($scope, Point, Circle, Path, Rosette) ->
+        class Model
+          MAX_COLOR_CLASSES = 6
+
+          constructor: (rosette) ->
+            @circles = rosette.computeCircles()
+            @vertices = rosette.computeVertices()
+            @angles = rosette.computeAngles()
+            @vertexClasses = {}
+            @textClasses = {}
+            @radialClasses = {}
+            @radialPaths = {}
+            @radialLabelCoords = {}
+            @gridCells = rosette.computeCells()
+
+            i = 0
+            _.each @gridCells, (cell) ->
+              colorIndex = i % MAX_COLOR_CLASSES
+              cell.cssClass = "grid-cell-" + colorIndex
+              ++i
+
+            _.each @angles, (angle) =>
+              colorIndex = _.indexOf(@angles, angle) % MAX_COLOR_CLASSES
+              @vertexClasses[angle] = 'vertex-' + colorIndex
+              @textClasses[angle] = 'text-' + colorIndex
+              @radialClasses[angle] = 'radial-' + colorIndex
+
+              path = new Path @vertices[angle]
+              @radialPaths[angle] = path
+
+              [..., last] = @vertices[angle]
+              @radialLabelCoords[angle] = last
+
         $scope.rosette = new Rosette(
           new Circle(new Point(400, 400), 70),
           199,
-          14)
+          6)
 
         $scope.mode = 'CIRCLES'
-        $scope.wireFrame = false
         $scope.plotRadials = false
         $scope.plotVertices = false
-        $scope.circles = []
-        $scope.vertices = []
-
-        $scope.getShapeClass = () ->
-          return if $scope.wireFrame then 'shape-wireframe' else 'shape-normal'
-
-        $scope.getHtmlClass = () ->
-          return if $scope.wireFrame then 'html-wireframe' else 'html-normal'
-
-        $scope.getVertexClass = (angle) ->
-          return ('vertex-' + _.indexOf($scope.angles, angle) % 6)
-
-        $scope.getTextClass = (angle) ->
-          return ('text-' + _.indexOf($scope.angles, angle) % 6)
-
-        $scope.getRadialClass = (angle) ->
-          return ('radial-' + _.indexOf($scope.angles, angle) % 6)
-
-        $scope.getRadialPath = (angle) ->
-          result = ''
-          _.each($scope.vertices[angle], (v) ->
-            result += (if !result then 'M' else 'L')
-            result += "#{v.x} #{v.y} ")
-          result += "Z"
-          return result
-
-        $scope.getRadialLabelCoords = (angle) ->
-          [..., last] = $scope.vertices[angle]
-          return last;
 
         $scope.recompute = () ->
-          $scope.circles = $scope.rosette.computeCircles()
-          $scope.vertices = $scope.rosette.computeVertices()
-          $scope.angles = _.keys $scope.vertices
+          $scope.model = new Model $scope.rosette
+
+        $scope.exportSvg = () ->
+          console.log('foo')
+          #alert($('svg').outerhtml());
 
         $scope.recompute()
       ]
