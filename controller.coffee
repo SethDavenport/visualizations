@@ -15,11 +15,7 @@ angular.element(document).ready ->
             @circles = rosette.computeCircles()
             @vertices = rosette.computeVertices()
             @angles = rosette.computeAngles()
-            @vertexClasses = {}
-            @textClasses = {}
-            @radialClasses = {}
-            @radialPaths = {}
-            @radialLabelCoords = {}
+            @radials = rosette.computeRadials()
             @gridCells = rosette.computeCells()
 
             i = 0
@@ -28,17 +24,9 @@ angular.element(document).ready ->
               cell.cssClass = "grid-cell-" + colorIndex
               ++i
 
-            _.each @angles, (angle) =>
-              colorIndex = _.indexOf(@angles, angle) % MAX_COLOR_CLASSES
-              @vertexClasses[angle] = 'vertex-' + colorIndex
-              @textClasses[angle] = 'text-' + colorIndex
-              @radialClasses[angle] = 'radial-' + colorIndex
-
-              path = new Path @vertices[angle]
-              @radialPaths[angle] = path
-
-              [..., last] = @vertices[angle]
-              @radialLabelCoords[angle] = last
+            _.each @radials, (radial) =>
+              [..., last] = radial.vertices
+              radial.labelCoords = last
 
         $scope.rosette = new Rosette(
           new Circle(new Point(400, 400), 70),

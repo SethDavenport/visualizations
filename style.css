@@ -39,6 +39,15 @@ svg {
   fill-opacity: 1.0;
 }
 
+.vertex {
+  fill: white;
+}
+
+.text {
+  fill: white;
+  font-size: 10px
+}
+
 .grid-cell-0 { fill: red; }
 .grid-cell-1 { fill: orange; }
 .grid-cell-2 { fill: yellow; }
@@ -46,26 +55,11 @@ svg {
 .grid-cell-4 { fill: blue; }
 .grid-cell-5 { fill: purple; }
 
-.vertex-0 { fill: red; }
-.vertex-1 { fill: orange; }
-.vertex-2 { fill: yellow; }
-.vertex-3 { fill: green; }
-.vertex-4 { fill: blue; }
-.vertex-5 { fill: purple; }
-
-.text-0 { fill: red; font-size: 10px }
-.text-1 { fill: orange; font-size: 10px }
-.text-2 { fill: yellow; font-size: 10px }
-.text-3 { fill: green; font-size: 10px }
-.text-4 { fill: blue; font-size: 10px }
-.text-5 { fill: purple; font-size: 10px }
-
-.radial-0 { stroke: red;}
-.radial-1 { stroke: orange; }
-.radial-2 { stroke: yellow; }
-.radial-3 { stroke: green; }
-.radial-4 { stroke: blue; }
-.radial-5 { stroke: purple; }
+.radial {
+  stroke: white;
+  stroke-width: 1;
+  fill: none;
+}
 
 #controls {
   position: absolute;

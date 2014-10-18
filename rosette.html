@@ -101,23 +101,23 @@
             ng-attr-cx="{{point.x}}"
             ng-attr-cy="{{point.y}}"
             r="2"
-            ng-class="model.vertexClasses[angle]"/>
+            class="vertex"/>
           <text ng-repeat="point in model.vertices[angle]"
             ng-attr-x="{{point.x}}"
             ng-attr-y="{{point.y}}"
-            ng-class="model.textClasses[angle]">({{angle}}, {{$index}})</text>
+            class="text">({{angle}}, {{$index}})</text>
         </g>
       </g>
 
       <g ng-if="plotRadials">
-        <g ng-repeat="angle in model.angles">
-          <path ng-class="model.radialClasses[angle]"
-            ng-attr-d="{{model.radialPaths[angle].toPolygonSVG()}}"
-            stroke-width="1"
-            fill="none"/>
-          <text ng-attr-x="{{model.radialLabelCoords[angle].x}}"
-            ng-attr-y="{{model.radialLabelCoords[angle].y}}"
-            ng-class="model.textClasses[angle]">{{ angle }}</text>
+        <g ng-repeat="radial in model.radials">
+          <path
+            ng-attr-d="{{radial.toPolygonSVG()}}"
+            class="radial"/>
+          <text
+            ng-attr-x="{{radial.labelCoords.x}}"
+            ng-attr-y="{{radial.labelCoords.y}}"
+            class="text">{{ $index }}</text>
         </g>
       </g>
     </svg>

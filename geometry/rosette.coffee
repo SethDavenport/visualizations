@@ -27,6 +27,12 @@ angular.module 'geometry.rosette', [ 'geometry.point', 'geometry.circle', 'geome
           .map (vertices) => _.sortBy(vertices, (v) => v.distance(@guideCircle.center))
           .value()
 
+      computeRadials: ->
+        angles = @computeAngles()
+        vertices = @computeVertices()
+        radials = []
+        return _.map angles, (angle) -> new Path vertices[angle]
+
       computeAngles: ->
         return _.chain @computeVertices()
           .keys()
