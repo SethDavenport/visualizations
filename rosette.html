@@ -78,8 +78,8 @@
           ng-attr-r="{{circle.radius}}"
           class="shape-normal"/>
       </g>
-      <g ng-if="'GRID' === mode">
-        <path ng-repeat="cell in rosette.cells"
+      <g ng-if="'GRID' === mode" ng-repeat="cellsForAngle in rosette.cells">
+        <path ng-repeat="cell in cellsForAngle"
           ng-attr-d="{{cell.toPolygonSVG()}}"
           class="grid-cell"
           stroke-width="1"

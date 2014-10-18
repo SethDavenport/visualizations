@@ -30,15 +30,6 @@ svg {
   fill-opacity: 0.1;
 }
 
-.grid-cell {
-  stroke: none;
-  fill-opacity: 0.5;
-}
-
-.grid-cell:hover {
-  fill-opacity: 1.0;
-}
-
 .vertex {
   fill: white;
 }
@@ -48,12 +39,21 @@ svg {
   font-size: 10px
 }
 
-.grid-cell-0 { fill: red; }
-.grid-cell-1 { fill: orange; }
-.grid-cell-2 { fill: yellow; }
-.grid-cell-3 { fill: green; }
-.grid-cell-4 { fill: blue; }
-.grid-cell-5 { fill: purple; }
+
+.grid-cell {
+  stroke: none;
+}
+
+.grid-cell:hover {
+  fill: white;
+}
+
+.grid-cell-0 { fill: #DDD; }
+.grid-cell-1 { fill: #BBB; }
+.grid-cell-2 { fill: #999; }
+.grid-cell-3 { fill: #777; }
+.grid-cell-4 { fill: #555; }
+.grid-cell-5 { fill: #333; }
 
 .radial {
   stroke: white;

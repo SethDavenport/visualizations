@@ -30,12 +30,12 @@ angular.module 'geometry.rosette', [ 'geometry.point', 'geometry.circle', 'geome
           .map (key) -> Number key
           .value()
 
-        @radials = _.map @angles, (angle) => new Path @vertices[angle]
+        @radials = (new Path @vertices[angle] for angle in @angles)
 
-        # Todo: organize cells by grid position
         @cells = []
-        _.each @angles, (angle) =>
-          _.each [0..@numCircles / 2], (distance) =>
+        for angle in @angles
+          cellsForAngle = []
+          for distance in [0..@numCircles / 2]
             currentRadial = angle
             nextRadial = (angle+1)%@angles.length
             nextNextRadial = (angle+2)%@angles.length
@@ -52,8 +52,8 @@ angular.module 'geometry.rosette', [ 'geometry.point', 'geometry.circle', 'geome
               cell.push @vertices[nextNextRadial][distance] if @vertices[nextNextRadial][distance]
               cell.push @vertices[nextRadial][distance] if @vertices[nextRadial][distance]
 
-            if cell.vertices.length > 1
-              @cells.push cell
+            cellsForAngle.push cell if cell.vertices.length > 1
+          @cells[angle] = cellsForAngle
 
       normalizeAngle: (angle) ->
         out = angle.toFixed(2)

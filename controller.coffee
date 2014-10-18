@@ -21,13 +21,14 @@ angular.element(document).ready ->
         $scope.recompute = () ->
           $scope.rosette.computeAll()
 
-          i = 0
-          _.each $scope.rosette.cells, (cell) ->
-            colorIndex = i % MAX_COLOR_CLASSES
-            cell.cssClass = "grid-cell-" + colorIndex
-            ++i
+          for cellsForAngle in $scope.rosette.cells
+            i = 0
+            for cell in cellsForAngle
+              colorIndex = i % MAX_COLOR_CLASSES
+              cell.cssClass = "grid-cell-" + colorIndex
+              ++i
 
-          _.each $scope.rosette.radials, (radial) =>
+          for radial in $scope.rosette.radials
             [..., last] = radial.vertices
             radial.labelCoords = last
 
