@@ -72,14 +72,14 @@
 
     <svg>
       <g ng-if="'CIRCLES' === mode">
-        <circle ng-repeat="circle in model.circles"
+        <circle ng-repeat="circle in rosette.circles"
           ng-attr-cx="{{circle.center.x}}"
           ng-attr-cy="{{circle.center.y}}"
           ng-attr-r="{{circle.radius}}"
           class="shape-normal"/>
       </g>
       <g ng-if="'GRID' === mode">
-        <path ng-repeat="cell in model.gridCells"
+        <path ng-repeat="cell in rosette.cells"
           ng-attr-d="{{cell.toPolygonSVG()}}"
           class="grid-cell"
           stroke-width="1"
@@ -88,7 +88,7 @@
       </g>
 
       <g ng-if="plotCenters">
-        <circle ng-repeat="circle in model.circles"
+        <circle ng-repeat="circle in rosette.circles"
           ng-attr-cx="{{circle.center.x}}"
           ng-attr-cy="{{circle.center.y}}"
           r="2"
@@ -96,13 +96,13 @@
       </g>
 
       <g ng-if="plotVertices">
-        <g ng-repeat="angle in model.angles">
-          <circle ng-repeat="point in model.vertices[angle]"
+        <g ng-repeat="angle in rosette.angles">
+          <circle ng-repeat="point in rosette.vertices[angle]"
             ng-attr-cx="{{point.x}}"
             ng-attr-cy="{{point.y}}"
             r="2"
             class="vertex"/>
-          <text ng-repeat="point in model.vertices[angle]"
+          <text ng-repeat="point in rosette.vertices[angle]"
             ng-attr-x="{{point.x}}"
             ng-attr-y="{{point.y}}"
             class="text">({{angle}}, {{$index}})</text>
@@ -110,7 +110,7 @@
       </g>
 
       <g ng-if="plotRadials">
-        <g ng-repeat="radial in model.radials">
+        <g ng-repeat="radial in rosette.radials">
           <path
             ng-attr-d="{{radial.toPolygonSVG()}}"
             class="radial"/>

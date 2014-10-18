@@ -8,26 +8,7 @@ angular.element(document).ready ->
       'Rosette'
 
       ($scope, Point, Circle, Path, Rosette) ->
-        class Model
-          MAX_COLOR_CLASSES = 6
-
-          constructor: (rosette) ->
-            @circles = rosette.computeCircles()
-            @vertices = rosette.computeVertices()
-            @angles = rosette.computeAngles()
-            @radials = rosette.computeRadials()
-            @gridCells = rosette.computeCells()
-
-            i = 0
-            _.each @gridCells, (cell) ->
-              colorIndex = i % MAX_COLOR_CLASSES
-              cell.cssClass = "grid-cell-" + colorIndex
-              ++i
-
-            _.each @radials, (radial) =>
-              [..., last] = radial.vertices
-              radial.labelCoords = last
-
+        MAX_COLOR_CLASSES = 6
         $scope.rosette = new Rosette(
           new Circle(new Point(400, 400), 70),
           199,
@@ -38,7 +19,17 @@ angular.element(document).ready ->
         $scope.plotVertices = false
 
         $scope.recompute = () ->
-          $scope.model = new Model $scope.rosette
+          $scope.rosette.computeAll()
+
+          i = 0
+          _.each $scope.rosette.cells, (cell) ->
+            colorIndex = i % MAX_COLOR_CLASSES
+            cell.cssClass = "grid-cell-" + colorIndex
+            ++i
+
+          _.each $scope.rosette.radials, (radial) =>
+            [..., last] = radial.vertices
+            radial.labelCoords = last
 
         $scope.exportSvg = () ->
           console.log('foo')
