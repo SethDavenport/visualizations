@@ -11,6 +11,16 @@ angular.module 'geometry.path', [ 'geometry.point' ]
         p.arcSweep = arcSweep
         @vertices.push p
 
+      centroid: () ->
+        sumX = 0
+        sumY = 0
+        for v in @vertices
+          sumX += v.x
+          sumY += v.y
+
+        return new Point sumX/@vertices.length,
+          sumY/@vertices.length
+
       toPolygonSVG: ->
         drawCommands = ''
         for v in @vertices

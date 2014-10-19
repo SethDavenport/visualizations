@@ -65,8 +65,13 @@
       </input><br>
       <input
         type="checkbox"
-        ng-model="plotCenters">
-        Plot Centers
+        ng-model="plotCircleCenters">
+        Plot Circle Centers
+      </input><br>
+      <input
+        type="checkbox"
+        ng-model="plotCellCenters">
+        Plot Grid Cell Centers
       </input><br>
       <button ng-click="exportSvg()">Export SVG</button>
     </div>
@@ -96,12 +101,20 @@
           ng-class="cell.cssClass"/>
       </g>
 
-      <g ng-if="plotCenters">
+      <g ng-if="plotCircleCenters">
         <circle ng-repeat="circle in rosette.circles"
           ng-attr-cx="{{circle.center.x}}"
           ng-attr-cy="{{circle.center.y}}"
           r="2"
           style="fill: red"/>
+      </g>
+
+      <g ng-if="plotCellCenters" ng-repeat="cellsForAngle in rosette.cells">>
+        <circle ng-repeat="cell in cellsForAngle"
+          ng-attr-cx="{{cell.centroid().x}}"
+          ng-attr-cy="{{cell.centroid().y}}"
+          r="2"
+          style="fill: blue"/>
       </g>
 
       <g ng-if="plotVertices">
