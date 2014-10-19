@@ -10,9 +10,9 @@ angular.element(document).ready ->
       ($scope, Point, Circle, Path, Rosette) ->
         MAX_COLOR_CLASSES = 6
         $scope.rosette = new Rosette(
-          new Circle(new Point(400, 400), 149),
-          150,
-          24)
+          new Circle(new Point(400, 400), 150),
+          200,
+          8)
 
         $scope.mode = 'CIRCLES'
         $scope.plotRadials = false

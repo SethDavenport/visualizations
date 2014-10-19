@@ -50,6 +50,7 @@
       <select ng-model="mode">
         <option value="CIRCLES">Overlapping Circles</option>
         <option value="GRID">Warped Grid</option>
+        <option value="GRID_ARCS">Warped Grid (Arcs)</option>
         <option value="NONE">None</option>
       </select><br>
       <input
@@ -76,11 +77,19 @@
           ng-attr-cx="{{circle.center.x}}"
           ng-attr-cy="{{circle.center.y}}"
           ng-attr-r="{{circle.radius}}"
-          class="shape-normal"/>
+          class="circle"/>
       </g>
       <g ng-if="'GRID' === mode" ng-repeat="cellsForAngle in rosette.cells">
         <path ng-repeat="cell in cellsForAngle"
           ng-attr-d="{{cell.toPolygonSVG()}}"
+          class="grid-cell"
+          stroke-width="1"
+          stroke="white"
+          ng-class="cell.cssClass"/>
+      </g>
+       <g ng-if="'GRID_ARCS' === mode" ng-repeat="cellsForAngle in rosette.cells">
+        <path ng-repeat="cell in cellsForAngle"
+          ng-attr-d="{{cell.toArcsSVG(rosette.radius)}}"
           class="grid-cell"
           stroke-width="1"
           stroke="white"

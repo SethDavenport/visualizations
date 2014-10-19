@@ -42,16 +42,15 @@ angular.module 'geometry.rosette', [ 'geometry.point', 'geometry.circle', 'geome
 
             cell = new Path()
             if 0 is (angle % 2)
-              cell.push @vertices[currentRadial][distance] if @vertices[currentRadial][distance]
-              cell.push @vertices[nextRadial][distance] if @vertices[nextRadial][distance]
-              cell.push @vertices[nextNextRadial][distance] if @vertices[nextNextRadial][distance]
-              cell.push @vertices[nextRadial][distance-1] if @vertices[nextRadial][distance-1]
+              cell.push @vertices[currentRadial][distance], 0 if @vertices[currentRadial][distance]
+              cell.push @vertices[nextRadial][distance], 1 if @vertices[nextRadial][distance]
+              cell.push @vertices[nextNextRadial][distance], 1 if @vertices[nextNextRadial][distance]
+              cell.push @vertices[nextRadial][distance-1], 0 if @vertices[nextRadial][distance-1]
             else
-              cell.push @vertices[currentRadial][distance] if @vertices[currentRadial][distance]
-              cell.push @vertices[nextRadial][distance+1] if @vertices[nextRadial][distance+1]
-              cell.push @vertices[nextNextRadial][distance] if @vertices[nextNextRadial][distance]
-              cell.push @vertices[nextRadial][distance] if @vertices[nextRadial][distance]
-
+              cell.push @vertices[currentRadial][distance], 0 if @vertices[currentRadial][distance]
+              cell.push @vertices[nextRadial][distance+1], 1 if @vertices[nextRadial][distance+1]
+              cell.push @vertices[nextNextRadial][distance], 1 if @vertices[nextNextRadial][distance]
+              cell.push @vertices[nextRadial][distance], 0 if @vertices[nextRadial][distance]
             cellsForAngle.push cell if cell.vertices.length > 1
           @cells[angle] = cellsForAngle
 
