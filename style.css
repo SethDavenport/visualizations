@@ -4,61 +4,14 @@ body {
   font-family: sans-serif;
 }
 
-svg {
+#rendering {
   height: 100%;
   width: 100%;
-}
-
-.html-wireframe {
-  color: black;
-  background-color: white;
 }
 
 .html-normal {
   color: white;
   background-color: black;
-}
-
-.shape-wireframe {
-  stroke: black;
-  fill: none;
-}
-
-.circle {
-  stroke: none;
-  fill: white;
-  fill-opacity: 0.1;
-}
-
-.circle:hover {
-  fill-opacity: 0.5;
-}
-
-.vertex {
-  fill: white;
-}
-
-.text {
-  fill: white;
-  font-size: 10px
-}
-
-.grid-cell:hover {
-  fill: white;
-  stroke: #EEE;
-}
-
-.grid-cell-0 { fill: #DDD; stroke: #CCC; }
-.grid-cell-1 { fill: #BBB; stroke: #AAA; }
-.grid-cell-2 { fill: #999; stroke: #888; }
-.grid-cell-3 { fill: #777; stroke: #666; }
-.grid-cell-4 { fill: #999; stroke: #888; }
-.grid-cell-5 { fill: #BBB; stroke: #AAA; }
-
-.radial {
-  stroke: white;
-  stroke-width: 1;
-  fill: none;
 }
 
 #controls {
@@ -68,4 +21,18 @@ svg {
   background-color: rgba(128, 128, 128, 0.5);
   padding: 10px;
   margin: 10px;
+}
+
+#svg-source {
+  position: absolute;
+  top: 10px;
+  left: 50px;
+  bottom: 10px;
+  right: 300px;
+  margin: 0px;
+  padding: 10px;
+  background: white;
+  color: black;
+  overflow: auto;
+  white-space: pre-line;
 }

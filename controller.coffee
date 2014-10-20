@@ -2,12 +2,13 @@ angular.element(document).ready ->
   angular.module 'rosette', ['geometry']
     .controller 'Controller', [
       '$scope'
+      '$http'
       'Point'
       'Circle'
       'Path'
       'Rosette'
 
-      ($scope, Point, Circle, Path, Rosette) ->
+      ($scope, $http, Point, Circle, Path, Rosette) ->
         MAX_COLOR_CLASSES = 6
         $scope.rosette = new Rosette(
           new Circle(new Point(400, 400), 150),
@@ -15,10 +16,9 @@ angular.element(document).ready ->
           8)
 
         $scope.mode = 'CIRCLES'
-        $scope.plotRadials = false
-        $scope.plotVertices = false
+        $http.get('svg.css').then (response) -> $scope.svgCss = response.data
 
-        $scope.recompute = () ->
+        $scope.recompute = ->
           $scope.rosette.computeAll()
 
           for cellsForAngle in $scope.rosette.cells
@@ -32,10 +32,36 @@ angular.element(document).ready ->
             [..., last] = radial.vertices
             radial.labelCoords = last
 
-        $scope.exportSvg = () ->
-          console.log('foo')
-          #alert($('svg').outerhtml());
+        $scope.showSource = ->
+          angular.element('#svg-source').html(prettifyXml(getSvgSrc()))
+          $scope.srcVisible = true
 
+        $scope.hideSource = ->
+          $scope.srcVisible = false
+          angular.element('#svg-source').html('')
+
+        getSvgSrc = ->
+          rawSvg = angular.element('#rendering').html()
+          rawSvg = rawSvg.replace /<!--[\s\S]*?-->/g, ''
+          rawSvg = rawSvg.replace /ng-\S*?="[\s\S]*?"/g, ''
+          rawSvg = rawSvg.replace /\n/g, ''
+          rawSvg = '<svg>' +
+            '<defs>' +
+            '<style type="text/css"><![CDATA[' +
+            $scope.svgCss +
+            ']]></style>' +
+            '</defs>' +
+            rawSvg +
+            '</svg>'
+          return rawSvg.replace />/g, '>\n'
+
+        escapeXml = (xml) -> angular.element('<div/>').text(xml).html()
+
+        prettifyXml = (xml) ->
+          escapedXml = escapeXml xml
+          return window.prettyPrintOne escapedXml, 'xml'
+        
+        $scope.hideSource()
         $scope.recompute()
       ]
   angular.bootstrap document, ['rosette']

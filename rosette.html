@@ -1,6 +1,8 @@
 <html>
   <head>
-    <link rel="stylesheet" href="style.css">
+    <link type="text/css" rel="stylesheet" href="style.css">
+    <link type="text/css" rel="stylesheet" href="svg.css">
+    <link type="text/css" rel="stylesheet" href="https://google-code-prettify.googlecode.com/svn/loader/prettify.css" />
   </head>
   <body ng-controller="Controller" class="html-normal">
 
@@ -73,10 +75,16 @@
         ng-model="plotCellCenters">
         Plot Grid Cell Centers
       </input><br>
-      <button ng-click="exportSvg()">Export SVG</button>
+      <button ng-click="showSource()" ng-hide="srcVisible">Show SVG Source</button>
+      <button ng-click="hideSource()" ng-show="srcVisible">Hide SVG Source</button>
     </div>
 
-    <svg>
+    <div id="svg-source" ng-show="srcVisible">
+    </div>
+
+    <svg id="rendering">
+      <rect x="0" y="0" width="100%" height="100%" class="background"/>
+
       <g ng-if="'CIRCLES' === mode">
         <circle ng-repeat="circle in rosette.circles"
           ng-attr-cx="{{circle.center.x}}"
@@ -144,13 +152,15 @@
       </g>
     </svg>
 
+    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
     <script src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.6.0/underscore-min.js"></script>
     <script src="http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.20/angular.js"></script>
     <script src="http://cdnjs.cloudflare.com/ajax/libs/coffee-script/1.7.1/coffee-script.min.js"></script>
+    <script src="https://google-code-prettify.googlecode.com/svn/loader/prettify.js"></script>
 
     <script type="text/coffeescript" src="geometry/point.coffee"></script>
     <script type="text/coffeescript" src="geometry/circle.coffee"></script>
-     <script type="text/coffeescript" src="geometry/path.coffee"></script>
+    <script type="text/coffeescript" src="geometry/path.coffee"></script>
     <script type="text/coffeescript" src="geometry/index.coffee"></script>
     <script type="text/coffeescript" src="geometry/rosette.coffee"></script>
     <script type="text/coffeescript" src="controller.coffee"></script>
