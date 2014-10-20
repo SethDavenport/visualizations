@@ -100,7 +100,7 @@
           stroke="white"
           ng-class="cell.cssClass"/>
       </g>
-       <g ng-if="'GRID_ARCS' === mode" ng-repeat="cellsForAngle in rosette.cells">
+      <g ng-if="'GRID_ARCS' === mode" ng-repeat="cellsForAngle in rosette.cells">
         <path ng-repeat="cell in cellsForAngle"
           ng-attr-d="{{cell.toArcsSVG(rosette.radius)}}"
           class="grid-cell"
