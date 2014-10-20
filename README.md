@@ -1,6 +1,4 @@
 visualizations
 ==============
 
-AngularJS + SVG == Amaazing!
-
-http://rawgit.com/DietCokeOfEvil/visualizations/master/rosette.html
+AngularJS + SVG == [Amaazing!](http://rawgit.com/DietCokeOfEvil/visualizations/master/rosette.html)
