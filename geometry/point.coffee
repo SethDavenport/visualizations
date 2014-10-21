@@ -28,6 +28,10 @@ angular.module 'geometry.point', []
         dy = @y - other.y
         return Math.atan2 dy, dx
 
+      median: (point) ->
+        throw TypeError "point must be a Point, was #{point}" if point not instanceof Point
+        return new Point (@x + point.x)/2, (@y + point.y)/2
+
       toString: (decimals)->
         if isFinite decimals
           return @toFixed(decimals).toString();

@@ -77,16 +77,26 @@
       </input><br>
       <input
         type="checkbox"
+        ng-model="plotCellMedians">
+        Plot Grid Cell Medians
+      </input><br>
+      <input
+        type="checkbox"
         ng-model="drawCellInlays">
         Draw Cell Inlays
       </input>
       <input type="number" ng-model="inlaySize" min="1" max="100"><br>
+      <select ng-model="inlayStyle"
+        ng-options="opt as opt.label for opt in inlayStyles"
+        ng-disabled="!drawCellInlays">
+      </select>
+      <br>
+
       <input
         type="checkbox"
-        ng-model="curvedInlayEdges"
-        ng-disabled="!drawCellInlays">
-        Curved Inlay Edges
-      </input>
+        ng-model="drawCircularCells">
+        Circular Cells
+      </input><br>
 
       <button ng-click="showSource()" ng-hide="srcVisible">Show SVG Source</button>
       <button ng-click="hideSource()" ng-show="srcVisible">Hide SVG Source</button>
@@ -126,12 +136,22 @@
           style="fill: red"/>
       </g>
 
-      <g ng-if="plotCellCenters" ng-repeat="cellsForAngle in rosette.cells">>
+      <g ng-if="plotCellCenters" ng-repeat="cellsForAngle in rosette.cells">
         <circle ng-repeat="cell in cellsForAngle"
           ng-attr-cx="{{cell.centroid().x}}"
           ng-attr-cy="{{cell.centroid().y}}"
           r="2"
           style="fill: blue"/>
+      </g>
+
+      <g ng-if="plotCellMedians" ng-repeat="cellsForAngle in rosette.cells">
+        <g ng-repeat="cell in cellsForAngle">
+          <circle ng-repeat="point in cell.medians"
+            ng-attr-cx="{{point.x}}"
+            ng-attr-cy="{{point.y}}"
+            r="2"
+            style="fill: green"/>
+        </g>
       </g>
 
       <g ng-if="plotVertices">

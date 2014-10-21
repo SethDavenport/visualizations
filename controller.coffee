@@ -15,8 +15,15 @@ angular.element(document).ready ->
           200,
           8)
 
+        $scope.inlayStyles = [
+          { label: 'Linear', value: 'LINEAR' }
+          { label: 'Arc', value: 'ARC' }
+          { label: 'Quadratic Bezier', value: 'QBEZIER' }
+        ]
+
         $scope.mode = 'CIRCLES'
         $scope.inlaySize = 70
+        $scope.inlayStyle = $scope.inlayStyles[0]
         $http.get('svg.css').then (response) -> $scope.svgCss = response.data
 
         $scope.recompute = ->
@@ -35,17 +42,16 @@ angular.element(document).ready ->
 
         $scope.getInlayPathSpec = (cell) ->
           resizedCell = cell.resize $scope.inlaySize/100
-          if $scope.curvedInlayEdges
-            return resizedCell.toArcsSVG $scope.rosette.radius
-          return resizedCell.toPolygonSVG()
+          switch $scope.inlayStyle.value
+            when 'LINEAR' then return resizedCell.toPolygonSVG()
+            when 'ARC' then return resizedCell.toArcsSVG $scope.rosette.radius
+          return resizedCell.toQuadraticSVG()
 
         $scope.showSource = ->
           angular.element('#svg-source').html(prettifyXml(getSvgSrc()))
           $scope.srcVisible = true
 
-        $scope.hideSource = ->
-          $scope.srcVisible = false
-          angular.element('#svg-source').html('')
+        $scope.hideSource = -> $scope.srcVisible = false
 
         getSvgSrc = ->
           rawSvg = angular.element('#rendering').html()

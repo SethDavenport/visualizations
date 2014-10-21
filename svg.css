@@ -11,4 +11,5 @@
 .grid-cell-4     { fill: #999; stroke: #888; }
 .grid-cell-5     { fill: #BBB; stroke: #AAA; }
 .radial          { stroke: white; stroke-width: 1; fill: none; }
-.inlay           { fill: #88C; fill-opacity: 0.6; }
+.inlay           { fill: #88C; fill-opacity: 0.5; }
+.inlay:hover     { fill-opacity: 1.0; }
