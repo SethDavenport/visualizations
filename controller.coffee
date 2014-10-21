@@ -11,9 +11,9 @@ angular.element(document).ready ->
       ($scope, $http, Point, Circle, Path, Rosette) ->
         MAX_COLOR_CLASSES = 6
         $scope.rosette = new Rosette(
-          new Circle(new Point(400, 400), 150),
-          200,
-          8)
+          new Circle(new Point(400, 400), 512),
+          600,
+          32)
 
         $scope.inlayStyles = [
           { label: 'Linear', value: 'LINEAR' }
@@ -23,7 +23,8 @@ angular.element(document).ready ->
 
         $scope.mode = 'CIRCLES'
         $scope.inlaySize = 70
-        $scope.inlayStyle = $scope.inlayStyles[0]
+        $scope.drawInlays = true
+        $scope.inlayStyle = $scope.inlayStyles[2]
         $http.get('svg.css').then (response) -> $scope.svgCss = response.data
 
         $scope.recompute = ->
