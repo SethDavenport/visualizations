@@ -23,7 +23,7 @@ angular.element(document).ready ->
 
         $scope.mode = 'CIRCLES'
         $scope.inlaySize = 70
-        $scope.drawInlays = true
+        $scope.drawCellInlays = true
         $scope.inlayStyle = $scope.inlayStyles[2]
         $http.get('svg.css').then (response) -> $scope.svgCss = response.data
 
