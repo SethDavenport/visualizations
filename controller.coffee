@@ -16,6 +16,7 @@ angular.element(document).ready ->
           8)
 
         $scope.mode = 'CIRCLES'
+        $scope.inlaySize = 70
         $http.get('svg.css').then (response) -> $scope.svgCss = response.data
 
         $scope.recompute = ->
@@ -31,6 +32,12 @@ angular.element(document).ready ->
           for radial in $scope.rosette.radials
             [..., last] = radial.vertices
             radial.labelCoords = last
+
+        $scope.getInlayPathSpec = (cell) ->
+          resizedCell = cell.resize $scope.inlaySize/100
+          if $scope.curvedInlayEdges
+            return resizedCell.toArcsSVG $scope.rosette.radius
+          return resizedCell.toPolygonSVG()
 
         $scope.showSource = ->
           angular.element('#svg-source').html(prettifyXml(getSvgSrc()))

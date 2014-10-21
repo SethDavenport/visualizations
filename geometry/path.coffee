@@ -11,7 +11,7 @@ angular.module 'geometry.path', [ 'geometry.point' ]
         p.arcSweep = arcSweep
         @vertices.push p
 
-      centroid: () ->
+      centroid: ->
         sumX = 0
         sumY = 0
         for v in @vertices
@@ -20,6 +20,20 @@ angular.module 'geometry.path', [ 'geometry.point' ]
 
         return new Point sumX/@vertices.length,
           sumY/@vertices.length
+
+      resize: (ratio) ->
+        newVertices = []
+        centroid = @centroid()
+        for v in @vertices
+          deltaX = centroid.x - v.x
+          deltaY = centroid.y - v.y
+          point = new Point(
+            v.x + (deltaX * (1 - ratio)),
+            v.y + (deltaY * (1 - ratio)))
+          point.arcSweep = v.arcSweep
+          newVertices.push point
+
+        return new Path newVertices
 
       toPolygonSVG: ->
         drawCommands = ''

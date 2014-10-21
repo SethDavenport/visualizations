@@ -75,6 +75,19 @@
         ng-model="plotCellCenters">
         Plot Grid Cell Centers
       </input><br>
+      <input
+        type="checkbox"
+        ng-model="drawCellInlays">
+        Draw Cell Inlays
+      </input>
+      <input type="number" ng-model="inlaySize" min="1" max="100"><br>
+      <input
+        type="checkbox"
+        ng-model="curvedInlayEdges"
+        ng-disabled="!drawCellInlays">
+        Curved Inlay Edges
+      </input>
+
       <button ng-click="showSource()" ng-hide="srcVisible">Show SVG Source</button>
       <button ng-click="hideSource()" ng-show="srcVisible">Hide SVG Source</button>
     </div>
@@ -96,16 +109,12 @@
         <path ng-repeat="cell in cellsForAngle"
           ng-attr-d="{{cell.toPolygonSVG()}}"
           class="grid-cell"
-          stroke-width="1"
-          stroke="white"
           ng-class="cell.cssClass"/>
       </g>
       <g ng-if="'GRID_ARCS' === mode" ng-repeat="cellsForAngle in rosette.cells">
         <path ng-repeat="cell in cellsForAngle"
           ng-attr-d="{{cell.toArcsSVG(rosette.radius)}}"
           class="grid-cell"
-          stroke-width="1"
-          stroke="white"
           ng-class="cell.cssClass"/>
       </g>
 
@@ -149,6 +158,12 @@
             ng-attr-y="{{radial.labelCoords.y}}"
             class="text">{{ $index }}</text>
         </g>
+      </g>
+
+      <g ng-if="drawCellInlays" ng-repeat="cellsForAngle in rosette.cells">
+        <path ng-repeat="cell in cellsForAngle"
+          ng-attr-d="{{getInlayPathSpec(cell)}}"
+          class="inlay"/>
       </g>
     </svg>
 
