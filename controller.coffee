@@ -21,7 +21,7 @@ angular.element(document).ready ->
           { label: 'Quadratic Bezier', value: 'QBEZIER' }
         ]
 
-        $scope.mode = 'CIRCLES'
+        $scope.mode = 'GRID_ARCS'
         $scope.inlaySize = 70
         $scope.drawCellInlays = true
         $scope.inlayStyle = $scope.inlayStyles[2]
