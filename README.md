@@ -22,7 +22,7 @@ JavaScript and SVG gave me the ability to quickly prototype variations on this p
 
 The 'rosette' pattern above can be easily expressed as a set of circles whose centres lie at regular intervals around the perimeter of a 'guide circle'.  The figure below is an SVG render of 32 such overlapping circles, each with partial opacity so the overlapping areas appear as distinct cells in the pattern.
 
-![Rosette as a Set of 32 Overlapping Circles](img/circles.svg)
+![Rosette as a Set of 32 Overlapping Circles](https://rawgit.com/DietCokeOfEvil/visualizations/master/img/circles.svg)
 
 This is cheap to render, and shows the pattern in a basic way quite easily.  However, in order to draw something more like the Mosta dome or painting images above, I need to be able to manipulate the pattern cells individually; this means that I need a way to compute the location of each 3-or-4-sided cell.
 
@@ -34,7 +34,7 @@ Fortunately the formula for the instersecton points of two circles is pretty eas
 
 Here's a render of a 10-circle rosette with the intersection points identified and plotted separately.
 
-![10-Sample Rosette as Overlapping Circles with Vertices](img/vertices.svg)
+![10-Sample Rosette as Overlapping Circles with Vertices](https://rawgit.com/DietCokeOfEvil/visualizations/master/img/vertices.svg)
 
 ## Coordinating the Vertices
 
@@ -42,12 +42,12 @@ Having a set of intersection points is all fine and dandy, but I need to identif
 
 In this way, I can use trigonometry to calculate each vertex's angle and distance with respect to the centre, and then organize the set of vertices according to these in discrete increments.  The following image shows the same points labeled with their coordinates in this new system.
 
-![10-Sample Rosette as Overlapping Circles with Labeled Vertices](img/vertices2.svg)
+![10-Sample Rosette as Overlapping Circles with Labeled Vertices](https://rawgit.com/DietCokeOfEvil/visualizations/master/img/vertices2.svg)
 
 Once this is done, it becomes fairly trivial to organize the points into polygons and render them as SVG paths, either flat or using arc segments with the same radius as the original overlapping circles.  At this point, I can dispense with the circle render completely, since I have a reasonable approximation made up of individual cells.
 
-![10-Sample Rosette as Polygon Cells with Labeled Vertices](img/polygons.svg)
-![10-Sample Rosette as Arc Cells with Labeled Vertices](img/arcs.svg)
+![10-Sample Rosette as Polygon Cells with Labeled Vertices](https://rawgit.com/DietCokeOfEvil/visualizations/master/img/polygons.svg)
+![10-Sample Rosette as Arc Cells with Labeled Vertices](https://rawgit.com/DietCokeOfEvil/visualizations/master/img/arcs.svg)
 
 ## Centroid Central
 
