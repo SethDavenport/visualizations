@@ -3,6 +3,7 @@
     <link type="text/css" rel="stylesheet" href="style.css">
     <link type="text/css" rel="stylesheet" href="svg.css">
     <link type="text/css" rel="stylesheet" href="https://google-code-prettify.googlecode.com/svn/loader/prettify.css" />
+    <link type="text/css" rel="stylesheet" href="https://google-code-prettify.googlecode.com/svn/loader/skins/sunburst.css" />
   </head>
   <body ng-controller="Controller" class="html-normal">
 
@@ -92,17 +93,8 @@
       </select>
       <br>
 
-      <input
-        type="checkbox"
-        ng-model="drawCircularCells">
-        Circular Cells
-      </input><br>
-
       <button ng-click="showSource()" ng-hide="srcVisible">Show SVG Source</button>
       <button ng-click="hideSource()" ng-show="srcVisible">Hide SVG Source</button>
-    </div>
-
-    <div id="svg-source" ng-show="srcVisible">
     </div>
 
     <svg id="rendering">
@@ -187,17 +179,27 @@
       </g>
     </svg>
 
-    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
-    <script src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.6.0/underscore-min.js"></script>
+    <div id="src-box" ng-show="srcVisible">
+      <code id="svg-source">
+      </code>
+    </div>
+
+    <script  src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script  src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.6.0/underscore-min.js"></script>
     <script src="http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.20/angular.js"></script>
-    <script src="http://cdnjs.cloudflare.com/ajax/libs/coffee-script/1.7.1/coffee-script.min.js"></script>
     <script src="https://google-code-prettify.googlecode.com/svn/loader/prettify.js"></script>
+
+    <script src="http://prettydiff.com/lib/markupmin.js"></script>
+    <script src="http://prettydiff.com/lib/markup_beauty.js"></script>
+
+    <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/coffee-script/1.7.1/coffee-script.min.js"></script>
 
     <script type="text/coffeescript" src="geometry/point.coffee"></script>
     <script type="text/coffeescript" src="geometry/circle.coffee"></script>
     <script type="text/coffeescript" src="geometry/path.coffee"></script>
     <script type="text/coffeescript" src="geometry/index.coffee"></script>
     <script type="text/coffeescript" src="geometry/rosette.coffee"></script>
+    <script type="text/coffeescript" src="prettifier.coffee"></script>
     <script type="text/coffeescript" src="controller.coffee"></script>
   </body>
 </html>

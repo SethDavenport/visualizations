@@ -1,19 +1,20 @@
 angular.element(document).ready ->
-  angular.module 'rosette', ['geometry']
+  angular.module 'rosette', ['geometry', 'prettifier']
     .controller 'Controller', [
       '$scope'
       '$http'
+      'prettifier'
       'Point'
       'Circle'
       'Path'
       'Rosette'
 
-      ($scope, $http, Point, Circle, Path, Rosette) ->
+      ($scope, $http, prettifier, Point, Circle, Path, Rosette) ->
         MAX_COLOR_CLASSES = 6
         $scope.rosette = new Rosette(
-          new Circle(new Point(400, 400), 512),
-          600,
-          32)
+          new Circle(new Point(400, 400), 102),
+          175,
+          10)
 
         $scope.inlayStyles = [
           { label: 'Linear', value: 'LINEAR' }
@@ -49,32 +50,21 @@ angular.element(document).ready ->
           return resizedCell.toQuadraticSVG()
 
         $scope.showSource = ->
-          angular.element('#svg-source').html(prettifyXml(getSvgSrc()))
-          $scope.srcVisible = true
-
-        $scope.hideSource = -> $scope.srcVisible = false
-
-        getSvgSrc = ->
-          rawSvg = angular.element('#rendering').html()
-          rawSvg = rawSvg.replace /<!--[\s\S]*?-->/g, ''
-          rawSvg = rawSvg.replace /ng-\S*?="[\s\S]*?"/g, ''
-          rawSvg = rawSvg.replace /\n/g, ''
-          rawSvg = '<svg>' +
+          svgSource = '<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" ' +
+            '"http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">' +
+            '<svg>' +
             '<defs>' +
             '<style type="text/css"><![CDATA[' +
             $scope.svgCss +
             ']]></style>' +
             '</defs>' +
-            rawSvg +
+            angular.element('#rendering').html() +
             '</svg>'
-          return rawSvg.replace />/g, '>\n'
+          angular.element('#svg-source').html(prettifier.prettify(svgSource))
+          $scope.srcVisible = true
 
-        escapeXml = (xml) -> angular.element('<div/>').text(xml).html()
+        $scope.hideSource = -> $scope.srcVisible = false
 
-        prettifyXml = (xml) ->
-          escapedXml = escapeXml xml
-          return window.prettyPrintOne escapedXml, 'xml'
-        
         $scope.hideSource()
         $scope.recompute()
       ]
