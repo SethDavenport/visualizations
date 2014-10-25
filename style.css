@@ -38,5 +38,9 @@ body {
 
 #svg-source {
   white-space: pre-wrap;
-  height: 100%;
+}
+
+#select-all {
+  position: absolute;
+  right: 10px;
 }

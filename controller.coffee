@@ -65,6 +65,20 @@ angular.element(document).ready ->
 
         $scope.hideSource = -> $scope.srcVisible = false
 
+        $scope.selectSource = ->
+          sourceBox = document.getElementById 'svg-source'
+          if document.body.createTextRange
+            range = document.body.createTextRange()
+            range.moveToElementText(sourceBox)
+            range.select()
+
+          else if (window.getSelection)
+            selection = window.getSelection()
+            range = document.createRange()
+            range.selectNodeContents(sourceBox)
+            selection.removeAllRanges()
+            selection.addRange(range)
+
         $scope.hideSource()
         $scope.recompute()
       ]
