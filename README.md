@@ -17,7 +17,7 @@ JavaScript and SVG give me the ability to quickly prototype variations on this p
 
 The 'rosette' pattern above can be easily expressed as a set of circles whose centres lie at regular intervals around the perimeter of a 'guide circle'.  The figure below is an SVG render of 32 such overlapping circles, each with partial opacity so the overlapping areas appear as distinct cells in the pattern.
 
-![Rosette as a Set of 32 Overlapping Circles](img/circles.svg)
+![Rosette as a Set of 32 Overlapping Circles](img/circles.png)
 
 This is cheap to render, and shows the pattern in a basic way quite easily.  However, in order to draw something more like the Mosta dome or painting images above, I need to be able to manipulate the pattern cells individually; this means that I need a way to compute the location of each 3-or-4-sided cell.
 
