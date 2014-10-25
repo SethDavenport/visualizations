@@ -12,7 +12,10 @@
    inkscape:version="0.48.4 r9939"
    width="350"
    height="350"
-   sodipodi:docname="vertices.svg">
+   sodipodi:docname="vertices.svg"
+   inkscape:export-filename="/home/sdavenpo/github/visualizations/img/vertices.png"
+   inkscape:export-xdpi="90"
+   inkscape:export-ydpi="90">
   <metadata
      id="metadata3673">
     <rdf:RDF>
@@ -21,6 +24,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -33,16 +37,16 @@
      guidetolerance="10"
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
-     inkscape:window-width="1055"
-     inkscape:window-height="757"
+     inkscape:window-width="1549"
+     inkscape:window-height="876"
      id="namedview3671"
      showgrid="false"
-     inkscape:zoom="0.63429569"
-     inkscape:cx="496.06009"
-     inkscape:cy="82.48191"
-     inkscape:window-x="61"
-     inkscape:window-y="34"
-     inkscape:window-maximized="0"
+     inkscape:zoom="2"
+     inkscape:cx="83.055868"
+     inkscape:cy="179.7269"
+     inkscape:window-x="51"
+     inkscape:window-y="24"
+     inkscape:window-maximized="1"
      inkscape:current-layer="svg3419"
      fit-margin-top="0"
      fit-margin-left="0"
@@ -55,7 +59,7 @@
        id="style3423">.background { fill: black; } .circle { stroke: none; fill: white; fill-opacity: 0.1; } .circle:hover { fill-opacity: 0.5; } .vertex { fill: white; } .text { fill: white; font-size: 10px; } .grid-cell:hover { fill: white; stroke: #EEE; } .grid-cell-0 { fill: #DDD; stroke: #CCC; } .grid-cell-1 { fill: #BBB; stroke: #AAA; } .grid-cell-2 { fill: #999; stroke: #888; } .grid-cell-3 { fill: #777; stroke: #666; } .grid-cell-4 { fill: #999; stroke: #888; } .grid-cell-5 { fill: #BBB; stroke: #AAA; } .radial { stroke: white; stroke-width: 1; fill: none; } .inlay { fill: #88C; fill-opacity: 0.5; } .inlay:hover { fill-opacity: 1.0; } </style>
   </defs>
   <rect
-     x="0"
+     x="-6"
      y="0"
      width="350"
      height="350"
@@ -64,7 +68,7 @@
      style="fill:#000000" />
   <g
      id="g3427"
-     transform="matrix(0.61297646,0,0,0.61297646,-69.060933,-74.231709)">
+     transform="matrix(0.5866426,0,0,0.59740945,-65.821868,-63.770555)">
     <circle
        class="circle"
        cx="502"
@@ -188,9 +192,11 @@
   </g>
   <g
      id="g3449"
-     transform="matrix(0.61297646,0,0,0.61297646,-69.060933,-74.231709)">
+     transform="matrix(0.5866426,0,0,0.59740945,-65.821868,-63.770555)"
+     style="fill:#0000ff;fill-opacity:1">
     <g
-       id="g3451">
+       id="g3451"
+       style="fill:#0000ff;fill-opacity:1">
       <circle
          r="2"
          class="vertex"
@@ -202,7 +208,7 @@
          sodipodi:cy="376.78348"
          sodipodi:rx="2"
          sodipodi:ry="2"
-         style="fill:#ffffff" />
+         style="fill:#0000ff;fill-opacity:1" />
       <circle
          r="2"
          class="vertex"
@@ -214,7 +220,7 @@
          sodipodi:cy="370.8385"
          sodipodi:rx="2"
          sodipodi:ry="2"
-         style="fill:#ffffff" />
+         style="fill:#0000ff;fill-opacity:1" />
       <circle
          r="2"
          class="vertex"
@@ -226,7 +232,7 @@
          sodipodi:cy="356.05762"
          sodipodi:rx="2"
          sodipodi:ry="2"
-         style="fill:#ffffff" />
+         style="fill:#0000ff;fill-opacity:1" />
       <circle
          r="2"
          class="vertex"
@@ -238,7 +244,7 @@
          sodipodi:cy="333.78482"
          sodipodi:rx="2"
          sodipodi:ry="2"
-         style="fill:#ffffff" />
+         style="fill:#0000ff;fill-opacity:1" />
       <circle
          r="2"
          class="vertex"
@@ -250,10 +256,11 @@
          sodipodi:cy="316.82938"
          sodipodi:rx="2"
          sodipodi:ry="2"
-         style="fill:#ffffff" />
+         style="fill:#0000ff;fill-opacity:1" />
     </g>
     <g
-       id="g3463">
+       id="g3463"
+       style="fill:#0000ff;fill-opacity:1">
       <circle
          r="2"
          class="vertex"
@@ -265,7 +272,7 @@
          sodipodi:cy="351.86636"
          sodipodi:rx="2"
          sodipodi:ry="2"
-         style="fill:#ffffff" />
+         style="fill:#0000ff;fill-opacity:1" />
       <circle
          r="2"
          class="vertex"
@@ -277,7 +284,7 @@
          sodipodi:cy="332.91476"
          sodipodi:rx="2"
          sodipodi:ry="2"
-         style="fill:#ffffff" />
+         style="fill:#0000ff;fill-opacity:1" />
       <circle
          r="2"
          class="vertex"
@@ -289,7 +296,7 @@
          sodipodi:cy="295.86108"
          sodipodi:rx="2"
          sodipodi:ry="2"
-         style="fill:#ffffff" />
+         style="fill:#0000ff;fill-opacity:1" />
       <circle
          r="2"
          class="vertex"
@@ -301,10 +308,11 @@
          sodipodi:cy="254.8586"
          sodipodi:rx="2"
          sodipodi:ry="2"
-         style="fill:#ffffff" />
+         style="fill:#0000ff;fill-opacity:1" />
     </g>
     <g
-       id="g3473">
+       id="g3473"
+       style="fill:#0000ff;fill-opacity:1">
       <circle
          r="2"
          class="vertex"
@@ -316,7 +324,7 @@
          sodipodi:cy="339.21832"
          sodipodi:rx="2"
          sodipodi:ry="2"
-         style="fill:#ffffff" />
+         style="fill:#0000ff;fill-opacity:1" />
       <circle
          r="2"
          class="vertex"
@@ -328,7 +336,7 @@
          sodipodi:cy="323.65421"
          sodipodi:rx="2"
          sodipodi:ry="2"
-         style="fill:#ffffff" />
+         style="fill:#0000ff;fill-opacity:1" />
       <circle
          r="2"
          class="vertex"
@@ -340,7 +348,7 @@
          sodipodi:cy="284.95734"
          sodipodi:rx="2"
          sodipodi:ry="2"
-         style="fill:#ffffff" />
+         style="fill:#0000ff;fill-opacity:1" />
       <circle
          r="2"
          class="vertex"
@@ -352,7 +360,7 @@
          sodipodi:cy="226.64644"
          sodipodi:rx="2"
          sodipodi:ry="2"
-         style="fill:#ffffff" />
+         style="fill:#0000ff;fill-opacity:1" />
       <circle
          r="2"
          class="vertex"
@@ -364,10 +372,11 @@
          sodipodi:cy="182.25647"
          sodipodi:rx="2"
          sodipodi:ry="2"
-         style="fill:#ffffff" />
+         style="fill:#0000ff;fill-opacity:1" />
     </g>
     <g
-       id="g3485">
+       id="g3485"
+       style="fill:#0000ff;fill-opacity:1">
       <circle
          r="2"
          class="vertex"
@@ -379,7 +388,7 @@
          sodipodi:cy="322.11813"
          sodipodi:rx="2"
          sodipodi:ry="2"
-         style="fill:#ffffff" />
+         style="fill:#0000ff;fill-opacity:1" />
       <circle
          r="2"
          class="vertex"
@@ -391,7 +400,7 @@
          sodipodi:cy="291.4538"
          sodipodi:rx="2"
          sodipodi:ry="2"
-         style="fill:#ffffff" />
+         style="fill:#0000ff;fill-opacity:1" />
       <circle
          r="2"
          class="vertex"
@@ -403,7 +412,7 @@
          sodipodi:cy="231.49971"
          sodipodi:rx="2"
          sodipodi:ry="2"
-         style="fill:#ffffff" />
+         style="fill:#0000ff;fill-opacity:1" />
       <circle
          r="2"
          class="vertex"
@@ -415,10 +424,11 @@
          sodipodi:cy="165.15628"
          sodipodi:rx="2"
          sodipodi:ry="2"
-         style="fill:#ffffff" />
+         style="fill:#0000ff;fill-opacity:1" />
     </g>
     <g
-       id="g3495">
+       id="g3495"
+       style="fill:#0000ff;fill-opacity:1">
       <circle
          r="2"
          class="vertex"
@@ -430,7 +440,7 @@
          sodipodi:cy="324.86972"
          sodipodi:rx="2"
          sodipodi:ry="2"
-         style="fill:#ffffff" />
+         style="fill:#0000ff;fill-opacity:1" />
       <circle
          r="2"
          class="vertex"
@@ -442,7 +452,7 @@
          sodipodi:cy="305.63141"
          sodipodi:rx="2"
          sodipodi:ry="2"
-         style="fill:#ffffff" />
+         style="fill:#0000ff;fill-opacity:1" />
       <circle
          r="2"
          class="vertex"
@@ -454,7 +464,7 @@
          sodipodi:cy="257.79944"
          sodipodi:rx="2"
          sodipodi:ry="2"
-         style="fill:#ffffff" />
+         style="fill:#0000ff;fill-opacity:1" />
       <circle
          r="2"
          class="vertex"
@@ -466,7 +476,7 @@
          sodipodi:cy="185.72321"
          sodipodi:rx="2"
          sodipodi:ry="2"
-         style="fill:#ffffff" />
+         style="fill:#0000ff;fill-opacity:1" />
       <circle
          r="2"
          class="vertex"
@@ -478,10 +488,11 @@
          sodipodi:cy="130.85419"
          sodipodi:rx="2"
          sodipodi:ry="2"
-         style="fill:#ffffff" />
+         style="fill:#0000ff;fill-opacity:1" />
     </g>
     <g
-       id="g3507">
+       id="g3507"
+       style="fill:#0000ff;fill-opacity:1">
       <circle
          r="2"
          class="vertex"
@@ -493,7 +504,7 @@
          sodipodi:cy="322.11813"
          sodipodi:rx="2"
          sodipodi:ry="2"
-         style="fill:#ffffff" />
+         style="fill:#0000ff;fill-opacity:1" />
       <circle
          r="2"
          class="vertex"
@@ -505,7 +516,7 @@
          sodipodi:cy="291.4538"
          sodipodi:rx="2"
          sodipodi:ry="2"
-         style="fill:#ffffff" />
+         style="fill:#0000ff;fill-opacity:1" />
       <circle
          r="2"
          class="vertex"
@@ -517,7 +528,7 @@
          sodipodi:cy="231.49971"
          sodipodi:rx="2"
          sodipodi:ry="2"
-         style="fill:#ffffff" />
+         style="fill:#0000ff;fill-opacity:1" />
       <circle
          r="2"
          class="vertex"
@@ -529,10 +540,11 @@
          sodipodi:cy="165.15628"
          sodipodi:rx="2"
          sodipodi:ry="2"
-         style="fill:#ffffff" />
+         style="fill:#0000ff;fill-opacity:1" />
     </g>
     <g
-       id="g3517">
+       id="g3517"
+       style="fill:#0000ff;fill-opacity:1">
       <circle
          r="2"
          class="vertex"
@@ -544,7 +556,7 @@
          sodipodi:cy="339.21832"
          sodipodi:rx="2"
          sodipodi:ry="2"
-         style="fill:#ffffff" />
+         style="fill:#0000ff;fill-opacity:1" />
       <circle
          r="2"
          class="vertex"
@@ -556,7 +568,7 @@
          sodipodi:cy="323.65421"
          sodipodi:rx="2"
          sodipodi:ry="2"
-         style="fill:#ffffff" />
+         style="fill:#0000ff;fill-opacity:1" />
       <circle
          r="2"
          class="vertex"
@@ -568,7 +580,7 @@
          sodipodi:cy="284.95734"
          sodipodi:rx="2"
          sodipodi:ry="2"
-         style="fill:#ffffff" />
+         style="fill:#0000ff;fill-opacity:1" />
       <circle
          r="2"
          class="vertex"
@@ -580,7 +592,7 @@
          sodipodi:cy="226.64644"
          sodipodi:rx="2"
          sodipodi:ry="2"
-         style="fill:#ffffff" />
+         style="fill:#0000ff;fill-opacity:1" />
       <circle
          r="2"
          class="vertex"
@@ -592,10 +604,11 @@
          sodipodi:cy="182.25647"
          sodipodi:rx="2"
          sodipodi:ry="2"
-         style="fill:#ffffff" />
+         style="fill:#0000ff;fill-opacity:1" />
     </g>
     <g
-       id="g3529">
+       id="g3529"
+       style="fill:#0000ff;fill-opacity:1">
       <circle
          r="2"
          class="vertex"
@@ -607,7 +620,7 @@
          sodipodi:cy="351.86636"
          sodipodi:rx="2"
          sodipodi:ry="2"
-         style="fill:#ffffff" />
+         style="fill:#0000ff;fill-opacity:1" />
       <circle
          r="2"
          class="vertex"
@@ -619,7 +632,7 @@
          sodipodi:cy="332.91476"
          sodipodi:rx="2"
          sodipodi:ry="2"
-         style="fill:#ffffff" />
+         style="fill:#0000ff;fill-opacity:1" />
       <circle
          r="2"
          class="vertex"
@@ -631,7 +644,7 @@
          sodipodi:cy="295.86108"
          sodipodi:rx="2"
          sodipodi:ry="2"
-         style="fill:#ffffff" />
+         style="fill:#0000ff;fill-opacity:1" />
       <circle
          r="2"
          class="vertex"
@@ -643,10 +656,11 @@
          sodipodi:cy="254.8586"
          sodipodi:rx="2"
          sodipodi:ry="2"
-         style="fill:#ffffff" />
+         style="fill:#0000ff;fill-opacity:1" />
     </g>
     <g
-       id="g3539">
+       id="g3539"
+       style="fill:#0000ff;fill-opacity:1">
       <circle
          r="2"
          class="vertex"
@@ -658,7 +672,7 @@
          sodipodi:cy="376.78348"
          sodipodi:rx="2"
          sodipodi:ry="2"
-         style="fill:#ffffff" />
+         style="fill:#0000ff;fill-opacity:1" />
       <circle
          r="2"
          class="vertex"
@@ -670,7 +684,7 @@
          sodipodi:cy="370.8385"
          sodipodi:rx="2"
          sodipodi:ry="2"
-         style="fill:#ffffff" />
+         style="fill:#0000ff;fill-opacity:1" />
       <circle
          r="2"
          class="vertex"
@@ -682,7 +696,7 @@
          sodipodi:cy="356.05762"
          sodipodi:rx="2"
          sodipodi:ry="2"
-         style="fill:#ffffff" />
+         style="fill:#0000ff;fill-opacity:1" />
       <circle
          r="2"
          class="vertex"
@@ -694,7 +708,7 @@
          sodipodi:cy="333.78482"
          sodipodi:rx="2"
          sodipodi:ry="2"
-         style="fill:#ffffff" />
+         style="fill:#0000ff;fill-opacity:1" />
       <circle
          r="2"
          class="vertex"
@@ -706,10 +720,11 @@
          sodipodi:cy="316.82938"
          sodipodi:rx="2"
          sodipodi:ry="2"
-         style="fill:#ffffff" />
+         style="fill:#0000ff;fill-opacity:1" />
     </g>
     <g
-       id="g3551">
+       id="g3551"
+       style="fill:#0000ff;fill-opacity:1">
       <circle
          r="2"
          class="vertex"
@@ -721,7 +736,7 @@
          sodipodi:cy="400"
          sodipodi:rx="2"
          sodipodi:ry="2"
-         style="fill:#ffffff" />
+         style="fill:#0000ff;fill-opacity:1" />
       <circle
          r="2"
          class="vertex"
@@ -733,7 +748,7 @@
          sodipodi:cy="400"
          sodipodi:rx="2"
          sodipodi:ry="2"
-         style="fill:#ffffff" />
+         style="fill:#0000ff;fill-opacity:1" />
       <circle
          r="2"
          class="vertex"
@@ -745,7 +760,7 @@
          sodipodi:cy="400"
          sodipodi:rx="2"
          sodipodi:ry="2"
-         style="fill:#ffffff" />
+         style="fill:#0000ff;fill-opacity:1" />
       <circle
          r="2"
          class="vertex"
@@ -757,10 +772,11 @@
          sodipodi:cy="400"
          sodipodi:rx="2"
          sodipodi:ry="2"
-         style="fill:#ffffff" />
+         style="fill:#0000ff;fill-opacity:1" />
     </g>
     <g
-       id="g3561">
+       id="g3561"
+       style="fill:#0000ff;fill-opacity:1">
       <circle
          r="2"
          class="vertex"
@@ -772,7 +788,7 @@
          sodipodi:cy="423.21652"
          sodipodi:rx="2"
          sodipodi:ry="2"
-         style="fill:#ffffff" />
+         style="fill:#0000ff;fill-opacity:1" />
       <circle
          r="2"
          class="vertex"
@@ -784,7 +800,7 @@
          sodipodi:cy="429.1615"
          sodipodi:rx="2"
          sodipodi:ry="2"
-         style="fill:#ffffff" />
+         style="fill:#0000ff;fill-opacity:1" />
       <circle
          r="2"
          class="vertex"
@@ -796,7 +812,7 @@
          sodipodi:cy="443.94238"
          sodipodi:rx="2"
          sodipodi:ry="2"
-         style="fill:#ffffff" />
+         style="fill:#0000ff;fill-opacity:1" />
       <circle
          r="2"
          class="vertex"
@@ -808,7 +824,7 @@
          sodipodi:cy="466.21518"
          sodipodi:rx="2"
          sodipodi:ry="2"
-         style="fill:#ffffff" />
+         style="fill:#0000ff;fill-opacity:1" />
       <circle
          r="2"
          class="vertex"
@@ -820,10 +836,11 @@
          sodipodi:cy="483.17062"
          sodipodi:rx="2"
          sodipodi:ry="2"
-         style="fill:#ffffff" />
+         style="fill:#0000ff;fill-opacity:1" />
     </g>
     <g
-       id="g3573">
+       id="g3573"
+       style="fill:#0000ff;fill-opacity:1">
       <circle
          r="2"
          class="vertex"
@@ -835,7 +852,7 @@
          sodipodi:cy="448.13364"
          sodipodi:rx="2"
          sodipodi:ry="2"
-         style="fill:#ffffff" />
+         style="fill:#0000ff;fill-opacity:1" />
       <circle
          r="2"
          class="vertex"
@@ -847,7 +864,7 @@
          sodipodi:cy="467.08524"
          sodipodi:rx="2"
          sodipodi:ry="2"
-         style="fill:#ffffff" />
+         style="fill:#0000ff;fill-opacity:1" />
       <circle
          r="2"
          class="vertex"
@@ -859,7 +876,7 @@
          sodipodi:cy="504.13892"
          sodipodi:rx="2"
          sodipodi:ry="2"
-         style="fill:#ffffff" />
+         style="fill:#0000ff;fill-opacity:1" />
       <circle
          r="2"
          class="vertex"
@@ -871,10 +888,11 @@
          sodipodi:cy="545.14142"
          sodipodi:rx="2"
          sodipodi:ry="2"
-         style="fill:#ffffff" />
+         style="fill:#0000ff;fill-opacity:1" />
     </g>
     <g
-       id="g3583">
+       id="g3583"
+       style="fill:#0000ff;fill-opacity:1">
       <circle
          r="2"
          class="vertex"
@@ -886,7 +904,7 @@
          sodipodi:cy="460.78168"
          sodipodi:rx="2"
          sodipodi:ry="2"
-         style="fill:#ffffff" />
+         style="fill:#0000ff;fill-opacity:1" />
       <circle
          r="2"
          class="vertex"
@@ -898,7 +916,7 @@
          sodipodi:cy="476.34579"
          sodipodi:rx="2"
          sodipodi:ry="2"
-         style="fill:#ffffff" />
+         style="fill:#0000ff;fill-opacity:1" />
       <circle
          r="2"
          class="vertex"
@@ -910,7 +928,7 @@
          sodipodi:cy="515.04266"
          sodipodi:rx="2"
          sodipodi:ry="2"
-         style="fill:#ffffff" />
+         style="fill:#0000ff;fill-opacity:1" />
       <circle
          r="2"
          class="vertex"
@@ -922,7 +940,7 @@
          sodipodi:cy="573.35358"
          sodipodi:rx="2"
          sodipodi:ry="2"
-         style="fill:#ffffff" />
+         style="fill:#0000ff;fill-opacity:1" />
       <circle
          r="2"
          class="vertex"
@@ -934,10 +952,11 @@
          sodipodi:cy="617.74353"
          sodipodi:rx="2"
          sodipodi:ry="2"
-         style="fill:#ffffff" />
+         style="fill:#0000ff;fill-opacity:1" />
     </g>
     <g
-       id="g3595">
+       id="g3595"
+       style="fill:#0000ff;fill-opacity:1">
       <circle
          r="2"
          class="vertex"
@@ -949,7 +968,7 @@
          sodipodi:cy="477.88187"
          sodipodi:rx="2"
          sodipodi:ry="2"
-         style="fill:#ffffff" />
+         style="fill:#0000ff;fill-opacity:1" />
       <circle
          r="2"
          class="vertex"
@@ -961,7 +980,7 @@
          sodipodi:cy="508.5462"
          sodipodi:rx="2"
          sodipodi:ry="2"
-         style="fill:#ffffff" />
+         style="fill:#0000ff;fill-opacity:1" />
       <circle
          r="2"
          class="vertex"
@@ -973,7 +992,7 @@
          sodipodi:cy="568.50031"
          sodipodi:rx="2"
          sodipodi:ry="2"
-         style="fill:#ffffff" />
+         style="fill:#0000ff;fill-opacity:1" />
       <circle
          r="2"
          class="vertex"
@@ -985,10 +1004,11 @@
          sodipodi:cy="634.84375"
          sodipodi:rx="2"
          sodipodi:ry="2"
-         style="fill:#ffffff" />
+         style="fill:#0000ff;fill-opacity:1" />
     </g>
     <g
-       id="g3605">
+       id="g3605"
+       style="fill:#0000ff;fill-opacity:1">
       <circle
          r="2"
          class="vertex"
@@ -1000,7 +1020,7 @@
          sodipodi:cy="475.13028"
          sodipodi:rx="2"
          sodipodi:ry="2"
-         style="fill:#ffffff" />
+         style="fill:#0000ff;fill-opacity:1" />
       <circle
          r="2"
          class="vertex"
@@ -1012,7 +1032,7 @@
          sodipodi:cy="494.36859"
          sodipodi:rx="2"
          sodipodi:ry="2"
-         style="fill:#ffffff" />
+         style="fill:#0000ff;fill-opacity:1" />
       <circle
          r="2"
          class="vertex"
@@ -1024,7 +1044,7 @@
          sodipodi:cy="542.20056"
          sodipodi:rx="2"
          sodipodi:ry="2"
-         style="fill:#ffffff" />
+         style="fill:#0000ff;fill-opacity:1" />
       <circle
          r="2"
          class="vertex"
@@ -1036,7 +1056,7 @@
          sodipodi:cy="614.27679"
          sodipodi:rx="2"
          sodipodi:ry="2"
-         style="fill:#ffffff" />
+         style="fill:#0000ff;fill-opacity:1" />
       <circle
          r="2"
          class="vertex"
@@ -1048,10 +1068,11 @@
          sodipodi:cy="669.14581"
          sodipodi:rx="2"
          sodipodi:ry="2"
-         style="fill:#ffffff" />
+         style="fill:#0000ff;fill-opacity:1" />
     </g>
     <g
-       id="g3617">
+       id="g3617"
+       style="fill:#0000ff;fill-opacity:1">
       <circle
          r="2"
          class="vertex"
@@ -1063,7 +1084,7 @@
          sodipodi:cy="477.88187"
          sodipodi:rx="2"
          sodipodi:ry="2"
-         style="fill:#ffffff" />
+         style="fill:#0000ff;fill-opacity:1" />
       <circle
          r="2"
          class="vertex"
@@ -1075,7 +1096,7 @@
          sodipodi:cy="508.5462"
          sodipodi:rx="2"
          sodipodi:ry="2"
-         style="fill:#ffffff" />
+         style="fill:#0000ff;fill-opacity:1" />
       <circle
          r="2"
          class="vertex"
@@ -1087,7 +1108,7 @@
          sodipodi:cy="568.50031"
          sodipodi:rx="2"
          sodipodi:ry="2"
-         style="fill:#ffffff" />
+         style="fill:#0000ff;fill-opacity:1" />
       <circle
          r="2"
          class="vertex"
@@ -1099,10 +1120,11 @@
          sodipodi:cy="634.84375"
          sodipodi:rx="2"
          sodipodi:ry="2"
-         style="fill:#ffffff" />
+         style="fill:#0000ff;fill-opacity:1" />
     </g>
     <g
-       id="g3627">
+       id="g3627"
+       style="fill:#0000ff;fill-opacity:1">
       <circle
          r="2"
          class="vertex"
@@ -1114,7 +1136,7 @@
          sodipodi:cy="460.78168"
          sodipodi:rx="2"
          sodipodi:ry="2"
-         style="fill:#ffffff" />
+         style="fill:#0000ff;fill-opacity:1" />
       <circle
          r="2"
          class="vertex"
@@ -1126,7 +1148,7 @@
          sodipodi:cy="476.34579"
          sodipodi:rx="2"
          sodipodi:ry="2"
-         style="fill:#ffffff" />
+         style="fill:#0000ff;fill-opacity:1" />
       <circle
          r="2"
          class="vertex"
@@ -1138,7 +1160,7 @@
          sodipodi:cy="515.04266"
          sodipodi:rx="2"
          sodipodi:ry="2"
-         style="fill:#ffffff" />
+         style="fill:#0000ff;fill-opacity:1" />
       <circle
          r="2"
          class="vertex"
@@ -1150,7 +1172,7 @@
          sodipodi:cy="573.35358"
          sodipodi:rx="2"
          sodipodi:ry="2"
-         style="fill:#ffffff" />
+         style="fill:#0000ff;fill-opacity:1" />
       <circle
          r="2"
          class="vertex"
@@ -1162,10 +1184,11 @@
          sodipodi:cy="617.74353"
          sodipodi:rx="2"
          sodipodi:ry="2"
-         style="fill:#ffffff" />
+         style="fill:#0000ff;fill-opacity:1" />
     </g>
     <g
-       id="g3639">
+       id="g3639"
+       style="fill:#0000ff;fill-opacity:1">
       <circle
          r="2"
          class="vertex"
@@ -1177,7 +1200,7 @@
          sodipodi:cy="448.13364"
          sodipodi:rx="2"
          sodipodi:ry="2"
-         style="fill:#ffffff" />
+         style="fill:#0000ff;fill-opacity:1" />
       <circle
          r="2"
          class="vertex"
@@ -1189,7 +1212,7 @@
          sodipodi:cy="467.08524"
          sodipodi:rx="2"
          sodipodi:ry="2"
-         style="fill:#ffffff" />
+         style="fill:#0000ff;fill-opacity:1" />
       <circle
          r="2"
          class="vertex"
@@ -1201,7 +1224,7 @@
          sodipodi:cy="504.13892"
          sodipodi:rx="2"
          sodipodi:ry="2"
-         style="fill:#ffffff" />
+         style="fill:#0000ff;fill-opacity:1" />
       <circle
          r="2"
          class="vertex"
@@ -1213,10 +1236,11 @@
          sodipodi:cy="545.14142"
          sodipodi:rx="2"
          sodipodi:ry="2"
-         style="fill:#ffffff" />
+         style="fill:#0000ff;fill-opacity:1" />
     </g>
     <g
-       id="g3649">
+       id="g3649"
+       style="fill:#0000ff;fill-opacity:1">
       <circle
          r="2"
          class="vertex"
@@ -1228,7 +1252,7 @@
          sodipodi:cy="423.21652"
          sodipodi:rx="2"
          sodipodi:ry="2"
-         style="fill:#ffffff" />
+         style="fill:#0000ff;fill-opacity:1" />
       <circle
          r="2"
          class="vertex"
@@ -1240,7 +1264,7 @@
          sodipodi:cy="429.1615"
          sodipodi:rx="2"
          sodipodi:ry="2"
-         style="fill:#ffffff" />
+         style="fill:#0000ff;fill-opacity:1" />
       <circle
          r="2"
          class="vertex"
@@ -1252,7 +1276,7 @@
          sodipodi:cy="443.94238"
          sodipodi:rx="2"
          sodipodi:ry="2"
-         style="fill:#ffffff" />
+         style="fill:#0000ff;fill-opacity:1" />
       <circle
          r="2"
          class="vertex"
@@ -1264,7 +1288,7 @@
          sodipodi:cy="466.21518"
          sodipodi:rx="2"
          sodipodi:ry="2"
-         style="fill:#ffffff" />
+         style="fill:#0000ff;fill-opacity:1" />
       <circle
          r="2"
          class="vertex"
@@ -1276,10 +1300,11 @@
          sodipodi:cy="483.17062"
          sodipodi:rx="2"
          sodipodi:ry="2"
-         style="fill:#ffffff" />
+         style="fill:#0000ff;fill-opacity:1" />
     </g>
     <g
-       id="g3661">
+       id="g3661"
+       style="fill:#0000ff;fill-opacity:1">
       <circle
          r="2"
          class="vertex"
@@ -1291,7 +1316,7 @@
          sodipodi:cy="400"
          sodipodi:rx="2"
          sodipodi:ry="2"
-         style="fill:#ffffff" />
+         style="fill:#0000ff;fill-opacity:1" />
       <circle
          r="2"
          class="vertex"
@@ -1303,7 +1328,7 @@
          sodipodi:cy="400"
          sodipodi:rx="2"
          sodipodi:ry="2"
-         style="fill:#ffffff" />
+         style="fill:#0000ff;fill-opacity:1" />
       <circle
          r="2"
          class="vertex"
@@ -1315,7 +1340,7 @@
          sodipodi:cy="400"
          sodipodi:rx="2"
          sodipodi:ry="2"
-         style="fill:#ffffff" />
+         style="fill:#0000ff;fill-opacity:1" />
       <circle
          r="2"
          class="vertex"
@@ -1327,7 +1352,7 @@
          sodipodi:cy="400"
          sodipodi:rx="2"
          sodipodi:ry="2"
-         style="fill:#ffffff" />
+         style="fill:#0000ff;fill-opacity:1" />
     </g>
   </g>
 </svg>

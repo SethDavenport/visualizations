@@ -1,0 +1,3232 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   id="svg2"
+   version="1.1"
+   inkscape:version="0.48.4 r9939"
+   width="100%"
+   height="100%"
+   sodipodi:docname="inlays-bezier.svg"
+   inkscape:export-filename="/home/sdavenpo/github/visualizations/img/inlays-bezier.png"
+   inkscape:export-xdpi="90"
+   inkscape:export-ydpi="90">
+  <metadata
+     id="metadata672">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1549"
+     inkscape:window-height="876"
+     id="namedview670"
+     showgrid="false"
+     inkscape:zoom="0.63429569"
+     inkscape:cx="348.34423"
+     inkscape:cy="513.85373"
+     inkscape:window-x="51"
+     inkscape:window-y="24"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg2" />
+  <defs
+     id="defs4">
+    <style
+       type="text/css"
+       id="style6">
+            .background      { fill: black; }
+            .circle          { stroke: none; fill: white; fill-opacity: 0.1; }
+            .circle:hover    { fill-opacity: 0.5; }
+            .vertex          { fill: white; }
+            .text            { fill: white; font-size: 10px; }
+            .grid-cell:hover { fill: white; stroke: #EEE; }
+            .grid-cell-0     { fill: #DDD; stroke: #CCC; }
+            .grid-cell-1     { fill: #BBB; stroke: #AAA; }
+            .grid-cell-2     { fill: #999; stroke: #888; }
+            .grid-cell-3     { fill: #777; stroke: #666; }
+            .grid-cell-4     { fill: #999; stroke: #888; }
+            .grid-cell-5     { fill: #BBB; stroke: #AAA; }
+            .radial          { stroke: white; stroke-width: 1; fill: none; }
+            .inlay           { fill: #88C; fill-opacity: 0.5; }
+            .inlay:hover     { fill-opacity: 1.0; }
+
+            </style>
+  </defs>
+  <rect
+     class="background"
+     height="350"
+     width="350"
+     x="0"
+     y="702.36218"
+     id="rect8"
+     style="fill:#000000" />
+  <g
+     ng-if="'GRID' === mode"
+     ng-repeat="cellsForAngle in rosette.cells"
+     id="g10"
+     transform="matrix(0.63387169,0,0,0.60264241,-79.840056,635.00196)">
+    <path
+       class="grid-cell grid-cell-0"
+       d="m 328.54686,376.78347 5.20287,-24.91711 22.0898,-12.64803 z"
+       ng-attr-d="{{cell.toPolygonSVG()}}"
+       ng-class="cell.cssClass"
+       ng-repeat="cell in cellsForAngle"
+       id="path12"
+       inkscape:connector-curvature="0"
+       style="fill:#dddddd;stroke:#cccccc" />
+    <path
+       class="grid-cell grid-cell-1"
+       d="m 310.25013,370.8385 -2.58504,-37.92374 36.86644,-9.26056 -10.7818,28.21216 z"
+       ng-attr-d="{{cell.toPolygonSVG()}}"
+       ng-class="cell.cssClass"
+       ng-repeat="cell in cellsForAngle"
+       id="path14"
+       inkscape:connector-curvature="0"
+       style="fill:#bbbbbb;stroke:#aaaaaa" />
+    <path
+       class="grid-cell grid-cell-2"
+       d="m 264.75923,356.05761 -8.09414,-60.19652 59.75152,-10.90376 -8.75152,47.95743 z"
+       ng-attr-d="{{cell.toPolygonSVG()}}"
+       ng-class="cell.cssClass"
+       ng-repeat="cell in cellsForAngle"
+       id="path16"
+       inkscape:connector-curvature="0"
+       style="fill:#999999;stroke:#888888" />
+    <path
+       class="grid-cell grid-cell-3"
+       d="M 196.21066,333.78483 200.23,254.8586 274.05126,226.64644 256.66509,295.86109 z"
+       ng-attr-d="{{cell.toPolygonSVG()}}"
+       ng-class="cell.cssClass"
+       ng-repeat="cell in cellsForAngle"
+       id="path18"
+       inkscape:connector-curvature="0"
+       style="fill:#777777;stroke:#666666" />
+    <path
+       class="grid-cell grid-cell-4"
+       d="M 144.02712,316.82937 241.80006,182.25647 200.23,254.8586 z"
+       ng-attr-d="{{cell.toPolygonSVG()}}"
+       ng-class="cell.cssClass"
+       ng-repeat="cell in cellsForAngle"
+       id="path20"
+       inkscape:connector-curvature="0"
+       style="fill:#999999;stroke:#888888" />
+  </g>
+  <g
+     ng-if="'GRID' === mode"
+     ng-repeat="cellsForAngle in rosette.cells"
+     id="g22"
+     transform="matrix(0.63387169,0,0,0.60264241,-79.840056,635.00196)">
+    <path
+       class="grid-cell grid-cell-0"
+       d="m 333.74973,351.86636 10.7818,-28.21216 30.16312,-1.53606 -18.85512,17.10019 z"
+       ng-attr-d="{{cell.toPolygonSVG()}}"
+       ng-class="cell.cssClass"
+       ng-repeat="cell in cellsForAngle"
+       id="path24"
+       inkscape:connector-curvature="0"
+       style="fill:#dddddd;stroke:#cccccc" />
+    <path
+       class="grid-cell grid-cell-1"
+       d="m 307.66509,332.91476 8.75152,-47.95743 48.31459,6.49647 -20.19967,32.2004 z"
+       ng-attr-d="{{cell.toPolygonSVG()}}"
+       ng-class="cell.cssClass"
+       ng-repeat="cell in cellsForAngle"
+       id="path26"
+       inkscape:connector-curvature="0"
+       style="fill:#bbbbbb;stroke:#aaaaaa" />
+    <path
+       class="grid-cell grid-cell-2"
+       d="m 256.66509,295.86109 17.38617,-69.21465 71.19968,4.85327 -28.83433,53.45762 z"
+       ng-attr-d="{{cell.toPolygonSVG()}}"
+       ng-class="cell.cssClass"
+       ng-repeat="cell in cellsForAngle"
+       id="path28"
+       inkscape:connector-curvature="0"
+       style="fill:#999999;stroke:#888888" />
+    <path
+       class="grid-cell grid-cell-3"
+       d="m 200.23,254.8586 41.57006,-72.60213 81.89459,-17.10019 -49.64339,61.49016 z"
+       ng-attr-d="{{cell.toPolygonSVG()}}"
+       ng-class="cell.cssClass"
+       ng-repeat="cell in cellsForAngle"
+       id="path30"
+       inkscape:connector-curvature="0"
+       style="fill:#777777;stroke:#666666" />
+  </g>
+  <g
+     ng-if="'GRID' === mode"
+     ng-repeat="cellsForAngle in rosette.cells"
+     id="g32"
+     transform="matrix(0.63387169,0,0,0.60264241,-79.840056,635.00196)">
+    <path
+       class="grid-cell grid-cell-0"
+       d="M 355.83953,339.21833 374.69465,322.11814 400,324.86972 z"
+       ng-attr-d="{{cell.toPolygonSVG()}}"
+       ng-class="cell.cssClass"
+       ng-repeat="cell in cellsForAngle"
+       id="path34"
+       inkscape:connector-curvature="0"
+       style="fill:#dddddd;stroke:#cccccc" />
+    <path
+       class="grid-cell grid-cell-1"
+       d="M 344.53153,323.6542 364.7312,291.4538 400,305.6314 374.69465,322.11814 z"
+       ng-attr-d="{{cell.toPolygonSVG()}}"
+       ng-class="cell.cssClass"
+       ng-repeat="cell in cellsForAngle"
+       id="path36"
+       inkscape:connector-curvature="0"
+       style="fill:#bbbbbb;stroke:#aaaaaa" />
+    <path
+       class="grid-cell grid-cell-2"
+       d="M 316.41661,284.95733 345.25094,231.49971 400,257.79944 364.7312,291.4538 z"
+       ng-attr-d="{{cell.toPolygonSVG()}}"
+       ng-class="cell.cssClass"
+       ng-repeat="cell in cellsForAngle"
+       id="path38"
+       inkscape:connector-curvature="0"
+       style="fill:#999999;stroke:#888888" />
+    <path
+       class="grid-cell grid-cell-3"
+       d="M 274.05126,226.64644 323.69465,165.15628 400,185.72321 l -54.74906,45.7765 z"
+       ng-attr-d="{{cell.toPolygonSVG()}}"
+       ng-class="cell.cssClass"
+       ng-repeat="cell in cellsForAngle"
+       id="path40"
+       inkscape:connector-curvature="0"
+       style="fill:#777777;stroke:#666666" />
+    <path
+       class="grid-cell grid-cell-4"
+       d="M 241.80006,182.25647 400,130.85419 323.69465,165.15628 z"
+       ng-attr-d="{{cell.toPolygonSVG()}}"
+       ng-class="cell.cssClass"
+       ng-repeat="cell in cellsForAngle"
+       id="path42"
+       inkscape:connector-curvature="0"
+       style="fill:#999999;stroke:#888888" />
+  </g>
+  <g
+     ng-if="'GRID' === mode"
+     ng-repeat="cellsForAngle in rosette.cells"
+     id="g44"
+     transform="matrix(0.63387169,0,0,0.60264241,-79.840056,635.00196)">
+    <path
+       class="grid-cell grid-cell-0"
+       d="M 374.69465,322.11814 400,305.6314 425.30535,322.11814 400,324.86972 z"
+       ng-attr-d="{{cell.toPolygonSVG()}}"
+       ng-class="cell.cssClass"
+       ng-repeat="cell in cellsForAngle"
+       id="path46"
+       inkscape:connector-curvature="0"
+       style="fill:#dddddd;stroke:#cccccc" />
+    <path
+       class="grid-cell grid-cell-1"
+       d="M 364.7312,291.4538 400,257.79944 435.2688,291.4538 400,305.6314 z"
+       ng-attr-d="{{cell.toPolygonSVG()}}"
+       ng-class="cell.cssClass"
+       ng-repeat="cell in cellsForAngle"
+       id="path48"
+       inkscape:connector-curvature="0"
+       style="fill:#bbbbbb;stroke:#aaaaaa" />
+    <path
+       class="grid-cell grid-cell-2"
+       d="M 345.25094,231.49971 400,185.72321 454.74906,231.49971 400,257.79944 z"
+       ng-attr-d="{{cell.toPolygonSVG()}}"
+       ng-class="cell.cssClass"
+       ng-repeat="cell in cellsForAngle"
+       id="path50"
+       inkscape:connector-curvature="0"
+       style="fill:#999999;stroke:#888888" />
+    <path
+       class="grid-cell grid-cell-3"
+       d="M 323.69465,165.15628 400,130.85419 476.30535,165.15628 400,185.72321 z"
+       ng-attr-d="{{cell.toPolygonSVG()}}"
+       ng-class="cell.cssClass"
+       ng-repeat="cell in cellsForAngle"
+       id="path52"
+       inkscape:connector-curvature="0"
+       style="fill:#777777;stroke:#666666" />
+  </g>
+  <g
+     ng-if="'GRID' === mode"
+     ng-repeat="cellsForAngle in rosette.cells"
+     id="g54"
+     transform="matrix(0.63387169,0,0,0.60264241,-79.840056,635.00196)">
+    <path
+       class="grid-cell grid-cell-0"
+       d="m 400,324.86972 25.30535,-2.75158 18.85512,17.10019 z"
+       ng-attr-d="{{cell.toPolygonSVG()}}"
+       ng-class="cell.cssClass"
+       ng-repeat="cell in cellsForAngle"
+       id="path56"
+       inkscape:connector-curvature="0"
+       style="fill:#dddddd;stroke:#cccccc" />
+    <path
+       class="grid-cell grid-cell-1"
+       d="m 400,305.6314 35.2688,-14.1776 20.19967,32.2004 -30.16312,-1.53606 z"
+       ng-attr-d="{{cell.toPolygonSVG()}}"
+       ng-class="cell.cssClass"
+       ng-repeat="cell in cellsForAngle"
+       id="path58"
+       inkscape:connector-curvature="0"
+       style="fill:#bbbbbb;stroke:#aaaaaa" />
+    <path
+       class="grid-cell grid-cell-2"
+       d="m 400,257.79944 54.74906,-26.29973 28.83433,53.45762 -48.31459,6.49647 z"
+       ng-attr-d="{{cell.toPolygonSVG()}}"
+       ng-class="cell.cssClass"
+       ng-repeat="cell in cellsForAngle"
+       id="path60"
+       inkscape:connector-curvature="0"
+       style="fill:#999999;stroke:#888888" />
+    <path
+       class="grid-cell grid-cell-3"
+       d="m 400,185.72321 76.30535,-20.56693 49.64339,61.49016 -71.19968,4.85327 z"
+       ng-attr-d="{{cell.toPolygonSVG()}}"
+       ng-class="cell.cssClass"
+       ng-repeat="cell in cellsForAngle"
+       id="path62"
+       inkscape:connector-curvature="0"
+       style="fill:#777777;stroke:#666666" />
+    <path
+       class="grid-cell grid-cell-4"
+       d="m 400,130.85419 158.19994,51.40228 -81.89459,-17.10019 z"
+       ng-attr-d="{{cell.toPolygonSVG()}}"
+       ng-class="cell.cssClass"
+       ng-repeat="cell in cellsForAngle"
+       id="path64"
+       inkscape:connector-curvature="0"
+       style="fill:#999999;stroke:#888888" />
+  </g>
+  <g
+     ng-if="'GRID' === mode"
+     ng-repeat="cellsForAngle in rosette.cells"
+     id="g66"
+     transform="matrix(0.63387169,0,0,0.60264241,-79.840056,635.00196)">
+    <path
+       class="grid-cell grid-cell-0"
+       d="m 425.30535,322.11814 30.16312,1.53606 10.7818,28.21216 -22.0898,-12.64803 z"
+       ng-attr-d="{{cell.toPolygonSVG()}}"
+       ng-class="cell.cssClass"
+       ng-repeat="cell in cellsForAngle"
+       id="path68"
+       inkscape:connector-curvature="0"
+       style="fill:#dddddd;stroke:#cccccc" />
+    <path
+       class="grid-cell grid-cell-1"
+       d="m 435.2688,291.4538 48.31459,-6.49647 8.75152,47.95743 -36.86644,-9.26056 z"
+       ng-attr-d="{{cell.toPolygonSVG()}}"
+       ng-class="cell.cssClass"
+       ng-repeat="cell in cellsForAngle"
+       id="path70"
+       inkscape:connector-curvature="0"
+       style="fill:#bbbbbb;stroke:#aaaaaa" />
+    <path
+       class="grid-cell grid-cell-2"
+       d="m 454.74906,231.49971 71.19968,-4.85327 17.38617,69.21465 -59.75152,-10.90376 z"
+       ng-attr-d="{{cell.toPolygonSVG()}}"
+       ng-class="cell.cssClass"
+       ng-repeat="cell in cellsForAngle"
+       id="path72"
+       inkscape:connector-curvature="0"
+       style="fill:#999999;stroke:#888888" />
+    <path
+       class="grid-cell grid-cell-3"
+       d="M 476.30535,165.15628 558.19994,182.25647 599.77,254.8586 525.94874,226.64644 z"
+       ng-attr-d="{{cell.toPolygonSVG()}}"
+       ng-class="cell.cssClass"
+       ng-repeat="cell in cellsForAngle"
+       id="path74"
+       inkscape:connector-curvature="0"
+       style="fill:#777777;stroke:#666666" />
+  </g>
+  <g
+     ng-if="'GRID' === mode"
+     ng-repeat="cellsForAngle in rosette.cells"
+     id="g76"
+     transform="matrix(0.63387169,0,0,0.60264241,-79.840056,635.00196)">
+    <path
+       class="grid-cell grid-cell-0"
+       d="m 444.16047,339.21833 22.0898,12.64803 5.20287,24.91711 z"
+       ng-attr-d="{{cell.toPolygonSVG()}}"
+       ng-class="cell.cssClass"
+       ng-repeat="cell in cellsForAngle"
+       id="path78"
+       inkscape:connector-curvature="0"
+       style="fill:#dddddd;stroke:#cccccc" />
+    <path
+       class="grid-cell grid-cell-1"
+       d="m 455.46847,323.6542 36.86644,9.26056 -2.58504,37.92374 -23.4996,-18.97214 z"
+       ng-attr-d="{{cell.toPolygonSVG()}}"
+       ng-class="cell.cssClass"
+       ng-repeat="cell in cellsForAngle"
+       id="path80"
+       inkscape:connector-curvature="0"
+       style="fill:#bbbbbb;stroke:#aaaaaa" />
+    <path
+       class="grid-cell grid-cell-2"
+       d="m 483.58339,284.95733 59.75152,10.90376 -8.09414,60.19652 -42.90586,-23.14285 z"
+       ng-attr-d="{{cell.toPolygonSVG()}}"
+       ng-class="cell.cssClass"
+       ng-repeat="cell in cellsForAngle"
+       id="path82"
+       inkscape:connector-curvature="0"
+       style="fill:#999999;stroke:#888888" />
+    <path
+       class="grid-cell grid-cell-3"
+       d="m 525.94874,226.64644 73.82126,28.21216 4.01934,78.92623 -60.45443,-37.92374 z"
+       ng-attr-d="{{cell.toPolygonSVG()}}"
+       ng-class="cell.cssClass"
+       ng-repeat="cell in cellsForAngle"
+       id="path84"
+       inkscape:connector-curvature="0"
+       style="fill:#777777;stroke:#666666" />
+    <path
+       class="grid-cell grid-cell-4"
+       d="M 558.19994,182.25647 655.97288,316.82937 599.77,254.8586 z"
+       ng-attr-d="{{cell.toPolygonSVG()}}"
+       ng-class="cell.cssClass"
+       ng-repeat="cell in cellsForAngle"
+       id="path86"
+       inkscape:connector-curvature="0"
+       style="fill:#999999;stroke:#888888" />
+  </g>
+  <g
+     ng-if="'GRID' === mode"
+     ng-repeat="cellsForAngle in rosette.cells"
+     id="g88"
+     transform="matrix(0.63387169,0,0,0.60264241,-79.840056,635.00196)">
+    <path
+       class="grid-cell grid-cell-0"
+       d="M 466.25027,351.86636 489.74987,370.8385 481.88984,400 471.45314,376.78347 z"
+       ng-attr-d="{{cell.toPolygonSVG()}}"
+       ng-class="cell.cssClass"
+       ng-repeat="cell in cellsForAngle"
+       id="path90"
+       inkscape:connector-curvature="0"
+       style="fill:#dddddd;stroke:#cccccc" />
+    <path
+       class="grid-cell grid-cell-1"
+       d="M 492.33491,332.91476 535.24077,356.05761 514.13223,400 489.74987,370.8385 z"
+       ng-attr-d="{{cell.toPolygonSVG()}}"
+       ng-class="cell.cssClass"
+       ng-repeat="cell in cellsForAngle"
+       id="path92"
+       inkscape:connector-curvature="0"
+       style="fill:#bbbbbb;stroke:#aaaaaa" />
+    <path
+       class="grid-cell grid-cell-2"
+       d="M 543.33491,295.86109 603.78934,333.78483 577.17169,400 535.24077,356.05761 z"
+       ng-attr-d="{{cell.toPolygonSVG()}}"
+       ng-class="cell.cssClass"
+       ng-repeat="cell in cellsForAngle"
+       id="path94"
+       inkscape:connector-curvature="0"
+       style="fill:#999999;stroke:#888888" />
+    <path
+       class="grid-cell grid-cell-3"
+       d="M 599.77,254.8586 655.97288,316.82937 646.9293,400 603.78934,333.78483 z"
+       ng-attr-d="{{cell.toPolygonSVG()}}"
+       ng-class="cell.cssClass"
+       ng-repeat="cell in cellsForAngle"
+       id="path96"
+       inkscape:connector-curvature="0"
+       style="fill:#777777;stroke:#666666" />
+  </g>
+  <g
+     ng-if="'GRID' === mode"
+     ng-repeat="cellsForAngle in rosette.cells"
+     id="g98"
+     transform="matrix(0.63387169,0,0,0.60264241,-79.840056,635.00196)">
+    <path
+       class="grid-cell grid-cell-0"
+       d="M 471.45314,376.78347 481.88984,400 l -10.4367,23.21653 z"
+       ng-attr-d="{{cell.toPolygonSVG()}}"
+       ng-class="cell.cssClass"
+       ng-repeat="cell in cellsForAngle"
+       id="path100"
+       inkscape:connector-curvature="0"
+       style="fill:#dddddd;stroke:#cccccc" />
+    <path
+       class="grid-cell grid-cell-1"
+       d="M 489.74987,370.8385 514.13223,400 489.74987,429.1615 481.88984,400 z"
+       ng-attr-d="{{cell.toPolygonSVG()}}"
+       ng-class="cell.cssClass"
+       ng-repeat="cell in cellsForAngle"
+       id="path102"
+       inkscape:connector-curvature="0"
+       style="fill:#bbbbbb;stroke:#aaaaaa" />
+    <path
+       class="grid-cell grid-cell-2"
+       d="M 535.24077,356.05761 577.17169,400 535.24077,443.94239 514.13223,400 z"
+       ng-attr-d="{{cell.toPolygonSVG()}}"
+       ng-class="cell.cssClass"
+       ng-repeat="cell in cellsForAngle"
+       id="path104"
+       inkscape:connector-curvature="0"
+       style="fill:#999999;stroke:#888888" />
+    <path
+       class="grid-cell grid-cell-3"
+       d="M 603.78934,333.78483 646.9293,400 603.78934,466.21517 577.17169,400 z"
+       ng-attr-d="{{cell.toPolygonSVG()}}"
+       ng-class="cell.cssClass"
+       ng-repeat="cell in cellsForAngle"
+       id="path106"
+       inkscape:connector-curvature="0"
+       style="fill:#777777;stroke:#666666" />
+    <path
+       class="grid-cell grid-cell-4"
+       d="m 655.97288,316.82937 0,166.34126 L 646.9293,400 z"
+       ng-attr-d="{{cell.toPolygonSVG()}}"
+       ng-class="cell.cssClass"
+       ng-repeat="cell in cellsForAngle"
+       id="path108"
+       inkscape:connector-curvature="0"
+       style="fill:#999999;stroke:#888888" />
+  </g>
+  <g
+     ng-if="'GRID' === mode"
+     ng-repeat="cellsForAngle in rosette.cells"
+     id="g110"
+     transform="matrix(0.63387169,0,0,0.60264241,-79.840056,635.00196)">
+    <path
+       class="grid-cell grid-cell-0"
+       d="m 481.88984,400 7.86003,29.1615 -23.4996,18.97214 5.20287,-24.91711 z"
+       ng-attr-d="{{cell.toPolygonSVG()}}"
+       ng-class="cell.cssClass"
+       ng-repeat="cell in cellsForAngle"
+       id="path112"
+       inkscape:connector-curvature="0"
+       style="fill:#dddddd;stroke:#cccccc" />
+    <path
+       class="grid-cell grid-cell-1"
+       d="m 514.13223,400 21.10854,43.94239 -42.90586,23.14285 -2.58504,-37.92374 z"
+       ng-attr-d="{{cell.toPolygonSVG()}}"
+       ng-class="cell.cssClass"
+       ng-repeat="cell in cellsForAngle"
+       id="path114"
+       inkscape:connector-curvature="0"
+       style="fill:#bbbbbb;stroke:#aaaaaa" />
+    <path
+       class="grid-cell grid-cell-2"
+       d="m 577.17169,400 26.61765,66.21517 -60.45443,37.92374 -8.09414,-60.19652 z"
+       ng-attr-d="{{cell.toPolygonSVG()}}"
+       ng-class="cell.cssClass"
+       ng-repeat="cell in cellsForAngle"
+       id="path116"
+       inkscape:connector-curvature="0"
+       style="fill:#999999;stroke:#888888" />
+    <path
+       class="grid-cell grid-cell-3"
+       d="m 646.9293,400 9.04358,83.17063 -56.20288,61.97077 4.01934,-78.92623 z"
+       ng-attr-d="{{cell.toPolygonSVG()}}"
+       ng-class="cell.cssClass"
+       ng-repeat="cell in cellsForAngle"
+       id="path118"
+       inkscape:connector-curvature="0"
+       style="fill:#777777;stroke:#666666" />
+  </g>
+  <g
+     ng-if="'GRID' === mode"
+     ng-repeat="cellsForAngle in rosette.cells"
+     id="g120"
+     transform="matrix(0.63387169,0,0,0.60264241,-79.840056,635.00196)">
+    <path
+       class="grid-cell grid-cell-0"
+       d="m 471.45314,423.21653 -5.20287,24.91711 -22.0898,12.64803 z"
+       ng-attr-d="{{cell.toPolygonSVG()}}"
+       ng-class="cell.cssClass"
+       ng-repeat="cell in cellsForAngle"
+       id="path122"
+       inkscape:connector-curvature="0"
+       style="fill:#dddddd;stroke:#cccccc" />
+    <path
+       class="grid-cell grid-cell-1"
+       d="m 489.74987,429.1615 2.58504,37.92374 -36.86644,9.26056 10.7818,-28.21216 z"
+       ng-attr-d="{{cell.toPolygonSVG()}}"
+       ng-class="cell.cssClass"
+       ng-repeat="cell in cellsForAngle"
+       id="path124"
+       inkscape:connector-curvature="0"
+       style="fill:#bbbbbb;stroke:#aaaaaa" />
+    <path
+       class="grid-cell grid-cell-2"
+       d="m 535.24077,443.94239 8.09414,60.19652 -59.75152,10.90376 8.75152,-47.95743 z"
+       ng-attr-d="{{cell.toPolygonSVG()}}"
+       ng-class="cell.cssClass"
+       ng-repeat="cell in cellsForAngle"
+       id="path126"
+       inkscape:connector-curvature="0"
+       style="fill:#999999;stroke:#888888" />
+    <path
+       class="grid-cell grid-cell-3"
+       d="M 603.78934,466.21517 599.77,545.1414 525.94874,573.35356 543.33491,504.13891 z"
+       ng-attr-d="{{cell.toPolygonSVG()}}"
+       ng-class="cell.cssClass"
+       ng-repeat="cell in cellsForAngle"
+       id="path128"
+       inkscape:connector-curvature="0"
+       style="fill:#777777;stroke:#666666" />
+    <path
+       class="grid-cell grid-cell-4"
+       d="M 655.97288,483.17063 558.19994,617.74353 599.77,545.1414 z"
+       ng-attr-d="{{cell.toPolygonSVG()}}"
+       ng-class="cell.cssClass"
+       ng-repeat="cell in cellsForAngle"
+       id="path130"
+       inkscape:connector-curvature="0"
+       style="fill:#999999;stroke:#888888" />
+  </g>
+  <g
+     ng-if="'GRID' === mode"
+     ng-repeat="cellsForAngle in rosette.cells"
+     id="g132"
+     transform="matrix(0.63387169,0,0,0.60264241,-79.840056,635.00196)">
+    <path
+       class="grid-cell grid-cell-0"
+       d="m 466.25027,448.13364 -10.7818,28.21216 -30.16312,1.53606 18.85512,-17.10019 z"
+       ng-attr-d="{{cell.toPolygonSVG()}}"
+       ng-class="cell.cssClass"
+       ng-repeat="cell in cellsForAngle"
+       id="path134"
+       inkscape:connector-curvature="0"
+       style="fill:#dddddd;stroke:#cccccc" />
+    <path
+       class="grid-cell grid-cell-1"
+       d="m 492.33491,467.08524 -8.75152,47.95743 -48.31459,-6.49647 20.19967,-32.2004 z"
+       ng-attr-d="{{cell.toPolygonSVG()}}"
+       ng-class="cell.cssClass"
+       ng-repeat="cell in cellsForAngle"
+       id="path136"
+       inkscape:connector-curvature="0"
+       style="fill:#bbbbbb;stroke:#aaaaaa" />
+    <path
+       class="grid-cell grid-cell-2"
+       d="m 543.33491,504.13891 -17.38617,69.21465 -71.19968,-4.85327 28.83433,-53.45762 z"
+       ng-attr-d="{{cell.toPolygonSVG()}}"
+       ng-class="cell.cssClass"
+       ng-repeat="cell in cellsForAngle"
+       id="path138"
+       inkscape:connector-curvature="0"
+       style="fill:#999999;stroke:#888888" />
+    <path
+       class="grid-cell grid-cell-3"
+       d="m 599.77,545.1414 -41.57006,72.60213 -81.89459,17.10019 49.64339,-61.49016 z"
+       ng-attr-d="{{cell.toPolygonSVG()}}"
+       ng-class="cell.cssClass"
+       ng-repeat="cell in cellsForAngle"
+       id="path140"
+       inkscape:connector-curvature="0"
+       style="fill:#777777;stroke:#666666" />
+  </g>
+  <g
+     ng-if="'GRID' === mode"
+     ng-repeat="cellsForAngle in rosette.cells"
+     id="g142"
+     transform="matrix(0.63387169,0,0,0.60264241,-79.840056,635.00196)">
+    <path
+       class="grid-cell grid-cell-0"
+       d="M 444.16047,460.78167 425.30535,477.88186 400,475.13028 z"
+       ng-attr-d="{{cell.toPolygonSVG()}}"
+       ng-class="cell.cssClass"
+       ng-repeat="cell in cellsForAngle"
+       id="path144"
+       inkscape:connector-curvature="0"
+       style="fill:#dddddd;stroke:#cccccc" />
+    <path
+       class="grid-cell grid-cell-1"
+       d="M 455.46847,476.3458 435.2688,508.5462 400,494.3686 425.30535,477.88186 z"
+       ng-attr-d="{{cell.toPolygonSVG()}}"
+       ng-class="cell.cssClass"
+       ng-repeat="cell in cellsForAngle"
+       id="path146"
+       inkscape:connector-curvature="0"
+       style="fill:#bbbbbb;stroke:#aaaaaa" />
+    <path
+       class="grid-cell grid-cell-2"
+       d="M 483.58339,515.04267 454.74906,568.50029 400,542.20056 435.2688,508.5462 z"
+       ng-attr-d="{{cell.toPolygonSVG()}}"
+       ng-class="cell.cssClass"
+       ng-repeat="cell in cellsForAngle"
+       id="path148"
+       inkscape:connector-curvature="0"
+       style="fill:#999999;stroke:#888888" />
+    <path
+       class="grid-cell grid-cell-3"
+       d="M 525.94874,573.35356 476.30535,634.84372 400,614.27679 l 54.74906,-45.7765 z"
+       ng-attr-d="{{cell.toPolygonSVG()}}"
+       ng-class="cell.cssClass"
+       ng-repeat="cell in cellsForAngle"
+       id="path150"
+       inkscape:connector-curvature="0"
+       style="fill:#777777;stroke:#666666" />
+    <path
+       class="grid-cell grid-cell-4"
+       d="M 558.19994,617.74353 400,669.14581 476.30535,634.84372 z"
+       ng-attr-d="{{cell.toPolygonSVG()}}"
+       ng-class="cell.cssClass"
+       ng-repeat="cell in cellsForAngle"
+       id="path152"
+       inkscape:connector-curvature="0"
+       style="fill:#999999;stroke:#888888" />
+  </g>
+  <g
+     ng-if="'GRID' === mode"
+     ng-repeat="cellsForAngle in rosette.cells"
+     id="g154"
+     transform="matrix(0.63387169,0,0,0.60264241,-79.840056,635.00196)">
+    <path
+       class="grid-cell grid-cell-0"
+       d="M 425.30535,477.88186 400,494.3686 374.69465,477.88186 400,475.13028 z"
+       ng-attr-d="{{cell.toPolygonSVG()}}"
+       ng-class="cell.cssClass"
+       ng-repeat="cell in cellsForAngle"
+       id="path156"
+       inkscape:connector-curvature="0"
+       style="fill:#dddddd;stroke:#cccccc" />
+    <path
+       class="grid-cell grid-cell-1"
+       d="M 435.2688,508.5462 400,542.20056 364.7312,508.5462 400,494.3686 z"
+       ng-attr-d="{{cell.toPolygonSVG()}}"
+       ng-class="cell.cssClass"
+       ng-repeat="cell in cellsForAngle"
+       id="path158"
+       inkscape:connector-curvature="0"
+       style="fill:#bbbbbb;stroke:#aaaaaa" />
+    <path
+       class="grid-cell grid-cell-2"
+       d="M 454.74906,568.50029 400,614.27679 345.25094,568.50029 400,542.20056 z"
+       ng-attr-d="{{cell.toPolygonSVG()}}"
+       ng-class="cell.cssClass"
+       ng-repeat="cell in cellsForAngle"
+       id="path160"
+       inkscape:connector-curvature="0"
+       style="fill:#999999;stroke:#888888" />
+    <path
+       class="grid-cell grid-cell-3"
+       d="M 476.30535,634.84372 400,669.14581 323.69465,634.84372 400,614.27679 z"
+       ng-attr-d="{{cell.toPolygonSVG()}}"
+       ng-class="cell.cssClass"
+       ng-repeat="cell in cellsForAngle"
+       id="path162"
+       inkscape:connector-curvature="0"
+       style="fill:#777777;stroke:#666666" />
+  </g>
+  <g
+     ng-if="'GRID' === mode"
+     ng-repeat="cellsForAngle in rosette.cells"
+     id="g164"
+     transform="matrix(0.63387169,0,0,0.60264241,-79.840056,635.00196)">
+    <path
+       class="grid-cell grid-cell-0"
+       d="m 400,475.13028 -25.30535,2.75158 -18.85512,-17.10019 z"
+       ng-attr-d="{{cell.toPolygonSVG()}}"
+       ng-class="cell.cssClass"
+       ng-repeat="cell in cellsForAngle"
+       id="path166"
+       inkscape:connector-curvature="0"
+       style="fill:#dddddd;stroke:#cccccc" />
+    <path
+       class="grid-cell grid-cell-1"
+       d="m 400,494.3686 -35.2688,14.1776 -20.19967,-32.2004 30.16312,1.53606 z"
+       ng-attr-d="{{cell.toPolygonSVG()}}"
+       ng-class="cell.cssClass"
+       ng-repeat="cell in cellsForAngle"
+       id="path168"
+       inkscape:connector-curvature="0"
+       style="fill:#bbbbbb;stroke:#aaaaaa" />
+    <path
+       class="grid-cell grid-cell-2"
+       d="m 400,542.20056 -54.74906,26.29973 -28.83433,-53.45762 48.31459,-6.49647 z"
+       ng-attr-d="{{cell.toPolygonSVG()}}"
+       ng-class="cell.cssClass"
+       ng-repeat="cell in cellsForAngle"
+       id="path170"
+       inkscape:connector-curvature="0"
+       style="fill:#999999;stroke:#888888" />
+    <path
+       class="grid-cell grid-cell-3"
+       d="m 400,614.27679 -76.30535,20.56693 -49.64339,-61.49016 71.19968,-4.85327 z"
+       ng-attr-d="{{cell.toPolygonSVG()}}"
+       ng-class="cell.cssClass"
+       ng-repeat="cell in cellsForAngle"
+       id="path172"
+       inkscape:connector-curvature="0"
+       style="fill:#777777;stroke:#666666" />
+    <path
+       class="grid-cell grid-cell-4"
+       d="m 400,669.14581 -158.19994,-51.40228 81.89459,17.10019 z"
+       ng-attr-d="{{cell.toPolygonSVG()}}"
+       ng-class="cell.cssClass"
+       ng-repeat="cell in cellsForAngle"
+       id="path174"
+       inkscape:connector-curvature="0"
+       style="fill:#999999;stroke:#888888" />
+  </g>
+  <g
+     ng-if="'GRID' === mode"
+     ng-repeat="cellsForAngle in rosette.cells"
+     id="g176"
+     transform="matrix(0.63387169,0,0,0.60264241,-79.840056,635.00196)">
+    <path
+       class="grid-cell grid-cell-0"
+       d="m 374.69465,477.88186 -30.16312,-1.53606 -10.7818,-28.21216 22.0898,12.64803 z"
+       ng-attr-d="{{cell.toPolygonSVG()}}"
+       ng-class="cell.cssClass"
+       ng-repeat="cell in cellsForAngle"
+       id="path178"
+       inkscape:connector-curvature="0"
+       style="fill:#dddddd;stroke:#cccccc" />
+    <path
+       class="grid-cell grid-cell-1"
+       d="m 364.7312,508.5462 -48.31459,6.49647 -8.75152,-47.95743 36.86644,9.26056 z"
+       ng-attr-d="{{cell.toPolygonSVG()}}"
+       ng-class="cell.cssClass"
+       ng-repeat="cell in cellsForAngle"
+       id="path180"
+       inkscape:connector-curvature="0"
+       style="fill:#bbbbbb;stroke:#aaaaaa" />
+    <path
+       class="grid-cell grid-cell-2"
+       d="m 345.25094,568.50029 -71.19968,4.85327 -17.38617,-69.21465 59.75152,10.90376 z"
+       ng-attr-d="{{cell.toPolygonSVG()}}"
+       ng-class="cell.cssClass"
+       ng-repeat="cell in cellsForAngle"
+       id="path182"
+       inkscape:connector-curvature="0"
+       style="fill:#999999;stroke:#888888" />
+    <path
+       class="grid-cell grid-cell-3"
+       d="M 323.69465,634.84372 241.80006,617.74353 200.23,545.1414 l 73.82126,28.21216 z"
+       ng-attr-d="{{cell.toPolygonSVG()}}"
+       ng-class="cell.cssClass"
+       ng-repeat="cell in cellsForAngle"
+       id="path184"
+       inkscape:connector-curvature="0"
+       style="fill:#777777;stroke:#666666" />
+  </g>
+  <g
+     ng-if="'GRID' === mode"
+     ng-repeat="cellsForAngle in rosette.cells"
+     id="g186"
+     transform="matrix(0.63387169,0,0,0.60264241,-79.840056,635.00196)">
+    <path
+       class="grid-cell grid-cell-0"
+       d="m 355.83953,460.78167 -22.0898,-12.64803 -5.20287,-24.91711 z"
+       ng-attr-d="{{cell.toPolygonSVG()}}"
+       ng-class="cell.cssClass"
+       ng-repeat="cell in cellsForAngle"
+       id="path188"
+       inkscape:connector-curvature="0"
+       style="fill:#dddddd;stroke:#cccccc" />
+    <path
+       class="grid-cell grid-cell-1"
+       d="m 344.53153,476.3458 -36.86644,-9.26056 2.58504,-37.92374 23.4996,18.97214 z"
+       ng-attr-d="{{cell.toPolygonSVG()}}"
+       ng-class="cell.cssClass"
+       ng-repeat="cell in cellsForAngle"
+       id="path190"
+       inkscape:connector-curvature="0"
+       style="fill:#bbbbbb;stroke:#aaaaaa" />
+    <path
+       class="grid-cell grid-cell-2"
+       d="m 316.41661,515.04267 -59.75152,-10.90376 8.09414,-60.19652 42.90586,23.14285 z"
+       ng-attr-d="{{cell.toPolygonSVG()}}"
+       ng-class="cell.cssClass"
+       ng-repeat="cell in cellsForAngle"
+       id="path192"
+       inkscape:connector-curvature="0"
+       style="fill:#999999;stroke:#888888" />
+    <path
+       class="grid-cell grid-cell-3"
+       d="M 274.05126,573.35356 200.23,545.1414 l -4.01934,-78.92623 60.45443,37.92374 z"
+       ng-attr-d="{{cell.toPolygonSVG()}}"
+       ng-class="cell.cssClass"
+       ng-repeat="cell in cellsForAngle"
+       id="path194"
+       inkscape:connector-curvature="0"
+       style="fill:#777777;stroke:#666666" />
+    <path
+       class="grid-cell grid-cell-4"
+       d="M 241.80006,617.74353 144.02712,483.17063 200.23,545.1414 z"
+       ng-attr-d="{{cell.toPolygonSVG()}}"
+       ng-class="cell.cssClass"
+       ng-repeat="cell in cellsForAngle"
+       id="path196"
+       inkscape:connector-curvature="0"
+       style="fill:#999999;stroke:#888888" />
+  </g>
+  <g
+     ng-if="'GRID' === mode"
+     ng-repeat="cellsForAngle in rosette.cells"
+     id="g198"
+     transform="matrix(0.63387169,0,0,0.60264241,-79.840056,635.00196)">
+    <path
+       class="grid-cell grid-cell-0"
+       d="M 333.74973,448.13364 310.25013,429.1615 318.11016,400 l 10.4367,23.21653 z"
+       ng-attr-d="{{cell.toPolygonSVG()}}"
+       ng-class="cell.cssClass"
+       ng-repeat="cell in cellsForAngle"
+       id="path200"
+       inkscape:connector-curvature="0"
+       style="fill:#dddddd;stroke:#cccccc" />
+    <path
+       class="grid-cell grid-cell-1"
+       d="M 307.66509,467.08524 264.75923,443.94239 285.86777,400 l 24.38236,29.1615 z"
+       ng-attr-d="{{cell.toPolygonSVG()}}"
+       ng-class="cell.cssClass"
+       ng-repeat="cell in cellsForAngle"
+       id="path202"
+       inkscape:connector-curvature="0"
+       style="fill:#bbbbbb;stroke:#aaaaaa" />
+    <path
+       class="grid-cell grid-cell-2"
+       d="M 256.66509,504.13891 196.21066,466.21517 222.82831,400 l 41.93092,43.94239 z"
+       ng-attr-d="{{cell.toPolygonSVG()}}"
+       ng-class="cell.cssClass"
+       ng-repeat="cell in cellsForAngle"
+       id="path204"
+       inkscape:connector-curvature="0"
+       style="fill:#999999;stroke:#888888" />
+    <path
+       class="grid-cell grid-cell-3"
+       d="M 200.23,545.1414 144.02712,483.17063 153.0707,400 l 43.13996,66.21517 z"
+       ng-attr-d="{{cell.toPolygonSVG()}}"
+       ng-class="cell.cssClass"
+       ng-repeat="cell in cellsForAngle"
+       id="path206"
+       inkscape:connector-curvature="0"
+       style="fill:#777777;stroke:#666666" />
+  </g>
+  <g
+     ng-if="'GRID' === mode"
+     ng-repeat="cellsForAngle in rosette.cells"
+     id="g208"
+     transform="matrix(0.63387169,0,0,0.60264241,-79.840056,635.00196)">
+    <path
+       class="grid-cell grid-cell-0"
+       d="M 328.54686,423.21653 318.11016,400 l 10.4367,-23.21653 z"
+       ng-attr-d="{{cell.toPolygonSVG()}}"
+       ng-class="cell.cssClass"
+       ng-repeat="cell in cellsForAngle"
+       id="path210"
+       inkscape:connector-curvature="0"
+       style="fill:#dddddd;stroke:#cccccc" />
+    <path
+       class="grid-cell grid-cell-1"
+       d="M 310.25013,429.1615 285.86777,400 310.25013,370.8385 318.11016,400 z"
+       ng-attr-d="{{cell.toPolygonSVG()}}"
+       ng-class="cell.cssClass"
+       ng-repeat="cell in cellsForAngle"
+       id="path212"
+       inkscape:connector-curvature="0"
+       style="fill:#bbbbbb;stroke:#aaaaaa" />
+    <path
+       class="grid-cell grid-cell-2"
+       d="M 264.75923,443.94239 222.82831,400 264.75923,356.05761 285.86777,400 z"
+       ng-attr-d="{{cell.toPolygonSVG()}}"
+       ng-class="cell.cssClass"
+       ng-repeat="cell in cellsForAngle"
+       id="path214"
+       inkscape:connector-curvature="0"
+       style="fill:#999999;stroke:#888888" />
+    <path
+       class="grid-cell grid-cell-3"
+       d="M 196.21066,466.21517 153.0707,400 196.21066,333.78483 222.82831,400 z"
+       ng-attr-d="{{cell.toPolygonSVG()}}"
+       ng-class="cell.cssClass"
+       ng-repeat="cell in cellsForAngle"
+       id="path216"
+       inkscape:connector-curvature="0"
+       style="fill:#777777;stroke:#666666" />
+    <path
+       class="grid-cell grid-cell-4"
+       d="m 144.02712,483.17063 0,-166.34126 L 153.0707,400 z"
+       ng-attr-d="{{cell.toPolygonSVG()}}"
+       ng-class="cell.cssClass"
+       ng-repeat="cell in cellsForAngle"
+       id="path218"
+       inkscape:connector-curvature="0"
+       style="fill:#999999;stroke:#888888" />
+  </g>
+  <g
+     ng-if="'GRID' === mode"
+     ng-repeat="cellsForAngle in rosette.cells"
+     id="g220"
+     transform="matrix(0.63387169,0,0,0.60264241,-79.840056,635.00196)">
+    <path
+       class="grid-cell grid-cell-0"
+       d="m 318.11016,400 -7.86003,-29.1615 23.4996,-18.97214 -5.20287,24.91711 z"
+       ng-attr-d="{{cell.toPolygonSVG()}}"
+       ng-class="cell.cssClass"
+       ng-repeat="cell in cellsForAngle"
+       id="path222"
+       inkscape:connector-curvature="0"
+       style="fill:#dddddd;stroke:#cccccc" />
+    <path
+       class="grid-cell grid-cell-1"
+       d="m 285.86777,400 -21.10854,-43.94239 42.90586,-23.14285 2.58504,37.92374 z"
+       ng-attr-d="{{cell.toPolygonSVG()}}"
+       ng-class="cell.cssClass"
+       ng-repeat="cell in cellsForAngle"
+       id="path224"
+       inkscape:connector-curvature="0"
+       style="fill:#bbbbbb;stroke:#aaaaaa" />
+    <path
+       class="grid-cell grid-cell-2"
+       d="m 222.82831,400 -26.61765,-66.21517 60.45443,-37.92374 8.09414,60.19652 z"
+       ng-attr-d="{{cell.toPolygonSVG()}}"
+       ng-class="cell.cssClass"
+       ng-repeat="cell in cellsForAngle"
+       id="path226"
+       inkscape:connector-curvature="0"
+       style="fill:#999999;stroke:#888888" />
+    <path
+       class="grid-cell grid-cell-3"
+       d="M 153.0707,400 144.02712,316.82937 200.23,254.8586 196.21066,333.78483 z"
+       ng-attr-d="{{cell.toPolygonSVG()}}"
+       ng-class="cell.cssClass"
+       ng-repeat="cell in cellsForAngle"
+       id="path228"
+       inkscape:connector-curvature="0"
+       style="fill:#777777;stroke:#666666" />
+  </g>
+  <g
+     ng-if="plotCellCenters"
+     ng-repeat="cellsForAngle in rosette.cells"
+     id="g230"
+     transform="matrix(0.63387169,0,0,0.60264241,-79.840056,635.00196)">
+    <circle
+       cx="339.37869"
+       cy="355.95605"
+       ng-attr-cx="{{cell.centroid().x}}"
+       ng-attr-cy="{{cell.centroid().y}}"
+       ng-repeat="cell in cellsForAngle"
+       r="2"
+       style="fill:#0000ff"
+       id="circle232"
+       sodipodi:cx="339.37869"
+       sodipodi:cy="355.95605"
+       sodipodi:rx="2"
+       sodipodi:ry="2"
+       d="m 341.37869,355.95605 c 0,1.10457 -0.89543,2 -2,2 -1.10457,0 -2,-0.89543 -2,-2 0,-1.10456 0.89543,-2 2,-2 1.10457,0 2,0.89544 2,2 z" />
+    <circle
+       cx="324.04913"
+       cy="344.81845"
+       ng-attr-cx="{{cell.centroid().x}}"
+       ng-attr-cy="{{cell.centroid().y}}"
+       ng-repeat="cell in cellsForAngle"
+       r="2"
+       style="fill:#0000ff"
+       id="circle234"
+       sodipodi:cx="324.04913"
+       sodipodi:cy="344.81845"
+       sodipodi:rx="2"
+       sodipodi:ry="2"
+       d="m 326.04913,344.81845 c 0,1.10457 -0.89543,2 -2,2 -1.10457,0 -2,-0.89543 -2,-2 0,-1.10457 0.89543,-2 2,-2 1.10457,0 2,0.89543 2,2 z" />
+    <circle
+       cx="286.3765"
+       cy="317.44769"
+       ng-attr-cx="{{cell.centroid().x}}"
+       ng-attr-cy="{{cell.centroid().y}}"
+       ng-repeat="cell in cellsForAngle"
+       r="2"
+       style="fill:#0000ff"
+       id="circle236"
+       sodipodi:cx="286.3765"
+       sodipodi:cy="317.44769"
+       sodipodi:rx="2"
+       sodipodi:ry="2"
+       d="m 288.3765,317.44769 c 0,1.10457 -0.89544,2 -2,2 -1.10457,0 -2,-0.89543 -2,-2 0,-1.10457 0.89543,-2 2,-2 1.10456,0 2,0.89543 2,2 z" />
+    <circle
+       cx="231.78926"
+       cy="277.78775"
+       ng-attr-cx="{{cell.centroid().x}}"
+       ng-attr-cy="{{cell.centroid().y}}"
+       ng-repeat="cell in cellsForAngle"
+       r="2"
+       style="fill:#0000ff"
+       id="circle238"
+       sodipodi:cx="231.78926"
+       sodipodi:cy="277.78775"
+       sodipodi:rx="2"
+       sodipodi:ry="2"
+       d="m 233.78926,277.78775 c 0,1.10457 -0.89543,2 -2,2 -1.10457,0 -2,-0.89543 -2,-2 0,-1.10457 0.89543,-2 2,-2 1.10457,0 2,0.89543 2,2 z" />
+    <circle
+       cx="195.3524"
+       cy="251.3148"
+       ng-attr-cx="{{cell.centroid().x}}"
+       ng-attr-cy="{{cell.centroid().y}}"
+       ng-repeat="cell in cellsForAngle"
+       r="2"
+       style="fill:#0000ff"
+       id="circle240"
+       sodipodi:cx="195.3524"
+       sodipodi:cy="251.3148"
+       sodipodi:rx="2"
+       sodipodi:ry="2"
+       d="m 197.3524,251.3148 c 0,1.10457 -0.89543,2 -2,2 -1.10457,0 -2,-0.89543 -2,-2 0,-1.10457 0.89543,-2 2,-2 1.10457,0 2,0.89543 2,2 z" />
+  </g>
+  <g
+     ng-if="plotCellCenters"
+     ng-repeat="cellsForAngle in rosette.cells"
+     id="g242"
+     transform="matrix(0.63387169,0,0,0.60264241,-79.840056,635.00196)">
+    <circle
+       cx="352.20386"
+       cy="334.21426"
+       ng-attr-cx="{{cell.centroid().x}}"
+       ng-attr-cy="{{cell.centroid().y}}"
+       ng-repeat="cell in cellsForAngle"
+       r="2"
+       style="fill:#0000ff"
+       id="circle244"
+       sodipodi:cx="352.20386"
+       sodipodi:cy="334.21426"
+       sodipodi:rx="2"
+       sodipodi:ry="2"
+       d="m 354.20386,334.21426 c 0,1.10457 -0.89543,2 -2,2 -1.10457,0 -2,-0.89543 -2,-2 0,-1.10457 0.89543,-2 2,-2 1.10457,0 2,0.89543 2,2 z" />
+    <circle
+       cx="333.33612"
+       cy="308.24503"
+       ng-attr-cx="{{cell.centroid().x}}"
+       ng-attr-cy="{{cell.centroid().y}}"
+       ng-repeat="cell in cellsForAngle"
+       r="2"
+       style="fill:#0000ff"
+       id="circle246"
+       sodipodi:cx="333.33612"
+       sodipodi:cy="308.24503"
+       sodipodi:rx="2"
+       sodipodi:ry="2"
+       d="m 335.33612,308.24503 c 0,1.10457 -0.89543,2 -2,2 -1.10457,0 -2,-0.89543 -2,-2 0,-1.10457 0.89543,-2 2,-2 1.10457,0 2,0.89543 2,2 z" />
+    <circle
+       cx="298.09598"
+       cy="259.74115"
+       ng-attr-cx="{{cell.centroid().x}}"
+       ng-attr-cy="{{cell.centroid().y}}"
+       ng-repeat="cell in cellsForAngle"
+       r="2"
+       style="fill:#0000ff"
+       id="circle248"
+       sodipodi:cx="298.09598"
+       sodipodi:cy="259.74115"
+       sodipodi:rx="2"
+       sodipodi:ry="2"
+       d="m 300.09598,259.74115 c 0,1.10457 -0.89543,2 -2,2 -1.10457,0 -2,-0.89543 -2,-2 0,-1.10457 0.89543,-2 2,-2 1.10457,0 2,0.89543 2,2 z" />
+    <circle
+       cx="259.944"
+       cy="207.22945"
+       ng-attr-cx="{{cell.centroid().x}}"
+       ng-attr-cy="{{cell.centroid().y}}"
+       ng-repeat="cell in cellsForAngle"
+       r="2"
+       style="fill:#0000ff"
+       id="circle250"
+       sodipodi:cx="259.944"
+       sodipodi:cy="207.22945"
+       sodipodi:rx="2"
+       sodipodi:ry="2"
+       d="m 261.944,207.22945 c 0,1.10457 -0.89543,2 -2,2 -1.10457,0 -2,-0.89543 -2,-2 0,-1.10457 0.89543,-2 2,-2 1.10457,0 2,0.89543 2,2 z" />
+  </g>
+  <g
+     ng-if="plotCellCenters"
+     ng-repeat="cellsForAngle in rosette.cells"
+     id="g252"
+     transform="matrix(0.63387169,0,0,0.60264241,-79.840056,635.00196)">
+    <circle
+       cx="376.84473"
+       cy="328.73538"
+       ng-attr-cx="{{cell.centroid().x}}"
+       ng-attr-cy="{{cell.centroid().y}}"
+       ng-repeat="cell in cellsForAngle"
+       r="2"
+       style="fill:#0000ff"
+       id="circle254"
+       sodipodi:cx="376.84473"
+       sodipodi:cy="328.73538"
+       sodipodi:rx="2"
+       sodipodi:ry="2"
+       d="m 378.84473,328.73538 c 0,1.10457 -0.89543,2 -2,2 -1.10457,0 -2,-0.89543 -2,-2 0,-1.10457 0.89543,-2 2,-2 1.10457,0 2,0.89543 2,2 z" />
+    <circle
+       cx="370.98935"
+       cy="310.71439"
+       ng-attr-cx="{{cell.centroid().x}}"
+       ng-attr-cy="{{cell.centroid().y}}"
+       ng-repeat="cell in cellsForAngle"
+       r="2"
+       style="fill:#0000ff"
+       id="circle256"
+       sodipodi:cx="370.98935"
+       sodipodi:cy="310.71439"
+       sodipodi:rx="2"
+       sodipodi:ry="2"
+       d="m 372.98935,310.71439 c 0,1.10457 -0.89543,2 -2,2 -1.10457,0 -2,-0.89543 -2,-2 0,-1.10457 0.89543,-2 2,-2 1.10457,0 2,0.89543 2,2 z" />
+    <circle
+       cx="356.5997"
+       cy="266.42758"
+       ng-attr-cx="{{cell.centroid().x}}"
+       ng-attr-cy="{{cell.centroid().y}}"
+       ng-repeat="cell in cellsForAngle"
+       r="2"
+       style="fill:#0000ff"
+       id="circle258"
+       sodipodi:cx="356.5997"
+       sodipodi:cy="266.42758"
+       sodipodi:rx="2"
+       sodipodi:ry="2"
+       d="m 358.5997,266.42758 c 0,1.10457 -0.89543,2 -2,2 -1.10457,0 -2,-0.89543 -2,-2 0,-1.10457 0.89543,-2 2,-2 1.10457,0 2,0.89543 2,2 z" />
+    <circle
+       cx="335.74921"
+       cy="202.25641"
+       ng-attr-cx="{{cell.centroid().x}}"
+       ng-attr-cy="{{cell.centroid().y}}"
+       ng-repeat="cell in cellsForAngle"
+       r="2"
+       style="fill:#0000ff"
+       id="circle260"
+       sodipodi:cx="335.74921"
+       sodipodi:cy="202.25641"
+       sodipodi:rx="2"
+       sodipodi:ry="2"
+       d="m 337.74921,202.25641 c 0,1.10457 -0.89543,2 -2,2 -1.10457,0 -2,-0.89543 -2,-2 0,-1.10457 0.89543,-2 2,-2 1.10457,0 2,0.89543 2,2 z" />
+    <circle
+       cx="321.83157"
+       cy="159.42232"
+       ng-attr-cx="{{cell.centroid().x}}"
+       ng-attr-cy="{{cell.centroid().y}}"
+       ng-repeat="cell in cellsForAngle"
+       r="2"
+       style="fill:#0000ff"
+       id="circle262"
+       sodipodi:cx="321.83157"
+       sodipodi:cy="159.42232"
+       sodipodi:rx="2"
+       sodipodi:ry="2"
+       d="m 323.83157,159.42232 c 0,1.10457 -0.89543,2 -2,2 -1.10457,0 -2,-0.89543 -2,-2 0,-1.10457 0.89543,-2 2,-2 1.10457,0 2,0.89543 2,2 z" />
+  </g>
+  <g
+     ng-if="plotCellCenters"
+     ng-repeat="cellsForAngle in rosette.cells"
+     id="g264"
+     transform="matrix(0.63387169,0,0,0.60264241,-79.840056,635.00196)">
+    <circle
+       cx="400"
+       cy="318.68436"
+       ng-attr-cx="{{cell.centroid().x}}"
+       ng-attr-cy="{{cell.centroid().y}}"
+       ng-repeat="cell in cellsForAngle"
+       r="2"
+       style="fill:#0000ff"
+       id="circle266"
+       sodipodi:cx="400"
+       sodipodi:cy="318.68436"
+       sodipodi:rx="2"
+       sodipodi:ry="2"
+       d="m 402,318.68436 c 0,1.10457 -0.89543,2 -2,2 -1.10457,0 -2,-0.89543 -2,-2 0,-1.10457 0.89543,-2 2,-2 1.10457,0 2,0.89543 2,2 z" />
+    <circle
+       cx="400"
+       cy="286.58463"
+       ng-attr-cx="{{cell.centroid().x}}"
+       ng-attr-cy="{{cell.centroid().y}}"
+       ng-repeat="cell in cellsForAngle"
+       r="2"
+       style="fill:#0000ff"
+       id="circle268"
+       sodipodi:cx="400"
+       sodipodi:cy="286.58463"
+       sodipodi:rx="2"
+       sodipodi:ry="2"
+       d="m 402,286.58463 c 0,1.10456 -0.89543,2 -2,2 -1.10457,0 -2,-0.89544 -2,-2 0,-1.10457 0.89543,-2 2,-2 1.10457,0 2,0.89543 2,2 z" />
+    <circle
+       cx="400"
+       cy="226.63051"
+       ng-attr-cx="{{cell.centroid().x}}"
+       ng-attr-cy="{{cell.centroid().y}}"
+       ng-repeat="cell in cellsForAngle"
+       r="2"
+       style="fill:#0000ff"
+       id="circle270"
+       sodipodi:cx="400"
+       sodipodi:cy="226.63051"
+       sodipodi:rx="2"
+       sodipodi:ry="2"
+       d="m 402,226.63051 c 0,1.10457 -0.89543,2 -2,2 -1.10457,0 -2,-0.89543 -2,-2 0,-1.10457 0.89543,-2 2,-2 1.10457,0 2,0.89543 2,2 z" />
+    <circle
+       cx="400"
+       cy="161.72249"
+       ng-attr-cx="{{cell.centroid().x}}"
+       ng-attr-cy="{{cell.centroid().y}}"
+       ng-repeat="cell in cellsForAngle"
+       r="2"
+       style="fill:#0000ff"
+       id="circle272"
+       sodipodi:cx="400"
+       sodipodi:cy="161.72249"
+       sodipodi:rx="2"
+       sodipodi:ry="2"
+       d="m 402,161.72249 c 0,1.10457 -0.89543,2 -2,2 -1.10457,0 -2,-0.89543 -2,-2 0,-1.10457 0.89543,-2 2,-2 1.10457,0 2,0.89543 2,2 z" />
+  </g>
+  <g
+     ng-if="plotCellCenters"
+     ng-repeat="cellsForAngle in rosette.cells"
+     id="g274"
+     transform="matrix(0.63387169,0,0,0.60264241,-79.840056,635.00196)">
+    <circle
+       cx="423.15527"
+       cy="328.73538"
+       ng-attr-cx="{{cell.centroid().x}}"
+       ng-attr-cy="{{cell.centroid().y}}"
+       ng-repeat="cell in cellsForAngle"
+       r="2"
+       style="fill:#0000ff"
+       id="circle276"
+       sodipodi:cx="423.15527"
+       sodipodi:cy="328.73538"
+       sodipodi:rx="2"
+       sodipodi:ry="2"
+       d="m 425.15527,328.73538 c 0,1.10457 -0.89543,2 -2,2 -1.10457,0 -2,-0.89543 -2,-2 0,-1.10457 0.89543,-2 2,-2 1.10457,0 2,0.89543 2,2 z" />
+    <circle
+       cx="429.01065"
+       cy="310.71439"
+       ng-attr-cx="{{cell.centroid().x}}"
+       ng-attr-cy="{{cell.centroid().y}}"
+       ng-repeat="cell in cellsForAngle"
+       r="2"
+       style="fill:#0000ff"
+       id="circle278"
+       sodipodi:cx="429.01065"
+       sodipodi:cy="310.71439"
+       sodipodi:rx="2"
+       sodipodi:ry="2"
+       d="m 431.01065,310.71439 c 0,1.10457 -0.89543,2 -2,2 -1.10457,0 -2,-0.89543 -2,-2 0,-1.10457 0.89543,-2 2,-2 1.10457,0 2,0.89543 2,2 z" />
+    <circle
+       cx="443.4003"
+       cy="266.42758"
+       ng-attr-cx="{{cell.centroid().x}}"
+       ng-attr-cy="{{cell.centroid().y}}"
+       ng-repeat="cell in cellsForAngle"
+       r="2"
+       style="fill:#0000ff"
+       id="circle280"
+       sodipodi:cx="443.4003"
+       sodipodi:cy="266.42758"
+       sodipodi:rx="2"
+       sodipodi:ry="2"
+       d="m 445.4003,266.42758 c 0,1.10457 -0.89543,2 -2,2 -1.10457,0 -2,-0.89543 -2,-2 0,-1.10457 0.89543,-2 2,-2 1.10457,0 2,0.89543 2,2 z" />
+    <circle
+       cx="464.25079"
+       cy="202.25641"
+       ng-attr-cx="{{cell.centroid().x}}"
+       ng-attr-cy="{{cell.centroid().y}}"
+       ng-repeat="cell in cellsForAngle"
+       r="2"
+       style="fill:#0000ff"
+       id="circle282"
+       sodipodi:cx="464.25079"
+       sodipodi:cy="202.25641"
+       sodipodi:rx="2"
+       sodipodi:ry="2"
+       d="m 466.25079,202.25641 c 0,1.10457 -0.89543,2 -2,2 -1.10457,0 -2,-0.89543 -2,-2 0,-1.10457 0.89543,-2 2,-2 1.10457,0 2,0.89543 2,2 z" />
+    <circle
+       cx="478.16843"
+       cy="159.42232"
+       ng-attr-cx="{{cell.centroid().x}}"
+       ng-attr-cy="{{cell.centroid().y}}"
+       ng-repeat="cell in cellsForAngle"
+       r="2"
+       style="fill:#0000ff"
+       id="circle284"
+       sodipodi:cx="478.16843"
+       sodipodi:cy="159.42232"
+       sodipodi:rx="2"
+       sodipodi:ry="2"
+       d="m 480.16843,159.42232 c 0,1.10457 -0.89543,2 -2,2 -1.10457,0 -2,-0.89543 -2,-2 0,-1.10457 0.89543,-2 2,-2 1.10457,0 2,0.89543 2,2 z" />
+  </g>
+  <g
+     ng-if="plotCellCenters"
+     ng-repeat="cellsForAngle in rosette.cells"
+     id="g286"
+     transform="matrix(0.63387169,0,0,0.60264241,-79.840056,635.00196)">
+    <circle
+       cx="447.79614"
+       cy="334.21426"
+       ng-attr-cx="{{cell.centroid().x}}"
+       ng-attr-cy="{{cell.centroid().y}}"
+       ng-repeat="cell in cellsForAngle"
+       r="2"
+       style="fill:#0000ff"
+       id="circle288"
+       sodipodi:cx="447.79614"
+       sodipodi:cy="334.21426"
+       sodipodi:rx="2"
+       sodipodi:ry="2"
+       d="m 449.79614,334.21426 c 0,1.10457 -0.89543,2 -2,2 -1.10457,0 -2,-0.89543 -2,-2 0,-1.10457 0.89543,-2 2,-2 1.10457,0 2,0.89543 2,2 z" />
+    <circle
+       cx="466.66388"
+       cy="308.24503"
+       ng-attr-cx="{{cell.centroid().x}}"
+       ng-attr-cy="{{cell.centroid().y}}"
+       ng-repeat="cell in cellsForAngle"
+       r="2"
+       style="fill:#0000ff"
+       id="circle290"
+       sodipodi:cx="466.66388"
+       sodipodi:cy="308.24503"
+       sodipodi:rx="2"
+       sodipodi:ry="2"
+       d="m 468.66388,308.24503 c 0,1.10457 -0.89543,2 -2,2 -1.10457,0 -2,-0.89543 -2,-2 0,-1.10457 0.89543,-2 2,-2 1.10457,0 2,0.89543 2,2 z" />
+    <circle
+       cx="501.90402"
+       cy="259.74115"
+       ng-attr-cx="{{cell.centroid().x}}"
+       ng-attr-cy="{{cell.centroid().y}}"
+       ng-repeat="cell in cellsForAngle"
+       r="2"
+       style="fill:#0000ff"
+       id="circle292"
+       sodipodi:cx="501.90402"
+       sodipodi:cy="259.74115"
+       sodipodi:rx="2"
+       sodipodi:ry="2"
+       d="m 503.90402,259.74115 c 0,1.10457 -0.89543,2 -2,2 -1.10457,0 -2,-0.89543 -2,-2 0,-1.10457 0.89543,-2 2,-2 1.10457,0 2,0.89543 2,2 z" />
+    <circle
+       cx="540.05603"
+       cy="207.22945"
+       ng-attr-cx="{{cell.centroid().x}}"
+       ng-attr-cy="{{cell.centroid().y}}"
+       ng-repeat="cell in cellsForAngle"
+       r="2"
+       style="fill:#0000ff"
+       id="circle294"
+       sodipodi:cx="540.05603"
+       sodipodi:cy="207.22945"
+       sodipodi:rx="2"
+       sodipodi:ry="2"
+       d="m 542.05603,207.22945 c 0,1.10457 -0.89543,2 -2,2 -1.10457,0 -2,-0.89543 -2,-2 0,-1.10457 0.89543,-2 2,-2 1.10457,0 2,0.89543 2,2 z" />
+  </g>
+  <g
+     ng-if="plotCellCenters"
+     ng-repeat="cellsForAngle in rosette.cells"
+     id="g296"
+     transform="matrix(0.63387169,0,0,0.60264241,-79.840056,635.00196)">
+    <circle
+       cx="460.62131"
+       cy="355.95605"
+       ng-attr-cx="{{cell.centroid().x}}"
+       ng-attr-cy="{{cell.centroid().y}}"
+       ng-repeat="cell in cellsForAngle"
+       r="2"
+       style="fill:#0000ff"
+       id="circle298"
+       sodipodi:cx="460.62131"
+       sodipodi:cy="355.95605"
+       sodipodi:rx="2"
+       sodipodi:ry="2"
+       d="m 462.62131,355.95605 c 0,1.10457 -0.89543,2 -2,2 -1.10457,0 -2,-0.89543 -2,-2 0,-1.10456 0.89543,-2 2,-2 1.10457,0 2,0.89544 2,2 z" />
+    <circle
+       cx="475.95087"
+       cy="344.81845"
+       ng-attr-cx="{{cell.centroid().x}}"
+       ng-attr-cy="{{cell.centroid().y}}"
+       ng-repeat="cell in cellsForAngle"
+       r="2"
+       style="fill:#0000ff"
+       id="circle300"
+       sodipodi:cx="475.95087"
+       sodipodi:cy="344.81845"
+       sodipodi:rx="2"
+       sodipodi:ry="2"
+       d="m 477.95087,344.81845 c 0,1.10457 -0.89543,2 -2,2 -1.10457,0 -2,-0.89543 -2,-2 0,-1.10457 0.89543,-2 2,-2 1.10457,0 2,0.89543 2,2 z" />
+    <circle
+       cx="513.62347"
+       cy="317.44769"
+       ng-attr-cx="{{cell.centroid().x}}"
+       ng-attr-cy="{{cell.centroid().y}}"
+       ng-repeat="cell in cellsForAngle"
+       r="2"
+       style="fill:#0000ff"
+       id="circle302"
+       sodipodi:cx="513.62347"
+       sodipodi:cy="317.44769"
+       sodipodi:rx="2"
+       sodipodi:ry="2"
+       d="m 515.62347,317.44769 c 0,1.10457 -0.89543,2 -2,2 -1.10457,0 -2,-0.89543 -2,-2 0,-1.10457 0.89543,-2 2,-2 1.10457,0 2,0.89543 2,2 z" />
+    <circle
+       cx="568.21075"
+       cy="277.78775"
+       ng-attr-cx="{{cell.centroid().x}}"
+       ng-attr-cy="{{cell.centroid().y}}"
+       ng-repeat="cell in cellsForAngle"
+       r="2"
+       style="fill:#0000ff"
+       id="circle304"
+       sodipodi:cx="568.21075"
+       sodipodi:cy="277.78775"
+       sodipodi:rx="2"
+       sodipodi:ry="2"
+       d="m 570.21075,277.78775 c 0,1.10457 -0.89543,2 -2,2 -1.10457,0 -2,-0.89543 -2,-2 0,-1.10457 0.89543,-2 2,-2 1.10457,0 2,0.89543 2,2 z" />
+    <circle
+       cx="604.64758"
+       cy="251.3148"
+       ng-attr-cx="{{cell.centroid().x}}"
+       ng-attr-cy="{{cell.centroid().y}}"
+       ng-repeat="cell in cellsForAngle"
+       r="2"
+       style="fill:#0000ff"
+       id="circle306"
+       sodipodi:cx="604.64758"
+       sodipodi:cy="251.3148"
+       sodipodi:rx="2"
+       sodipodi:ry="2"
+       d="m 606.64758,251.3148 c 0,1.10457 -0.89543,2 -2,2 -1.10457,0 -2,-0.89543 -2,-2 0,-1.10457 0.89543,-2 2,-2 1.10457,0 2,0.89543 2,2 z" />
+  </g>
+  <g
+     ng-if="plotCellCenters"
+     ng-repeat="cellsForAngle in rosette.cells"
+     id="g308"
+     transform="matrix(0.63387169,0,0,0.60264241,-79.840056,635.00196)">
+    <circle
+       cx="477.33578"
+       cy="374.87207"
+       ng-attr-cx="{{cell.centroid().x}}"
+       ng-attr-cy="{{cell.centroid().y}}"
+       ng-repeat="cell in cellsForAngle"
+       r="2"
+       style="fill:#0000ff"
+       id="circle310"
+       sodipodi:cx="477.33578"
+       sodipodi:cy="374.87207"
+       sodipodi:rx="2"
+       sodipodi:ry="2"
+       d="m 479.33578,374.87207 c 0,1.10457 -0.89543,2 -2,2 -1.10456,0 -2,-0.89543 -2,-2 0,-1.10457 0.89544,-2 2,-2 1.10457,0 2,0.89543 2,2 z" />
+    <circle
+       cx="507.86444"
+       cy="364.95273"
+       ng-attr-cx="{{cell.centroid().x}}"
+       ng-attr-cy="{{cell.centroid().y}}"
+       ng-repeat="cell in cellsForAngle"
+       r="2"
+       style="fill:#0000ff"
+       id="circle312"
+       sodipodi:cx="507.86444"
+       sodipodi:cy="364.95273"
+       sodipodi:rx="2"
+       sodipodi:ry="2"
+       d="m 509.86444,364.95273 c 0,1.10457 -0.89543,2 -2,2 -1.10457,0 -2,-0.89543 -2,-2 0,-1.10457 0.89543,-2 2,-2 1.10457,0 2,0.89543 2,2 z" />
+    <circle
+       cx="564.88416"
+       cy="346.42587"
+       ng-attr-cx="{{cell.centroid().x}}"
+       ng-attr-cy="{{cell.centroid().y}}"
+       ng-repeat="cell in cellsForAngle"
+       r="2"
+       style="fill:#0000ff"
+       id="circle314"
+       sodipodi:cx="564.88416"
+       sodipodi:cy="346.42587"
+       sodipodi:rx="2"
+       sodipodi:ry="2"
+       d="m 566.88416,346.42587 c 0,1.10457 -0.89544,2 -2,2 -1.10457,0 -2,-0.89543 -2,-2 0,-1.10457 0.89543,-2 2,-2 1.10456,0 2,0.89543 2,2 z" />
+    <circle
+       cx="626.61536"
+       cy="326.36819"
+       ng-attr-cx="{{cell.centroid().x}}"
+       ng-attr-cy="{{cell.centroid().y}}"
+       ng-repeat="cell in cellsForAngle"
+       r="2"
+       style="fill:#0000ff"
+       id="circle316"
+       sodipodi:cx="626.61536"
+       sodipodi:cy="326.36819"
+       sodipodi:rx="2"
+       sodipodi:ry="2"
+       d="m 628.61536,326.36819 c 0,1.10457 -0.89543,2 -2,2 -1.10457,0 -2,-0.89543 -2,-2 0,-1.10456 0.89543,-2 2,-2 1.10457,0 2,0.89544 2,2 z" />
+  </g>
+  <g
+     ng-if="plotCellCenters"
+     ng-repeat="cellsForAngle in rosette.cells"
+     id="g318"
+     transform="matrix(0.63387169,0,0,0.60264241,-79.840056,635.00196)">
+    <circle
+       cx="474.93204"
+       cy="400"
+       ng-attr-cx="{{cell.centroid().x}}"
+       ng-attr-cy="{{cell.centroid().y}}"
+       ng-repeat="cell in cellsForAngle"
+       r="2"
+       style="fill:#0000ff"
+       id="circle320"
+       sodipodi:cx="474.93204"
+       sodipodi:cy="400"
+       sodipodi:rx="2"
+       sodipodi:ry="2"
+       d="m 476.93204,400 c 0,1.10457 -0.89543,2 -2,2 -1.10457,0 -2,-0.89543 -2,-2 0,-1.10457 0.89543,-2 2,-2 1.10457,0 2,0.89543 2,2 z" />
+    <circle
+       cx="493.88046"
+       cy="400"
+       ng-attr-cx="{{cell.centroid().x}}"
+       ng-attr-cy="{{cell.centroid().y}}"
+       ng-repeat="cell in cellsForAngle"
+       r="2"
+       style="fill:#0000ff"
+       id="circle322"
+       sodipodi:cx="493.88046"
+       sodipodi:cy="400"
+       sodipodi:rx="2"
+       sodipodi:ry="2"
+       d="m 495.88046,400 c 0,1.10457 -0.89543,2 -2,2 -1.10457,0 -2,-0.89543 -2,-2 0,-1.10457 0.89543,-2 2,-2 1.10457,0 2,0.89543 2,2 z" />
+    <circle
+       cx="540.44635"
+       cy="400"
+       ng-attr-cx="{{cell.centroid().x}}"
+       ng-attr-cy="{{cell.centroid().y}}"
+       ng-repeat="cell in cellsForAngle"
+       r="2"
+       style="fill:#0000ff"
+       id="circle324"
+       sodipodi:cx="540.44635"
+       sodipodi:cy="400"
+       sodipodi:rx="2"
+       sodipodi:ry="2"
+       d="m 542.44635,400 c 0,1.10457 -0.89543,2 -2,2 -1.10457,0 -2,-0.89543 -2,-2 0,-1.10457 0.89543,-2 2,-2 1.10457,0 2,0.89543 2,2 z" />
+    <circle
+       cx="607.91992"
+       cy="400"
+       ng-attr-cx="{{cell.centroid().x}}"
+       ng-attr-cy="{{cell.centroid().y}}"
+       ng-repeat="cell in cellsForAngle"
+       r="2"
+       style="fill:#0000ff"
+       id="circle326"
+       sodipodi:cx="607.91992"
+       sodipodi:cy="400"
+       sodipodi:rx="2"
+       sodipodi:ry="2"
+       d="m 609.91992,400 c 0,1.10457 -0.89543,2 -2,2 -1.10457,0 -2,-0.89543 -2,-2 0,-1.10457 0.89543,-2 2,-2 1.10457,0 2,0.89543 2,2 z" />
+    <circle
+       cx="652.95837"
+       cy="400"
+       ng-attr-cx="{{cell.centroid().x}}"
+       ng-attr-cy="{{cell.centroid().y}}"
+       ng-repeat="cell in cellsForAngle"
+       r="2"
+       style="fill:#0000ff"
+       id="circle328"
+       sodipodi:cx="652.95837"
+       sodipodi:cy="400"
+       sodipodi:rx="2"
+       sodipodi:ry="2"
+       d="m 654.95837,400 c 0,1.10457 -0.89543,2 -2,2 -1.10457,0 -2,-0.89543 -2,-2 0,-1.10457 0.89543,-2 2,-2 1.10457,0 2,0.89543 2,2 z" />
+  </g>
+  <g
+     ng-if="plotCellCenters"
+     ng-repeat="cellsForAngle in rosette.cells"
+     id="g330"
+     transform="matrix(0.63387169,0,0,0.60264241,-79.840056,635.00196)">
+    <circle
+       cx="477.33578"
+       cy="425.12793"
+       ng-attr-cx="{{cell.centroid().x}}"
+       ng-attr-cy="{{cell.centroid().y}}"
+       ng-repeat="cell in cellsForAngle"
+       r="2"
+       style="fill:#0000ff"
+       id="circle332"
+       sodipodi:cx="477.33578"
+       sodipodi:cy="425.12793"
+       sodipodi:rx="2"
+       sodipodi:ry="2"
+       d="m 479.33578,425.12793 c 0,1.10457 -0.89543,2 -2,2 -1.10456,0 -2,-0.89543 -2,-2 0,-1.10457 0.89544,-2 2,-2 1.10457,0 2,0.89543 2,2 z" />
+    <circle
+       cx="507.86444"
+       cy="435.04727"
+       ng-attr-cx="{{cell.centroid().x}}"
+       ng-attr-cy="{{cell.centroid().y}}"
+       ng-repeat="cell in cellsForAngle"
+       r="2"
+       style="fill:#0000ff"
+       id="circle334"
+       sodipodi:cx="507.86444"
+       sodipodi:cy="435.04727"
+       sodipodi:rx="2"
+       sodipodi:ry="2"
+       d="m 509.86444,435.04727 c 0,1.10457 -0.89543,2 -2,2 -1.10457,0 -2,-0.89543 -2,-2 0,-1.10457 0.89543,-2 2,-2 1.10457,0 2,0.89543 2,2 z" />
+    <circle
+       cx="564.88416"
+       cy="453.57413"
+       ng-attr-cx="{{cell.centroid().x}}"
+       ng-attr-cy="{{cell.centroid().y}}"
+       ng-repeat="cell in cellsForAngle"
+       r="2"
+       style="fill:#0000ff"
+       id="circle336"
+       sodipodi:cx="564.88416"
+       sodipodi:cy="453.57413"
+       sodipodi:rx="2"
+       sodipodi:ry="2"
+       d="m 566.88416,453.57413 c 0,1.10457 -0.89544,2 -2,2 -1.10457,0 -2,-0.89543 -2,-2 0,-1.10457 0.89543,-2 2,-2 1.10456,0 2,0.89543 2,2 z" />
+    <circle
+       cx="626.61536"
+       cy="473.63181"
+       ng-attr-cx="{{cell.centroid().x}}"
+       ng-attr-cy="{{cell.centroid().y}}"
+       ng-repeat="cell in cellsForAngle"
+       r="2"
+       style="fill:#0000ff"
+       id="circle338"
+       sodipodi:cx="626.61536"
+       sodipodi:cy="473.63181"
+       sodipodi:rx="2"
+       sodipodi:ry="2"
+       d="m 628.61536,473.63181 c 0,1.10456 -0.89543,2 -2,2 -1.10457,0 -2,-0.89544 -2,-2 0,-1.10457 0.89543,-2 2,-2 1.10457,0 2,0.89543 2,2 z" />
+  </g>
+  <g
+     ng-if="plotCellCenters"
+     ng-repeat="cellsForAngle in rosette.cells"
+     id="g340"
+     transform="matrix(0.63387169,0,0,0.60264241,-79.840056,635.00196)">
+    <circle
+       cx="460.62131"
+       cy="444.04395"
+       ng-attr-cx="{{cell.centroid().x}}"
+       ng-attr-cy="{{cell.centroid().y}}"
+       ng-repeat="cell in cellsForAngle"
+       r="2"
+       style="fill:#0000ff"
+       id="circle342"
+       sodipodi:cx="460.62131"
+       sodipodi:cy="444.04395"
+       sodipodi:rx="2"
+       sodipodi:ry="2"
+       d="m 462.62131,444.04395 c 0,1.10456 -0.89543,2 -2,2 -1.10457,0 -2,-0.89544 -2,-2 0,-1.10457 0.89543,-2 2,-2 1.10457,0 2,0.89543 2,2 z" />
+    <circle
+       cx="475.95087"
+       cy="455.18155"
+       ng-attr-cx="{{cell.centroid().x}}"
+       ng-attr-cy="{{cell.centroid().y}}"
+       ng-repeat="cell in cellsForAngle"
+       r="2"
+       style="fill:#0000ff"
+       id="circle344"
+       sodipodi:cx="475.95087"
+       sodipodi:cy="455.18155"
+       sodipodi:rx="2"
+       sodipodi:ry="2"
+       d="m 477.95087,455.18155 c 0,1.10457 -0.89543,2 -2,2 -1.10457,0 -2,-0.89543 -2,-2 0,-1.10457 0.89543,-2 2,-2 1.10457,0 2,0.89543 2,2 z" />
+    <circle
+       cx="513.62347"
+       cy="482.55231"
+       ng-attr-cx="{{cell.centroid().x}}"
+       ng-attr-cy="{{cell.centroid().y}}"
+       ng-repeat="cell in cellsForAngle"
+       r="2"
+       style="fill:#0000ff"
+       id="circle346"
+       sodipodi:cx="513.62347"
+       sodipodi:cy="482.55231"
+       sodipodi:rx="2"
+       sodipodi:ry="2"
+       d="m 515.62347,482.55231 c 0,1.10457 -0.89543,2 -2,2 -1.10457,0 -2,-0.89543 -2,-2 0,-1.10457 0.89543,-2 2,-2 1.10457,0 2,0.89543 2,2 z" />
+    <circle
+       cx="568.21075"
+       cy="522.21228"
+       ng-attr-cx="{{cell.centroid().x}}"
+       ng-attr-cy="{{cell.centroid().y}}"
+       ng-repeat="cell in cellsForAngle"
+       r="2"
+       style="fill:#0000ff"
+       id="circle348"
+       sodipodi:cx="568.21075"
+       sodipodi:cy="522.21228"
+       sodipodi:rx="2"
+       sodipodi:ry="2"
+       d="m 570.21075,522.21228 c 0,1.10457 -0.89543,2 -2,2 -1.10457,0 -2,-0.89543 -2,-2 0,-1.10457 0.89543,-2 2,-2 1.10457,0 2,0.89543 2,2 z" />
+    <circle
+       cx="604.64758"
+       cy="548.68518"
+       ng-attr-cx="{{cell.centroid().x}}"
+       ng-attr-cy="{{cell.centroid().y}}"
+       ng-repeat="cell in cellsForAngle"
+       r="2"
+       style="fill:#0000ff"
+       id="circle350"
+       sodipodi:cx="604.64758"
+       sodipodi:cy="548.68518"
+       sodipodi:rx="2"
+       sodipodi:ry="2"
+       d="m 606.64758,548.68518 c 0,1.10457 -0.89543,2 -2,2 -1.10457,0 -2,-0.89543 -2,-2 0,-1.10457 0.89543,-2 2,-2 1.10457,0 2,0.89543 2,2 z" />
+  </g>
+  <g
+     ng-if="plotCellCenters"
+     ng-repeat="cellsForAngle in rosette.cells"
+     id="g352"
+     transform="matrix(0.63387169,0,0,0.60264241,-79.840056,635.00196)">
+    <circle
+       cx="447.79614"
+       cy="465.78574"
+       ng-attr-cx="{{cell.centroid().x}}"
+       ng-attr-cy="{{cell.centroid().y}}"
+       ng-repeat="cell in cellsForAngle"
+       r="2"
+       style="fill:#0000ff"
+       id="circle354"
+       sodipodi:cx="447.79614"
+       sodipodi:cy="465.78574"
+       sodipodi:rx="2"
+       sodipodi:ry="2"
+       d="m 449.79614,465.78574 c 0,1.10457 -0.89543,2 -2,2 -1.10457,0 -2,-0.89543 -2,-2 0,-1.10457 0.89543,-2 2,-2 1.10457,0 2,0.89543 2,2 z" />
+    <circle
+       cx="466.66388"
+       cy="491.75497"
+       ng-attr-cx="{{cell.centroid().x}}"
+       ng-attr-cy="{{cell.centroid().y}}"
+       ng-repeat="cell in cellsForAngle"
+       r="2"
+       style="fill:#0000ff"
+       id="circle356"
+       sodipodi:cx="466.66388"
+       sodipodi:cy="491.75497"
+       sodipodi:rx="2"
+       sodipodi:ry="2"
+       d="m 468.66388,491.75497 c 0,1.10457 -0.89543,2 -2,2 -1.10457,0 -2,-0.89543 -2,-2 0,-1.10457 0.89543,-2 2,-2 1.10457,0 2,0.89543 2,2 z" />
+    <circle
+       cx="501.90402"
+       cy="540.25885"
+       ng-attr-cx="{{cell.centroid().x}}"
+       ng-attr-cy="{{cell.centroid().y}}"
+       ng-repeat="cell in cellsForAngle"
+       r="2"
+       style="fill:#0000ff"
+       id="circle358"
+       sodipodi:cx="501.90402"
+       sodipodi:cy="540.25885"
+       sodipodi:rx="2"
+       sodipodi:ry="2"
+       d="m 503.90402,540.25885 c 0,1.10457 -0.89543,2 -2,2 -1.10457,0 -2,-0.89543 -2,-2 0,-1.10457 0.89543,-2 2,-2 1.10457,0 2,0.89543 2,2 z" />
+    <circle
+       cx="540.05603"
+       cy="592.77057"
+       ng-attr-cx="{{cell.centroid().x}}"
+       ng-attr-cy="{{cell.centroid().y}}"
+       ng-repeat="cell in cellsForAngle"
+       r="2"
+       style="fill:#0000ff"
+       id="circle360"
+       sodipodi:cx="540.05603"
+       sodipodi:cy="592.77057"
+       sodipodi:rx="2"
+       sodipodi:ry="2"
+       d="m 542.05603,592.77057 c 0,1.10457 -0.89543,2 -2,2 -1.10457,0 -2,-0.89543 -2,-2 0,-1.10457 0.89543,-2 2,-2 1.10457,0 2,0.89543 2,2 z" />
+  </g>
+  <g
+     ng-if="plotCellCenters"
+     ng-repeat="cellsForAngle in rosette.cells"
+     id="g362"
+     transform="matrix(0.63387169,0,0,0.60264241,-79.840056,635.00196)">
+    <circle
+       cx="423.15527"
+       cy="471.26462"
+       ng-attr-cx="{{cell.centroid().x}}"
+       ng-attr-cy="{{cell.centroid().y}}"
+       ng-repeat="cell in cellsForAngle"
+       r="2"
+       style="fill:#0000ff"
+       id="circle364"
+       sodipodi:cx="423.15527"
+       sodipodi:cy="471.26462"
+       sodipodi:rx="2"
+       sodipodi:ry="2"
+       d="m 425.15527,471.26462 c 0,1.10457 -0.89543,2 -2,2 -1.10457,0 -2,-0.89543 -2,-2 0,-1.10457 0.89543,-2 2,-2 1.10457,0 2,0.89543 2,2 z" />
+    <circle
+       cx="429.01065"
+       cy="489.28561"
+       ng-attr-cx="{{cell.centroid().x}}"
+       ng-attr-cy="{{cell.centroid().y}}"
+       ng-repeat="cell in cellsForAngle"
+       r="2"
+       style="fill:#0000ff"
+       id="circle366"
+       sodipodi:cx="429.01065"
+       sodipodi:cy="489.28561"
+       sodipodi:rx="2"
+       sodipodi:ry="2"
+       d="m 431.01065,489.28561 c 0,1.10457 -0.89543,2 -2,2 -1.10457,0 -2,-0.89543 -2,-2 0,-1.10457 0.89543,-2 2,-2 1.10457,0 2,0.89543 2,2 z" />
+    <circle
+       cx="443.4003"
+       cy="533.57245"
+       ng-attr-cx="{{cell.centroid().x}}"
+       ng-attr-cy="{{cell.centroid().y}}"
+       ng-repeat="cell in cellsForAngle"
+       r="2"
+       style="fill:#0000ff"
+       id="circle368"
+       sodipodi:cx="443.4003"
+       sodipodi:cy="533.57245"
+       sodipodi:rx="2"
+       sodipodi:ry="2"
+       d="m 445.4003,533.57245 c 0,1.10457 -0.89543,2 -2,2 -1.10457,0 -2,-0.89543 -2,-2 0,-1.10457 0.89543,-2 2,-2 1.10457,0 2,0.89543 2,2 z" />
+    <circle
+       cx="464.25079"
+       cy="597.74359"
+       ng-attr-cx="{{cell.centroid().x}}"
+       ng-attr-cy="{{cell.centroid().y}}"
+       ng-repeat="cell in cellsForAngle"
+       r="2"
+       style="fill:#0000ff"
+       id="circle370"
+       sodipodi:cx="464.25079"
+       sodipodi:cy="597.74359"
+       sodipodi:rx="2"
+       sodipodi:ry="2"
+       d="m 466.25079,597.74359 c 0,1.10457 -0.89543,2 -2,2 -1.10457,0 -2,-0.89543 -2,-2 0,-1.10457 0.89543,-2 2,-2 1.10457,0 2,0.89543 2,2 z" />
+    <circle
+       cx="478.16843"
+       cy="640.5777"
+       ng-attr-cx="{{cell.centroid().x}}"
+       ng-attr-cy="{{cell.centroid().y}}"
+       ng-repeat="cell in cellsForAngle"
+       r="2"
+       style="fill:#0000ff"
+       id="circle372"
+       sodipodi:cx="478.16843"
+       sodipodi:cy="640.5777"
+       sodipodi:rx="2"
+       sodipodi:ry="2"
+       d="m 480.16843,640.5777 c 0,1.10457 -0.89543,2 -2,2 -1.10457,0 -2,-0.89543 -2,-2 0,-1.10457 0.89543,-2 2,-2 1.10457,0 2,0.89543 2,2 z" />
+  </g>
+  <g
+     ng-if="plotCellCenters"
+     ng-repeat="cellsForAngle in rosette.cells"
+     id="g374"
+     transform="matrix(0.63387169,0,0,0.60264241,-79.840056,635.00196)">
+    <circle
+       cx="400"
+       cy="481.31564"
+       ng-attr-cx="{{cell.centroid().x}}"
+       ng-attr-cy="{{cell.centroid().y}}"
+       ng-repeat="cell in cellsForAngle"
+       r="2"
+       style="fill:#0000ff"
+       id="circle376"
+       sodipodi:cx="400"
+       sodipodi:cy="481.31564"
+       sodipodi:rx="2"
+       sodipodi:ry="2"
+       d="m 402,481.31564 c 0,1.10457 -0.89543,2 -2,2 -1.10457,0 -2,-0.89543 -2,-2 0,-1.10457 0.89543,-2 2,-2 1.10457,0 2,0.89543 2,2 z" />
+    <circle
+       cx="400"
+       cy="513.41541"
+       ng-attr-cx="{{cell.centroid().x}}"
+       ng-attr-cy="{{cell.centroid().y}}"
+       ng-repeat="cell in cellsForAngle"
+       r="2"
+       style="fill:#0000ff"
+       id="circle378"
+       sodipodi:cx="400"
+       sodipodi:cy="513.41541"
+       sodipodi:rx="2"
+       sodipodi:ry="2"
+       d="m 402,513.41541 c 0,1.10456 -0.89543,2 -2,2 -1.10457,0 -2,-0.89544 -2,-2 0,-1.10457 0.89543,-2 2,-2 1.10457,0 2,0.89543 2,2 z" />
+    <circle
+       cx="400"
+       cy="573.36951"
+       ng-attr-cx="{{cell.centroid().x}}"
+       ng-attr-cy="{{cell.centroid().y}}"
+       ng-repeat="cell in cellsForAngle"
+       r="2"
+       style="fill:#0000ff"
+       id="circle380"
+       sodipodi:cx="400"
+       sodipodi:cy="573.36951"
+       sodipodi:rx="2"
+       sodipodi:ry="2"
+       d="m 402,573.36951 c 0,1.10457 -0.89543,2 -2,2 -1.10457,0 -2,-0.89543 -2,-2 0,-1.10457 0.89543,-2 2,-2 1.10457,0 2,0.89543 2,2 z" />
+    <circle
+       cx="400"
+       cy="638.27753"
+       ng-attr-cx="{{cell.centroid().x}}"
+       ng-attr-cy="{{cell.centroid().y}}"
+       ng-repeat="cell in cellsForAngle"
+       r="2"
+       style="fill:#0000ff"
+       id="circle382"
+       sodipodi:cx="400"
+       sodipodi:cy="638.27753"
+       sodipodi:rx="2"
+       sodipodi:ry="2"
+       d="m 402,638.27753 c 0,1.10457 -0.89543,2 -2,2 -1.10457,0 -2,-0.89543 -2,-2 0,-1.10457 0.89543,-2 2,-2 1.10457,0 2,0.89543 2,2 z" />
+  </g>
+  <g
+     ng-if="plotCellCenters"
+     ng-repeat="cellsForAngle in rosette.cells"
+     id="g384"
+     transform="matrix(0.63387169,0,0,0.60264241,-79.840056,635.00196)">
+    <circle
+       cx="376.84473"
+       cy="471.26462"
+       ng-attr-cx="{{cell.centroid().x}}"
+       ng-attr-cy="{{cell.centroid().y}}"
+       ng-repeat="cell in cellsForAngle"
+       r="2"
+       style="fill:#0000ff"
+       id="circle386"
+       sodipodi:cx="376.84473"
+       sodipodi:cy="471.26462"
+       sodipodi:rx="2"
+       sodipodi:ry="2"
+       d="m 378.84473,471.26462 c 0,1.10457 -0.89543,2 -2,2 -1.10457,0 -2,-0.89543 -2,-2 0,-1.10457 0.89543,-2 2,-2 1.10457,0 2,0.89543 2,2 z" />
+    <circle
+       cx="370.98935"
+       cy="489.28561"
+       ng-attr-cx="{{cell.centroid().x}}"
+       ng-attr-cy="{{cell.centroid().y}}"
+       ng-repeat="cell in cellsForAngle"
+       r="2"
+       style="fill:#0000ff"
+       id="circle388"
+       sodipodi:cx="370.98935"
+       sodipodi:cy="489.28561"
+       sodipodi:rx="2"
+       sodipodi:ry="2"
+       d="m 372.98935,489.28561 c 0,1.10457 -0.89543,2 -2,2 -1.10457,0 -2,-0.89543 -2,-2 0,-1.10457 0.89543,-2 2,-2 1.10457,0 2,0.89543 2,2 z" />
+    <circle
+       cx="356.5997"
+       cy="533.57245"
+       ng-attr-cx="{{cell.centroid().x}}"
+       ng-attr-cy="{{cell.centroid().y}}"
+       ng-repeat="cell in cellsForAngle"
+       r="2"
+       style="fill:#0000ff"
+       id="circle390"
+       sodipodi:cx="356.5997"
+       sodipodi:cy="533.57245"
+       sodipodi:rx="2"
+       sodipodi:ry="2"
+       d="m 358.5997,533.57245 c 0,1.10457 -0.89543,2 -2,2 -1.10457,0 -2,-0.89543 -2,-2 0,-1.10457 0.89543,-2 2,-2 1.10457,0 2,0.89543 2,2 z" />
+    <circle
+       cx="335.74921"
+       cy="597.74359"
+       ng-attr-cx="{{cell.centroid().x}}"
+       ng-attr-cy="{{cell.centroid().y}}"
+       ng-repeat="cell in cellsForAngle"
+       r="2"
+       style="fill:#0000ff"
+       id="circle392"
+       sodipodi:cx="335.74921"
+       sodipodi:cy="597.74359"
+       sodipodi:rx="2"
+       sodipodi:ry="2"
+       d="m 337.74921,597.74359 c 0,1.10457 -0.89543,2 -2,2 -1.10457,0 -2,-0.89543 -2,-2 0,-1.10457 0.89543,-2 2,-2 1.10457,0 2,0.89543 2,2 z" />
+    <circle
+       cx="321.83157"
+       cy="640.5777"
+       ng-attr-cx="{{cell.centroid().x}}"
+       ng-attr-cy="{{cell.centroid().y}}"
+       ng-repeat="cell in cellsForAngle"
+       r="2"
+       style="fill:#0000ff"
+       id="circle394"
+       sodipodi:cx="321.83157"
+       sodipodi:cy="640.5777"
+       sodipodi:rx="2"
+       sodipodi:ry="2"
+       d="m 323.83157,640.5777 c 0,1.10457 -0.89543,2 -2,2 -1.10457,0 -2,-0.89543 -2,-2 0,-1.10457 0.89543,-2 2,-2 1.10457,0 2,0.89543 2,2 z" />
+  </g>
+  <g
+     ng-if="plotCellCenters"
+     ng-repeat="cellsForAngle in rosette.cells"
+     id="g396"
+     transform="matrix(0.63387169,0,0,0.60264241,-79.840056,635.00196)">
+    <circle
+       cx="352.20386"
+       cy="465.78574"
+       ng-attr-cx="{{cell.centroid().x}}"
+       ng-attr-cy="{{cell.centroid().y}}"
+       ng-repeat="cell in cellsForAngle"
+       r="2"
+       style="fill:#0000ff"
+       id="circle398"
+       sodipodi:cx="352.20386"
+       sodipodi:cy="465.78574"
+       sodipodi:rx="2"
+       sodipodi:ry="2"
+       d="m 354.20386,465.78574 c 0,1.10457 -0.89543,2 -2,2 -1.10457,0 -2,-0.89543 -2,-2 0,-1.10457 0.89543,-2 2,-2 1.10457,0 2,0.89543 2,2 z" />
+    <circle
+       cx="333.33612"
+       cy="491.75497"
+       ng-attr-cx="{{cell.centroid().x}}"
+       ng-attr-cy="{{cell.centroid().y}}"
+       ng-repeat="cell in cellsForAngle"
+       r="2"
+       style="fill:#0000ff"
+       id="circle400"
+       sodipodi:cx="333.33612"
+       sodipodi:cy="491.75497"
+       sodipodi:rx="2"
+       sodipodi:ry="2"
+       d="m 335.33612,491.75497 c 0,1.10457 -0.89543,2 -2,2 -1.10457,0 -2,-0.89543 -2,-2 0,-1.10457 0.89543,-2 2,-2 1.10457,0 2,0.89543 2,2 z" />
+    <circle
+       cx="298.09598"
+       cy="540.25885"
+       ng-attr-cx="{{cell.centroid().x}}"
+       ng-attr-cy="{{cell.centroid().y}}"
+       ng-repeat="cell in cellsForAngle"
+       r="2"
+       style="fill:#0000ff"
+       id="circle402"
+       sodipodi:cx="298.09598"
+       sodipodi:cy="540.25885"
+       sodipodi:rx="2"
+       sodipodi:ry="2"
+       d="m 300.09598,540.25885 c 0,1.10457 -0.89543,2 -2,2 -1.10457,0 -2,-0.89543 -2,-2 0,-1.10457 0.89543,-2 2,-2 1.10457,0 2,0.89543 2,2 z" />
+    <circle
+       cx="259.944"
+       cy="592.77057"
+       ng-attr-cx="{{cell.centroid().x}}"
+       ng-attr-cy="{{cell.centroid().y}}"
+       ng-repeat="cell in cellsForAngle"
+       r="2"
+       style="fill:#0000ff"
+       id="circle404"
+       sodipodi:cx="259.944"
+       sodipodi:cy="592.77057"
+       sodipodi:rx="2"
+       sodipodi:ry="2"
+       d="m 261.944,592.77057 c 0,1.10457 -0.89543,2 -2,2 -1.10457,0 -2,-0.89543 -2,-2 0,-1.10457 0.89543,-2 2,-2 1.10457,0 2,0.89543 2,2 z" />
+  </g>
+  <g
+     ng-if="plotCellCenters"
+     ng-repeat="cellsForAngle in rosette.cells"
+     id="g406"
+     transform="matrix(0.63387169,0,0,0.60264241,-79.840056,635.00196)">
+    <circle
+       cx="339.37869"
+       cy="444.04395"
+       ng-attr-cx="{{cell.centroid().x}}"
+       ng-attr-cy="{{cell.centroid().y}}"
+       ng-repeat="cell in cellsForAngle"
+       r="2"
+       style="fill:#0000ff"
+       id="circle408"
+       sodipodi:cx="339.37869"
+       sodipodi:cy="444.04395"
+       sodipodi:rx="2"
+       sodipodi:ry="2"
+       d="m 341.37869,444.04395 c 0,1.10456 -0.89543,2 -2,2 -1.10457,0 -2,-0.89544 -2,-2 0,-1.10457 0.89543,-2 2,-2 1.10457,0 2,0.89543 2,2 z" />
+    <circle
+       cx="324.04913"
+       cy="455.18155"
+       ng-attr-cx="{{cell.centroid().x}}"
+       ng-attr-cy="{{cell.centroid().y}}"
+       ng-repeat="cell in cellsForAngle"
+       r="2"
+       style="fill:#0000ff"
+       id="circle410"
+       sodipodi:cx="324.04913"
+       sodipodi:cy="455.18155"
+       sodipodi:rx="2"
+       sodipodi:ry="2"
+       d="m 326.04913,455.18155 c 0,1.10457 -0.89543,2 -2,2 -1.10457,0 -2,-0.89543 -2,-2 0,-1.10457 0.89543,-2 2,-2 1.10457,0 2,0.89543 2,2 z" />
+    <circle
+       cx="286.3765"
+       cy="482.55231"
+       ng-attr-cx="{{cell.centroid().x}}"
+       ng-attr-cy="{{cell.centroid().y}}"
+       ng-repeat="cell in cellsForAngle"
+       r="2"
+       style="fill:#0000ff"
+       id="circle412"
+       sodipodi:cx="286.3765"
+       sodipodi:cy="482.55231"
+       sodipodi:rx="2"
+       sodipodi:ry="2"
+       d="m 288.3765,482.55231 c 0,1.10457 -0.89544,2 -2,2 -1.10457,0 -2,-0.89543 -2,-2 0,-1.10457 0.89543,-2 2,-2 1.10456,0 2,0.89543 2,2 z" />
+    <circle
+       cx="231.78926"
+       cy="522.21228"
+       ng-attr-cx="{{cell.centroid().x}}"
+       ng-attr-cy="{{cell.centroid().y}}"
+       ng-repeat="cell in cellsForAngle"
+       r="2"
+       style="fill:#0000ff"
+       id="circle414"
+       sodipodi:cx="231.78926"
+       sodipodi:cy="522.21228"
+       sodipodi:rx="2"
+       sodipodi:ry="2"
+       d="m 233.78926,522.21228 c 0,1.10457 -0.89543,2 -2,2 -1.10457,0 -2,-0.89543 -2,-2 0,-1.10457 0.89543,-2 2,-2 1.10457,0 2,0.89543 2,2 z" />
+    <circle
+       cx="195.3524"
+       cy="548.68518"
+       ng-attr-cx="{{cell.centroid().x}}"
+       ng-attr-cy="{{cell.centroid().y}}"
+       ng-repeat="cell in cellsForAngle"
+       r="2"
+       style="fill:#0000ff"
+       id="circle416"
+       sodipodi:cx="195.3524"
+       sodipodi:cy="548.68518"
+       sodipodi:rx="2"
+       sodipodi:ry="2"
+       d="m 197.3524,548.68518 c 0,1.10457 -0.89543,2 -2,2 -1.10457,0 -2,-0.89543 -2,-2 0,-1.10457 0.89543,-2 2,-2 1.10457,0 2,0.89543 2,2 z" />
+  </g>
+  <g
+     ng-if="plotCellCenters"
+     ng-repeat="cellsForAngle in rosette.cells"
+     id="g418"
+     transform="matrix(0.63387169,0,0,0.60264241,-79.840056,635.00196)">
+    <circle
+       cx="322.66422"
+       cy="425.12793"
+       ng-attr-cx="{{cell.centroid().x}}"
+       ng-attr-cy="{{cell.centroid().y}}"
+       ng-repeat="cell in cellsForAngle"
+       r="2"
+       style="fill:#0000ff"
+       id="circle420"
+       sodipodi:cx="322.66422"
+       sodipodi:cy="425.12793"
+       sodipodi:rx="2"
+       sodipodi:ry="2"
+       d="m 324.66422,425.12793 c 0,1.10457 -0.89544,2 -2,2 -1.10457,0 -2,-0.89543 -2,-2 0,-1.10457 0.89543,-2 2,-2 1.10456,0 2,0.89543 2,2 z" />
+    <circle
+       cx="292.13556"
+       cy="435.04727"
+       ng-attr-cx="{{cell.centroid().x}}"
+       ng-attr-cy="{{cell.centroid().y}}"
+       ng-repeat="cell in cellsForAngle"
+       r="2"
+       style="fill:#0000ff"
+       id="circle422"
+       sodipodi:cx="292.13556"
+       sodipodi:cy="435.04727"
+       sodipodi:rx="2"
+       sodipodi:ry="2"
+       d="m 294.13556,435.04727 c 0,1.10457 -0.89543,2 -2,2 -1.10457,0 -2,-0.89543 -2,-2 0,-1.10457 0.89543,-2 2,-2 1.10457,0 2,0.89543 2,2 z" />
+    <circle
+       cx="235.11581"
+       cy="453.57413"
+       ng-attr-cx="{{cell.centroid().x}}"
+       ng-attr-cy="{{cell.centroid().y}}"
+       ng-repeat="cell in cellsForAngle"
+       r="2"
+       style="fill:#0000ff"
+       id="circle424"
+       sodipodi:cx="235.11581"
+       sodipodi:cy="453.57413"
+       sodipodi:rx="2"
+       sodipodi:ry="2"
+       d="m 237.11581,453.57413 c 0,1.10457 -0.89543,2 -2,2 -1.10457,0 -2,-0.89543 -2,-2 0,-1.10457 0.89543,-2 2,-2 1.10457,0 2,0.89543 2,2 z" />
+    <circle
+       cx="173.38463"
+       cy="473.63181"
+       ng-attr-cx="{{cell.centroid().x}}"
+       ng-attr-cy="{{cell.centroid().y}}"
+       ng-repeat="cell in cellsForAngle"
+       r="2"
+       style="fill:#0000ff"
+       id="circle426"
+       sodipodi:cx="173.38463"
+       sodipodi:cy="473.63181"
+       sodipodi:rx="2"
+       sodipodi:ry="2"
+       d="m 175.38463,473.63181 c 0,1.10456 -0.89543,2 -2,2 -1.10457,0 -2,-0.89544 -2,-2 0,-1.10457 0.89543,-2 2,-2 1.10457,0 2,0.89543 2,2 z" />
+  </g>
+  <g
+     ng-if="plotCellCenters"
+     ng-repeat="cellsForAngle in rosette.cells"
+     id="g428"
+     transform="matrix(0.63387169,0,0,0.60264241,-79.840056,635.00196)">
+    <circle
+       cx="325.06796"
+       cy="400"
+       ng-attr-cx="{{cell.centroid().x}}"
+       ng-attr-cy="{{cell.centroid().y}}"
+       ng-repeat="cell in cellsForAngle"
+       r="2"
+       style="fill:#0000ff"
+       id="circle430"
+       sodipodi:cx="325.06796"
+       sodipodi:cy="400"
+       sodipodi:rx="2"
+       sodipodi:ry="2"
+       d="m 327.06796,400 c 0,1.10457 -0.89543,2 -2,2 -1.10457,0 -2,-0.89543 -2,-2 0,-1.10457 0.89543,-2 2,-2 1.10457,0 2,0.89543 2,2 z" />
+    <circle
+       cx="306.11954"
+       cy="400"
+       ng-attr-cx="{{cell.centroid().x}}"
+       ng-attr-cy="{{cell.centroid().y}}"
+       ng-repeat="cell in cellsForAngle"
+       r="2"
+       style="fill:#0000ff"
+       id="circle432"
+       sodipodi:cx="306.11954"
+       sodipodi:cy="400"
+       sodipodi:rx="2"
+       sodipodi:ry="2"
+       d="m 308.11954,400 c 0,1.10457 -0.89543,2 -2,2 -1.10457,0 -2,-0.89543 -2,-2 0,-1.10457 0.89543,-2 2,-2 1.10457,0 2,0.89543 2,2 z" />
+    <circle
+       cx="259.55362"
+       cy="400"
+       ng-attr-cx="{{cell.centroid().x}}"
+       ng-attr-cy="{{cell.centroid().y}}"
+       ng-repeat="cell in cellsForAngle"
+       r="2"
+       style="fill:#0000ff"
+       id="circle434"
+       sodipodi:cx="259.55362"
+       sodipodi:cy="400"
+       sodipodi:rx="2"
+       sodipodi:ry="2"
+       d="m 261.55362,400 c 0,1.10457 -0.89543,2 -2,2 -1.10457,0 -2,-0.89543 -2,-2 0,-1.10457 0.89543,-2 2,-2 1.10457,0 2,0.89543 2,2 z" />
+    <circle
+       cx="192.08008"
+       cy="400"
+       ng-attr-cx="{{cell.centroid().x}}"
+       ng-attr-cy="{{cell.centroid().y}}"
+       ng-repeat="cell in cellsForAngle"
+       r="2"
+       style="fill:#0000ff"
+       id="circle436"
+       sodipodi:cx="192.08008"
+       sodipodi:cy="400"
+       sodipodi:rx="2"
+       sodipodi:ry="2"
+       d="m 194.08008,400 c 0,1.10457 -0.89543,2 -2,2 -1.10457,0 -2,-0.89543 -2,-2 0,-1.10457 0.89543,-2 2,-2 1.10457,0 2,0.89543 2,2 z" />
+    <circle
+       cx="147.04164"
+       cy="400"
+       ng-attr-cx="{{cell.centroid().x}}"
+       ng-attr-cy="{{cell.centroid().y}}"
+       ng-repeat="cell in cellsForAngle"
+       r="2"
+       style="fill:#0000ff"
+       id="circle438"
+       sodipodi:cx="147.04164"
+       sodipodi:cy="400"
+       sodipodi:rx="2"
+       sodipodi:ry="2"
+       d="m 149.04164,400 c 0,1.10457 -0.89543,2 -2,2 -1.10457,0 -2,-0.89543 -2,-2 0,-1.10457 0.89543,-2 2,-2 1.10457,0 2,0.89543 2,2 z" />
+  </g>
+  <g
+     ng-if="plotCellCenters"
+     ng-repeat="cellsForAngle in rosette.cells"
+     id="g440"
+     transform="matrix(0.63387169,0,0,0.60264241,-79.840056,635.00196)">
+    <circle
+       cx="322.66422"
+       cy="374.87207"
+       ng-attr-cx="{{cell.centroid().x}}"
+       ng-attr-cy="{{cell.centroid().y}}"
+       ng-repeat="cell in cellsForAngle"
+       r="2"
+       style="fill:#0000ff"
+       id="circle442"
+       sodipodi:cx="322.66422"
+       sodipodi:cy="374.87207"
+       sodipodi:rx="2"
+       sodipodi:ry="2"
+       d="m 324.66422,374.87207 c 0,1.10457 -0.89544,2 -2,2 -1.10457,0 -2,-0.89543 -2,-2 0,-1.10457 0.89543,-2 2,-2 1.10456,0 2,0.89543 2,2 z" />
+    <circle
+       cx="292.13556"
+       cy="364.95273"
+       ng-attr-cx="{{cell.centroid().x}}"
+       ng-attr-cy="{{cell.centroid().y}}"
+       ng-repeat="cell in cellsForAngle"
+       r="2"
+       style="fill:#0000ff"
+       id="circle444"
+       sodipodi:cx="292.13556"
+       sodipodi:cy="364.95273"
+       sodipodi:rx="2"
+       sodipodi:ry="2"
+       d="m 294.13556,364.95273 c 0,1.10457 -0.89543,2 -2,2 -1.10457,0 -2,-0.89543 -2,-2 0,-1.10457 0.89543,-2 2,-2 1.10457,0 2,0.89543 2,2 z" />
+    <circle
+       cx="235.11581"
+       cy="346.42587"
+       ng-attr-cx="{{cell.centroid().x}}"
+       ng-attr-cy="{{cell.centroid().y}}"
+       ng-repeat="cell in cellsForAngle"
+       r="2"
+       style="fill:#0000ff"
+       id="circle446"
+       sodipodi:cx="235.11581"
+       sodipodi:cy="346.42587"
+       sodipodi:rx="2"
+       sodipodi:ry="2"
+       d="m 237.11581,346.42587 c 0,1.10457 -0.89543,2 -2,2 -1.10457,0 -2,-0.89543 -2,-2 0,-1.10457 0.89543,-2 2,-2 1.10457,0 2,0.89543 2,2 z" />
+    <circle
+       cx="173.38463"
+       cy="326.36819"
+       ng-attr-cx="{{cell.centroid().x}}"
+       ng-attr-cy="{{cell.centroid().y}}"
+       ng-repeat="cell in cellsForAngle"
+       r="2"
+       style="fill:#0000ff"
+       id="circle448"
+       sodipodi:cx="173.38463"
+       sodipodi:cy="326.36819"
+       sodipodi:rx="2"
+       sodipodi:ry="2"
+       d="m 175.38463,326.36819 c 0,1.10457 -0.89543,2 -2,2 -1.10457,0 -2,-0.89543 -2,-2 0,-1.10456 0.89543,-2 2,-2 1.10457,0 2,0.89544 2,2 z" />
+  </g>
+  <g
+     ng-if="drawCellInlays"
+     ng-repeat="cellsForAngle in rosette.cells"
+     id="g450"
+     transform="matrix(0.63387169,0,0,0.60264241,-79.840056,635.00196)">
+    <path
+       class="inlay"
+       d="m 334.44046,360.97737 q 1.56086,-7.47513 8.1878,-11.26954 6.62694,-3.79441 -1.56086,7.47513 -8.1878,11.26954 -6.62694,3.79441 z"
+       ng-attr-d="{{getInlayPathSpec(cell)}}"
+       ng-repeat="cell in cellsForAngle"
+       id="path452"
+       inkscape:connector-curvature="0"
+       style="fill:#8888cc;fill-opacity:0.5" />
+    <path
+       class="inlay"
+       d="m 314.99421,349.05336 q -0.77551,-11.37712 10.28442,-14.15529 11.05994,-2.77817 7.8254,5.68548 -3.23454,8.46365 -10.28442,14.15529 -7.04988,5.69164 -7.8254,-5.68548 z"
+       ng-attr-d="{{getInlayPathSpec(cell)}}"
+       ng-repeat="cell in cellsForAngle"
+       id="path454"
+       inkscape:connector-curvature="0"
+       style="fill:#8888cc;fill-opacity:0.5" />
+    <path
+       class="inlay"
+       d="m 270.9779,322.55469 q -2.42825,-18.05896 15.49721,-21.33009 17.92546,-3.27112 15.3,11.11611 -2.62546,14.38722 -15.49721,21.33008 -12.87176,6.94285 -15.3,-11.1161 z"
+       ng-attr-d="{{getInlayPathSpec(cell)}}"
+       ng-repeat="cell in cellsForAngle"
+       id="path456"
+       inkscape:connector-curvature="0"
+       style="fill:#8888cc;fill-opacity:0.5" />
+    <path
+       class="inlay"
+       d="m 211.6479,287.70812 q 1.2058,-23.67787 23.35218,-32.14151 22.14638,-8.46365 16.93053,12.30074 -5.21586,20.7644 -23.35218,32.14152 -18.13633,11.37712 -16.93053,-12.30075 z"
+       ng-attr-d="{{getInlayPathSpec(cell)}}"
+       ng-repeat="cell in cellsForAngle"
+       id="path458"
+       inkscape:connector-curvature="0"
+       style="fill:#8888cc;fill-opacity:0.5" />
+    <path
+       class="inlay"
+       d="m 193.88911,250.25168 q 29.33189,-40.37188 16.86087,-18.59124 -12.47102,21.78064 -29.33189,40.37188 -16.86086,18.59123 12.47102,-21.78064 z"
+       ng-attr-d="{{getInlayPathSpec(cell)}}"
+       ng-repeat="cell in cellsForAngle"
+       id="path460"
+       inkscape:connector-curvature="0"
+       style="fill:#8888cc;fill-opacity:0.5" />
+  </g>
+  <g
+     ng-if="drawCellInlays"
+     ng-repeat="cellsForAngle in rosette.cells"
+     id="g462"
+     transform="matrix(0.63387169,0,0,0.60264241,-79.840056,635.00196)">
+    <path
+       class="inlay"
+       d="m 344.36592,336.34187 q 3.23454,-8.46365 12.28348,-8.92447 9.04893,-0.46081 3.3924,4.66924 -5.65654,5.13006 -12.28348,8.92447 -6.62694,3.79441 -3.3924,-4.66924 z"
+       ng-attr-d="{{getInlayPathSpec(cell)}}"
+       ng-repeat="cell in cellsForAngle"
+       id="path464"
+       inkscape:connector-curvature="0"
+       style="fill:#8888cc;fill-opacity:0.5" />
+    <path
+       class="inlay"
+       d="m 320.55895,308.65964 q 2.62546,-14.38723 17.11984,-12.43829 14.49437,1.94894 8.43447,11.60906 -6.0599,9.66012 -17.11983,12.43829 -11.05993,2.77817 -8.43448,-11.60906 z"
+       ng-attr-d="{{getInlayPathSpec(cell)}}"
+       ng-repeat="cell in cellsForAngle"
+       id="path466"
+       inkscape:connector-curvature="0"
+       style="fill:#8888cc;fill-opacity:0.5" />
+    <path
+       class="inlay"
+       d="m 278.4533,260.64871 q 5.21585,-20.76439 26.57575,-19.30841 21.3599,1.45598 12.7096,17.49327 -8.6503,16.03728 -26.57575,19.30841 -17.92546,3.27113 -12.7096,-17.49327 z"
+       ng-attr-d="{{getInlayPathSpec(cell)}}"
+       ng-repeat="cell in cellsForAngle"
+       id="path468"
+       inkscape:connector-curvature="0"
+       style="fill:#8888cc;fill-opacity:0.5" />
+    <path
+       class="inlay"
+       d="m 236.58662,214.0263 q 12.47101,-21.78064 37.03939,-26.9107 24.56838,-5.13006 9.67536,13.31699 -14.89301,18.44705 -37.03939,26.9107 -22.14638,8.46365 -9.67536,-13.31699 z"
+       ng-attr-d="{{getInlayPathSpec(cell)}}"
+       ng-repeat="cell in cellsForAngle"
+       id="path470"
+       inkscape:connector-curvature="0"
+       style="fill:#8888cc;fill-opacity:0.5" />
+  </g>
+  <g
+     ng-if="drawCellInlays"
+     ng-repeat="cellsForAngle in rosette.cells"
+     id="g472"
+     transform="matrix(0.63387169,0,0,0.60264241,-79.840056,635.00196)">
+    <path
+       class="inlay"
+       d="m 369.89814,329.8951 q 5.65654,-5.13006 13.24815,-4.30458 7.5916,0.82547 -5.65654,5.13005 -13.24814,4.30458 -7.59161,-0.82547 z"
+       ng-attr-d="{{getInlayPathSpec(cell)}}"
+       ng-repeat="cell in cellsForAngle"
+       id="path474"
+       inkscape:connector-curvature="0"
+       style="fill:#8888cc;fill-opacity:0.5" />
+    <path
+       class="inlay"
+       d="m 361.17456,308.81816 q 6.0599,-9.66012 16.64054,-5.40684 10.58064,4.25328 2.98903,9.1993 -7.5916,4.94602 -16.64054,5.40684 -9.04893,0.46081 -2.98903,-9.1993 z"
+       ng-attr-d="{{getInlayPathSpec(cell)}}"
+       ng-repeat="cell in cellsForAngle"
+       id="path476"
+       inkscape:connector-curvature="0"
+       style="fill:#8888cc;fill-opacity:0.5" />
+    <path
+       class="inlay"
+       d="m 341.14014,261.50814 q 8.6503,-16.03729 25.07502,-8.14737 16.42471,7.88992 5.84408,17.98623 -10.58064,10.09631 -25.07502,8.14737 -14.49438,-1.94895 -5.84408,-17.98623 z"
+       ng-attr-d="{{getInlayPathSpec(cell)}}"
+       ng-repeat="cell in cellsForAngle"
+       id="path478"
+       inkscape:connector-curvature="0"
+       style="fill:#8888cc;fill-opacity:0.5" />
+    <path
+       class="inlay"
+       d="m 313.62346,198.44338 q 14.89301,-18.44705 37.78462,-12.27697 22.8916,6.17008 6.46689,19.90303 -16.42472,13.73295 -37.78463,12.27697 -21.3599,-1.45599 -6.46688,-19.90303 z"
+       ng-attr-d="{{getInlayPathSpec(cell)}}"
+       ng-repeat="cell in cellsForAngle"
+       id="path480"
+       inkscape:connector-curvature="0"
+       style="fill:#8888cc;fill-opacity:0.5" />
+    <path
+       class="inlay"
+       d="m 321.27265,157.70212 q 47.45998,-15.42068 24.56837,-5.13005 -22.8916,10.29062 -47.45998,15.42068 -24.56837,5.13005 22.89161,-10.29063 z"
+       ng-attr-d="{{getInlayPathSpec(cell)}}"
+       ng-repeat="cell in cellsForAngle"
+       id="path482"
+       inkscape:connector-curvature="0"
+       style="fill:#8888cc;fill-opacity:0.5" />
+  </g>
+  <g
+     ng-if="drawCellInlays"
+     ng-repeat="cellsForAngle in rosette.cells"
+     id="g484"
+     transform="matrix(0.63387169,0,0,0.60264241,-79.840056,635.00196)">
+    <path
+       class="inlay"
+       d="m 392.40839,315.7986 q 7.59161,-4.94602 15.18322,0 7.5916,4.94602 0,5.7715 -7.59161,0.82547 -15.18322,0 -7.5916,-0.82548 0,-5.7715 z"
+       ng-attr-d="{{getInlayPathSpec(cell)}}"
+       ng-repeat="cell in cellsForAngle"
+       id="path486"
+       inkscape:connector-curvature="0"
+       style="fill:#8888cc;fill-opacity:0.5" />
+    <path
+       class="inlay"
+       d="m 389.41936,279.40982 q 10.58064,-10.09631 21.16128,0 10.58064,10.09631 0,14.34959 -10.58064,4.25328 -21.16128,0 -10.58064,-4.25328 0,-14.34959 z"
+       ng-attr-d="{{getInlayPathSpec(cell)}}"
+       ng-repeat="cell in cellsForAngle"
+       id="path488"
+       inkscape:connector-curvature="0"
+       style="fill:#8888cc;fill-opacity:0.5" />
+    <path
+       class="inlay"
+       d="m 383.57528,215.81908 q 16.42472,-13.73295 32.84944,0 16.42472,13.73295 0,21.62287 -16.42472,7.88992 -32.84944,0 -16.42472,-7.88992 0,-21.62287 z"
+       ng-attr-d="{{getInlayPathSpec(cell)}}"
+       ng-repeat="cell in cellsForAngle"
+       id="path490"
+       inkscape:connector-curvature="0"
+       style="fill:#8888cc;fill-opacity:0.5" />
+    <path
+       class="inlay"
+       d="m 377.10839,153.49214 q 22.89161,-10.29063 45.78322,0 22.8916,10.29062 0,16.4607 -22.89161,6.17008 -45.78322,0 -22.8916,-6.17008 0,-16.4607 z"
+       ng-attr-d="{{getInlayPathSpec(cell)}}"
+       ng-repeat="cell in cellsForAngle"
+       id="path492"
+       inkscape:connector-curvature="0"
+       style="fill:#8888cc;fill-opacity:0.5" />
+  </g>
+  <g
+     ng-if="drawCellInlays"
+     ng-repeat="cellsForAngle in rosette.cells"
+     id="g494"
+     transform="matrix(0.63387169,0,0,0.60264241,-79.840056,635.00196)">
+    <path
+       class="inlay"
+       d="m 416.85371,325.59052 q 7.59161,-0.82548 13.24815,4.30458 5.65653,5.13005 -7.59161,0.82547 -13.24814,-4.30458 -5.65654,-5.13005 z"
+       ng-attr-d="{{getInlayPathSpec(cell)}}"
+       ng-repeat="cell in cellsForAngle"
+       id="path496"
+       inkscape:connector-curvature="0"
+       style="fill:#8888cc;fill-opacity:0.5" />
+    <path
+       class="inlay"
+       d="m 422.1849,303.41132 q 10.58064,-4.25328 16.64054,5.40684 6.0599,9.66011 -2.98903,9.1993 -9.04894,-0.46082 -16.64054,-5.40684 -7.59161,-4.94602 2.98903,-9.1993 z"
+       ng-attr-d="{{getInlayPathSpec(cell)}}"
+       ng-repeat="cell in cellsForAngle"
+       id="path498"
+       inkscape:connector-curvature="0"
+       style="fill:#8888cc;fill-opacity:0.5" />
+    <path
+       class="inlay"
+       d="m 433.78484,253.36077 q 16.42472,-7.88992 25.07502,8.14737 8.6503,16.03728 -5.84408,17.98623 -14.49438,1.94894 -25.07502,-8.14737 -10.58063,-10.09631 5.84408,-17.98623 z"
+       ng-attr-d="{{getInlayPathSpec(cell)}}"
+       ng-repeat="cell in cellsForAngle"
+       id="path500"
+       inkscape:connector-curvature="0"
+       style="fill:#8888cc;fill-opacity:0.5" />
+    <path
+       class="inlay"
+       d="m 448.59192,186.16641 q 22.89161,-6.17008 37.78462,12.27697 14.89302,18.44704 -6.46688,19.90303 -21.35991,1.45598 -37.78463,-12.27697 -16.42471,-13.73295 6.46689,-19.90303 z"
+       ng-attr-d="{{getInlayPathSpec(cell)}}"
+       ng-repeat="cell in cellsForAngle"
+       id="path502"
+       inkscape:connector-curvature="0"
+       style="fill:#8888cc;fill-opacity:0.5" />
+    <path
+       class="inlay"
+       d="m 478.72735,157.70212 q 47.45998,15.42068 22.89161,10.29063 -24.56838,-5.13006 -47.45998,-15.42068 -22.89161,-10.29063 24.56837,5.13005 z"
+       ng-attr-d="{{getInlayPathSpec(cell)}}"
+       ng-repeat="cell in cellsForAngle"
+       id="path504"
+       inkscape:connector-curvature="0"
+       style="fill:#8888cc;fill-opacity:0.5" />
+  </g>
+  <g
+     ng-if="drawCellInlays"
+     ng-repeat="cellsForAngle in rosette.cells"
+     id="g506"
+     transform="matrix(0.63387169,0,0,0.60264241,-79.840056,635.00196)">
+    <path
+       class="inlay"
+       d="m 443.3506,327.4174 q 9.04894,0.46082 12.28348,8.92447 3.23454,8.46365 -3.3924,4.66924 -6.62694,-3.79441 -12.28348,-8.92447 -5.65653,-5.13005 3.3924,-4.66924 z"
+       ng-attr-d="{{getInlayPathSpec(cell)}}"
+       ng-repeat="cell in cellsForAngle"
+       id="path508"
+       inkscape:connector-curvature="0"
+       style="fill:#8888cc;fill-opacity:0.5" />
+    <path
+       class="inlay"
+       d="m 462.32121,296.22135 q 14.49438,-1.94894 17.11984,12.43829 2.62545,14.38723 -8.43448,11.60906 -11.05993,-2.77817 -17.11983,-12.43829 -6.0599,-9.66012 8.43447,-11.60906 z"
+       ng-attr-d="{{getInlayPathSpec(cell)}}"
+       ng-repeat="cell in cellsForAngle"
+       id="path510"
+       inkscape:connector-curvature="0"
+       style="fill:#8888cc;fill-opacity:0.5" />
+    <path
+       class="inlay"
+       d="m 494.97095,241.3403 q 21.3599,-1.45598 26.57575,19.30841 5.21586,20.7644 -12.7096,17.49327 -17.92545,-3.27113 -26.57575,-19.30841 -8.6503,-16.03729 12.7096,-17.49327 z"
+       ng-attr-d="{{getInlayPathSpec(cell)}}"
+       ng-repeat="cell in cellsForAngle"
+       id="path512"
+       inkscape:connector-curvature="0"
+       style="fill:#8888cc;fill-opacity:0.5" />
+    <path
+       class="inlay"
+       d="m 526.37399,187.1156 q 24.56838,5.13006 37.03939,26.9107 12.47102,21.78064 -9.67536,13.31699 -22.14638,-8.46365 -37.03939,-26.9107 -14.89302,-18.44705 9.67536,-13.31699 z"
+       ng-attr-d="{{getInlayPathSpec(cell)}}"
+       ng-repeat="cell in cellsForAngle"
+       id="path514"
+       inkscape:connector-curvature="0"
+       style="fill:#8888cc;fill-opacity:0.5" />
+  </g>
+  <g
+     ng-if="drawCellInlays"
+     ng-repeat="cellsForAngle in rosette.cells"
+     id="g516"
+     transform="matrix(0.63387169,0,0,0.60264241,-79.840056,635.00196)">
+    <path
+       class="inlay"
+       d="m 457.37174,349.70783 q 6.62694,3.79441 8.1878,11.26954 1.56086,7.47513 -6.62694,-3.79441 -8.1878,-11.26954 -1.56086,-7.47513 z"
+       ng-attr-d="{{getInlayPathSpec(cell)}}"
+       ng-repeat="cell in cellsForAngle"
+       id="path518"
+       inkscape:connector-curvature="0"
+       style="fill:#8888cc;fill-opacity:0.5" />
+    <path
+       class="inlay"
+       d="m 474.72137,334.89807 q 11.05993,2.77817 10.28442,14.15529 -0.77552,11.37712 -7.8254,5.68548 -7.04988,-5.69164 -10.28442,-14.15529 -3.23454,-8.46365 7.8254,-5.68548 z"
+       ng-attr-d="{{getInlayPathSpec(cell)}}"
+       ng-repeat="cell in cellsForAngle"
+       id="path520"
+       inkscape:connector-curvature="0"
+       style="fill:#8888cc;fill-opacity:0.5" />
+    <path
+       class="inlay"
+       d="m 513.52489,301.2246 q 17.92546,3.27113 15.49721,21.33009 -2.42824,18.05895 -15.3,11.1161 -12.87175,-6.94286 -15.49721,-21.33008 -2.62546,-14.38723 15.3,-11.11611 z"
+       ng-attr-d="{{getInlayPathSpec(cell)}}"
+       ng-repeat="cell in cellsForAngle"
+       id="path522"
+       inkscape:connector-curvature="0"
+       style="fill:#8888cc;fill-opacity:0.5" />
+    <path
+       class="inlay"
+       d="m 564.99992,255.56661 q 22.14638,8.46364 23.35218,32.14151 1.2058,23.67787 -16.93053,12.30075 -18.13632,-11.37712 -23.35218,-32.14152 -5.21585,-20.76439 16.93053,-12.30074 z"
+       ng-attr-d="{{getInlayPathSpec(cell)}}"
+       ng-repeat="cell in cellsForAngle"
+       id="path524"
+       inkscape:connector-curvature="0"
+       style="fill:#8888cc;fill-opacity:0.5" />
+    <path
+       class="inlay"
+       d="m 606.11089,250.25168 q 29.33188,40.37187 12.47102,21.78064 -16.86087,-18.59124 -29.33189,-40.37188 -12.47102,-21.78064 16.86087,18.59124 z"
+       ng-attr-d="{{getInlayPathSpec(cell)}}"
+       ng-repeat="cell in cellsForAngle"
+       id="path526"
+       inkscape:connector-curvature="0"
+       style="fill:#8888cc;fill-opacity:0.5" />
+  </g>
+  <g
+     ng-if="drawCellInlays"
+     ng-repeat="cellsForAngle in rosette.cells"
+     id="g528"
+     transform="matrix(0.63387169,0,0,0.60264241,-79.840056,635.00196)">
+    <path
+       class="inlay"
+       d="m 477.73435,366.76029 q 7.04988,5.69164 4.69187,14.44009 -2.35801,8.74845 -5.48901,1.78349 -3.13101,-6.96496 -4.69188,-14.44009 -1.56086,-7.47513 5.48902,-1.78349 z"
+       ng-attr-d="{{getInlayPathSpec(cell)}}"
+       ng-repeat="cell in cellsForAngle"
+       id="path530"
+       inkscape:connector-curvature="0"
+       style="fill:#8888cc;fill-opacity:0.5" />
+    <path
+       class="inlay"
+       d="m 511.41848,352.6728 q 12.87176,6.94285 6.5392,20.12557 -6.33257,13.18272 -13.64727,4.43427 -7.31471,-8.74845 -6.5392,-20.12558 0.77551,-11.37712 13.64727,-4.43426 z"
+       ng-attr-d="{{getInlayPathSpec(cell)}}"
+       ng-repeat="cell in cellsForAngle"
+       id="path532"
+       inkscape:connector-curvature="0"
+       style="fill:#8888cc;fill-opacity:0.5" />
+    <path
+       class="inlay"
+       d="m 570.09095,327.46413 q 18.13632,11.37712 10.15103,31.24167 -7.98529,19.86455 -20.56457,6.68184 -12.57928,-13.18272 -10.15103,-31.24168 2.42824,-18.05895 20.56457,-6.68183 z"
+       ng-attr-d="{{getInlayPathSpec(cell)}}"
+       ng-repeat="cell in cellsForAngle"
+       id="path534"
+       inkscape:connector-curvature="0"
+       style="fill:#8888cc;fill-opacity:0.5" />
+    <path
+       class="inlay"
+       d="m 627.36902,302.05367 q 16.86086,18.59123 14.14779,43.54242 -2.71308,24.95119 -15.65507,5.08664 -12.94199,-19.86455 -14.14779,-43.54242 -1.2058,-23.67787 15.65507,-5.08664 z"
+       ng-attr-d="{{getInlayPathSpec(cell)}}"
+       ng-repeat="cell in cellsForAngle"
+       id="path536"
+       inkscape:connector-curvature="0"
+       style="fill:#8888cc;fill-opacity:0.5" />
+  </g>
+  <g
+     ng-if="drawCellInlays"
+     ng-repeat="cellsForAngle in rosette.cells"
+     id="g538"
+     transform="matrix(0.63387169,0,0,0.60264241,-79.840056,635.00196)">
+    <path
+       class="inlay"
+       d="m 475.97571,393.03504 q 3.13101,6.96496 0,13.92992 -3.13101,6.96496 -3.13101,-6.96496 0,-13.92992 3.13101,-6.96496 z"
+       ng-attr-d="{{getInlayPathSpec(cell)}}"
+       ng-repeat="cell in cellsForAngle"
+       id="path540"
+       inkscape:connector-curvature="0"
+       style="fill:#8888cc;fill-opacity:0.5" />
+    <path
+       class="inlay"
+       d="m 498.71681,391.25155 q 7.31471,8.74845 0,17.4969 -7.31471,8.74845 -9.67272,0 -2.35801,-8.74845 0,-17.4969 2.35801,-8.74845 9.67272,0 z"
+       ng-attr-d="{{getInlayPathSpec(cell)}}"
+       ng-repeat="cell in cellsForAngle"
+       id="path542"
+       inkscape:connector-curvature="0"
+       style="fill:#8888cc;fill-opacity:0.5" />
+    <path
+       class="inlay"
+       d="m 549.90229,386.81728 q 12.57927,13.18272 0,26.36544 -12.57928,13.18271 -18.91184,0 -6.33257,-13.18272 0,-26.36544 6.33256,-13.18271 18.91184,0 z"
+       ng-attr-d="{{getInlayPathSpec(cell)}}"
+       ng-repeat="cell in cellsForAngle"
+       id="path544"
+       inkscape:connector-curvature="0"
+       style="fill:#8888cc;fill-opacity:0.5" />
+    <path
+       class="inlay"
+       d="m 618.38356,380.13545 q 12.94199,19.86455 0,39.7291 -12.94199,19.86455 -20.92728,0 -7.9853,-19.86455 0,-39.7291 7.98529,-19.86455 20.92728,0 z"
+       ng-attr-d="{{getInlayPathSpec(cell)}}"
+       ng-repeat="cell in cellsForAngle"
+       id="path546"
+       inkscape:connector-curvature="0"
+       style="fill:#8888cc;fill-opacity:0.5" />
+    <path
+       class="inlay"
+       d="m 654.76707,400 q 0,49.90238 -2.71308,24.95119 -2.71307,-24.95119 0,-49.90238 2.71308,-24.95119 2.71308,24.95119 z"
+       ng-attr-d="{{getInlayPathSpec(cell)}}"
+       ng-repeat="cell in cellsForAngle"
+       id="path548"
+       inkscape:connector-curvature="0"
+       style="fill:#8888cc;fill-opacity:0.5" />
+  </g>
+  <g
+     ng-if="drawCellInlays"
+     ng-repeat="cellsForAngle in rosette.cells"
+     id="g550"
+     transform="matrix(0.63387169,0,0,0.60264241,-79.840056,635.00196)">
+    <path
+       class="inlay"
+       d="m 482.42622,418.79962 q 2.35801,8.74845 -4.69187,14.44009 -7.04988,5.69164 -5.48902,-1.78349 1.56087,-7.47513 4.69188,-14.44009 3.131,-6.96496 5.48901,1.78349 z"
+       ng-attr-d="{{getInlayPathSpec(cell)}}"
+       ng-repeat="cell in cellsForAngle"
+       id="path552"
+       inkscape:connector-curvature="0"
+       style="fill:#8888cc;fill-opacity:0.5" />
+    <path
+       class="inlay"
+       d="m 517.95768,427.20163 q 6.33256,13.18272 -6.5392,20.12557 -12.87176,6.94286 -13.64727,-4.43426 -0.77551,-11.37713 6.5392,-20.12558 7.3147,-8.74845 13.64727,4.43427 z"
+       ng-attr-d="{{getInlayPathSpec(cell)}}"
+       ng-repeat="cell in cellsForAngle"
+       id="path554"
+       inkscape:connector-curvature="0"
+       style="fill:#8888cc;fill-opacity:0.5" />
+    <path
+       class="inlay"
+       d="m 580.24198,441.2942 q 7.98529,19.86455 -10.15103,31.24167 -18.13633,11.37712 -20.56457,-6.68183 -2.42825,-18.05896 10.15103,-31.24168 12.57928,-13.18271 20.56457,6.68184 z"
+       ng-attr-d="{{getInlayPathSpec(cell)}}"
+       ng-repeat="cell in cellsForAngle"
+       id="path556"
+       inkscape:connector-curvature="0"
+       style="fill:#8888cc;fill-opacity:0.5" />
+    <path
+       class="inlay"
+       d="m 641.51681,454.40391 q 2.71307,24.95119 -14.14779,43.54242 -16.86087,18.59123 -15.65507,-5.08664 1.2058,-23.67787 14.14779,-43.54242 12.94199,-19.86455 15.65507,5.08664 z"
+       ng-attr-d="{{getInlayPathSpec(cell)}}"
+       ng-repeat="cell in cellsForAngle"
+       id="path558"
+       inkscape:connector-curvature="0"
+       style="fill:#8888cc;fill-opacity:0.5" />
+  </g>
+  <g
+     ng-if="drawCellInlays"
+     ng-repeat="cellsForAngle in rosette.cells"
+     id="g560"
+     transform="matrix(0.63387169,0,0,0.60264241,-79.840056,635.00196)">
+    <path
+       class="inlay"
+       d="m 465.55954,439.02263 q -1.56086,7.47513 -8.1878,11.26954 -6.62694,3.79441 1.56086,-7.47513 8.1878,-11.26954 6.62694,-3.79441 z"
+       ng-attr-d="{{getInlayPathSpec(cell)}}"
+       ng-repeat="cell in cellsForAngle"
+       id="path562"
+       inkscape:connector-curvature="0"
+       style="fill:#8888cc;fill-opacity:0.5" />
+    <path
+       class="inlay"
+       d="m 485.00579,450.94664 q 0.77551,11.37712 -10.28442,14.15529 -11.05994,2.77817 -7.8254,-5.68548 3.23454,-8.46365 10.28442,-14.15529 7.04988,-5.69164 7.8254,5.68548 z"
+       ng-attr-d="{{getInlayPathSpec(cell)}}"
+       ng-repeat="cell in cellsForAngle"
+       id="path564"
+       inkscape:connector-curvature="0"
+       style="fill:#8888cc;fill-opacity:0.5" />
+    <path
+       class="inlay"
+       d="m 529.0221,477.44531 q 2.42825,18.05896 -15.49721,21.33009 -17.92546,3.27112 -15.3,-11.11611 2.62546,-14.38722 15.49721,-21.33008 12.87176,-6.94285 15.3,11.1161 z"
+       ng-attr-d="{{getInlayPathSpec(cell)}}"
+       ng-repeat="cell in cellsForAngle"
+       id="path566"
+       inkscape:connector-curvature="0"
+       style="fill:#8888cc;fill-opacity:0.5" />
+    <path
+       class="inlay"
+       d="m 588.3521,512.29188 q -1.2058,23.67787 -23.35218,32.14151 -22.14638,8.46365 -16.93053,-12.30074 5.21586,-20.7644 23.35218,-32.14152 18.13633,-11.37712 16.93053,12.30075 z"
+       ng-attr-d="{{getInlayPathSpec(cell)}}"
+       ng-repeat="cell in cellsForAngle"
+       id="path568"
+       inkscape:connector-curvature="0"
+       style="fill:#8888cc;fill-opacity:0.5" />
+    <path
+       class="inlay"
+       d="m 606.11089,549.74832 q -29.33189,40.37188 -16.86087,18.59124 12.47102,-21.78064 29.33189,-40.37188 16.86086,-18.59123 -12.47102,21.78064 z"
+       ng-attr-d="{{getInlayPathSpec(cell)}}"
+       ng-repeat="cell in cellsForAngle"
+       id="path570"
+       inkscape:connector-curvature="0"
+       style="fill:#8888cc;fill-opacity:0.5" />
+  </g>
+  <g
+     ng-if="drawCellInlays"
+     ng-repeat="cellsForAngle in rosette.cells"
+     id="g572"
+     transform="matrix(0.63387169,0,0,0.60264241,-79.840056,635.00196)">
+    <path
+       class="inlay"
+       d="m 455.63408,463.65813 q -3.23454,8.46365 -12.28348,8.92447 -9.04893,0.46081 -3.3924,-4.66924 5.65654,-5.13006 12.28348,-8.92447 6.62694,-3.79441 3.3924,4.66924 z"
+       ng-attr-d="{{getInlayPathSpec(cell)}}"
+       ng-repeat="cell in cellsForAngle"
+       id="path574"
+       inkscape:connector-curvature="0"
+       style="fill:#8888cc;fill-opacity:0.5" />
+    <path
+       class="inlay"
+       d="m 479.44105,491.34036 q -2.62546,14.38723 -17.11984,12.43829 -14.49437,-1.94894 -8.43447,-11.60906 6.0599,-9.66012 17.11983,-12.43829 11.05993,-2.77817 8.43448,11.60906 z"
+       ng-attr-d="{{getInlayPathSpec(cell)}}"
+       ng-repeat="cell in cellsForAngle"
+       id="path576"
+       inkscape:connector-curvature="0"
+       style="fill:#8888cc;fill-opacity:0.5" />
+    <path
+       class="inlay"
+       d="m 521.5467,539.35129 q -5.21585,20.76439 -26.57575,19.30841 -21.3599,-1.45598 -12.7096,-17.49327 8.6503,-16.03728 26.57575,-19.30841 17.92546,-3.27113 12.7096,17.49327 z"
+       ng-attr-d="{{getInlayPathSpec(cell)}}"
+       ng-repeat="cell in cellsForAngle"
+       id="path578"
+       inkscape:connector-curvature="0"
+       style="fill:#8888cc;fill-opacity:0.5" />
+    <path
+       class="inlay"
+       d="m 563.41338,585.9737 q -12.47101,21.78064 -37.03939,26.9107 -24.56838,5.13006 -9.67536,-13.31699 14.89301,-18.44705 37.03939,-26.9107 22.14638,-8.46365 9.67536,13.31699 z"
+       ng-attr-d="{{getInlayPathSpec(cell)}}"
+       ng-repeat="cell in cellsForAngle"
+       id="path580"
+       inkscape:connector-curvature="0"
+       style="fill:#8888cc;fill-opacity:0.5" />
+  </g>
+  <g
+     ng-if="drawCellInlays"
+     ng-repeat="cellsForAngle in rosette.cells"
+     id="g582"
+     transform="matrix(0.63387169,0,0,0.60264241,-79.840056,635.00196)">
+    <path
+       class="inlay"
+       d="m 430.10186,470.1049 q -5.65654,5.13006 -13.24815,4.30458 -7.5916,-0.82547 5.65654,-5.13005 13.24814,-4.30458 7.59161,0.82547 z"
+       ng-attr-d="{{getInlayPathSpec(cell)}}"
+       ng-repeat="cell in cellsForAngle"
+       id="path584"
+       inkscape:connector-curvature="0"
+       style="fill:#8888cc;fill-opacity:0.5" />
+    <path
+       class="inlay"
+       d="m 438.82544,491.18184 q -6.0599,9.66012 -16.64054,5.40684 -10.58064,-4.25328 -2.98903,-9.1993 7.5916,-4.94602 16.64054,-5.40684 9.04893,-0.46081 2.98903,9.1993 z"
+       ng-attr-d="{{getInlayPathSpec(cell)}}"
+       ng-repeat="cell in cellsForAngle"
+       id="path586"
+       inkscape:connector-curvature="0"
+       style="fill:#8888cc;fill-opacity:0.5" />
+    <path
+       class="inlay"
+       d="m 458.85986,538.49186 q -8.6503,16.03729 -25.07502,8.14737 -16.42471,-7.88992 -5.84408,-17.98623 10.58064,-10.09631 25.07502,-8.14737 14.49438,1.94895 5.84408,17.98623 z"
+       ng-attr-d="{{getInlayPathSpec(cell)}}"
+       ng-repeat="cell in cellsForAngle"
+       id="path588"
+       inkscape:connector-curvature="0"
+       style="fill:#8888cc;fill-opacity:0.5" />
+    <path
+       class="inlay"
+       d="m 486.37654,601.55662 q -14.89301,18.44705 -37.78462,12.27697 -22.8916,-6.17008 -6.46689,-19.90303 16.42472,-13.73295 37.78463,-12.27697 21.3599,1.45599 6.46688,19.90303 z"
+       ng-attr-d="{{getInlayPathSpec(cell)}}"
+       ng-repeat="cell in cellsForAngle"
+       id="path590"
+       inkscape:connector-curvature="0"
+       style="fill:#8888cc;fill-opacity:0.5" />
+    <path
+       class="inlay"
+       d="m 478.72735,642.29788 q -47.45998,15.42068 -24.56837,5.13005 22.8916,-10.29062 47.45998,-15.42068 24.56837,-5.13005 -22.89161,10.29063 z"
+       ng-attr-d="{{getInlayPathSpec(cell)}}"
+       ng-repeat="cell in cellsForAngle"
+       id="path592"
+       inkscape:connector-curvature="0"
+       style="fill:#8888cc;fill-opacity:0.5" />
+  </g>
+  <g
+     ng-if="drawCellInlays"
+     ng-repeat="cellsForAngle in rosette.cells"
+     id="g594"
+     transform="matrix(0.63387169,0,0,0.60264241,-79.840056,635.00196)">
+    <path
+       class="inlay"
+       d="m 407.59161,484.2014 q -7.59161,4.94602 -15.18322,0 -7.5916,-4.94602 0,-5.7715 7.59161,-0.82547 15.18322,0 7.5916,0.82548 0,5.7715 z"
+       ng-attr-d="{{getInlayPathSpec(cell)}}"
+       ng-repeat="cell in cellsForAngle"
+       id="path596"
+       inkscape:connector-curvature="0"
+       style="fill:#8888cc;fill-opacity:0.5" />
+    <path
+       class="inlay"
+       d="m 410.58064,520.59018 q -10.58064,10.09631 -21.16128,0 -10.58064,-10.09631 0,-14.34959 10.58064,-4.25328 21.16128,0 10.58064,4.25328 0,14.34959 z"
+       ng-attr-d="{{getInlayPathSpec(cell)}}"
+       ng-repeat="cell in cellsForAngle"
+       id="path598"
+       inkscape:connector-curvature="0"
+       style="fill:#8888cc;fill-opacity:0.5" />
+    <path
+       class="inlay"
+       d="m 416.42472,584.18092 q -16.42472,13.73295 -32.84944,0 -16.42472,-13.73295 0,-21.62287 16.42472,-7.88992 32.84944,0 16.42472,7.88992 0,21.62287 z"
+       ng-attr-d="{{getInlayPathSpec(cell)}}"
+       ng-repeat="cell in cellsForAngle"
+       id="path600"
+       inkscape:connector-curvature="0"
+       style="fill:#8888cc;fill-opacity:0.5" />
+    <path
+       class="inlay"
+       d="m 422.89161,646.50786 q -22.89161,10.29063 -45.78322,0 -22.8916,-10.29062 0,-16.4607 22.89161,-6.17008 45.78322,0 22.8916,6.17008 0,16.4607 z"
+       ng-attr-d="{{getInlayPathSpec(cell)}}"
+       ng-repeat="cell in cellsForAngle"
+       id="path602"
+       inkscape:connector-curvature="0"
+       style="fill:#8888cc;fill-opacity:0.5" />
+  </g>
+  <g
+     ng-if="drawCellInlays"
+     ng-repeat="cellsForAngle in rosette.cells"
+     id="g604"
+     transform="matrix(0.63387169,0,0,0.60264241,-79.840056,635.00196)">
+    <path
+       class="inlay"
+       d="m 383.14629,474.40948 q -7.59161,0.82548 -13.24815,-4.30458 -5.65653,-5.13005 7.59161,-0.82547 13.24814,4.30458 5.65654,5.13005 z"
+       ng-attr-d="{{getInlayPathSpec(cell)}}"
+       ng-repeat="cell in cellsForAngle"
+       id="path606"
+       inkscape:connector-curvature="0"
+       style="fill:#8888cc;fill-opacity:0.5" />
+    <path
+       class="inlay"
+       d="m 377.8151,496.58868 q -10.58064,4.25328 -16.64054,-5.40684 -6.0599,-9.66011 2.98903,-9.1993 9.04894,0.46082 16.64054,5.40684 7.59161,4.94602 -2.98903,9.1993 z"
+       ng-attr-d="{{getInlayPathSpec(cell)}}"
+       ng-repeat="cell in cellsForAngle"
+       id="path608"
+       inkscape:connector-curvature="0"
+       style="fill:#8888cc;fill-opacity:0.5" />
+    <path
+       class="inlay"
+       d="m 366.21516,546.63923 q -16.42472,7.88992 -25.07502,-8.14737 -8.6503,-16.03728 5.84408,-17.98623 14.49438,-1.94894 25.07502,8.14737 10.58063,10.09631 -5.84408,17.98623 z"
+       ng-attr-d="{{getInlayPathSpec(cell)}}"
+       ng-repeat="cell in cellsForAngle"
+       id="path610"
+       inkscape:connector-curvature="0"
+       style="fill:#8888cc;fill-opacity:0.5" />
+    <path
+       class="inlay"
+       d="m 351.40808,613.83359 q -22.89161,6.17008 -37.78462,-12.27697 -14.89302,-18.44704 6.46688,-19.90303 21.35991,-1.45598 37.78463,12.27697 16.42471,13.73295 -6.46689,19.90303 z"
+       ng-attr-d="{{getInlayPathSpec(cell)}}"
+       ng-repeat="cell in cellsForAngle"
+       id="path612"
+       inkscape:connector-curvature="0"
+       style="fill:#8888cc;fill-opacity:0.5" />
+    <path
+       class="inlay"
+       d="m 321.27265,642.29788 q -47.45998,-15.42068 -22.89161,-10.29063 24.56838,5.13006 47.45998,15.42068 22.89161,10.29063 -24.56837,-5.13005 z"
+       ng-attr-d="{{getInlayPathSpec(cell)}}"
+       ng-repeat="cell in cellsForAngle"
+       id="path614"
+       inkscape:connector-curvature="0"
+       style="fill:#8888cc;fill-opacity:0.5" />
+  </g>
+  <g
+     ng-if="drawCellInlays"
+     ng-repeat="cellsForAngle in rosette.cells"
+     id="g616"
+     transform="matrix(0.63387169,0,0,0.60264241,-79.840056,635.00196)">
+    <path
+       class="inlay"
+       d="m 356.6494,472.5826 q -9.04894,-0.46082 -12.28348,-8.92447 -3.23454,-8.46365 3.3924,-4.66924 6.62694,3.79441 12.28348,8.92447 5.65653,5.13005 -3.3924,4.66924 z"
+       ng-attr-d="{{getInlayPathSpec(cell)}}"
+       ng-repeat="cell in cellsForAngle"
+       id="path618"
+       inkscape:connector-curvature="0"
+       style="fill:#8888cc;fill-opacity:0.5" />
+    <path
+       class="inlay"
+       d="m 337.67879,503.77865 q -14.49438,1.94894 -17.11984,-12.43829 -2.62545,-14.38723 8.43448,-11.60906 11.05993,2.77817 17.11983,12.43829 6.0599,9.66012 -8.43447,11.60906 z"
+       ng-attr-d="{{getInlayPathSpec(cell)}}"
+       ng-repeat="cell in cellsForAngle"
+       id="path620"
+       inkscape:connector-curvature="0"
+       style="fill:#8888cc;fill-opacity:0.5" />
+    <path
+       class="inlay"
+       d="m 305.02905,558.6597 q -21.3599,1.45598 -26.57575,-19.30841 -5.21586,-20.7644 12.7096,-17.49327 17.92545,3.27113 26.57575,19.30841 8.6503,16.03729 -12.7096,17.49327 z"
+       ng-attr-d="{{getInlayPathSpec(cell)}}"
+       ng-repeat="cell in cellsForAngle"
+       id="path622"
+       inkscape:connector-curvature="0"
+       style="fill:#8888cc;fill-opacity:0.5" />
+    <path
+       class="inlay"
+       d="m 273.62601,612.8844 q -24.56838,-5.13006 -37.03939,-26.9107 -12.47102,-21.78064 9.67536,-13.31699 22.14638,8.46365 37.03939,26.9107 14.89302,18.44705 -9.67536,13.31699 z"
+       ng-attr-d="{{getInlayPathSpec(cell)}}"
+       ng-repeat="cell in cellsForAngle"
+       id="path624"
+       inkscape:connector-curvature="0"
+       style="fill:#8888cc;fill-opacity:0.5" />
+  </g>
+  <g
+     ng-if="drawCellInlays"
+     ng-repeat="cellsForAngle in rosette.cells"
+     id="g626"
+     transform="matrix(0.63387169,0,0,0.60264241,-79.840056,635.00196)">
+    <path
+       class="inlay"
+       d="m 342.62826,450.29217 q -6.62694,-3.79441 -8.1878,-11.26954 -1.56086,-7.47513 6.62694,3.79441 8.1878,11.26954 1.56086,7.47513 z"
+       ng-attr-d="{{getInlayPathSpec(cell)}}"
+       ng-repeat="cell in cellsForAngle"
+       id="path628"
+       inkscape:connector-curvature="0"
+       style="fill:#8888cc;fill-opacity:0.5" />
+    <path
+       class="inlay"
+       d="m 325.27863,465.10193 q -11.05993,-2.77817 -10.28442,-14.15529 0.77552,-11.37712 7.8254,-5.68548 7.04988,5.69164 10.28442,14.15529 3.23454,8.46365 -7.8254,5.68548 z"
+       ng-attr-d="{{getInlayPathSpec(cell)}}"
+       ng-repeat="cell in cellsForAngle"
+       id="path630"
+       inkscape:connector-curvature="0"
+       style="fill:#8888cc;fill-opacity:0.5" />
+    <path
+       class="inlay"
+       d="m 286.47511,498.7754 q -17.92546,-3.27113 -15.49721,-21.33009 2.42824,-18.05895 15.3,-11.1161 12.87175,6.94286 15.49721,21.33008 2.62546,14.38723 -15.3,11.11611 z"
+       ng-attr-d="{{getInlayPathSpec(cell)}}"
+       ng-repeat="cell in cellsForAngle"
+       id="path632"
+       inkscape:connector-curvature="0"
+       style="fill:#8888cc;fill-opacity:0.5" />
+    <path
+       class="inlay"
+       d="m 235.00008,544.43339 q -22.14638,-8.46364 -23.35218,-32.14151 -1.2058,-23.67787 16.93053,-12.30075 18.13632,11.37712 23.35218,32.14152 5.21585,20.76439 -16.93053,12.30074 z"
+       ng-attr-d="{{getInlayPathSpec(cell)}}"
+       ng-repeat="cell in cellsForAngle"
+       id="path634"
+       inkscape:connector-curvature="0"
+       style="fill:#8888cc;fill-opacity:0.5" />
+    <path
+       class="inlay"
+       d="m 193.88911,549.74832 q -29.33188,-40.37187 -12.47102,-21.78064 16.86087,18.59124 29.33189,40.37188 12.47102,21.78064 -16.86087,-18.59124 z"
+       ng-attr-d="{{getInlayPathSpec(cell)}}"
+       ng-repeat="cell in cellsForAngle"
+       id="path636"
+       inkscape:connector-curvature="0"
+       style="fill:#8888cc;fill-opacity:0.5" />
+  </g>
+  <g
+     ng-if="drawCellInlays"
+     ng-repeat="cellsForAngle in rosette.cells"
+     id="g638"
+     transform="matrix(0.63387169,0,0,0.60264241,-79.840056,635.00196)">
+    <path
+       class="inlay"
+       d="m 322.26565,433.23971 q -7.04988,-5.69164 -4.69187,-14.44009 2.35801,-8.74845 5.48901,-1.78349 3.13101,6.96496 4.69188,14.44009 1.56086,7.47513 -5.48902,1.78349 z"
+       ng-attr-d="{{getInlayPathSpec(cell)}}"
+       ng-repeat="cell in cellsForAngle"
+       id="path640"
+       inkscape:connector-curvature="0"
+       style="fill:#8888cc;fill-opacity:0.5" />
+    <path
+       class="inlay"
+       d="m 288.58152,447.3272 q -12.87176,-6.94285 -6.5392,-20.12557 6.33257,-13.18272 13.64727,-4.43427 7.31471,8.74845 6.5392,20.12558 -0.77551,11.37712 -13.64727,4.43426 z"
+       ng-attr-d="{{getInlayPathSpec(cell)}}"
+       ng-repeat="cell in cellsForAngle"
+       id="path642"
+       inkscape:connector-curvature="0"
+       style="fill:#8888cc;fill-opacity:0.5" />
+    <path
+       class="inlay"
+       d="m 229.90905,472.53587 q -18.13632,-11.37712 -10.15103,-31.24167 7.98529,-19.86455 20.56457,-6.68184 12.57928,13.18272 10.15103,31.24168 -2.42824,18.05895 -20.56457,6.68183 z"
+       ng-attr-d="{{getInlayPathSpec(cell)}}"
+       ng-repeat="cell in cellsForAngle"
+       id="path644"
+       inkscape:connector-curvature="0"
+       style="fill:#8888cc;fill-opacity:0.5" />
+    <path
+       class="inlay"
+       d="m 172.63098,497.94633 q -16.86086,-18.59123 -14.14779,-43.54242 2.71308,-24.95119 15.65507,-5.08664 12.94199,19.86455 14.14779,43.54242 1.2058,23.67787 -15.65507,5.08664 z"
+       ng-attr-d="{{getInlayPathSpec(cell)}}"
+       ng-repeat="cell in cellsForAngle"
+       id="path646"
+       inkscape:connector-curvature="0"
+       style="fill:#8888cc;fill-opacity:0.5" />
+  </g>
+  <g
+     ng-if="drawCellInlays"
+     ng-repeat="cellsForAngle in rosette.cells"
+     id="g648"
+     transform="matrix(0.63387169,0,0,0.60264241,-79.840056,635.00196)">
+    <path
+       class="inlay"
+       d="m 324.02429,406.96496 q -3.13101,-6.96496 0,-13.92992 3.13101,-6.96496 3.13101,6.96496 0,13.92992 -3.13101,6.96496 z"
+       ng-attr-d="{{getInlayPathSpec(cell)}}"
+       ng-repeat="cell in cellsForAngle"
+       id="path650"
+       inkscape:connector-curvature="0"
+       style="fill:#8888cc;fill-opacity:0.5" />
+    <path
+       class="inlay"
+       d="m 301.28319,408.74845 q -7.31471,-8.74845 0,-17.4969 7.31471,-8.74845 9.67272,0 2.35801,8.74845 0,17.4969 -2.35801,8.74845 -9.67272,0 z"
+       ng-attr-d="{{getInlayPathSpec(cell)}}"
+       ng-repeat="cell in cellsForAngle"
+       id="path652"
+       inkscape:connector-curvature="0"
+       style="fill:#8888cc;fill-opacity:0.5" />
+    <path
+       class="inlay"
+       d="m 250.09771,413.18272 q -12.57927,-13.18272 0,-26.36544 12.57928,-13.18271 18.91184,0 6.33257,13.18272 0,26.36544 -6.33256,13.18271 -18.91184,0 z"
+       ng-attr-d="{{getInlayPathSpec(cell)}}"
+       ng-repeat="cell in cellsForAngle"
+       id="path654"
+       inkscape:connector-curvature="0"
+       style="fill:#8888cc;fill-opacity:0.5" />
+    <path
+       class="inlay"
+       d="m 181.61644,419.86455 q -12.94199,-19.86455 0,-39.7291 12.94199,-19.86455 20.92728,0 7.9853,19.86455 0,39.7291 -7.98529,19.86455 -20.92728,0 z"
+       ng-attr-d="{{getInlayPathSpec(cell)}}"
+       ng-repeat="cell in cellsForAngle"
+       id="path656"
+       inkscape:connector-curvature="0"
+       style="fill:#8888cc;fill-opacity:0.5" />
+    <path
+       class="inlay"
+       d="m 145.23293,400 q 0,-49.90238 2.71308,-24.95119 2.71307,24.95119 0,49.90238 Q 145.23293,449.90238 145.23293,400 z"
+       ng-attr-d="{{getInlayPathSpec(cell)}}"
+       ng-repeat="cell in cellsForAngle"
+       id="path658"
+       inkscape:connector-curvature="0"
+       style="fill:#8888cc;fill-opacity:0.5" />
+  </g>
+  <g
+     ng-if="drawCellInlays"
+     ng-repeat="cellsForAngle in rosette.cells"
+     id="g660"
+     transform="matrix(0.63387169,0,0,0.60264241,-79.840056,635.00196)">
+    <path
+       class="inlay"
+       d="m 317.57378,381.20038 q -2.35801,-8.74845 4.69187,-14.44009 7.04988,-5.69164 5.48902,1.78349 -1.56087,7.47513 -4.69188,14.44009 -3.131,6.96496 -5.48901,-1.78349 z"
+       ng-attr-d="{{getInlayPathSpec(cell)}}"
+       ng-repeat="cell in cellsForAngle"
+       id="path662"
+       inkscape:connector-curvature="0"
+       style="fill:#8888cc;fill-opacity:0.5" />
+    <path
+       class="inlay"
+       d="m 282.04232,372.79837 q -6.33256,-13.18272 6.5392,-20.12557 12.87176,-6.94286 13.64727,4.43426 0.77551,11.37713 -6.5392,20.12558 -7.3147,8.74845 -13.64727,-4.43427 z"
+       ng-attr-d="{{getInlayPathSpec(cell)}}"
+       ng-repeat="cell in cellsForAngle"
+       id="path664"
+       inkscape:connector-curvature="0"
+       style="fill:#8888cc;fill-opacity:0.5" />
+    <path
+       class="inlay"
+       d="m 219.75802,358.7058 q -7.98529,-19.86455 10.15103,-31.24167 18.13633,-11.37712 20.56457,6.68183 2.42825,18.05896 -10.15103,31.24168 -12.57928,13.18271 -20.56457,-6.68184 z"
+       ng-attr-d="{{getInlayPathSpec(cell)}}"
+       ng-repeat="cell in cellsForAngle"
+       id="path666"
+       inkscape:connector-curvature="0"
+       style="fill:#8888cc;fill-opacity:0.5" />
+    <path
+       class="inlay"
+       d="m 158.48319,345.59609 q -2.71307,-24.95119 14.14779,-43.54242 16.86087,-18.59123 15.65507,5.08664 -1.2058,23.67787 -14.14779,43.54242 -12.94199,19.86455 -15.65507,-5.08664 z"
+       ng-attr-d="{{getInlayPathSpec(cell)}}"
+       ng-repeat="cell in cellsForAngle"
+       id="path668"
+       inkscape:connector-curvature="0"
+       style="fill:#8888cc;fill-opacity:0.5" />
+  </g>
+</svg>
