@@ -52,15 +52,14 @@ angular.element(document).ready ->
         $scope.showSource = ->
           svgSource = '<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" ' +
             '"http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">' +
-            '<svg>' +
-            '<defs>' +
+            angular.element('#rendering').html()
+          svgSource = svgSource.replace /<svg.*?>/, '<svg><defs>' +
             '<style type="text/css"><![CDATA[' +
             $scope.svgCss +
             ']]></style>' +
-            '</defs>' +
-            angular.element('#rendering').html() +
-            '</svg>'
-          angular.element('#svg-source').html(prettifier.prettify(svgSource))
+            '</defs>'
+
+          angular.element('#svg-source').html(prettifier.prettify(svgSource, ['ng-']))
           $scope.srcVisible = true
 
         $scope.hideSource = -> $scope.srcVisible = false

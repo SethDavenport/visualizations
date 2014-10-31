@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
   <head>
     <link type="text/css" rel="stylesheet" href="style.css">
@@ -97,87 +98,89 @@
       <button ng-click="hideSource()" ng-show="srcVisible">Hide SVG Source</button>
     </div>
 
-    <svg id="rendering">
-      <rect x="0" y="0" width="100%" height="100%" class="background"/>
+    <div id="rendering">
+      <svg>
+        <rect x="0" y="0" width="100%" height="100%" class="background"/>
 
-      <g ng-if="'CIRCLES' === mode">
-        <circle ng-repeat="circle in rosette.circles"
-          ng-attr-cx="{{circle.center.x}}"
-          ng-attr-cy="{{circle.center.y}}"
-          ng-attr-r="{{circle.radius}}"
-          class="circle"/>
-      </g>
-      <g ng-if="'GRID' === mode" ng-repeat="cellsForAngle in rosette.cells">
-        <path ng-repeat="cell in cellsForAngle"
-          ng-attr-d="{{cell.toPolygonSVG()}}"
-          class="grid-cell"
-          ng-class="cell.cssClass"/>
-      </g>
-      <g ng-if="'GRID_ARCS' === mode" ng-repeat="cellsForAngle in rosette.cells">
-        <path ng-repeat="cell in cellsForAngle"
-          ng-attr-d="{{cell.toArcsSVG(rosette.radius)}}"
-          class="grid-cell"
-          ng-class="cell.cssClass"/>
-      </g>
+        <g ng-if="'CIRCLES' === mode">
+          <circle ng-repeat="circle in rosette.circles"
+            ng-attr-cx="{{circle.center.x}}"
+            ng-attr-cy="{{circle.center.y}}"
+            ng-attr-r="{{circle.radius}}"
+            class="circle"/>
+        </g>
+        <g ng-if="'GRID' === mode" ng-repeat="cellsForAngle in rosette.cells">
+          <path ng-repeat="cell in cellsForAngle"
+            ng-attr-d="{{cell.toPolygonSVG()}}"
+            class="grid-cell"
+            ng-class="cell.cssClass"/>
+        </g>
+        <g ng-if="'GRID_ARCS' === mode" ng-repeat="cellsForAngle in rosette.cells">
+          <path ng-repeat="cell in cellsForAngle"
+            ng-attr-d="{{cell.toArcsSVG(rosette.radius)}}"
+            class="grid-cell"
+            ng-class="cell.cssClass"/>
+        </g>
 
-      <g ng-if="plotCircleCenters">
-        <circle ng-repeat="circle in rosette.circles"
-          ng-attr-cx="{{circle.center.x}}"
-          ng-attr-cy="{{circle.center.y}}"
-          r="2"
-          style="fill: red"/>
-      </g>
-
-      <g ng-if="plotCellCenters" ng-repeat="cellsForAngle in rosette.cells">
-        <circle ng-repeat="cell in cellsForAngle"
-          ng-attr-cx="{{cell.centroid().x}}"
-          ng-attr-cy="{{cell.centroid().y}}"
-          r="2"
-          style="fill: blue"/>
-      </g>
-
-      <g ng-if="plotCellMedians" ng-repeat="cellsForAngle in rosette.cells">
-        <g ng-repeat="cell in cellsForAngle">
-          <circle ng-repeat="point in cell.medians"
-            ng-attr-cx="{{point.x}}"
-            ng-attr-cy="{{point.y}}"
+        <g ng-if="plotCircleCenters">
+          <circle ng-repeat="circle in rosette.circles"
+            ng-attr-cx="{{circle.center.x}}"
+            ng-attr-cy="{{circle.center.y}}"
             r="2"
-            style="fill: green"/>
+            style="fill: red"/>
         </g>
-      </g>
 
-      <g ng-if="plotVertices">
-        <g ng-repeat="angle in rosette.angles">
-          <circle ng-repeat="point in rosette.vertices[angle]"
-            ng-attr-cx="{{point.x}}"
-            ng-attr-cy="{{point.y}}"
+        <g ng-if="plotCellCenters" ng-repeat="cellsForAngle in rosette.cells">
+          <circle ng-repeat="cell in cellsForAngle"
+            ng-attr-cx="{{cell.centroid().x}}"
+            ng-attr-cy="{{cell.centroid().y}}"
             r="2"
-            class="vertex"/>
-          <text ng-repeat="point in rosette.vertices[angle]"
-            ng-attr-x="{{point.x}}"
-            ng-attr-y="{{point.y}}"
-            class="text">({{angle}}, {{$index}})</text>
+            style="fill: blue"/>
         </g>
-      </g>
 
-      <g ng-if="plotRadials">
-        <g ng-repeat="radial in rosette.radials">
-          <path
-            ng-attr-d="{{radial.toPolygonSVG()}}"
-            class="radial"/>
-          <text
-            ng-attr-x="{{radial.labelCoords.x}}"
-            ng-attr-y="{{radial.labelCoords.y}}"
-            class="text">{{ $index }}</text>
+        <g ng-if="plotCellMedians" ng-repeat="cellsForAngle in rosette.cells">
+          <g ng-repeat="cell in cellsForAngle">
+            <circle ng-repeat="point in cell.medians"
+              ng-attr-cx="{{point.x}}"
+              ng-attr-cy="{{point.y}}"
+              r="2"
+              style="fill: green"/>
+          </g>
         </g>
-      </g>
 
-      <g ng-if="drawCellInlays" ng-repeat="cellsForAngle in rosette.cells">
-        <path ng-repeat="cell in cellsForAngle"
-          ng-attr-d="{{getInlayPathSpec(cell)}}"
-          class="inlay"/>
-      </g>
-    </svg>
+        <g ng-if="plotVertices">
+          <g ng-repeat="angle in rosette.angles">
+            <circle ng-repeat="point in rosette.vertices[angle]"
+              ng-attr-cx="{{point.x}}"
+              ng-attr-cy="{{point.y}}"
+              r="2"
+              class="vertex"/>
+            <text ng-repeat="point in rosette.vertices[angle]"
+              ng-attr-x="{{point.x}}"
+              ng-attr-y="{{point.y}}"
+              class="text">({{angle}}, {{$index}})</text>
+          </g>
+        </g>
+
+        <g ng-if="plotRadials">
+          <g ng-repeat="radial in rosette.radials">
+            <path
+              ng-attr-d="{{radial.toPolygonSVG()}}"
+              class="radial"/>
+            <text
+              ng-attr-x="{{radial.labelCoords.x}}"
+              ng-attr-y="{{radial.labelCoords.y}}"
+              class="text">{{ $index }}</text>
+          </g>
+        </g>
+
+        <g ng-if="drawCellInlays" ng-repeat="cellsForAngle in rosette.cells">
+          <path ng-repeat="cell in cellsForAngle"
+            ng-attr-d="{{getInlayPathSpec(cell)}}"
+            class="inlay"/>
+        </g>
+      </svg>
+    </div>
 
     <div id="src-box" ng-show="srcVisible">
       <button id="select-all" ng-click="selectSource()">Select All</button>

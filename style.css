@@ -5,8 +5,16 @@ body {
 }
 
 #rendering {
-  height: 100%;
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+}
+
+#rendering svg {
   width: 100%;
+  height: 100%;
 }
 
 .html-normal {
@@ -21,6 +29,7 @@ body {
   background-color: rgba(128, 128, 128, 0.5);
   padding: 10px;
   margin: 10px;
+  z-index: 100;
 }
 
 #src-box {
