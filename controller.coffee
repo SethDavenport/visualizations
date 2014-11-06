@@ -12,9 +12,9 @@ angular.element(document).ready ->
       ($scope, $http, prettifier, Point, Circle, Path, Rosette) ->
         MAX_COLOR_CLASSES = 6
         $scope.rosette = new Rosette(
-          new Circle(new Point(400, 400), 102),
-          175,
-          10)
+          new Circle(new Point(400, 400), 430),
+          530,
+          20)
 
         $scope.inlayStyles = [
           { label: 'Linear', value: 'LINEAR' }
