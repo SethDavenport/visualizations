@@ -1,14 +1,6 @@
 angular.element(document).ready ->
   angular.module 'rosette', ['geometry', 'prettifier']
-    .controller 'Controller', [
-      '$scope'
-      '$http'
-      'prettifier'
-      'Point'
-      'Circle'
-      'Path'
-      'Rosette'
-
+    .controller 'Controller',
       ($scope, $http, prettifier, Point, Circle, Path, Rosette) ->
         MAX_COLOR_CLASSES = 6
         $scope.rosette = new Rosette(
@@ -80,5 +72,5 @@ angular.element(document).ready ->
 
         $scope.hideSource()
         $scope.recompute()
-      ]
+
   angular.bootstrap document, ['rosette']

@@ -1,5 +1,5 @@
 angular.module 'geometry.rosette', [ 'geometry.point', 'geometry.circle', 'geometry.path' ]
-  .factory 'Rosette', [ 'Point', 'Circle', 'Path', (Point, Circle, Path) ->
+  .factory 'Rosette', (Point, Circle, Path) ->
 
     class Rosette
       constructor: (@guideCircle, @radius, @numCircles) ->
@@ -61,4 +61,3 @@ angular.module 'geometry.rosette', [ 'geometry.point', 'geometry.circle', 'geome
         return out
 
     return Rosette
-  ]

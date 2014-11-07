@@ -2,3 +2,4 @@
 - Look into requirejs to load them.
 - Fix temporary display of source div, expressions.
 - Rework view/copy source as directives.
+- Get rid of DI annotations - not minifying this project.

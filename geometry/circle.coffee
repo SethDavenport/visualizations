@@ -1,5 +1,5 @@
 angular.module 'geometry.circle', [ 'geometry.point' ]
-  .factory 'Circle', [ 'Point', (Point) ->
+  .factory 'Circle', (Point) ->
 
     class Circle
       constructor: (@center, @radius) ->
@@ -21,7 +21,7 @@ angular.module 'geometry.circle', [ 'geometry.point' ]
           .add @center
 
       getIntersectionPoints: (other) ->
-        throw TypeError "other must be a Circle, was #{other}" if other not instanceof Circle 
+        throw TypeError "other must be a Circle, was #{other}" if other not instanceof Circle
         return [] if @equals other
 
         a = @center.x
@@ -61,4 +61,3 @@ angular.module 'geometry.circle', [ 'geometry.point' ]
         return result;
 
     return Circle
-  ]

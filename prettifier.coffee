@@ -6,7 +6,7 @@
 #   http://prettydiff.com/lib/markup_beauty.js
 #   https://google-code-prettify.googlecode.com/svn/loader/prettify.js
 angular.module 'prettifier', []
-  .factory 'prettifier', [ ->
+  .factory 'prettifier', ->
     class Prettifier
       prettify: (xml) ->
         return window.prettyPrintOne @escape @indent @stripComments xml
@@ -23,4 +23,3 @@ angular.module 'prettifier', []
         angular.element('<div/>').text(xml).html()
 
     return new Prettifier()
-  ]

@@ -1,5 +1,5 @@
 angular.module 'geometry.path', [ 'geometry.point' ]
-  .factory 'Path', [ 'Point', (Point) ->
+  .factory 'Path', (Point) ->
     class Path
       constructor: (@vertices = []) ->
         for v in @vertices
@@ -73,4 +73,3 @@ angular.module 'geometry.path', [ 'geometry.point' ]
         return (@vertices[i].median(@vertices[(i+1)%num]) for i in [0...num])
 
     return Path
-  ]

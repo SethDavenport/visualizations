@@ -1,5 +1,5 @@
 angular.module 'geometry.point', []
-  .factory 'Point', [ ->
+  .factory 'Point', ->
 
     class Point
       constructor: (@x, @y) ->
@@ -41,4 +41,3 @@ angular.module 'geometry.point', []
         return new Point(@x.toFixed(n), @y.toFixed(n))
 
     return Point
-  ]
