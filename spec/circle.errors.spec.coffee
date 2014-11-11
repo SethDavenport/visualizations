@@ -1,5 +1,4 @@
 describe 'Point.error tests', ->
-  beforeEach(module 'geometry')
 
   it 'Should type-check constructor arguments', ->
     inject (Circle, Point) ->

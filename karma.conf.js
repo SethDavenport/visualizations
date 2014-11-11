@@ -13,8 +13,6 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
-        'spec/angular.js',
-        'spec/angular-mocks.js',
         '**/*.coffee'
     ],
 
@@ -26,7 +24,7 @@ module.exports = function(config) {
     preprocessors: {
         '**/*.coffee': ['coffee']
     },
-    
+
     coffeePreprocessor: {
       // options passed to the coffee compiler
       options: {
