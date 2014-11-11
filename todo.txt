@@ -1,2 +1,3 @@
 - Get unit tests working with requirejs.
 - Rework view/copy source as directives.
+- Rework view source cleanup code to not use regexes.
