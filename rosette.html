@@ -188,6 +188,21 @@
       </code>
     </div>
 
-    <script data-main="scripts/main" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.15/require.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.6.0/underscore-min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.20/angular.js"></script>
+    <script src="//google-code-prettify.googlecode.com/svn/loader/prettify.js"></script>
+    <script src="//prettydiff.com/lib/markupmin.js"></script>
+    <script src="//prettydiff.com/lib/markup_beauty.js"></script>
+
+    <script src="//google.github.io/traceur-compiler/bin/traceur.js"></script>
+    <script src="//cdn.rawgit.com/ModuleLoader/es6-module-loader/15dc9bae5f04cc35b2d57aa4eac056249c4637ff/dist/es6-module-loader.js"></script>
+    <script>
+      traceur.options.experimental = true;
+      System.baseURL = '/scripts/';
+    </script>
+    <script type="module">
+      import { main } from 'main';
+    </script>
   </body>
 </html>
