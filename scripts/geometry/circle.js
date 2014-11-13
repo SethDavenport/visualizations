@@ -1,4 +1,4 @@
-import Point from './Point'
+import Point from './point'
 
 class Circle {
   constructor(center:Point, radius:Number) {

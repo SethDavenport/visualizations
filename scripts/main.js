@@ -1,9 +1,10 @@
 import Point from 'geometry/point';
 import Circle from 'geometry/circle';
 import Path from 'geometry/path';
-//import Rosette from 'geometry/rosette';
+import Rosette from 'geometry/rosette';
 //import Prettifier from 'app/prettifier';
 //import Controller from 'app/controller';
+import { angular } from 'shim';
 
 /*
 // Expose all these non-angular modules to the angular dependency injector.
@@ -18,4 +19,4 @@ angular.module('app', [])
 angular.bootstrap(document, ['app']);
 */
 
-console.log(Point, Circle, Path/*, Rosette*/);
+console.log(Point, Circle, Path, angular, Rosette);

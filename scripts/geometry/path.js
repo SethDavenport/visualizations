@@ -85,7 +85,7 @@ class Path {
   }
 }
 
-function _computeMedians(vertices):List<Point> {
+function _computeMedians(vertices:List<Point>):List<Point> {
   var num = vertices.length,
     medians = [];
 
