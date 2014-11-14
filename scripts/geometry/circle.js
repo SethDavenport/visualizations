@@ -1,4 +1,5 @@
 import Point from './point'
+import { _ } from 'shim'
 
 class Circle {
   constructor(center:Point, radius:Number) {
@@ -17,7 +18,7 @@ class Circle {
     var alpha = Math.PI * 2 / n,
       result = [];
 
-    for (i = 0; i<n; ++i) {
+    for (let i of _.range(n)) {
       let theta = alpha * i;
       result.push(
         new Point(
@@ -37,10 +38,10 @@ class Circle {
       c = other.center.x,
       d = other.center.y,
       r = this.radius,
-      s = other.radius;
+      s = other.radius,
       e = c - a,
       f = d - b,
-      p = Math.sqrt(Math.abs(e*e + f*f));
+      p = Math.sqrt(Math.abs(e*e + f*f)),
       r2 = r*r,
       k = (p*p + r2 - s*s)/(2*p);
 

@@ -7,11 +7,15 @@ class Rosette {
     this.guideCircle = guideCircle;
     this.radius = radius;
     this.numCircles = numCircles;
-    this.circles = _computeCircles(guideCircle, radius, numCircles);
-    this.vertices = _computeVertices(this.circles);
-    this.angles = _getAngles(this.vertices);
+    this.recompute();
+  }
+
+  recompute() {
+    this.circles = _computeCircles(this.guideCircle, this.radius, this.numCircles);
+    this.vertices = _computeVertices(this.circles, this.guideCircle.center);
+    this.angles = this.vertices.keys();
     this.radials = _computeRadials(this.vertices);
-    this.cells = _computeCells(numCircles, this.angles, this.vertices);
+    this.cells = _computeCells(this.numCircles, this.vertices);
   }
 }
 
@@ -25,22 +29,25 @@ function _computeCircles(guideCircle:Circle, radius:Number, numCircles:int):List
 
 // Returns the rosette's vertices grouped by their angle with respect
 // to the center point.
-function _computeVertices(circles:List<Circle>):Map<string, List<Point>> {
-  var vertices = [];
+function _computeVertices(circles:List<Circle>, center):Map<string, List<Point>> {
+  var vertices = [], result = new Map();
   for (let i of _.range(circles.length)) {
     for (let j of _.range(i)) {
       vertices = vertices.concat(circles[i].getIntersectionPoints(circles[j]));
     }
   }
 
-  return _.chain(vertices)
+  vertices = _.chain(vertices)
     .uniq((v) => v.toString())
-    .map((v) => { return { angle: _normalizeAngle(v.angle(this.guideCircle.center)), point: v }})
+    .map((v) => { return { angle: _normalizeAngle(v.angle(center)), point: v }})
     .groupBy('angle')
     .sortBy('angle')
     .map((groups) => _.pluck(groups, 'point'))
-    .map((vertices) => _.sortBy(vertices, (v) => v.distance(this.guideCircle.center)))
+    .map((vertices) => _.sortBy(vertices, (v) => v.distance(center)))
     .value();
+
+  _.each(vertices, (points, angle) => { result.set(Number(angle), points); });
+  return result;
 }
 
 function _normalizeAngle(angle:Number):Number {
@@ -50,47 +57,39 @@ function _normalizeAngle(angle:Number):Number {
   return out;
 }
 
-function _getAngles(vertices:Map<string, List<Point>>):List<Number> {
-  return _.chain(this.vertices)
-    .keys()
-    .map((key) => Number(key))
-    .value();
-}
-
 function _computeRadials(vertices:Map<string, List<Point>>):List<Path> {
   var radials = [];
-  for (let angle of this.angles) {
-    radials.push(new Path(this.vertices[angles]));
+  for (let angle of vertices.keys()) {
+    radials.push(new Path(vertices.get(angle)));
   }
   return radials;
 }
 
 function _computeCells(
   numCircles:int,
-  angles:List<Number>,
   vertices:Map<string, List<Point>>
 ):List<Path> {
   var cells = [];
 
-  for (let angle of angles) {
+  for (let angle of vertices.keys()) {
     let cellsForAngle = [];
-    for (let distance = 0; distance < numCircles / 2; ++i) {
+    for (let distance of _.range(numCircles / 2)) {
       let currentRadial = angle,
-        nextRadial = (angle+1) % angles.length,
-        nextNextRadial = (angle+2) % angles.length,
+        nextRadial = (angle+1) % vertices.size,
+        nextNextRadial = (angle+2) % vertices.size,
         cell = new Path();
 
       if (0 === (angle % 2)) {
-        if (vertices[currentRadial][distance])  cell.push(vertices[currentRadial][distance], 0);
-        if (vertices[nextRadial][distance])     cell.push(vertices[nextRadial][distance], 1);
-        if (vertices[nextNextRadial][distance]) cell.push(vertices[nextNextRadial][distance], 1);
-        if (vertices[nextRadial][distance-1])   cell.push(vertices[nextRadial][distance-1], 0);
+        if (vertices.get(currentRadial)[distance])  cell.push(vertices.get(currentRadial)[distance], 0);
+        if (vertices.get(nextRadial)[distance])     cell.push(vertices.get(nextRadial)[distance], 1);
+        if (vertices.get(nextNextRadial)[distance]) cell.push(vertices.get(nextNextRadial)[distance], 1);
+        if (vertices.get(nextRadial)[distance-1])   cell.push(vertices.get(nextRadial)[distance-1], 0);
       }
       else {
-        if (vertices[currentRadial][distance])  cell.push(vertices[currentRadial][distance], 0);
-        if (vertices[nextRadial][distance+1])   cell.push(vertices[nextRadial][distance+1], 1);
-        if (vertices[nextNextRadial][distance]) cell.push(vertices[nextNextRadial][distance], 1);
-        if (vertices[nextRadial][distance])     cell.push(vertices[nextRadial][distance], 0);
+        if (vertices.get(currentRadial)[distance])  cell.push(vertices.get(currentRadial)[distance], 0);
+        if (vertices.get(nextRadial)[distance+1])   cell.push(vertices.get(nextRadial)[distance+1], 1);
+        if (vertices.get(nextNextRadial)[distance]) cell.push(vertices.get(nextNextRadial)[distance], 1);
+        if (vertices.get(nextRadial)[distance])     cell.push(vertices.get(nextRadial)[distance], 0);
       }
 
       if (cell.vertices.length > 1) cellsForAngle.push(cell);

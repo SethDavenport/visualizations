@@ -2,7 +2,7 @@ import { angular, prettyPrintOne, markupmin, markup_beauty } from 'shim';
 
 class Prettifier {
   prettify(xml:string):string {
-    return prettify(escape(indent(stripComment(xml))));
+    return prettyPrintOne(this.escape(this.indent(this.stripComments(xml))));
   }
 
   stripComments(xml:string):string {

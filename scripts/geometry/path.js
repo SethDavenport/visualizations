@@ -6,8 +6,8 @@ class Path {
     this.medians = _computeMedians(vertices);
   }
 
-  push(point:Point, arcSweep):Void {
-    p = new(Point point.x, point.y);
+  push(point:Point, arcSweep:int):Void {
+    var p = new Point(point.x, point.y);
     p.arcSweep = arcSweep;
     this.vertices.push(p);
     this.medians = _computeMedians(this.vertices);
@@ -31,7 +31,7 @@ class Path {
       centroid = this.centroid();
     for (let v of this.vertices) {
       let deltaX = centroid.x - v.x,
-        deltaY = centroid.y - v.y
+        deltaY = centroid.y - v.y,
         point = new Point(
           v.x + (deltaX * (1 - ratio)),
           v.y + (deltaY * (1 - ratio)));

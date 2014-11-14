@@ -17,14 +17,14 @@ class Point {
   }
 
   distance(other:Point):Number {
-    dx = this.x - other.x;
-    dy = this.y - other.y;
+    var dx = this.x - other.x,
+      dy = this.y - other.y;
     return Math.sqrt(dx*dx + dy*dy);
   }
 
   angle(other:Point):Number {
-    dx = this.x - other.x;
-    dy = this.y - other.y;
+    var dx = this.x - other.x,
+      dy = this.y - other.y;
     return Math.atan2(dy, dx);
   }
 
