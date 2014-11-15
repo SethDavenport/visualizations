@@ -8,11 +8,11 @@ import { angular } from 'shim';
 
 // Expose all these non-angular modules to the angular dependency injector.
 angular.module('app', [])
-  .factory('Point', function() { return Point; })
-  .factory('Circle', function(Point) { return Circle; })
-  .factory('Path', function(Point) { return Path; })
-  .factory('Rosette', function(Circle, Path) { return Rosette; })
-  .factory('prettifier', function() { return new Prettifier(); })
+  .factory('Point',         () => Point)
+  .factory('Circle',        () => Circle)
+  .factory('Path',          (Point) => Path)
+  .factory('Rosette',       (Circle, Path) => Rosette)
+  .factory('prettifier',    () => new Prettifier())
   .controller('Controller', controller);
 
 angular.bootstrap(document, ['app']);
