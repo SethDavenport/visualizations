@@ -54,8 +54,8 @@ class Path {
   }
 
   toArcsSVG(radius:Number):string {
-    var drawCommands = ''
-      v = this.vertices[0];
+    var drawCommands = '',
+      first = this.vertices[0];
 
     for (let v of this.vertices) {
       if (!drawCommands) {
@@ -66,7 +66,7 @@ class Path {
       }
     }
 
-    drawCommands += `A ${radius} ${radius} 0 0 ${v.arcSweep} ${v.x} ${v.y} Z`;
+    drawCommands += `A ${radius} ${radius} 0 0 ${first.arcSweep} ${first.x} ${first.y} Z`;
     return drawCommands;
   }
 
