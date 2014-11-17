@@ -13,7 +13,7 @@ class Rosette {
   recompute() {
     this.circles = _computeCircles(this.guideCircle, this.radius, this.numCircles);
     this.vertices = _computeVertices(this.circles, this.guideCircle.center);
-    this.angles = this.vertices.keys();
+    this.angles = [for (key of this.vertices.keys()) key]; // Iterator expansion.
     this.radials = _computeRadials(this.vertices);
     this.cells = _computeCells(this.numCircles, this.vertices);
   }

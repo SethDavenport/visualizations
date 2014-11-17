@@ -6,52 +6,52 @@
     <link type="text/css" rel="stylesheet" href="https://google-code-prettify.googlecode.com/svn/loader/prettify.css" />
     <link type="text/css" rel="stylesheet" href="https://google-code-prettify.googlecode.com/svn/loader/skins/sunburst.css" />
   </head>
-  <body ng-controller="Controller" class="html-normal">
+  <body ng-controller="Controller as ctrl" class="html-normal">
 
     <div id="controls" ng-cloak>
       <table>
         <tr>
           <td>Radius:</td>
-          <td>{{rosette.radius}}</td>
+          <td>{{ctrl.rosette.radius}}</td>
           <td>
             <input
               type="range"
               min="50"
               max="1000"
-              ng-model="rosette.radius"
-              ng-change="recompute()">
+              ng-model="ctrl.rosette.radius"
+              ng-change="ctrl.recompute()">
             </input>
           </td>
         </tr>
         <tr>
           <td>Guide Radius:</td>
-          <td>{{rosette.guideCircle.radius}}</td>
+          <td>{{ctrl.rosette.guideCircle.radius}}</td>
           <td>
             <input
               type="range"
               min="50"
               max="1000"
-              ng-model="rosette.guideCircle.radius"
-              ng-change="recompute()">
+              ng-model="ctrl.rosette.guideCircle.radius"
+              ng-change="ctrl.recompute()">
             </input>
           </td>
         </tr>
         <tr>
           <td>Samples:</td>
-          <td>{{rosette.numCircles}}</td>
+          <td>{{ctrl.rosette.numCircles}}</td>
           <td>
             <input
               type="range"
               min="1"
               max="64"
-              ng-model="rosette.numCircles"
-              ng-change="recompute()">
+              ng-model="ctrl.rosette.numCircles"
+              ng-change="ctrl.recompute()">
             </input>
           </td>
         </tr>
       </table>
       Render Mode:
-      <select ng-model="mode">
+      <select ng-model="ctrl.mode">
         <option value="CIRCLES">Overlapping Circles</option>
         <option value="GRID">Warped Grid</option>
         <option value="GRID_ARCS">Warped Grid (Arcs)</option>
@@ -59,78 +59,78 @@
       </select><br>
       <input
         type="checkbox"
-        ng-model="plotVertices">
+        ng-model="ctrl.plotVertices">
         Plot Vertices
       </input><br>
       <input
         type="checkbox"
-        ng-model="plotRadials">
+        ng-model="ctrl.plotRadials">
         Plot Radials
       </input><br>
       <input
         type="checkbox"
-        ng-model="plotCircleCenters">
+        ng-model="ctrl.plotCircleCenters">
         Plot Circle Centers
       </input><br>
       <input
         type="checkbox"
-        ng-model="plotCellCenters">
+        ng-model="ctrl.plotCellCenters">
         Plot Grid Cell Centers
       </input><br>
       <input
         type="checkbox"
-        ng-model="plotCellMedians">
+        ng-model="ctrl.plotCellMedians">
         Plot Grid Cell Medians
       </input><br>
       <input
         type="checkbox"
-        ng-model="drawCellInlays">
+        ng-model="ctrl.drawCellInlays">
         Draw Cell Inlays
       </input>
-      <input type="number" ng-model="inlaySize" min="1" max="100"><br>
-      <select ng-model="inlayStyle"
-        ng-options="opt as opt.label for opt in inlayStyles"
-        ng-disabled="!drawCellInlays">
+      <input type="number" ng-model="ctrl.inlaySize" min="1" max="100"><br>
+      <select ng-model="ctrl.inlayStyle"
+        ng-options="opt as opt.label for opt in ctrl.inlayStyles"
+        ng-disabled="!ctrl.drawCellInlays">
       </select>
       <br>
 
-      <button ng-click="showSource()" ng-hide="srcVisible">Show SVG Source</button>
-      <button ng-click="hideSource()" ng-show="srcVisible">Hide SVG Source</button>
+      <button ng-click="ctrl.showSource()" ng-hide="ctrl.srcVisible">Show SVG Source</button>
+      <button ng-click="ctrl.hideSource()" ng-show="ctrl.srcVisible">Hide SVG Source</button>
     </div>
 
     <div id="rendering" ng-cloak>
       <svg>
         <rect x="0" y="0" width="100%" height="100%" class="background"/>
 
-        <g ng-if="'CIRCLES' === mode">
-          <circle ng-repeat="circle in rosette.circles"
+        <g ng-if="'CIRCLES' === ctrl.mode">
+          <circle ng-repeat="circle in ctrl.rosette.circles"
             ng-attr-cx="{{circle.center.x}}"
             ng-attr-cy="{{circle.center.y}}"
             ng-attr-r="{{circle.radius}}"
             class="circle"/>
         </g>
-        <g ng-if="'GRID' === mode" ng-repeat="cellsForAngle in rosette.cells">
+        <g ng-if="'GRID' === ctrl.mode" ng-repeat="cellsForAngle in ctrl.rosette.cells">
           <path ng-repeat="cell in cellsForAngle"
             ng-attr-d="{{cell.toPolygonSVG()}}"
             class="grid-cell"
             ng-class="cell.cssClass"/>
         </g>
-        <g ng-if="'GRID_ARCS' === mode" ng-repeat="cellsForAngle in rosette.cells">
+        <g ng-if="'GRID_ARCS' === ctrl.mode" ng-repeat="cellsForAngle in ctrl.rosette.cells">
           <path ng-repeat="cell in cellsForAngle"
-            ng-attr-d="{{cell.toArcsSVG(rosette.radius)}}"
+            ng-attr-d="{{cell.toArcsSVG(ctrl.rosette.radius)}}"
             class="grid-cell"
             ng-class="cell.cssClass"/>
         </g>
 
-        <g ng-if="plotCircleCenters">
-          <circle ng-repeat="circle in rosette.circles"
+        <g ng-if="ctrl.plotCircleCenters">
+          <circle ng-repeat="circle in ctrl.rosette.circles"
             ng-attr-cx="{{circle.center.x}}"
             ng-attr-cy="{{circle.center.y}}"
             r="2"
             style="fill: red"/>
         </g>
 
-        <g ng-if="plotCellCenters" ng-repeat="cellsForAngle in rosette.cells">
+        <g ng-if="ctrl.plotCellCenters" ng-repeat="cellsForAngle in ctrl.rosette.cells">
           <circle ng-repeat="cell in cellsForAngle"
             ng-attr-cx="{{cell.centroid().x}}"
             ng-attr-cy="{{cell.centroid().y}}"
@@ -138,7 +138,7 @@
             style="fill: blue"/>
         </g>
 
-        <g ng-if="plotCellMedians" ng-repeat="cellsForAngle in rosette.cells">
+        <g ng-if="ctrl.plotCellMedians" ng-repeat="cellsForAngle in ctrl.rosette.cells">
           <g ng-repeat="cell in cellsForAngle">
             <circle ng-repeat="point in cell.medians"
               ng-attr-cx="{{point.x}}"
@@ -148,22 +148,22 @@
           </g>
         </g>
 
-        <g ng-if="plotVertices">
-          <g ng-repeat="angle in rosette.angles">
-            <circle ng-repeat="point in rosette.vertices[angle]"
+        <g ng-if="ctrl.plotVertices">
+          <g ng-repeat="angle in ctrl.rosette.angles">
+            <circle ng-repeat="point in ctrl.rosette.vertices.get(angle)"
               ng-attr-cx="{{point.x}}"
               ng-attr-cy="{{point.y}}"
               r="2"
               class="vertex"/>
-            <text ng-repeat="point in rosette.vertices[angle]"
+            <text ng-repeat="point in ctrl.rosette.vertices.get(angle)"
               ng-attr-x="{{point.x}}"
               ng-attr-y="{{point.y}}"
               class="text">({{angle}}, {{$index}})</text>
           </g>
         </g>
 
-        <g ng-if="plotRadials">
-          <g ng-repeat="radial in rosette.radials">
+        <g ng-if="ctrl.plotRadials">
+          <g ng-repeat="radial in ctrl.rosette.radials">
             <path
               ng-attr-d="{{radial.toPolygonSVG()}}"
               class="radial"/>
@@ -174,16 +174,16 @@
           </g>
         </g>
 
-        <g ng-if="drawCellInlays" ng-repeat="cellsForAngle in rosette.cells">
+        <g ng-if="ctrl.drawCellInlays" ng-repeat="cellsForAngle in ctrl.rosette.cells">
           <path ng-repeat="cell in cellsForAngle"
-            ng-attr-d="{{getInlayPathSpec(cell)}}"
+            ng-attr-d="{{ctrl.getInlayPathSpec(cell)}}"
             class="inlay"/>
         </g>
       </svg>
     </div>
 
-    <div id="src-box" ng-show="srcVisible" ng-cloak>
-      <button id="select-all" ng-click="selectSource()">Select All</button>
+    <div id="src-box" ng-show="ctrl.srcVisible" ng-cloak>
+      <button id="select-all" ng-click="ctrl.selectSource()">Select All</button>
       <code id="svg-source">
       </code>
     </div>
