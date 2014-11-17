@@ -8,8 +8,9 @@ module.exports = function(config) {
     frameworks: ['requirejs', 'mocha', 'chai', 'sinon', 'traceur'],
 
     files: [
-      { pattern: 'geometry/point.js', included: false },
-      { pattern: 'spec/point.angle.spec.js', included: false },
+      { pattern: 'shim.js', included: false },
+      { pattern: 'geometry/*.js', included: false },
+      { pattern: 'spec/*.spec.js', included: false },
       'test-main.js'
     ],
 
