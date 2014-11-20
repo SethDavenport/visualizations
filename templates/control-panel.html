@@ -41,11 +41,9 @@
     </tr>
   </table>
   Render Mode:
-  <select ng-model="ctrl.mode">
-    <option value="CIRCLES">Overlapping Circles</option>
-    <option value="GRID">Warped Grid</option>
-    <option value="GRID_ARCS">Warped Grid (Arcs)</option>
-    <option value="NONE">None</option>
+  <select ng-model="ctrl.mode"
+    ng-options="opt as opt.label for opt in ctrl.modes"
+    ng-change="ctrl.recompute()">
   </select><br>
   <input
     type="checkbox"
@@ -77,9 +75,14 @@
     ng-model="ctrl.drawCellInlays">
     Draw Cell Inlays
   </input>
-  <input type="number" ng-model="ctrl.inlaySize" min="1" max="100"><br>
+  <input type="number"
+    ng-model="ctrl.inlaySize"
+    ng-change="ctrl.recompute()"
+    min="1"
+    max="100"><br>
   <select ng-model="ctrl.inlayStyle"
     ng-options="opt as opt.label for opt in ctrl.inlayStyles"
-    ng-disabled="!ctrl.drawCellInlays">
+    ng-disabled="!ctrl.drawCellInlays"
+    ng-change="ctrl.recompute()">
   </select>
 </div>

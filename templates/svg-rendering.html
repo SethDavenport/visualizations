@@ -2,22 +2,16 @@
   <svg>
     <rect x="0" y="0" width="100%" height="100%" class="background"/>
 
-    <g ng-if="'CIRCLES' === ctrl.mode">
+    <g ng-if="'CIRCLES' === ctrl.mode.value">
       <circle ng-repeat="circle in ctrl.rosette.circles"
         ng-attr-cx="{{circle.center.x}}"
         ng-attr-cy="{{circle.center.y}}"
         ng-attr-r="{{circle.radius}}"
         class="circle"/>
     </g>
-    <g ng-if="'GRID' === ctrl.mode" ng-repeat="cellsForAngle in ctrl.rosette.cells">
+    <g ng-if="!!ctrl.mode.drawCells" ng-repeat="cellsForAngle in ctrl.rosette.cells">
       <path ng-repeat="cell in cellsForAngle"
-        ng-attr-d="{{cell.toPolygonSVG()}}"
-        class="grid-cell"
-        ng-class="cell.cssClass"/>
-    </g>
-    <g ng-if="'GRID_ARCS' === ctrl.mode" ng-repeat="cellsForAngle in ctrl.rosette.cells">
-      <path ng-repeat="cell in cellsForAngle"
-        ng-attr-d="{{cell.toArcsSVG(ctrl.rosette.radius)}}"
+        ng-attr-d="{{ctrl.cellPathSpecs.get(cell)}}"
         class="grid-cell"
         ng-class="cell.cssClass"/>
     </g>
@@ -76,7 +70,7 @@
 
     <g ng-if="ctrl.drawCellInlays" ng-repeat="cellsForAngle in ctrl.rosette.cells">
       <path ng-repeat="cell in cellsForAngle"
-        ng-attr-d="{{ctrl.getInlayPathSpec(cell)}}"
+        ng-attr-d="{{ctrl.inlayPathSpecs.get(cell)}}"
         class="inlay"/>
     </g>
   </svg>
