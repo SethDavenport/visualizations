@@ -4,7 +4,7 @@ body {
   font-family: sans-serif;
 }
 
-#rendering {
+#rendering-include, #rendering {
   position: absolute;
   top: 0px;
   bottom: 0px;
@@ -55,10 +55,6 @@ code {
 #select-all {
   position: absolute;
   right: 10px;
-}
-
-#rendering {
-  position: relative;
 }
 
 .view-source-button {
