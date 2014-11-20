@@ -9,14 +9,7 @@
   <body ng-controller="Controller as ctrl" class="html-normal">
 
     <div ng-include="'/templates/control-panel.html'"></div>
-
     <div ng-include="'/templates/svg-rendering.html'"></div>
-
-    <div id="src-box" ng-show="ctrl.srcVisible" ng-cloak>
-      <button id="select-all" ng-click="ctrl.selectSource()">Select All</button>
-      <code id="svg-source">
-      </code>
-    </div>
 
     <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.6.0/underscore-min.js"></script>

@@ -1,2 +1,2 @@
-- Rework view/copy source as directives.
 - Rework view source cleanup code to not use regexes.
+- Clean out the ng-attributes from the generated SVG source.

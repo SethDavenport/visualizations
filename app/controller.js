@@ -1,9 +1,13 @@
+import Point from 'geometry/point';
+import Circle from 'geometry/circle';
+import Rosette from 'geometry/rosette';
+import { SVG_DOCTYPE } from './prettify-markup';
+
 const MAX_COLOR_CLASSES = 6;
 
 class Controller {
-  constructor($http, prettifier, Point, Circle, Rosette) {
+  constructor($http) {
     this.$http = $http;
-    this.prettifier = prettifier;
     this.rosette = new Rosette(
       new Circle(new Point(400, 400), 430),
       530,
@@ -20,8 +24,8 @@ class Controller {
     this.drawCellInlays = true;
     this.inlayStyle = this.inlayStyles[2];
     $http.get('svg.css').then((response) => this.svgCss = response.data);
-    this.hideSource();
     this.recompute();
+    this.doctype = SVG_DOCTYPE;
   }
 
   recompute() {
@@ -47,44 +51,6 @@ class Controller {
       case 'ARC':    return resizedCell.toArcsSVG(this.rosette.radius);
     }
     return resizedCell.toQuadraticSVG();
-  }
-
-  showSource() {
-    let svgSource = '<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" ' +
-      '"http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">' +
-      angular.element('#rendering').html();
-    svgSource = svgSource.replace(/<svg.*?>/, '<svg><defs>' +
-      '<style type="text/css"><![CDATA[' +
-      this.svgCss +
-      ']]></style>' +
-      '</defs>');
-
-    angular.element('#svg-source').html(this.prettifier.prettify(svgSource, ['ng-']));
-    this.srcVisible = true;
-  }
-
-  hideSource() {
-    this.srcVisible = false;
-  }
-
-  selectSource() {
-    var sourceBox = document.getElementById('svg-source');
-
-    if (document.body.createTextRange) {
-      let range = document.body.createTextRange();
-
-      range.moveToElementText(sourceBox);
-      range.select();
-    }
-
-    else if (window.getSelection) {
-      let selection = window.getSelection(),
-        range = document.createRange();
-
-      range.selectNodeContents(sourceBox);
-      selection.removeAllRanges();
-      selection.addRange(range);
-    }
   }
 }
 

@@ -1,0 +1,12 @@
+<img
+  class="view-source-button"
+  title="View Source"
+  src="img/Text_File_Icon.svg"
+  ng-hide="srcVisible"
+  ng-click="showSource()">
+<div class="src-box" ng-show="srcVisible" ng-cloak ng-mouseleave="hideSource()">
+  <button id="select-all" ng-click="selectSource()">Select All</button>
+  <code></code>
+</div>
+<div class="vs-transclude" ng-transclude>
+</div>
