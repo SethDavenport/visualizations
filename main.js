@@ -4,7 +4,7 @@ import { angular } from 'shim';
 
 // Expose all these non-angular modules to the angular dependency injector.
 angular.module('app', [])
-  .controller('Controller', ($http) => new Controller($http))
+  .controller('Controller', Controller)
   .directive('vsViewSource', viewSourceDirective);
 
 angular.bootstrap(document, ['app']);
