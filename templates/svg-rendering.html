@@ -9,12 +9,7 @@
         ng-attr-r="{{circle.radius}}"
         class="circle"/>
     </g>
-    <g ng-if="!!ctrl.mode.drawCells" ng-repeat="cellsForAngle in ctrl.rosette.cells">
-      <path ng-repeat="cell in cellsForAngle"
-        ng-attr-d="{{ctrl.cellPathSpecs.get(cell)}}"
-        class="grid-cell"
-        ng-class="cell.cssClass"/>
-    </g>
+
 
     <g ng-if="ctrl.plotCircleCenters">
       <circle ng-repeat="circle in ctrl.rosette.circles"
@@ -24,21 +19,33 @@
         style="fill: red"/>
     </g>
 
-    <g ng-if="ctrl.plotCellCenters" ng-repeat="cellsForAngle in ctrl.rosette.cells">
-      <circle ng-repeat="cell in cellsForAngle"
-        ng-attr-cx="{{cell.centroid().x}}"
-        ng-attr-cy="{{cell.centroid().y}}"
-        r="2"
-        style="fill: blue"/>
-    </g>
-
-    <g ng-if="ctrl.plotCellMedians" ng-repeat="cellsForAngle in ctrl.rosette.cells">
+     <g ng-repeat="cellsForAngle in ctrl.rosette.cells">
       <g ng-repeat="cell in cellsForAngle">
-        <circle ng-repeat="point in cell.medians"
+        <path
+          ng-if="!!ctrl.mode.drawCells"
+          ng-attr-d="{{ctrl.cellPathSpecs.get(cell)}}"
+          class="grid-cell"
+          ng-class="cell.cssClass"/>
+        </path>
+
+        <circle
+          ng-if="ctrl.plotCellCenters"
+          ng-attr-cx="{{cell.centroid().x}}"
+          ng-attr-cy="{{cell.centroid().y}}"
+          r="2"
+          style="fill: blue"/>
+
+        <circle
+          ng-if="ctrl.plotCellMedians"
           ng-attr-cx="{{point.x}}"
           ng-attr-cy="{{point.y}}"
           r="2"
           style="fill: green"/>
+
+        <path
+          ng-if="ctrl.drawCellInlays"
+          ng-attr-d="{{ctrl.inlayPathSpecs.get(cell)}}"
+          class="inlay"/>
       </g>
     </g>
 
@@ -66,12 +73,6 @@
           ng-attr-y="{{radial.labelCoords.y}}"
           class="text">{{ $index }}</text>
       </g>
-    </g>
-
-    <g ng-if="ctrl.drawCellInlays" ng-repeat="cellsForAngle in ctrl.rosette.cells">
-      <path ng-repeat="cell in cellsForAngle"
-        ng-attr-d="{{ctrl.inlayPathSpecs.get(cell)}}"
-        class="inlay"/>
     </g>
   </svg>
 </div>
