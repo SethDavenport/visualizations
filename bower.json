@@ -19,7 +19,8 @@
     "jquery": "~2.1.3",
     "lodash": "~3.2.0",
     "google-code-prettify": "~1.0.3",
-    "prettydiff": "*"
+    "prettydiff": "*",
+    "ramda": "~0.13.0"
   },
   "devDependencies": {
     "react": "~0.13.0"

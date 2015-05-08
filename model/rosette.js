@@ -35,7 +35,7 @@ function RosetteModel(guideCircle, radius, numCircles) {
     }
 
     var organizeVertices = R.pipe(
-      R.uniq,
+      R.uniqWith(function(a, b) { return a.toFixed(2).equals(b.toFixed(2)); }),
       R.map(R.curry(_toAngleMapRecord)(center)),
       R.groupBy(R.prop('angle')),
       R.mapObj(
@@ -73,18 +73,19 @@ function RosetteModel(guideCircle, radius, numCircles) {
     vertices
   ) {
     var cells = [];
-    var numRadials = R.keys(vertices).length;
-/* BOrken. fix.
-    R.keys(vertices).forEach(function processAngles(angle) {
+    var angles = R.keys(vertices);
+    var numRadials = angles.length;
+
+    for (var i=0; i<numRadials; ++i) {
       var cellsForAngle = [];
 
       R.range(0, numCircles / 2).forEach(function processCell(distance) {
-        var currentRadial = angle;
-        var nextRadial = (angle+1) % numRadials;
-        var nextNextRadial = (angle+2) % numRadials;
+        var currentRadial = angles[i];
+        var nextRadial = angles[(i+1) % numRadials];
+        var nextNextRadial = angles[(i+2) % numRadials];
         var cell = new Path();
-        console.log(angle, currentRadial, nextRadial, nextNextRadial)
-        if (0 === (angle % 2)) {
+
+        if (0 === (i % 2)) {
           if (vertices[currentRadial][distance])  cell.push(vertices[currentRadial][distance], 0);
           if (vertices[nextRadial][distance])     cell.push(vertices[nextRadial][distance], 1);
           if (vertices[nextNextRadial][distance]) cell.push(vertices[nextNextRadial][distance], 1);
@@ -100,9 +101,9 @@ function RosetteModel(guideCircle, radius, numCircles) {
         if (cell.vertices.length > 1) cellsForAngle.push(cell);
       });
 
-      cells[angle] = cellsForAngle;
-    });
-*/
+      cells[i] = cellsForAngle;
+    }
+
     return cells;
   }
 }
