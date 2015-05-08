@@ -1,43 +1,37 @@
-import Point from './point'
-import { _ } from 'shim'
+'use strict'
 
-class Circle {
-  constructor(center:Point, radius:Number) {
-    this.center = center;
-    this.radius = radius;
-  }
+function Circle(center, radius) {
+  this.center = center;
+  this.radius = radius;
 
-  equals(other):boolean {
+  this.equals = function(other) {
     if (!other instanceof Circle) {
       return false;
     }
-    return (this.radius === other.radius && this.center.equals(other.center));
-  }
+    return (radius === other.radius && center.equals(other.center));
+  };
 
-  getNPointsOnPerimeter(n:int):List<Point> {
-    var alpha = Math.PI * 2 / n,
-      result = [];
+  this.getNPointsOnPerimeter = function(n) {
+    var alpha = Math.PI * 2 / n;
+    return R.map(
+      function(i) {
+        var theta = alpha * i;
+        return new Point(
+          Math.cos(theta) * radius,
+          Math.sin(theta) * radius)
+        .add(center)
+      },
+      R.range(0, n));
+  };
 
-    for (let i of _.range(n)) {
-      let theta = alpha * i;
-      result.push(
-        new Point(
-          Math.cos(theta) * this.radius,
-          Math.sin(theta) * this.radius)
-        .add(this.center));
-    }
-
-    return result;
-  }
-
-  getIntersectionPoints(other:Circle):List<Point> {
+  this.getIntersectionPoints = function(other) {
     if (this.equals(other)) return [];
 
-    var a = this.center.x,
-      b = this.center.y,
+    var a = center.x,
+      b = center.y,
       c = other.center.x,
       d = other.center.y,
-      r = this.radius,
+      r = radius,
       s = other.radius,
       e = c - a,
       f = d - b,
@@ -62,7 +56,5 @@ class Circle {
       y2 = b + fTimesKOverP + eOverPTimesSqrtR2minusK2;
 
     return [new Point(x1, y1), new Point(x2, y2)];
-  }
-}
-
-export default Circle;
+  };
+};
