@@ -33,6 +33,21 @@ var ControlPanel = React.createClass({
         </div>
         <div className="control-panel__row">
           <label className="control-panel__cell">
+            Construction Mode:
+          </label>
+          <select className="control-panel__cell"
+            ref="constructionModeSelect"
+            defaultValue="wireframe"
+            value={this.props.constructionMode}
+            onChange={this.handleChange}>
+            <option value="overlapping-circles">Overlapping Circles</option>
+            <option value="linear-cells">Linear Cells</option>
+            <option value="arc-cells">Arc Cells</option>
+            <option value="qbezier-cells">Quadratic Bezier Cells</option>
+          </select>
+        </div>
+        <div className="control-panel__row">
+          <label className="control-panel__cell">
             Render Mode:
           </label>
           <select className="control-panel__cell"
@@ -40,8 +55,8 @@ var ControlPanel = React.createClass({
             defaultValue="wireframe"
             value={this.props.renderMode}
             onChange={this.handleChange}>
-            <option value="wireframe">Wireframe</option>
-            <option value="overlapping-circles">Overlapping Circles</option>
+            <option value="line">Line Render</option>
+            <option value="solid">Solid Render</option>
           </select>
         </div>
         <div className="control-panel__row">
@@ -54,16 +69,6 @@ var ControlPanel = React.createClass({
             checked={this.props.showGuideCircle}
             onChange={this.handleChange}/>
         </div>
-        <div className="control-panel__row">
-          <label className="control-panel__cell">
-            Show Radials:
-          </label>
-          <input type="checkbox" className="control-panel__cell"
-            ref="showRadials"
-            defaultValue="false"
-            checked={this.props.showRadials}
-            onChange={this.handleChange}/>
-        </div>
       </form>
     );
   },
@@ -72,9 +77,9 @@ var ControlPanel = React.createClass({
     this.props.onUserInput({
       numSamples: this.refs.samplesInput.getDOMNode().value,
       radius: this.refs.radiusInput.getDOMNode().value,
+      constructionMode: this.refs.constructionModeSelect.getDOMNode().value,
       renderMode: this.refs.renderModeSelect.getDOMNode().value,
-      showGuideCircle: this.refs.showGuideCircle.getDOMNode().checked,
-      showRadials: this.refs.showRadials.getDOMNode().checked
+      showGuideCircle: this.refs.showGuideCircle.getDOMNode().checked
     });
   }
 });

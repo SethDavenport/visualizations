@@ -75,7 +75,7 @@ function Path(vertices) {
     for (var i=0; i<this.vertices.length; ++i) {
       drawCommands += (drawCommands ?
         _toSVGQuadCommand(this.vertices[i], this.medians[i]) :
-        _toSVGMoveCommand(this.vertices[i]));
+        _toSVGMoveCommand(this.medians[i]));
     }
 
     drawCommands += _toSVGQuadCommand(this.vertices[0], this.medians[0]) + 'Z';

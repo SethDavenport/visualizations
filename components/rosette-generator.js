@@ -4,9 +4,10 @@
 var RosetteGenerator = React.createClass({
   getInitialState: function() {
     return {
-      numSamples: 3,
+      numSamples: 5,
       radius: 25,
-      renderMode: 'overlapping-circles',
+      constructionMode: 'overlapping-circles',
+      renderMode: 'line',
       showGuideCircle: false,
       showRadials: false
     }
@@ -20,6 +21,7 @@ var RosetteGenerator = React.createClass({
             guideRadius="20"
             radius={this.state.radius}
             samples={this.state.numSamples}
+            constructionMode={this.state.constructionMode}
             renderMode={this.state.renderMode}
             showGuideCircle={this.state.showGuideCircle}
             showRadials={this.state.showRadials}/>
@@ -28,6 +30,7 @@ var RosetteGenerator = React.createClass({
           onUserInput={this.handleUserInput}
           radius={this.state.radius}
           numSamples={this.state.numSamples}
+          constructionMode={this.state.constructionMode}
           renderMode={this.state.renderMode}
           showGuideCircle={this.state.showGuideCircle}/>
       </div>
@@ -38,9 +41,9 @@ var RosetteGenerator = React.createClass({
     this.setState({
       numSamples: newState.numSamples,
       radius: newState.radius,
+      constructionMode: newState.constructionMode,
       renderMode: newState.renderMode,
-      showGuideCircle: newState.showGuideCircle,
-      showRadials: newState.showRadials
+      showGuideCircle: newState.showGuideCircle
     });
   }
 });

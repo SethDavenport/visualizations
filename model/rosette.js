@@ -8,7 +8,6 @@ function RosetteModel(guideCircle, radius, numCircles) {
   this.circles = _computeCircles(this.guideCircle, this.radius, this.numCircles);
   this.vertices = _computeVertices(this.circles, this.guideCircle.center);
   this.angles = R.keys(this.vertices);
-  this.radials = _computeRadials(this.vertices);
   this.cells = _computeCells(this.numCircles, this.vertices);
 
   function _computeCircles(guideCircle, radius, numCircles) {
@@ -18,8 +17,6 @@ function RosetteModel(guideCircle, radius, numCircles) {
       });
   }
 
-  // Returns the rosette's vertices grouped by their angle with respect
-  // to the center point.
   function _computeVertices(circles, center) {
     var vertices = [];
     var result = {};
@@ -30,27 +27,7 @@ function RosetteModel(guideCircle, radius, numCircles) {
       });
     });
 
-    var distanceFromCenter = function distanceFromCenter(point) {
-      return point.distance(center);
-    }
-
-    var organizeVertices = R.pipe(
-      R.uniqWith(function(a, b) { return a.toFixed(2).equals(b.toFixed(2)); }),
-      R.map(R.curry(_toAngleMapRecord)(center)),
-      R.groupBy(R.prop('angle')),
-      R.mapObj(
-        R.pipe(
-          R.pluck('point'),
-          R.sort(distanceFromCenter))));
-
-    return organizeVertices(vertices);
-  }
-
-  function _toAngleMapRecord(center, vertex) {
-    return {
-      angle: _normalizeAngle(vertex.angle(center)),
-      point: vertex
-    };
+    return _organizeVerticesAround(center)(vertices);
   }
 
   function _normalizeAngle(angle) {
@@ -60,12 +37,22 @@ function RosetteModel(guideCircle, radius, numCircles) {
     return out;
   }
 
-  function _computeRadials(vertices) {
-    var toRadial = function toPath(points) {
-      return new Path(points);
-    }
+  function _organizeVerticesAround(center) {
+    return R.pipe(
+      _groupByAngleFrom(center),
+      R.mapObj(_sortByDistanceFrom(center)));
+  }
 
-    return R.mapObj(toRadial, vertices);
+  function _groupByAngleFrom(center) {
+    return R.groupBy(function (point) {
+      return _normalizeAngle(point.angle(center));
+    });
+  }
+
+  function _sortByDistanceFrom(center) {
+    return R.sortBy(function (point) {
+      return point.distance(center);
+    });
   }
 
   function _computeCells(
@@ -73,7 +60,10 @@ function RosetteModel(guideCircle, radius, numCircles) {
     vertices
   ) {
     var cells = [];
-    var angles = R.keys(vertices);
+    var angles = R.sort(function(a,b) {
+        return a-b;
+      },
+      R.keys(vertices));
     var numRadials = angles.length;
 
     for (var i=0; i<numRadials; ++i) {
@@ -93,9 +83,9 @@ function RosetteModel(guideCircle, radius, numCircles) {
         }
         else {
           if (vertices[currentRadial][distance])  cell.push(vertices[currentRadial][distance], 0);
+          if (vertices[nextRadial][distance])     cell.push(vertices[nextRadial][distance], 1);
           if (vertices[nextNextRadial][distance]) cell.push(vertices[nextNextRadial][distance], 1);
-          if (vertices[nextRadial][distance+1])   cell.push(vertices[nextRadial][distance+1], 1);
-          if (vertices[nextRadial][distance])     cell.push(vertices[nextRadial][distance], 0);
+          if (vertices[nextRadial][distance+1])   cell.push(vertices[nextRadial][distance+1], 0);
         }
 
         if (cell.vertices.length > 1) cellsForAngle.push(cell);

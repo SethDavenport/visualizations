@@ -31,28 +31,45 @@ svg {
   background: black;
 }
 
-.rosette__guide-circle--wireframe {
+.rosette__radial--solid
+.rosette__radial--line,
+.rosette__guide-circle--line {
   stroke-width: 0.04;
   stroke: #00f;
   fill: none;
 }
 
-.rosette__guide-circle--overlapping-circles {
+.rosette__guide-circle--solid {
   stroke: none;
   fill: #00f;
   opacity: 0.1;
 }
 
-.rosette__circle--wireframe {
+.rosette__circle--line,
+.rosette__cell--line {
   stroke-width: 0.04;
   stroke: #fff;
   fill: none;
 }
 
-.rosette__circle--overlapping-circles {
+.rosette__circle--solid,
+.rosette__cell--solid {
   stroke: none;
   fill: #fff;
   opacity: 0.1;
+}
+
+.rosette__circle--line:hover,
+.rosette__cell--line:hover {
+  stroke: #f00;
+  fill: #f00;
+  opacity: 1;
+}
+
+.rosette__circle--solid:hover,
+.rosette__cell--solid:hover {
+  fill: #f00;
+  opacity: 1;
 }
 
 .control-panel {
