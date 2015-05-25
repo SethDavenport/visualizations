@@ -1,32 +1,36 @@
 'use strict';
 
-function Path(vertices) {
-  this.vertices = vertices || [];
-  this.medians = _computeMedians(this.vertices);
-
-  this.push = function push(point, arcSweep) {
-    var p = new Point(point.x, point.y);
-    p.arcSweep = arcSweep;
-    this.vertices.push(p);
-    this.medians = _computeMedians(this.vertices);
+var GEO_Path = (function GEO_Path_Init() {
+  return {
+    Path: Path,
+    centroid: R.curry(centroid),
+    resize: R.curry(resize),
+    computeMedians: R.curry(computeMedians),
+    toPolySVG: R.curry(toPolySVG),
+    toArcSVG: R.curry(toArcSVG),
+    toQuadBezierSVG: R.curry(toQuadBezierSVG)
   }
 
-  this.centroid = function centroid() {
+  function Path(vertices) {
+    this.vertices = vertices || [];
+  }
+
+  function centroid(path) {
     var sumX = 0,
       sumY = 0;
-    for (let v of this.vertices) {
+    for (let v of path.vertices) {
       sumX += v.x;
       sumY += v.y;
     }
 
     return new Point(
-      sumX/this.vertices.length,
-      sumY/this.vertices.length);
+      sumX/path.vertices.length,
+      sumY/path.vertices.length);
   }
 
-  this.resize = function resize(ratio) {
-    var centroid = this.centroid();
-    var newVertices = this.vertices.map(function(v) {
+  function resize(ratio) {
+    var centroid = path.centroid();
+    var newVertices = path.vertices.map(function(v) {
       var deltaX = centroid.x - v.x;
       var deltaY = centroid.y - v.y;
       var point = new Point(
@@ -40,8 +44,19 @@ function Path(vertices) {
     return new Path(newVertices);
   }
 
-  this.toPolygonSVG = function toPolygonSVG() {
-    var drawCommands = this.vertices.reduce(
+  function computeMedians(path) {
+    var num = path.vertices.length;
+    return R.map(
+      function getMedian(i) {
+        return GEO_Point.median(
+          path.vertices[i],
+          path.vertices[(i+1)%num]);
+      },
+      R.range(0, num));
+  }
+
+  function toPolySVG(path) {
+    var drawCommands = path.vertices.reduce(
       function(acc, v) {
         return acc + (acc ? _toSVGLineCommand(v) : _toSVGMoveCommand(v));
       },
@@ -51,12 +66,11 @@ function Path(vertices) {
     return drawCommands;
   }
 
-
-  this.toArcsSVG = function toArcsSVG(radius) {
+  function toArcSVG(path, radius) {
     var drawCommands = '';
-    var first = this.vertices[0];
+    var first = path.vertices[0];
 
-    var drawCommands = this.vertices.reduce(
+    var drawCommands = path.vertices.reduce(
       function(acc, v) {
         return acc + (acc ? _toSVGArcCommand(v, radius) : _toSVGMoveCommand(v));
       },
@@ -66,31 +80,21 @@ function Path(vertices) {
     return drawCommands;
   }
 
-  this.toQuadraticSVG = function toQuadraticSVG() {
+  function toQuadBezierSVG(path) {
     var drawCommands = '';
-    var first = this.medians[0];
+    var medians = computeMedians(path);
+    var first = medians[0];
 
     var drawCommands;
 
-    for (var i=0; i<this.vertices.length; ++i) {
+    for (var i=0; i<path.vertices.length; ++i) {
       drawCommands += (drawCommands ?
-        _toSVGQuadCommand(this.vertices[i], this.medians[i]) :
-        _toSVGMoveCommand(this.medians[i]));
+        _toSVGQuadCommand(path.vertices[i], medians[i]) :
+        _toSVGMoveCommand(medians[i]));
     }
 
-    drawCommands += _toSVGQuadCommand(this.vertices[0], this.medians[0]) + 'Z';
+    drawCommands += _toSVGQuadCommand(path.vertices[0], medians[0]) + 'Z';
     return drawCommands;
-  }
-
-  function _computeMedians(vertices) {
-    var num = vertices.length;
-    var medians = [];
-
-    for (var i=0; i<num; ++i) {
-      medians.push(vertices[i].median(vertices[(i+1)%num]));
-    }
-
-    return medians;
   }
 
   function _toSVGMoveCommand(point) {
@@ -109,4 +113,4 @@ function Path(vertices) {
   function _toSVGQuadCommand(p1, p2) {
     return 'Q ' + p1.x + ' ' + p1.y + ' ' + p2.x + ' ' + p2.y + ' ';
   }
-}
+})();

@@ -1,33 +1,91 @@
 'use strict';
 
-function RosetteModel(guideCircle, radius, numCircles) {
-  this.guideCircle = guideCircle;
-  this.radius = radius;
-  this.numCircles = numCircles;
+var GEO_Rosette = (function GEO_Rosette_Init() {
+  return {
+    RosetteModel: RosetteModel,
+    computeCircles: R.curry(computeCircles),
+    computeVertices: R.curry(computeVertices),
+    computeCells: R.curry(computeCells)
+  };
 
-  this.circles = _computeCircles(this.guideCircle, this.radius, this.numCircles);
-  this.vertices = _computeVertices(this.circles, this.guideCircle.center);
-  this.angles = R.keys(this.vertices);
-  this.cells = _computeCells(this.numCircles, this.vertices);
-
-  function _computeCircles(guideCircle, radius, numCircles) {
-    return guideCircle.getNPointsOnPerimeter(numCircles)
-      .map(function(point) {
-        return new Circle(point, radius);
-      });
+  function RosetteModel(guideCircle, radius, numCircles) {
+    this.guideCircle = guideCircle;
+    this.radius = radius;
+    this.numCircles = numCircles;
   }
 
-  function _computeVertices(circles, center) {
+  function computeCircles(rosette) {
+    return R.map(
+      function (point) {
+        return new GEO_Circle.Circle(point, rosette.radius);
+      },
+      GEO_Circle.computeNPointsOnPerimeter(
+        rosette.guideCircle,
+        rosette.numCircles));
+  }
+
+  function computeVertices(rosette) {
     var vertices = [];
     var result = {};
+    var circles = computeCircles(rosette);
 
-    R.range(0, circles.length).forEach(function(i) {
-      R.range(0, i).forEach(function(j) {
-        vertices = vertices.concat(circles[i].getIntersectionPoints(circles[j]));
+    R.range(0, circles.length).forEach(function forEachCircle1(i) {
+      R.range(0, i).forEach(function forEachCircle2(j) {
+        vertices = vertices.concat(
+          GEO_Circle.computeIntersectionPoints(
+            circles[i],
+            circles[j]));
       });
     });
 
-    return _organizeVerticesAround(center)(vertices);
+    return _organizeVerticesAround(rosette.guideCircle.center)(vertices);
+  }
+
+  function computeCells(rosette) {
+    var cells = [];
+    var vertices = computeVertices(rosette);
+    var angles = R.sort(function(a,b) {
+        return a-b;
+      },
+      R.keys(vertices));
+    var numRadials = angles.length;
+
+    for (var i=0; i<numRadials; ++i) {
+      var cellsForAngle = [];
+
+      R.range(0, rosette.numCircles / 2).forEach(function processCell(distance) {
+        var currentRadial = angles[i];
+        var nextRadial = angles[(i+1) % numRadials];
+        var nextNextRadial = angles[(i+2) % numRadials];
+        var cell = [];
+
+        if (0 === (i % 2)) {
+          if (vertices[currentRadial][distance])  cell.push(_choose(vertices, currentRadial, distance, 0));
+          if (vertices[nextRadial][distance])     cell.push(_choose(vertices, nextRadial, distance, 1));
+          if (vertices[nextNextRadial][distance]) cell.push(_choose(vertices, nextNextRadial, distance, 1));
+          if (vertices[nextRadial][distance-1])   cell.push(_choose(vertices, nextRadial, distance-1, 0));
+        }
+        else {
+          if (vertices[currentRadial][distance])  cell.push(_choose(vertices, currentRadial, distance, 0));
+          if (vertices[nextRadial][distance])     cell.push(_choose(vertices, nextRadial, distance, 1));
+          if (vertices[nextNextRadial][distance]) cell.push(_choose(vertices, nextNextRadial, distance, 1));
+          if (vertices[nextRadial][distance+1])   cell.push(_choose(vertices, nextRadial, distance+1, 0));
+        }
+
+        if (cell.length > 1) cellsForAngle.push(new GEO_Path.Path(cell));
+      });
+
+      cells[i] = cellsForAngle;
+    }
+
+    return cells;
+  }
+
+  function _choose(vertices, radial, distance, arcSweep) {
+    var vertex = vertices[radial][distance];
+    var result = new GEO_Point.Point(vertex.x, vertex.y);
+    result.arcSweep = arcSweep;
+    return result;
   }
 
   function _normalizeAngle(angle) {
@@ -44,56 +102,12 @@ function RosetteModel(guideCircle, radius, numCircles) {
   }
 
   function _groupByAngleFrom(center) {
-    return R.groupBy(function (point) {
-      return _normalizeAngle(point.angle(center));
+    return R.groupBy(function getAngle(point) {
+      return _normalizeAngle(GEO_Point.angle(point, center));
     });
   }
 
   function _sortByDistanceFrom(center) {
-    return R.sortBy(function (point) {
-      return point.distance(center);
-    });
+    return R.sortBy(GEO_Point.distance(center));
   }
-
-  function _computeCells(
-    numCircles,
-    vertices
-  ) {
-    var cells = [];
-    var angles = R.sort(function(a,b) {
-        return a-b;
-      },
-      R.keys(vertices));
-    var numRadials = angles.length;
-
-    for (var i=0; i<numRadials; ++i) {
-      var cellsForAngle = [];
-
-      R.range(0, numCircles / 2).forEach(function processCell(distance) {
-        var currentRadial = angles[i];
-        var nextRadial = angles[(i+1) % numRadials];
-        var nextNextRadial = angles[(i+2) % numRadials];
-        var cell = new Path();
-
-        if (0 === (i % 2)) {
-          if (vertices[currentRadial][distance])  cell.push(vertices[currentRadial][distance], 0);
-          if (vertices[nextRadial][distance])     cell.push(vertices[nextRadial][distance], 1);
-          if (vertices[nextNextRadial][distance]) cell.push(vertices[nextNextRadial][distance], 1);
-          if (vertices[nextRadial][distance-1])   cell.push(vertices[nextRadial][distance-1], 0);
-        }
-        else {
-          if (vertices[currentRadial][distance])  cell.push(vertices[currentRadial][distance], 0);
-          if (vertices[nextRadial][distance])     cell.push(vertices[nextRadial][distance], 1);
-          if (vertices[nextNextRadial][distance]) cell.push(vertices[nextNextRadial][distance], 1);
-          if (vertices[nextRadial][distance+1])   cell.push(vertices[nextRadial][distance+1], 0);
-        }
-
-        if (cell.vertices.length > 1) cellsForAngle.push(cell);
-      });
-
-      cells[i] = cellsForAngle;
-    }
-
-    return cells;
-  }
-}
+})();

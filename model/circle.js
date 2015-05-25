@@ -1,38 +1,44 @@
 'use strict'
 
-function Circle(center, radius) {
-  this.center = center;
-  this.radius = radius;
-
-  this.equals = function(other) {
-    if (!other instanceof Circle) {
-      return false;
-    }
-    return (radius === other.radius && center.equals(other.center));
+var GEO_Circle = (function GEO_Circle_Init() {
+  return {
+    Circle: Circle,
+    equals: equals,
+    computeNPointsOnPerimeter: computeNPointsOnPerimeter,
+    computeIntersectionPoints: computeIntersectionPoints
   };
 
-  this.getNPointsOnPerimeter = function(n) {
+  function Circle(center, radius) {
+    this.center = center;
+    this.radius = radius;
+  };
+
+  function equals(c1, c2) {
+    return (c1.radius === c2.radius && GEO_Point.equals(c1.center, c2.center));
+  };
+
+  function computeNPointsOnPerimeter(circle, n) {
     var alpha = Math.PI * 2 / n;
     return R.map(
       function(i) {
         var theta = alpha * i;
-        return new Point(
-          Math.cos(theta) * radius,
-          Math.sin(theta) * radius)
-        .add(center)
+        return GEO_Point.add(circle.center,
+          new GEO_Point.Point(
+            Math.cos(theta) * circle.radius,
+            Math.sin(theta) * circle.radius));
       },
       R.range(0, n));
   };
 
-  this.getIntersectionPoints = function(other) {
-    if (this.equals(other)) return [];
+  function computeIntersectionPoints(c1, c2) {
+    if (equals(c1, c2)) return [];
 
-    var a = center.x,
-      b = center.y,
-      c = other.center.x,
-      d = other.center.y,
-      r = radius,
-      s = other.radius,
+    var a = c1.center.x,
+      b = c1.center.y,
+      c = c2.center.x,
+      d = c2.center.y,
+      r = c1.radius,
+      s = c2.radius,
       e = c - a,
       f = d - b,
       p = Math.sqrt(Math.abs(e*e + f*f)),
@@ -55,6 +61,6 @@ function Circle(center, radius) {
       x2 = a + eTimesKOverP - fOverPTimesSqrtR2minusK2,
       y2 = b + fTimesKOverP + eOverPTimesSqrtR2minusK2;
 
-    return [new Point(x1, y1), new Point(x2, y2)];
+    return [new GEO_Point.Point(x1, y1), new GEO_Point.Point(x2, y2)];
   };
-};
+})();

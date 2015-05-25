@@ -1,9 +1,9 @@
 var Rosette = (function() {
   return React.createClass({
     render: function() {
-      var rosette = new RosetteModel(
-          new Circle(
-            new Point(+this.props.cx, +this.props.cy),
+      var rosette = new GEO_Rosette.RosetteModel(
+          new GEO_Circle.Circle(
+            new GEO_Point.Point(+this.props.cx, +this.props.cy),
             this.props.guideRadius),
           this.props.radius,
           this.props.samples);
@@ -32,7 +32,9 @@ var Rosette = (function() {
       }
 
       var cssClass = 'rosette__cell--' + this.props.renderMode;
-      return R.map(R.curry(_circleToSVG)(cssClass), rosette.circles);
+      return R.map(
+        R.curry(_circleToSVG)(cssClass),
+        GEO_Rosette.computeCircles(rosette));
     },
 
     _renderCells: function _renderCells(rosette) {
@@ -41,7 +43,7 @@ var Rosette = (function() {
       if (this.props.constructionMode === 'linear-cells') {
         return R.map(function(cellsForRadial) {
           return R.map(R.curry(_pathToPolygonSVG)(cssClass), cellsForRadial);
-        }, rosette.cells);
+        }, GEO_Rosette.computeCells(rosette));
       }
       else if (this.props.constructionMode === 'arc-cells') {
         var radius = this.props.radius;
@@ -49,25 +51,17 @@ var Rosette = (function() {
           return R.map(
             R.curry(_pathToArcsSVG)(radius, cssClass),
             cellsForRadial);
-        }, rosette.cells);
+        }, GEO_Rosette.computeCells(rosette));
       }
       else if (this.props.constructionMode === 'qbezier-cells') {
         return R.map(function(cellsForRadial) {
           return R.map(R.curry(_pathToQuadraticSVG)(cssClass), cellsForRadial);
-        }, rosette.cells);
+        }, GEO_Rosette.computeCells(rosette));
       }
 
       return null;
     }
   });
-
-  function _vertexToSVG(cssClass, vertex) {
-    return (<circle
-      cx={vertex.x}
-      cy={vertex.y}
-      r="0.5"
-      className={cssClass}/>);
-  }
 
   function _circleToSVG(cssClass, circle) {
     return (<circle
@@ -79,19 +73,19 @@ var Rosette = (function() {
 
   function _pathToPolygonSVG(cssClass, path) {
     return (<path
-      d={path.toPolygonSVG()}
+      d={GEO_Path.toPolySVG(path)}
       className={cssClass}/>);
   }
 
   function _pathToArcsSVG(radius, cssClass, path) {
     return (<path
-      d={path.toArcsSVG(radius)}
+      d={GEO_Path.toArcSVG(path, radius)}
       className={cssClass}/>);
   }
 
   function _pathToQuadraticSVG(cssClass, path) {
     return (<path
-      d={path.toQuadraticSVG()}
+      d={GEO_Path.toQuadBezierSVG(path)}
       className={cssClass}/>);
   }
 })();

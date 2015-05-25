@@ -1,46 +1,46 @@
 'use strict';
 
-function Point(x, y) {
-  this.x = x;
-  this.y = y;
-
-  this.add = function add(point) {
-    return new Point(x + point.x, y + point.y);
+var GEO_Point = (function GEO_Point_Init() {
+  return {
+    Point: Point,
+    add: R.curry(add),
+    equals: R.curry(equals),
+    distance: R.curry(distance),
+    angle: R.curry(angle),
+    median: R.curry(median),
+    toFixed: R.curry(toFixed)
   };
 
-  this.equals = function equals(other) {
-    if (!other instanceof Point) {
-      return false;
-    }
+  function Point(x, y) {
+    this.x = x;
+    this.y = y;
+  }
 
-    return (x === other.x && y === other.y);
-  };
+  function add(p1, p2) {
+    return new Point(p1.x + p2.x, p1.y + p2.y);
+  }
 
-  this.distance = function distance(other) {
-    var dx = x - other.x,
-      dy = y - other.y;
+  function equals(p1, p2) {
+    return (p1.x === p2.x && p1.y === p2.y);
+  }
+
+  function distance(p1, p2) {
+    var dx = p1.x - p2.x,
+      dy = p1.y - p2.y;
     return Math.sqrt(dx*dx + dy*dy);
-  };
+  }
 
-  this.angle = function angle(other) {
-    var dx = x - other.x,
-      dy = y - other.y;
+  function angle(p1, p2) {
+    var dx = p1.x - p2.x,
+      dy = p1.y - p2.y;
     return Math.atan2(dy, dx);
-  };
-
-  this.median = function median(point) {
-    return new Point((x + point.x)/2, (y + point.y)/2);
-  };
-
-  this.toFixed = function fixed(n) {
-    return new Point(x.toFixed(n), y.toFixed(n));
   }
 
-  this.toString = function toString(decimals) {
-    if (isFinite(decimals)) {
-      return this.toFixed(decimals).toString();
-    }
-
-    return this.x + ', ' + this.y;
+  function median(p1, p2) {
+    return new Point((p1.x + p2.x)/2, (p1.y + p2.y)/2);
   }
-}
+
+  function toFixed(point, n) {
+    return new Point(point.x.toFixed(n), point.y.toFixed(n));
+  }
+})();
