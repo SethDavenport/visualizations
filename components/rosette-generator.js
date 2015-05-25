@@ -6,7 +6,7 @@ var RosetteGenerator = React.createClass({
     return {
       numSamples: 5,
       radius: 25,
-      constructionMode: 'overlapping-circles',
+      constructionMode: 'linear',
       renderMode: 'line',
       showGuideCircle: false,
       showRadials: false
