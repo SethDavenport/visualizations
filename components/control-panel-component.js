@@ -37,13 +37,12 @@ var ControlPanel = React.createClass({
           </label>
           <select className="control-panel__cell"
             ref="constructionModeSelect"
-            defaultValue="wireframe"
             value={this.props.constructionMode}
             onChange={this.handleChange}>
             <option value="overlapping-circles">Overlapping Circles</option>
-            <option value="linear-cells">Linear Cells</option>
-            <option value="arc-cells">Arc Cells</option>
-            <option value="qbezier-cells">Quadratic Bezier Cells</option>
+            <option value="linear">Linear Cells</option>
+            <option value="arc">Arc Cells</option>
+            <option value="qbezier">Quadratic Bezier Cells</option>
           </select>
         </div>
         <div className="control-panel__row">
@@ -52,7 +51,6 @@ var ControlPanel = React.createClass({
           </label>
           <select className="control-panel__cell"
             ref="renderModeSelect"
-            defaultValue="wireframe"
             value={this.props.renderMode}
             onChange={this.handleChange}>
             <option value="line">Line Render</option>

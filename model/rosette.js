@@ -2,13 +2,13 @@
 
 var GEO_Rosette = (function GEO_Rosette_Init() {
   return {
-    RosetteModel: RosetteModel,
+    Rosette: Rosette,
     computeCircles: R.curry(computeCircles),
     computeVertices: R.curry(computeVertices),
     computeCells: R.curry(computeCells)
   };
 
-  function RosetteModel(guideCircle, radius, numCircles) {
+  function Rosette(guideCircle, radius, numCircles) {
     this.guideCircle = guideCircle;
     this.radius = radius;
     this.numCircles = numCircles;
