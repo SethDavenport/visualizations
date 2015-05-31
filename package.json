@@ -1,0 +1,28 @@
+{
+  "name": "visualizations",
+  "version": "0.0.1",
+  "description": "While on a trip to [Malta](https://www.google.ca/maps/place/Malta/@35.9440174,14.3795242,11z/data=!3m1!4b1!4m2!3m1!1s0x130e45281d8647c5:0xf582d86136be4239) several years ago, I took a look inside a wild and wonderful church to see what is one of the largest domes in Europe.  I was struck by the geometric pattern of the inside of the dome, which I found mesmerizing.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/SethDavenport/visualizations"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/SethDavenport/visualizations/issues"
+  },
+  "homepage": "https://github.com/SethDavenport/visualizations",
+  "devDependencies": {
+    "del": "^1.2.0",
+    "gulp": "^3.8.11",
+    "gulp-concat": "^2.5.2",
+    "gulp-copy": "0.0.2",
+    "gulp-if": "^1.2.5",
+    "gulp-react": "^3.0.1",
+    "gulp-uglify": "^1.2.0"
+  }
+}

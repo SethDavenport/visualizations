@@ -13,12 +13,13 @@ var GEO_Path = (function GEO_Path_Init() {
   }
 
   function centroid(path) {
-    var sumX = 0,
-      sumY = 0;
-    for (let v of path.vertices) {
+    var sumX = 0;
+    var sumY = 0;
+
+    path.vertices.forEach(function (v) {
       sumX += v.x;
       sumY += v.y;
-    }
+    });
 
     return new Point(
       sumX/path.vertices.length,
