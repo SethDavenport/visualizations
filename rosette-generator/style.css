@@ -52,11 +52,16 @@ svg {
   fill: none;
 }
 
-.rosette__circle--solid,
-.rosette__cell--solid {
+.rosette__circle--solid {
   stroke: none;
   fill: #fff;
   opacity: 0.1;
+}
+
+.rosette__cell--solid {
+  stroke: none;
+  fill: #fff;
+  opacity: 0.6;
 }
 
 .rosette__circle--line:hover,
@@ -68,7 +73,7 @@ svg {
 
 .rosette__circle--solid:hover,
 .rosette__cell--solid:hover {
-  fill: #f00;
+  fill: #fff;
   opacity: 1;
 }
 

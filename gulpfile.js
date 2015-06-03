@@ -7,6 +7,7 @@ var gulpIf = require('gulp-if');
 var uglify = require('gulp-uglify');
 var copy = require('gulp-copy');
 var del = require('del');
+var awspublish = require('gulp-awspublish');
 
 /**
  * Builds everything.
@@ -46,3 +47,18 @@ gulp.task(
     return gulp.src('rosette-generator/*')
       .pipe(copy('dist'));
   });
+
+gulp.task('deploy', ['build:rosette-generator'], function () {
+  var publisher = awspublish.create({
+    params: {
+      Bucket: 'generative-art'
+    }
+  });
+
+  gulp.src('dist/**/*')
+    .pipe(publisher.publish())
+    .pipe(publisher.sync())
+    .pipe(awspublish.reporter({
+      states: ['create', 'update', 'delete']
+    }));
+});

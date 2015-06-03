@@ -9,9 +9,9 @@ This pattern has apparently wormed its way inside my brain, even showing up in m
 
 I wanted to explore further how to manipulate this type of geometry to produce compelling armatures for future paintings.  Of course, constructing geometry this complex with pencil and compass is time-consuming.  I needed a test bed to experiment with the forms and colours prior to committing lots of expensive materials.
 
-# AngularJS + SVG == [Amaazing!](http://rawgit.com/DietCokeOfEvil/visualizations/master/rosette.html)
+# ReactJS + SVG == [Amaazing!](https://s3.amazonaws.com/generative-art/rosette-generator/index.html)
 
-JavaScript and SVG give me the ability to quickly prototype variations on this pattern, as long as I can crack the geometry.  Angular's data-binding, while a bit slow, makes it easy to express repetitive geometries using a declarative syntax.  What I wanted to do was get some code to generate the pattern seen in the dome as SVG.
+JavaScript and SVG give me the ability to quickly prototype variations on this pattern, as long as I can crack the geometry.  ReactJS makes it easy to express repetitive geometries using a declarative syntax.  What I wanted to do was get some code to generate the pattern seen in the dome as SVG.
 
 ## First Attempt
 
@@ -55,6 +55,4 @@ I can even adjust the inlays to be rendered with arcs or bezier curves for a var
 
 ## Final Renders
 
-At this point, I have a robust test platform for experimenting with rosette geometry compositions.  You can play with a live version [here](http://rawgit.com/DietCokeOfEvil/visualizations/master/rosette.html).
-
-I certainly have all the tools I need to duplicate the original patterns that inpired this effort:
+At this point, I have a robust test platform for experimenting with rosette geometry compositions.  You can play with a live version [here](https://s3.amazonaws.com/generative-art/rosette-generator/index.html).
