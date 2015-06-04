@@ -1,0 +1,109 @@
+html, body, svg {
+  height: 100%;
+  padding: 0px;
+  margin: 0px;
+}
+
+body {
+  position: relative;
+  font-family: sans-serif;
+}
+
+svg {
+  width: 100%;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  background: black;
+}
+
+.control-panel {
+  display: table;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  background: rgba(128, 128, 128, 0.5);
+  padding: 10px;
+  border-radius: 3px;
+  color: white;
+
+  &:hover {
+    background: rgba(128, 128, 128, 0.8);
+  }
+
+  &__row {
+    display: table-row;
+  }
+
+  &__cell {
+    display: table-cell;
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+}
+
+.rosette {
+  &__guide-circle {
+    &--line {
+      stroke-width: 0.04;
+      stroke: #00f;
+      fill: none;
+    }
+
+    &--solid {
+      stroke: none;
+      fill: #00f;
+      opacity: 0.1;
+    }
+  }
+
+  &__circle{
+    &--line {
+      stroke-width: 0.04;
+      stroke: #fff;
+      fill: none;
+
+      &:hover {
+        stroke: #f00;
+        fill: #f00;
+        opacity: 1;
+      }
+    }
+
+    &--solid {
+      stroke: none;
+      fill: #fff;
+      opacity: 0.1;
+
+      &:hover {
+        fill: #fff;
+        opacity: 0.6;
+      }
+    }
+  }
+
+  &__cell {
+    &--line {
+      stroke-width: 0.04;
+      stroke: #fff;
+      fill: none;
+
+      &:hover {
+        stroke: #f00;
+        fill: #f00;
+        opacity: 1;
+      }
+    }
+
+    &--solid {
+      stroke: none;
+      fill: #fff;
+      opacity: 0.6;
+
+      &:hover {
+        fill: #fff;
+        opacity: 1;
+      }
+    }
+  }
+}

@@ -47,15 +47,20 @@ var Rosette = (function() {
 
     _renderCells: function _renderCells(rosette) {
       var cssClass = 'rosette__cell--' + this.props.renderMode;
+      var positionalCssClassPrefix = 'rosette__cell-';
       var constructionMode = this.props.constructionMode;
       if (constructionMode === 'overlapping-circles') {
         return null;
       }
 
+      var i = -1;
+      var j = -1;
       return R.map(function(cellsForRadial) {
+        ++i;
         return R.map(function(path) {
+          ++j;
           return (<Path geometry={path}
-            className={cssClass}
+            className={cssClass + ' ' + positionalCssClassPrefix + i + '-' + j}
             constructionMode={constructionMode}
             arcRadius={rosette.radius}/>);
         }, cellsForRadial);
