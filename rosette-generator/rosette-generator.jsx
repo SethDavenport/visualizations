@@ -1,19 +1,27 @@
+import React from 'react';
+import Rosette from '../components/rosette-component.jsx';
+import ControlPanel from './control-panel-component.jsx';
+import style from './style.scss'
+
 /**
  * A page that renders a rosette based on user-defined parameters.
  */
-var RosetteGenerator = React.createClass({
-  getInitialState: function() {
-    return {
+export default class RosetteGenerator extends React.Component {
+  constructor (props) {
+    super(props);
+    this.state = {
       numSamples: 5,
       radius: 25,
-      constructionMode: 'linear',
+      constructionMode: 'overlapping-circles',
       renderMode: 'line',
       showGuideCircle: false,
       showRadials: false
     }
-  },
 
-  render: function() {
+    this._handleUserInput = this._handleUserInput.bind(this);
+  }
+
+  render () {
     return (
       <div>
         <svg viewBox="0 0 100 100" preserveAspectRatio="xMidYMid slice">
@@ -27,7 +35,7 @@ var RosetteGenerator = React.createClass({
             showRadials={this.state.showRadials}/>
         </svg>
         <ControlPanel
-          onUserInput={this.handleUserInput}
+          onUserInput={this._handleUserInput}
           radius={this.state.radius}
           numSamples={this.state.numSamples}
           constructionMode={this.state.constructionMode}
@@ -35,9 +43,9 @@ var RosetteGenerator = React.createClass({
           showGuideCircle={this.state.showGuideCircle}/>
       </div>
     );
-  },
+  }
 
-  handleUserInput: function(newState) {
+  _handleUserInput (newState) {
     this.setState({
       numSamples: newState.numSamples,
       radius: newState.radius,
@@ -46,4 +54,4 @@ var RosetteGenerator = React.createClass({
       showGuideCircle: newState.showGuideCircle
     });
   }
-});
+};
