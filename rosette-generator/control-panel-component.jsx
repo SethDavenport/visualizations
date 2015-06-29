@@ -1,5 +1,12 @@
-var ControlPanel = React.createClass({
-  render: function() {
+import React from 'react';
+
+export default class ControlPanel extends React.Component {
+  constructor(props) {
+    super(props);
+    this._handleChange = this._handleChange.bind(this);
+  }
+
+  render () {
     return (
       <form className="control-panel">
         <div className="control-panel__row">
@@ -13,7 +20,7 @@ var ControlPanel = React.createClass({
             max="1000"
             ref="samplesInput"
             value={this.props.numSamples}
-            onChange={this.handleChange}>
+            onChange={this._handleChange}>
           </input>
         </div>
         <div className="control-panel__row">
@@ -28,7 +35,7 @@ var ControlPanel = React.createClass({
             max="1000"
             ref="radiusInput"
             value={this.props.radius}
-            onChange={this.handleChange}>
+            onChange={this._handleChange}>
           </input>
         </div>
         <div className="control-panel__row">
@@ -38,7 +45,7 @@ var ControlPanel = React.createClass({
           <select className="control-panel__cell"
             ref="constructionModeSelect"
             value={this.props.constructionMode}
-            onChange={this.handleChange}>
+            onChange={this._handleChange}>
             <option value="overlapping-circles">Overlapping Circles</option>
             <option value="linear">Linear Cells</option>
             <option value="arc">Arc Cells</option>
@@ -52,7 +59,7 @@ var ControlPanel = React.createClass({
           <select className="control-panel__cell"
             ref="renderModeSelect"
             value={this.props.renderMode}
-            onChange={this.handleChange}>
+            onChange={this._handleChange}>
             <option value="line">Line Render</option>
             <option value="solid">Solid Render</option>
           </select>
@@ -65,13 +72,13 @@ var ControlPanel = React.createClass({
             ref="showGuideCircle"
             defaultValue="false"
             checked={this.props.showGuideCircle}
-            onChange={this.handleChange}/>
+            onChange={this._handleChange}/>
         </div>
       </form>
     );
-  },
+  }
 
-  handleChange: function() {
+  _handleChange () {
     this.props.onUserInput({
       numSamples: this.refs.samplesInput.getDOMNode().value,
       radius: this.refs.radiusInput.getDOMNode().value,
@@ -80,4 +87,4 @@ var ControlPanel = React.createClass({
       showGuideCircle: this.refs.showGuideCircle.getDOMNode().checked
     });
   }
-});
+};
