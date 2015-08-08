@@ -1,90 +1,73 @@
 import React from 'react';
+import R from 'ramda';
+import NumberInput from './number-input-component.jsx';
+import SelectInput from './select-input-component.jsx';
+import * as rosetteActions from '../actions/rosette.actions.es6';
+import * as renderActions from '../actions/render-options.actions.es6';
+import { ConstructionModes, RenderModes } from '../stores/render-options.constants.es6';
 
 export default class ControlPanel extends React.Component {
-  constructor(props) {
-    super(props);
-    this._handleChange = this._handleChange.bind(this);
-  }
-
   render () {
+    function _toSelectItem (pair) {
+      return { value: pair[1], label: pair[0] };
+    }
+
+    var _generateSelectItems = R.pipe(
+      R.toPairs,
+      R.map(_toSelectItem));
+
+    var constructionModes = _generateSelectItems(ConstructionModes);
+    var renderModes = _generateSelectItems(RenderModes);
+
     return (
       <form className="control-panel">
-        <div className="control-panel__row">
-          <label className="control-panel__cell">
-            Number of samples:
-          </label>
-          <input
-            className="control-panel__cell"
-            type="number"
-            min="1"
-            max="1000"
-            ref="samplesInput"
-            value={this.props.numSamples}
-            onChange={this._handleChange}>
-          </input>
-        </div>
-        <div className="control-panel__row">
-          <label
-            className="control-panel__cell">
-            Radius:
-          </label>
-          <input
-            className="control-panel__cell"
-            type="number"
-            min="5"
-            max="1000"
-            ref="radiusInput"
-            value={this.props.radius}
-            onChange={this._handleChange}>
-          </input>
-        </div>
-        <div className="control-panel__row">
-          <label className="control-panel__cell">
-            Construction Mode:
-          </label>
-          <select className="control-panel__cell"
-            ref="constructionModeSelect"
-            value={this.props.constructionMode}
-            onChange={this._handleChange}>
-            <option value="overlapping-circles">Overlapping Circles</option>
-            <option value="linear">Linear Cells</option>
-            <option value="arc">Arc Cells</option>
-            <option value="qbezier">Quadratic Bezier Cells</option>
-          </select>
-        </div>
-        <div className="control-panel__row">
-          <label className="control-panel__cell">
-            Render Mode:
-          </label>
-          <select className="control-panel__cell"
-            ref="renderModeSelect"
-            value={this.props.renderMode}
-            onChange={this._handleChange}>
-            <option value="line">Line Render</option>
-            <option value="solid">Solid Render</option>
-          </select>
-        </div>
-        <div className="control-panel__row">
-          <label className="control-panel__cell">
-            Show Guide Circle:
-          </label>
-          <input type="checkbox" className="control-panel__cell"
-            ref="showGuideCircle"
-            defaultValue="false"
-            checked={this.props.showGuideCircle}
-            onChange={this._handleChange}/>
-        </div>
+        <NumberInput name="samplesInput"
+          label="Number of samples"
+          min="1"
+          max="1000"
+          default={this.props.numSamples}
+          onChange={newVal => rosetteActions.setSamples(newVal)}/>
+        <NumberInput name="radiusInput"
+          label="Radius"
+          min="5"
+          max="60"
+          default={this.props.radius}
+          onChange={newVal => rosetteActions.setRadius(newVal)}/>
+        <NumberInput name="radiusInput"
+          label="Guide Radius"
+          min="5"
+          max="60"
+          default={this.props.guideRadius}
+          onChange={newVal => rosetteActions.setGuideRadius(newVal)}/>
+        <NumberInput name="xInput"
+          label="X (%)"
+          min="-100"
+          max="200"
+          default={this.props.x}
+          onChange={newVal => rosetteActions.setX(newVal)}/>
+        <NumberInput name="xInput"
+          label="Y (%)"
+          min="-100"
+          max="200"
+          default={this.props.y}
+          onChange={newVal => rosetteActions.setY(newVal)}/>
+        <SelectInput name="constructionModeSelect"
+          label="Construction Mode"
+          default={this.props.constructionMode}
+          onChange={newVal => renderActions.setConstructionMode(newVal)}
+          options={constructionModes}/>
+        <SelectInput name="constructionModeSelect"
+          label="Render Mode"
+          default={this.props.renderMode}
+          onChange={newVal => renderActions.setRenderMode(newVal)}
+          options={renderModes}/>
+        <NumberInput name="cellSize"
+          label="Cell Size (%)"
+          min="1"
+          max="150"
+          default={this.props.cellSize}
+          onChange={newVal => rosetteActions.setCellSize(newVal)}/>
       </form>
     );
-  }
-
-  _handleChange () {
-    this.props.onUserInput({
-      numSamples: this.refs.samplesInput.getDOMNode().value,
-      radius: this.refs.radiusInput.getDOMNode().value,
-      constructionMode: this.refs.constructionModeSelect.getDOMNode().value,
-      renderMode: this.refs.renderModeSelect.getDOMNode().value,
-      showGuideCircle: this.refs.showGuideCircle.getDOMNode().checked
-    });
   }
 };

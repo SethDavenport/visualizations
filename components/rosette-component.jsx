@@ -5,6 +5,7 @@ import Path from './path-component.jsx';
 import * as GEO_Rosette from '../model/rosette.es6';
 import * as GEO_Circle from '../model/circle.es6';
 import * as GEO_Point from '../model/point.es6';
+import { ConstructionModes, RenderModes } from '../stores/render-options.constants.es6';
 
 export default class Rosette extends React.Component {
   render () {
@@ -37,7 +38,7 @@ export default class Rosette extends React.Component {
   }
 
   _renderCircles (rosette) {
-    if (this.props.constructionMode !== 'overlapping-circles') {
+    if (this.props.constructionMode !== ConstructionModes.OVERLAPPING_CIRCLES) {
       return null;
     }
 
@@ -56,7 +57,7 @@ export default class Rosette extends React.Component {
     var cssClass = 'rosette__cell--' + this.props.renderMode;
     var positionalCssClassPrefix = 'rosette__cell-';
     var constructionMode = this.props.constructionMode;
-    if (constructionMode === 'overlapping-circles') {
+    if (constructionMode === ConstructionModes.OVERLAPPING_CIRCLES) {
       return null;
     }
 
@@ -71,6 +72,6 @@ export default class Rosette extends React.Component {
           constructionMode={constructionMode}
           arcRadius={rosette.radius}/>);
       }, cellsForRadial);
-    }, GEO_Rosette.computeCells(rosette));
+    }, GEO_Rosette.computeCells(rosette, this.props.cellSize));
   }
 }

@@ -17,17 +17,17 @@ export function centroid(path) {
     sumY += v.y;
   });
 
-  return new Point(
+  return new GEO_Point.Point(
     sumX/path.vertices.length,
     sumY/path.vertices.length);
 }
 
-export function resize(ratio) {
-  var centroid = path.centroid();
+export function resize(path, ratio) {
+  var c = centroid(path);
   var newVertices = path.vertices.map(function(v) {
-    var deltaX = centroid.x - v.x;
-    var deltaY = centroid.y - v.y;
-    var point = new Point(
+    var deltaX = c.x - v.x;
+    var deltaY = c.y - v.y;
+    var point = new GEO_Point.Point(
         v.x + (deltaX * (1 - ratio)),
         v.y + (deltaY * (1 - ratio)));
 

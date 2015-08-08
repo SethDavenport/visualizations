@@ -2,6 +2,7 @@
 import React from 'react';
 import R from 'ramda';
 import * as GEO_Path from '../model/path.es6';
+import { ConstructionModes } from '../stores/render-options.constants.es6';
 
 export default class Path extends React.Component {
   render () {
@@ -19,17 +20,17 @@ function _getDrawCommands(geometry, constructionMode, arcRadius) {
   var drawFn;
 
   switch(constructionMode) {
-    case 'linear':
+    case ConstructionModes.LINEAR_CELLS:
       startFn = _toSVGMoveCommand;
       drawFn = _toSVGLineCommand;
       break;
 
-    case 'arc':
+    case ConstructionModes.ARC_CELLS:
       startFn = _toSVGMoveCommand;
       drawFn = R.curry(_toSVGArcCommand)(arcRadius);
       break;
 
-    case 'qbezier':
+    case ConstructionModes.Q_BEZIER_CELLS:
       var medians = GEO_Path.computeMedians(geometry);
       startFn = function () {
         return _toSVGMoveCommand(medians[0]);
