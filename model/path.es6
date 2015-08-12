@@ -48,3 +48,11 @@ export function computeMedians(path) {
     },
     R.range(0, num));
 }
+
+export function computeMinDistance(path, point) {
+  var medians = computeMedians(path);
+  var radii = R.map(GEO_Point.distance(point), medians);
+  return R.reduce(function (a, b) {
+    return a, b, a < b ? a : b;
+  }, Infinity, radii);
+}

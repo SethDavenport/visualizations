@@ -39,7 +39,7 @@ export var computeVertices = R.curry(rosette => {
   return _organizeVerticesAround(rosette.guideCircle.center)(vertices);
 });
 
-export var computeCells = R.curry((rosette, sizePercent) => {
+export var computeCells = R.curry((rosette) => {
   var cells = [];
   var vertices = computeVertices(rosette);
   var angles = R.sort(function(a,b) {
@@ -71,13 +71,7 @@ export var computeCells = R.curry((rosette, sizePercent) => {
       }
 
       if (cell.length > 1) {
-        let path = new GEO_Path.Path(cell);
-
-        if (sizePercent > 0) {
-          path = GEO_Path.resize(path, sizePercent / 100);
-        }
-
-        cellsForAngle.push(path);
+        cellsForAngle.push(new GEO_Path.Path(cell));
       }
     });
 

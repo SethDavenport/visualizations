@@ -5,6 +5,7 @@ import Path from './path-component.jsx';
 import * as GEO_Rosette from '../model/rosette.es6';
 import * as GEO_Circle from '../model/circle.es6';
 import * as GEO_Point from '../model/point.es6';
+import * as GEO_Path from '../model/path.es6';
 import { ConstructionModes, RenderModes } from '../stores/render-options.constants.es6';
 
 export default class Rosette extends React.Component {
@@ -61,17 +62,32 @@ export default class Rosette extends React.Component {
       return null;
     }
 
+    var cellSize = this.props.cellSize;
+
     var i = -1;
     var j = -1;
     return R.map(function(cellsForRadial) {
       ++i;
       return R.map(function(path) {
         ++j;
-        return (<Path geometry={path}
-          className={cssClass + ' ' + positionalCssClassPrefix + i + '-' + j}
-          constructionMode={constructionMode}
-          arcRadius={rosette.radius}/>);
+        if (constructionMode === ConstructionModes.CIRCLE_CELLS) {
+          var centroid = GEO_Path.centroid(path);
+          return (<Circle className={cssClass + ' ' + positionalCssClassPrefix + i + '-' + j}
+            x={centroid.x}
+            y={centroid.y}
+            radius={GEO_Path.computeMinDistance(path, centroid)}/>);
+        }
+        else {
+          if (cellSize > 0) {
+            path = GEO_Path.resize(path, cellSize / 100);
+          }
+
+          return (<Path geometry={path}
+            className={cssClass + ' ' + positionalCssClassPrefix + i + '-' + j}
+            constructionMode={constructionMode}
+            arcRadius={rosette.radius}/>);
+        }
       }, cellsForRadial);
-    }, GEO_Rosette.computeCells(rosette, this.props.cellSize));
+    }, GEO_Rosette.computeCells(rosette));
   }
 }
