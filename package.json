@@ -35,6 +35,7 @@
     "webpack-dev-server": "^1.10.1"
   },
   "dependencies": {
-    "fgeo": "^1.0.0"
+    "fgeo": "^1.0.1",
+    "nibelung": "^0.3.7"
   }
 }

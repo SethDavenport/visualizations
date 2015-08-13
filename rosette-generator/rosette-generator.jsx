@@ -20,8 +20,10 @@ export default class RosetteGenerator extends React.Component {
   }
 
   componentWillMount() {
-    rosetteStore.on(rosetteStore.CHANGE_EVENT, this._updateState);
-    renderOptionsStore.on(renderOptionsStore.CHANGE_EVENT, this._updateState);
+    rosetteStore.on('PUT', this._updateState);
+    rosetteStore.on('CLEAR', this._updateState);
+    renderOptionsStore.on('PUT', this._updateState);
+    renderOptionsStore.on('CLEAR', this._updateState);
   }
 
   componentWillUnmount() {
