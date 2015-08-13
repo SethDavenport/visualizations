@@ -70,6 +70,11 @@ export default class Rosette extends React.Component {
       ++i;
       return R.map(function(path) {
         ++j;
+
+        if (cellSize > 0) {
+          path = GEO_Path.resize(path, cellSize / 100);
+        }
+
         if (constructionMode === ConstructionModes.CIRCLE_CELLS) {
           var centroid = GEO_Path.centroid(path);
           return (<Circle className={cssClass + ' ' + positionalCssClassPrefix + i + '-' + j}
@@ -78,10 +83,6 @@ export default class Rosette extends React.Component {
             radius={GEO_Path.computeMinDistance(path, centroid)}/>);
         }
         else {
-          if (cellSize > 0) {
-            path = GEO_Path.resize(path, cellSize / 100);
-          }
-
           return (<Path geometry={path}
             className={cssClass + ' ' + positionalCssClassPrefix + i + '-' + j}
             constructionMode={constructionMode}
