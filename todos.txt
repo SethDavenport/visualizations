@@ -1,2 +1,1 @@
-Spin off geo stuff into own lib
 Add persistence to stores.

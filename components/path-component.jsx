@@ -1,7 +1,7 @@
 'use strict';
 import React from 'react';
 import R from 'ramda';
-import * as GEO_Path from '../model/path.es6';
+import fgeo from 'fgeo';
 import { ConstructionModes } from '../stores/render-options.constants.es6';
 
 export default class Path extends React.Component {
@@ -31,7 +31,7 @@ function _getDrawCommands(geometry, constructionMode, arcRadius) {
       break;
 
     case ConstructionModes.Q_BEZIER_CELLS:
-      var medians = GEO_Path.computeMedians(geometry);
+      var medians = fgeo.path.computeMedians(geometry);
       startFn = function () {
         return _toSVGMoveCommand(medians[0]);
       };

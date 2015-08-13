@@ -1,18 +1,14 @@
 import React from 'react';
 import R from 'ramda';
-import Circle from './circle-component.jsx';
+import fgeo from 'fgeo';
 import Path from './path-component.jsx';
-import * as GEO_Rosette from '../model/rosette.es6';
-import * as GEO_Circle from '../model/circle.es6';
-import * as GEO_Point from '../model/point.es6';
-import * as GEO_Path from '../model/path.es6';
 import { ConstructionModes, RenderModes } from '../stores/render-options.constants.es6';
 
 export default class Rosette extends React.Component {
   render () {
-    var rosette = new GEO_Rosette.Rosette(
-        new GEO_Circle.Circle(
-          new GEO_Point.Point(+this.props.cx, +this.props.cy),
+    var rosette = new fgeo.rosette.Rosette(
+        new fgeo.circle.Circle(
+          new fgeo.point.Point(+this.props.cx, +this.props.cy),
           this.props.guideRadius),
         this.props.radius,
         this.props.samples);
@@ -32,9 +28,9 @@ export default class Rosette extends React.Component {
     }
 
     var cssClass = 'rosette__guide-circle--' + this.props.renderMode;
-    return (<Circle x={rosette.guideCircle.center.x}
-      y={rosette.guideCircle.center.y}
-      radius={rosette.guideCircle.radius}
+    return (<circle cx={rosette.guideCircle.center.x}
+      cy={rosette.guideCircle.center.y}
+      r={rosette.guideCircle.radius}
       className={cssClass}/>);
   }
 
@@ -46,12 +42,12 @@ export default class Rosette extends React.Component {
     var cssClass = 'rosette__circle--' + this.props.renderMode;
     return R.map(
       function (circle) {
-        return (<Circle x={circle.center.x}
-          y={circle.center.y}
-          radius={circle.radius}
+        return (<circle cx={circle.center.x}
+          cy={circle.center.y}
+          r={circle.radius}
           className={cssClass}/>);
       },
-      GEO_Rosette.computeCircles(rosette));
+      fgeo.rosette.computeCircles(rosette));
   }
 
   _renderCells (rosette) {
@@ -72,15 +68,15 @@ export default class Rosette extends React.Component {
         ++j;
 
         if (cellSize > 0) {
-          path = GEO_Path.resize(path, cellSize / 100);
+          path = fgeo.path.resize(path, cellSize / 100);
         }
 
         if (constructionMode === ConstructionModes.CIRCLE_CELLS) {
-          var centroid = GEO_Path.centroid(path);
-          return (<Circle className={cssClass + ' ' + positionalCssClassPrefix + i + '-' + j}
-            x={centroid.x}
-            y={centroid.y}
-            radius={GEO_Path.computeMinDistance(path, centroid)}/>);
+          var centroid = fgeo.path.centroid(path);
+          return (<circle className={cssClass + ' ' + positionalCssClassPrefix + i + '-' + j}
+            cx={centroid.x}
+            cy={centroid.y}
+            r={fgeo.path.computeMinDistance(path, centroid)}/>);
         }
         else {
           return (<Path geometry={path}
@@ -89,6 +85,6 @@ export default class Rosette extends React.Component {
             arcRadius={rosette.radius}/>);
         }
       }, cellsForRadial);
-    }, GEO_Rosette.computeCells(rosette));
+    }, fgeo.rosette.computeCells(rosette));
   }
 }
