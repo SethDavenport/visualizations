@@ -1,43 +1,33 @@
 'use strict';
 
-import { EventEmitter } from 'events';
+import nibelung from 'nibelung';
 import dispatcher from '../dispatcher/dispatcher.es6';
 import { renderOptionsActionTypes } from '../actions/render-options.actions.es6';
 import { RenderDefaults, ConstructionModes, RenderModes } from './render-options.constants.es6';
 
-class RenderOptionsStore extends EventEmitter {
-  static CHANGE_EVENT: 'changeEvent'
+var store = new nibelung.Hoard({
+  namespace: 'renderOptions-',
+  persistent: true,
+  version: '1'
+});
 
-  constructor() {
-    super();
+store.getState = function getState() {
+  return {
+    constructionMode: this.getOne('constructionMode') || RenderDefaults.CONSTRUCTION_MODE,
+    renderMode: this.getOne('renderMode') || RenderDefaults.RENDER_MODE
+  };
+};
 
-    this.constructionMode = RenderDefaults.CONSTRUCTION_MODE;
-    this.renderMode = RenderDefaults.RENDER_MODE;
-    this._processAction = this._processAction.bind(this);
+dispatcher.register(function _processAction(action) {
+  switch (action.actionType) {
+    case renderOptionsActionTypes.SET_CONSTRUCTION_MODE:
+      this.putOne('constructionMode', action.constructionMode);
+      break;
 
-    dispatcher.register(this._processAction);
+    case renderOptionsActionTypes.SET_RENDER_MODE:
+      this.putOne('renderMode', action.renderMode);
+      break;
   }
+}.bind(store));
 
-  getState() {
-    return {
-      constructionMode: this.constructionMode,
-      renderMode: this.renderMode
-    };
-  }
-
-  _processAction(action) {
-    switch (action.actionType) {
-      case renderOptionsActionTypes.SET_CONSTRUCTION_MODE:
-        this.constructionMode = action.constructionMode;
-        this.emit(RenderOptionsStore.CHANGE_EVENT);
-        break;
-
-      case renderOptionsActionTypes.SET_RENDER_MODE:
-        this.renderMode = action.renderMode;
-        this.emit(RenderOptionsStore.CHANGE_EVENT);
-        break;
-    }
-  }
-}
-
-export default new RenderOptionsStore();
+export default store;

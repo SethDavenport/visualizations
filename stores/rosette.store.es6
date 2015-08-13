@@ -2,67 +2,49 @@
 
 import EventEmitter from 'events';
 import fgeo from 'fgeo';
+import nibelung from 'nibelung';
 import dispatcher from '../dispatcher/dispatcher.es6';
 import { rosetteActionTypes } from '../actions/rosette.actions.es6';
 import { RosetteDefaults } from './rosette.constants.es6';
 
-class RosetteStore extends EventEmitter {
-  static CHANGE_EVENT: 'changeEvent'
+var store = new nibelung.Hoard({
+  namespace: 'rosette-',
+  persistent: true,
+  version: '1'
+});
 
-  constructor() {
-    super();
-    this.numSamples = RosetteDefaults.NUM_SAMPLES;
-    this.center = new fgeo.point.Point(RosetteDefaults.X, RosetteDefaults.Y);
-    this.guideRadius = RosetteDefaults.GUIDE_RADIUS;
-    this.radius = RosetteDefaults.RADIUS;
-    this.cellSize = RosetteDefaults.CELL_SIZE;
-    this._processAction = this._processAction.bind(this);
-    this._dispatchToken = dispatcher.register(this._processAction);
-  }
-
-  getState() {
-    return {
-      numSamples: this.numSamples,
-      center: this.center,
-      guideRadius: this.guideRadius,
-      radius: this.radius,
-      cellSize: this.cellSize
-    };
-  }
-
-  _processAction(action) {
-    switch (action.actionType) {
-      case rosetteActionTypes.SET_SAMPLES:
-        this.numSamples = action.numSamples;
-        this.emit(RosetteStore.CHANGE_EVENT);
-        break;
-
-      case rosetteActionTypes.SET_RADIUS:
-        this.radius = action.radius;
-        this.emit(RosetteStore.CHANGE_EVENT);
-        break;
-
-      case rosetteActionTypes.SET_X:
-        this.center = new fgeo.point.Point(action.x, this.center.y);
-        this.emit(RosetteStore.CHANGE_EVENT);
-        break;
-
-      case rosetteActionTypes.SET_Y:
-        this.center = new fgeo.point.Point(this.center.x, action.y);
-        this.emit(RosetteStore.CHANGE_EVENT);
-        break;
-
-      case rosetteActionTypes.SET_GUIDE_RADIUS:
-        this.guideRadius = action.radius;
-        this.emit(RosetteStore.CHANGE_EVENT);
-        break;
-
-      case rosetteActionTypes.SET_CELL_SIZE:
-        this.cellSize = action.sizePercent;
-        this.emit(RosetteStore.CHANGE_EVENT);
-        break;
-    }
-  }
+store.getState = function getState() {
+  return {
+    numSamples: this.getOne('num-samples') || RosetteDefaults.NUM_SAMPLES,
+    center: new fgeo.point.Point(
+      this.getOne('center-x') || RosetteDefaults.X,
+      this.getOne('center-y') || RosetteDefaults.Y),
+    guideRadius: this.getOne('guide-radius') || RosetteDefaults.GUIDE_RADIUS,
+    radius: this.getOne('radius') || RosetteDefaults.RADIUS,
+    cellSize: this.getOne('cell-size') || RosetteDefaults.CELL_SIZE
+  };
 };
 
-export default new RosetteStore();
+dispatcher.register(function _processAction(action) {
+  switch (action.actionType) {
+    case rosetteActionTypes.SET_SAMPLES:
+      return this.putOne('num-samples', action.numSamples);
+
+    case rosetteActionTypes.SET_RADIUS:
+      return this.putOne('radius', action.radius);
+
+    case rosetteActionTypes.SET_X:
+      return this.putOne('center-x', action.x);
+
+    case rosetteActionTypes.SET_Y:
+      return this.putOne('center-y', action.y);
+
+    case rosetteActionTypes.SET_GUIDE_RADIUS:
+      return this.putOne('guide-radius', action.radius);
+
+    case rosetteActionTypes.SET_CELL_SIZE:
+      return this.putOne('cell-size', action.sizePercent);
+  }
+}.bind(store));
+
+export default store;
