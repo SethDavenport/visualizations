@@ -14,6 +14,6 @@ export const RenderModes = {
 };
 
 export const RenderDefaults = {
-  CONSTRUCTION_MODE: ConstructionModes.OVERLAPPING_CIRCLES,
+  CONSTRUCTION_MODE: ConstructionModes.Q_BEZIER_CELLS,
   RENDER_MODE: RenderModes.LINE
 };
