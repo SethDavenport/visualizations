@@ -24,7 +24,7 @@ export default class ControlPanel extends React.Component {
         <NumberInput name="samplesInput"
           label="Number of samples"
           min="1"
-          max="1000"
+          max="200"
           default={this.props.numSamples}
           onChange={newVal => rosetteActions.setSamples(newVal)}/>
         <NumberInput name="radiusInput"
