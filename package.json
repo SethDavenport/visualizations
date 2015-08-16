@@ -1,10 +1,11 @@
 {
   "name": "visualizations",
   "version": "0.0.1",
-  "description": "While on a trip to [Malta](https://www.google.ca/maps/place/Malta/@35.9440174,14.3795242,11z/data=!3m1!4b1!4m2!3m1!1s0x130e45281d8647c5:0xf582d86136be4239) several years ago, I took a look inside a wild and wonderful church to see what is one of the largest domes in Europe.  I was struck by the geometric pattern of the inside of the dome, which I found mesmerizing.",
+  "description": "Things",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo 'Yeah, yeah, I know.'",
+    "lint": "node_modules/eslint/bin/eslint.js . --ext .es6 --ext .jsx --ext .js"
   },
   "repository": {
     "type": "git",
@@ -20,10 +21,13 @@
     "babel-core": "^5.6.15",
     "babel-loader": "^5.2.2",
     "css-loader": "^0.15.1",
+    "eslint": "^1.1.0",
+    "eslint-plugin-react": "^3.2.2",
     "events": "^1.0.2",
     "flux": "^2.0.3",
     "gulp": "^3.8.11",
     "gulp-awspublish": "~2.0.2",
+    "html-webpack-plugin": "^1.6.1",
     "jsx-loader": "^0.13.2",
     "node-libs-browser": "^0.5.2",
     "node-sass": "^3.2.0",

@@ -2,16 +2,29 @@
 
 var gulp = require('gulp');
 var awspublish = require('gulp-awspublish');
+var webpack = require('webpack');
+var webpackOptions = require('./webpack.config.js');
 
-// TODO: rework with webpack.
-gulp.task('deploy', function () {
+webpackOptions.plugins.push(
+  new webpack.optimize.UglifyJsPlugin({minimize: true}));
+
+gulp.task('webpack', function(callback) {
+  webpack(webpackOptions, function(err, stats) {
+    if (err) {
+      throw err;
+    }
+    callback();
+  });
+});
+
+gulp.task('deploy', ['webpack'], function () {
   var publisher = awspublish.create({
     params: {
       Bucket: 'generative-art'
     }
   });
 
-  gulp.src('dist/**/*')
+  gulp.src(['dist/**/*'])
     .pipe(publisher.publish())
     .pipe(publisher.sync())
     .pipe(awspublish.reporter({

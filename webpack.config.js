@@ -1,5 +1,7 @@
 'use strict';
 
+var HtmlWebpackPlugin = require('html-webpack-plugin');
+
 var entryPoints = ['./rosette-generator/index.jsx'];
 if (process.env.NODE_ENV !== 'production') {
   entryPoints.push('webpack-dev-server/client?http://localhost:8080');
@@ -10,9 +12,15 @@ module.exports = {
     'rosette-generator': entryPoints
   },
   output: {
-    filename: 'dist/[name]-bundle.js',
+    path: 'dist',
+    filename: '[name]-bundle.js',
     pathinfo: true
   },
+  devtool: 'source-map',
+  plugins: [new HtmlWebpackPlugin({
+    template: 'rosette-generator/index.html',
+    inject: 'body'
+  })],
   module: {
     loaders: [{
       test: /\.es6$/,
