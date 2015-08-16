@@ -27,10 +27,6 @@ svg {
   border-radius: 3px;
   color: white;
 
-  &:hover {
-    background: rgba(128, 128, 128, 0.8);
-  }
-
   &__row {
     display: table-row;
   }
@@ -44,66 +40,20 @@ svg {
 
 .rosette {
   &__guide-circle {
-    &--line {
-      stroke-width: 0.04;
-      stroke: #00f;
-      fill: none;
-    }
-
-    &--solid {
-      stroke: none;
-      fill: #00f;
-      opacity: 0.1;
-    }
+    stroke-width: 0.04;
+    stroke: #00f;
+    fill: none;
   }
 
   &__circle{
-    &--line {
-      stroke-width: 0.04;
-      stroke: #fff;
-      fill: none;
-
-      &:hover {
-        stroke: #f00;
-        fill: #f00;
-        opacity: 1;
-      }
-    }
-
-    &--solid {
-      stroke: none;
-      fill: #fff;
-      opacity: 0.1;
-
-      &:hover {
-        fill: #fff;
-        opacity: 0.6;
-      }
-    }
+    stroke-width: 0.04;
+    stroke: #fff;
+    fill: none;
   }
 
   &__cell {
-    &--line {
-      stroke-width: 0.04;
-      stroke: #fff;
-      fill: none;
-
-      &:hover {
-        stroke: #f00;
-        fill: #f00;
-        opacity: 1;
-      }
-    }
-
-    &--solid {
-      stroke: none;
-      fill: #fff;
-      opacity: 0.6;
-
-      &:hover {
-        fill: #fff;
-        opacity: 1;
-      }
-    }
+    stroke-width: 0.04;
+    stroke: #fff;
+    fill: none;
   }
 }

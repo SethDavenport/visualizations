@@ -21,7 +21,8 @@ store.getState = function getState() {
       this.getOne('center-y') || RosetteDefaults.Y),
     guideRadius: this.getOne('guide-radius') || RosetteDefaults.GUIDE_RADIUS,
     radius: this.getOne('radius') || RosetteDefaults.RADIUS,
-    cellSize: this.getOne('cell-size') || RosetteDefaults.CELL_SIZE
+    cellSize: this.getOne('cell-size') || RosetteDefaults.CELL_SIZE,
+    constructionMode: this.getOne('constructionMode') || RosetteDefaults.CONSTRUCTION_MODE
   };
 };
 
@@ -44,6 +45,9 @@ dispatcher.register(function _processAction(action) {
 
     case rosetteActionTypes.SET_CELL_SIZE:
       return this.putOne('cell-size', action.sizePercent);
+
+    case rosetteActionTypes.SET_CONSTRUCTION_MODE:
+      return this.putOne('constructionMode', action.constructionMode);
   }
 }.bind(store));
 

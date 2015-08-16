@@ -7,7 +7,8 @@ export const rosetteActionTypes = {
   SET_X: 'SET_X',
   SET_Y: 'SET_Y',
   SET_GUIDE_RADIUS: 'SET_GUIDE_RADIUS',
-  SET_CELL_SIZE: 'SET_CELL_SIZE'
+  SET_CELL_SIZE: 'SET_CELL_SIZE',
+  SET_CONSTRUCTION_MODE: 'SET_CONSTRUCTION_MODE'
 };
 
 export function setSamples(numSamples) {
@@ -49,5 +50,12 @@ export function setCellSize(sizePercent) {
   dispatcher.dispatch({
     actionType: rosetteActionTypes.SET_CELL_SIZE,
     sizePercent: sizePercent
+  });
+}
+
+export function setConstructionMode(constructionMode) {
+  dispatcher.dispatch({
+    actionType: rosetteActionTypes.SET_CONSTRUCTION_MODE,
+    constructionMode: constructionMode
   });
 }

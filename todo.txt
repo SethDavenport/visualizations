@@ -1,0 +1,13 @@
+TODO:
+- simplify flux actions
+- better looking control panel
+- mouse controls
+- SVG export
+- fix cell class names
+- jitter?
+- bundle rosette component by itself?
+- reset button
+- cooler defaults
+- animations?
+- clip mask?
+- parallax?
