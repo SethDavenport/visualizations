@@ -3,9 +3,6 @@
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 var entryPoints = ['./rosette-generator/index.jsx'];
-if (process.env.NODE_ENV !== 'production') {
-  entryPoints.push('webpack-dev-server/client?http://localhost:8080');
-}
 
 module.exports = {
   entry: {
