@@ -13,6 +13,9 @@ module.exports = {
     filename: '[name]-bundle.js',
     pathinfo: true
   },
+  resolve: {
+    extensions: ['', '.jsx', '.es6', '.js', '.scss']
+  },
   devtool: 'source-map',
   plugins: [new HtmlWebpackPlugin({
     template: 'rosette-generator/index.html',

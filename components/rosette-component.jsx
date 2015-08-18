@@ -1,8 +1,8 @@
 import React from 'react';
 import R from 'ramda';
 import fgeo from 'fgeo';
-import Path from './path-component.jsx';
-import { ConstructionModes } from '../stores/rosette.constants.es6';
+import Path from './path-component';
+import { ConstructionModes } from '../stores/rosette.constants';
 
 export default class Rosette extends React.Component {
   render () {
