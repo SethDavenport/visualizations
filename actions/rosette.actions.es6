@@ -1,5 +1,5 @@
 'use strict';
-import dispatcher from '../dispatcher/dispatcher.es6';
+import dispatcher from '../dispatcher/dispatcher';
 
 export const rosetteActionTypes = {
   SET_SAMPLES: 'SET_SAMPLES',

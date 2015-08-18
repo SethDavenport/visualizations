@@ -3,9 +3,9 @@
 import EventEmitter from 'events';
 import fgeo from 'fgeo';
 import nibelung from 'nibelung';
-import dispatcher from '../dispatcher/dispatcher.es6';
-import { rosetteActionTypes } from '../actions/rosette.actions.es6';
-import { RosetteDefaults } from './rosette.constants.es6';
+import dispatcher from '../dispatcher/dispatcher';
+import { rosetteActionTypes } from '../actions/rosette.actions';
+import { RosetteDefaults } from './rosette.constants';
 
 var store = new nibelung.Hoard({
   namespace: 'rosette-',

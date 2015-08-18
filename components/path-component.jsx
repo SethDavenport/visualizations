@@ -2,7 +2,7 @@
 import React from 'react';
 import R from 'ramda';
 import fgeo from 'fgeo';
-import { ConstructionModes } from '../stores/rosette.constants.es6';
+import { ConstructionModes } from '../stores/rosette.constants';
 
 export default class Path extends React.Component {
   render () {

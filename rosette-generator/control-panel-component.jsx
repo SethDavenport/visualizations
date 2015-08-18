@@ -1,9 +1,9 @@
 import React from 'react';
 import R from 'ramda';
-import NumberInput from './number-input-component.jsx';
-import SelectInput from './select-input-component.jsx';
-import * as RosetteActions from '../actions/rosette.actions.es6';
-import { ConstructionModes } from '../stores/rosette.constants.es6';
+import NumberInput from './number-input-component';
+import SelectInput from './select-input-component';
+import * as RosetteActions from '../actions/rosette.actions';
+import { ConstructionModes } from '../stores/rosette.constants';
 
 export default class ControlPanel extends React.Component {
   render () {

@@ -1,5 +1,5 @@
 import React from 'react';
-import RosetteGenerator from './rosette-generator.jsx'
+import RosetteGenerator from './rosette-generator'
 
 React.render(
   <RosetteGenerator/>,

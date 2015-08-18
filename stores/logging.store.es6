@@ -1,6 +1,6 @@
 'use strict';
 
-import dispatcher from '../dispatcher/dispatcher.es6';
+import dispatcher from '../dispatcher/dispatcher';
 
 /**
  * Not really a store - just logs all actions for debugging purposes.
