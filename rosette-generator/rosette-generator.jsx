@@ -4,7 +4,6 @@ import Rosette from '../components/rosette-component.jsx';
 import ControlPanel from './control-panel-component.jsx';
 import style from './style.scss'
 import rosetteStore from '../stores/rosette.store.es6';
-import renderOptionsStore from '../stores/render-options.store.es6';
 import loggingStore from '../stores/logging.store.es6';
 
 /**
@@ -14,16 +13,12 @@ export default class RosetteGenerator extends React.Component {
   constructor(props) {
     super(props);
     this._updateState = this._updateState.bind(this);
-    this.state = R.merge(
-      rosetteStore.getState(),
-      renderOptionsStore.getState());
+    this.state = rosetteStore.getState();
   }
 
   componentWillMount() {
     rosetteStore.on('PUT', this._updateState);
     rosetteStore.on('CLEAR', this._updateState);
-    renderOptionsStore.on('PUT', this._updateState);
-    renderOptionsStore.on('CLEAR', this._updateState);
   }
 
   componentWillUnmount() {
@@ -40,7 +35,6 @@ export default class RosetteGenerator extends React.Component {
             radius={this.state.radius}
             samples={this.state.numSamples}
             constructionMode={this.state.constructionMode}
-            renderMode={this.state.renderMode}
             showGuideCircle={this.state.showGuideCircle}
             showRadials={this.state.showRadials}
             cellSize={this.state.cellSize}/>
@@ -52,7 +46,6 @@ export default class RosetteGenerator extends React.Component {
           guideRadius={this.state.guideRadius}
           numSamples={this.state.numSamples}
           constructionMode={this.state.constructionMode}
-          renderMode={this.state.renderMode}
           showGuideCircle={this.state.showGuideCircle}
           cellSize={this.state.cellSize}/>
       </div>
@@ -60,9 +53,6 @@ export default class RosetteGenerator extends React.Component {
   }
 
   _updateState() {
-    this.setState(
-      R.merge(
-        rosetteStore.getState(),
-        renderOptionsStore.getState()));
+    this.setState(rosetteStore.getState());
   }
 };

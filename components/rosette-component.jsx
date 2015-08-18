@@ -2,7 +2,7 @@ import React from 'react';
 import R from 'ramda';
 import fgeo from 'fgeo';
 import Path from './path-component.jsx';
-import { ConstructionModes, RenderModes } from '../stores/render-options.constants.es6';
+import { ConstructionModes } from '../stores/rosette.constants.es6';
 
 export default class Rosette extends React.Component {
   render () {
@@ -27,7 +27,7 @@ export default class Rosette extends React.Component {
       return null;
     }
 
-    var cssClass = 'rosette__guide-circle--' + this.props.renderMode;
+    var cssClass = 'rosette__guide-circle';
     return (<circle cx={rosette.guideCircle.center.x}
       cy={rosette.guideCircle.center.y}
       r={rosette.guideCircle.radius}
@@ -39,9 +39,10 @@ export default class Rosette extends React.Component {
       return null;
     }
 
-    var cssClass = 'rosette__circle--' + this.props.renderMode;
+    var i = 0;
     return R.map(
       function (circle) {
+        var cssClass = 'rosette__circle rosette__circle-' + i++;
         return (<circle cx={circle.center.x}
           cy={circle.center.y}
           r={circle.radius}
@@ -51,7 +52,7 @@ export default class Rosette extends React.Component {
   }
 
   _renderCells (rosette) {
-    var cssClass = 'rosette__cell--' + this.props.renderMode;
+    var cssClass = 'rosette__cell rosette__cell';
     var positionalCssClassPrefix = 'rosette__cell-';
     var constructionMode = this.props.constructionMode;
     if (constructionMode === ConstructionModes.OVERLAPPING_CIRCLES) {
@@ -61,9 +62,9 @@ export default class Rosette extends React.Component {
     var cellSize = this.props.cellSize;
 
     var i = -1;
-    var j = -1;
     return R.map(function(cellsForRadial) {
       ++i;
+      var j = -1;
       return R.map(function(path) {
         ++j;
 
