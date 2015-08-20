@@ -1,3 +1,6 @@
+@import '../node_modules/bourbon/app/assets/stylesheets/bourbon';
+@import '../node_modules/bourbon-neat/app/assets/stylesheets/neat';
+
 html, body, svg {
   height: 100%;
   padding: 0px;
@@ -5,36 +8,71 @@ html, body, svg {
 }
 
 body {
-  position: relative;
+  background: #000;
   font-family: sans-serif;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
 }
 
 svg {
-  width: 100%;
+  left: 0;
   position: absolute;
-  top: 0px;
-  left: 0px;
-  background: black;
+  top: 0;
+  width: 100%;
 }
 
+$base-spacing: 5px;
+$base-transition-duration: 250ms;
+
 .control-panel {
-  display: table;
-  position: absolute;
-  right: 10px;
-  top: 10px;
+  $control-panel-width: 200px;
+  $transition-timing-function: ease-in-out;
+
   background: rgba(128, 128, 128, 0.5);
-  padding: 10px;
   border-radius: 3px;
   color: white;
+  padding: $base-spacing * 2;
+  position: absolute;
+  right: 0;
+  top: $base-spacing * 2;
+  transform: translateX($control-panel-width - 25px);
+  transition: transform $base-transition-duration $transition-timing-function;
+  width: $control-panel-width;
+  will-change: transform;
+  z-index: 100;
+
+  &:hover {
+    transform: translateX(0);
+  }
 
   &__row {
-    display: table-row;
+    opacity: 0;
+    transition: $base-transition-duration $transition-timing-function;
+    will-change: opacity;
+
+    &:not(:first-child) {
+      margin: $base-spacing 0;
+    }
+
+    .control-panel:hover & {
+      opacity: 1;
+    }
   }
 
   &__cell {
-    display: table-cell;
-    padding-left: 5px;
-    padding-right: 5px;
+    border-radius: 2px;
+    border: none;
+    display: block;
+    margin-bottom: $base-spacing;
+    padding-left: $base-spacing;
+    padding-right: $base-spacing;
+    width: 100%;
+  }
+
+  &__label {
+    font-size: rem(12);
+    margin-bottom: $base-spacing;
   }
 }
 
@@ -45,7 +83,7 @@ svg {
     fill: none;
   }
 
-  &__circle{
+  &__circle {
     stroke-width: 0.04;
     stroke: #fff;
     fill: none;

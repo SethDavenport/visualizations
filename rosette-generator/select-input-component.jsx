@@ -9,7 +9,7 @@ export default class SelectInput extends React.Component {
   render() {
     return (
       <div className="control-panel__row">
-        <label className="control-panel__cell">
+        <label className="control-panel__label">
           {this.props.label}:
         </label>
         <select className="control-panel__cell"
