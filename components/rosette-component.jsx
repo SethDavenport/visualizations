@@ -60,32 +60,36 @@ export default class Rosette extends React.Component {
     }
 
     var cellSize = this.props.cellSize;
+    var cells = fgeo.rosette.computeCells(rosette);
+    var result = [];
 
-    var i = -1;
-    return R.map(function(cellsForRadial) {
-      ++i;
-      var j = -1;
-      return R.map(function(path) {
-        ++j;
+    for (let i=0; i<cells.length; ++i) {
+      for (let j=0; j<cells[i].length; ++j) {
+        let path = cells[i][j];
 
         if (cellSize > 0) {
           path = fgeo.path.resize(path, cellSize / 100);
         }
 
         if (constructionMode === ConstructionModes.CIRCLE_CELLS) {
-          var centroid = fgeo.path.centroid(path);
-          return (<circle className={cssClass + ' ' + positionalCssClassPrefix + i + '-' + j}
+          let centroid = fgeo.path.centroid(path);
+          let medians = fgeo.path.computeMedians(path);
+          let path2 = new fgeo.path.Path(path.vertices.concat(medians));
+
+          result.push(<circle className={cssClass + ' ' + positionalCssClassPrefix + i + '-' + j}
             cx={centroid.x}
             cy={centroid.y}
-            r={fgeo.path.computeMinDistance(path, centroid)}/>);
+            r={fgeo.path.computeMinDistance(path2, centroid)}/>);
         }
         else {
-          return (<Path geometry={path}
+          result.push(<Path geometry={path}
             className={cssClass + ' ' + positionalCssClassPrefix + i + '-' + j}
             constructionMode={constructionMode}
             arcRadius={rosette.radius}/>);
         }
-      }, cellsForRadial);
-    }, fgeo.rosette.computeCells(rosette));
+      }
+    }
+
+    return result;
   }
 }
