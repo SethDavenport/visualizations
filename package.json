@@ -38,10 +38,8 @@
     "sass-loader": "^1.0.2",
     "style-loader": "^0.12.3",
     "webpack": "^1.10.0",
-    "webpack-dev-server": "^1.10.1"
-  },
-  "dependencies": {
-    "fgeo": "^1.0.1",
+    "webpack-dev-server": "^1.10.1",
+    "fgeo": "^1.0.4",
     "nibelung": "^0.3.7"
   }
 }
