@@ -42,13 +42,13 @@ export default class ControlPanel extends React.Component {
           min="-100"
           max="200"
           default={this.props.x}
-          onChange={newVal => RosetteActions.setX(newVal)}/>
+          onChange={newVal => RosetteActions.setCenterX(newVal)}/>
         <NumberInput name="xInput"
           label="Y (%)"
           min="-100"
           max="200"
           default={this.props.y}
-          onChange={newVal => RosetteActions.setY(newVal)}/>
+          onChange={newVal => RosetteActions.setCenterY(newVal)}/>
         <SelectInput name="constructionModeSelect"
           label="Construction Mode"
           default={this.props.constructionMode}

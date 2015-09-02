@@ -2,60 +2,41 @@
 import dispatcher from '../dispatcher/dispatcher';
 
 export const rosetteActionTypes = {
-  SET_SAMPLES: 'SET_SAMPLES',
-  SET_RADIUS: 'SET_RADIUS',
-  SET_X: 'SET_X',
-  SET_Y: 'SET_Y',
-  SET_GUIDE_RADIUS: 'SET_GUIDE_RADIUS',
-  SET_CELL_SIZE: 'SET_CELL_SIZE',
-  SET_CONSTRUCTION_MODE: 'SET_CONSTRUCTION_MODE'
+  SET: 'SET'
 };
 
 export function setSamples(numSamples) {
-  dispatcher.dispatch({
-    actionType: rosetteActionTypes.SET_SAMPLES,
-    numSamples: +numSamples
-  });
+  _act(rosetteActionTypes.SET, 'numSamples', +numSamples);
 }
 
 export function setRadius(radius) {
-  dispatcher.dispatch({
-    actionType: rosetteActionTypes.SET_RADIUS,
-    radius: radius
-  });
+  _act(rosetteActionTypes.SET, 'radius', +radius);
 }
 
-export function setX(x) {
-  dispatcher.dispatch({
-    actionType: rosetteActionTypes.SET_X,
-    x: x
-  });
+export function setGuideRadius(guideRadius) {
+  _act(rosetteActionTypes.SET, 'guideRadius', +guideRadius);
 }
 
-export function setY(y) {
-  dispatcher.dispatch({
-    actionType: rosetteActionTypes.SET_Y,
-    y: y
-  });
+export function setCenterX(centerX) {
+  _act(rosetteActionTypes.SET, 'centerX', +centerX);
 }
 
-export function setGuideRadius(radius) {
-  dispatcher.dispatch({
-    actionType: rosetteActionTypes.SET_GUIDE_RADIUS,
-    radius: radius
-  });
+export function setCenterY(centerY) {
+  _act(rosetteActionTypes.SET, 'centerY', +centerY);
 }
 
-export function setCellSize(sizePercent) {
-  dispatcher.dispatch({
-    actionType: rosetteActionTypes.SET_CELL_SIZE,
-    sizePercent: sizePercent
-  });
+export function setCellSize(cellSize) {
+  _act(rosetteActionTypes.SET, 'cellSize', +cellSize);
 }
 
-export function setConstructionMode(constructionMode) {
+export function setConstructonMode(constructionMode) {
+  _act(rosetteActionTypes.SET, 'constructionMode', constructionMode);
+}
+
+function _act(actionType, name, payload) {
   dispatcher.dispatch({
-    actionType: rosetteActionTypes.SET_CONSTRUCTION_MODE,
-    constructionMode: constructionMode
+    actionType: actionType,
+    name: name,
+    payload: payload
   });
 }
