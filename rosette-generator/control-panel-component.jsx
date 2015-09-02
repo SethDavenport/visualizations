@@ -60,6 +60,9 @@ export default class ControlPanel extends React.Component {
           max="150"
           default={this.props.cellSize}
           onChange={newVal => RosetteActions.setCellSize(newVal)}/>
+        <button onClick={(e) => { RosetteActions.clear(); e.preventDefault(); }}>
+          Clear
+        </button>
       </form>
     );
   }

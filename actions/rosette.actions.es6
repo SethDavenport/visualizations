@@ -2,7 +2,8 @@
 import dispatcher from '../dispatcher/dispatcher';
 
 export const rosetteActionTypes = {
-  SET: 'SET'
+  SET: 'SET',
+  CLEAR: 'CLEAR'
 };
 
 export function setSamples(numSamples) {
@@ -29,8 +30,12 @@ export function setCellSize(cellSize) {
   _act(rosetteActionTypes.SET, 'cellSize', +cellSize);
 }
 
-export function setConstructonMode(constructionMode) {
+export function setConstructionMode(constructionMode) {
   _act(rosetteActionTypes.SET, 'constructionMode', constructionMode);
+}
+
+export function clear() {
+  _act(rosetteActionTypes.CLEAR);
 }
 
 function _act(actionType, name, payload) {
