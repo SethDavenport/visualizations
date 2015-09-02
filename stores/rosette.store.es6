@@ -30,6 +30,8 @@ dispatcher.register(function _processAction(action) {
   switch (action.actionType) {
     case rosetteActionTypes.SET:
       return this.putOne(action.name, action.payload);
+    case rosetteActionTypes.CLEAR:
+      return this.clear();
   }
 }.bind(store));
 
