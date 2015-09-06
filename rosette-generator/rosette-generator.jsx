@@ -6,6 +6,8 @@ import style from './style'
 import rosetteStore from '../stores/rosette.store';
 import loggingStore from '../stores/logging.store';
 
+import {foo} from './foo';
+
 /**
  * A page that renders a rosette based on user-defined parameters.
  */

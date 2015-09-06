@@ -63,7 +63,25 @@ export default class ControlPanel extends React.Component {
         <button onClick={(e) => { RosetteActions.clear(); e.preventDefault(); }}>
           Clear
         </button>
+        <button onClick={(e) => { this._exportAsSvg(); e.preventDefault(); }}>
+          Export as SVG
+        </button>
+        <a href-lang="image/svg+xml"
+          href={'data:image/svg+xml;base64,\n'+this._getB64()}
+          title="file.svg"
+          target="_blank">Download</a>
       </form>
     );
+  }
+
+  _getB64() {
+    var svgDoc = document.getElementsByTagName('svg')[0];
+    if (!svgDoc) {
+      return '';
+    }
+
+    var oSerializer = new XMLSerializer();
+    var sXML = oSerializer.serializeToString(svgDoc);
+    return window.btoa(sXML);
   }
 };
