@@ -2,11 +2,10 @@ import React from 'react';
 import R from 'ramda';
 import Rosette from '../components/rosette-component';
 import ControlPanel from './control-panel-component';
-import style from './style'
 import rosetteStore from '../stores/rosette.store';
 import loggingStore from '../stores/logging.store';
-
-import {foo} from './foo';
+import htmlStyles from './html-styles';
+import svgStyles from './svg-styles';
 
 /**
  * A page that renders a rosette based on user-defined parameters.

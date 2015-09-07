@@ -60,28 +60,25 @@ export default class ControlPanel extends React.Component {
           max="150"
           default={this.props.cellSize}
           onChange={newVal => RosetteActions.setCellSize(newVal)}/>
-        <button onClick={(e) => { RosetteActions.clear(); e.preventDefault(); }}>
+        <button onClick={(e) => {  e.preventDefault(); RosetteActions.clear(); }}>
           Clear
         </button>
-        <button onClick={(e) => { this._exportAsSvg(); e.preventDefault(); }}>
+        <button onClick={(e) => { e.preventDefault(); this._exportAsSvg(); }}>
           Export as SVG
         </button>
-        <a href-lang="image/svg+xml"
-          href={'data:image/svg+xml;base64,\n'+this._getB64()}
-          title="file.svg"
-          target="_blank">Download</a>
       </form>
     );
   }
 
-  _getB64() {
+  _exportAsSvg(svg) {
     var svgDoc = document.getElementsByTagName('svg')[0];
-    if (!svgDoc) {
-      return '';
-    }
-
-    var oSerializer = new XMLSerializer();
-    var sXML = oSerializer.serializeToString(svgDoc);
-    return window.btoa(sXML);
-  }
+    var svgStyles = document.getElementsByTabName('style')[1]; // Hack
+    var serializer = new XMLSerializer();
+    var svgStyles = document.getElementById()
+    var svgString = serializer.serializeToString(svgDoc);
+    var url = 'data:image/svg+xml;base64,\n' + btoa(svgString);
+    var url.cssString
+//    console.log(url);
+//    var svgWin = window.open(url, "svg_win");
+  };
 };

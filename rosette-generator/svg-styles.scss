@@ -1,0 +1,19 @@
+.rosette {
+  &__guide-circle {
+    stroke-width: 0.04;
+    stroke: #00f;
+    fill: none;
+  }
+
+  &__circle {
+    stroke-width: 0.04;
+    stroke: #fff;
+    fill: none;
+  }
+
+  &__cell {
+    stroke-width: 0.04;
+    stroke: #fff;
+    fill: none;
+  }
+}
