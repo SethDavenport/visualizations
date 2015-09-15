@@ -9,9 +9,9 @@ export default class Rosette extends React.Component {
     var rosette = new fgeo.rosette.Rosette(
         new fgeo.circle.Circle(
           new fgeo.point.Point(+this.props.cx, +this.props.cy),
-          this.props.guideRadius),
-        this.props.radius,
-        this.props.samples);
+          +this.props.guideRadius),
+        +this.props.radius,
+        +this.props.samples);
 
     return (
       <g>
