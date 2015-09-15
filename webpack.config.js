@@ -2,11 +2,12 @@
 
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 
-var entryPoints = ['./rosette-generator/index.jsx'];
+var entryPoints = [];
 
 module.exports = {
   entry: {
-    'rosette-generator': entryPoints
+    'rosette-generator': './rosette-generator/index.jsx',
+    'rosette': ['./components/rosette-component.jsx']
   },
   output: {
     path: 'dist',
