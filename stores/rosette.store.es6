@@ -1,6 +1,5 @@
 'use strict';
 
-import EventEmitter from 'events';
 import fgeo from 'fgeo';
 import nibelung from 'nibelung';
 import dispatcher from '../dispatcher/dispatcher';

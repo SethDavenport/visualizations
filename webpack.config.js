@@ -6,8 +6,7 @@ var entryPoints = [];
 
 module.exports = {
   entry: {
-    'rosette-generator': './rosette-generator/index.jsx',
-    'rosette': ['./components/rosette-component.jsx']
+    'rosette-generator': './rosette-generator/index.jsx'
   },
   output: {
     path: 'dist',
