@@ -1,12 +1,6 @@
 'use strict';
 
-export const ConstructionModes = {
-  OVERLAPPING_CIRCLES: 'overlapping-circles',
-  LINEAR_CELLS: 'linear-cells',
-  ARC_CELLS: 'arc-cells',
-  Q_BEZIER_CELLS: 'quadratic-bezier-cells',
-  CIRCLE_CELLS: 'circle-cells'
-};
+import * as RSVG from 'rsvg-rosette';
 
 export const RosetteDefaults = {
   NUM_SAMPLES: 32,
@@ -15,5 +9,5 @@ export const RosetteDefaults = {
   GUIDE_RADIUS: 20,
   RADIUS: 21,
   CELL_SIZE: 80,
-  CONSTRUCTION_MODE: ConstructionModes.Q_BEZIER_CELLS,
+  CONSTRUCTION_MODE: RSVG.ConstructionModes.Q_BEZIER_CELLS,
 };

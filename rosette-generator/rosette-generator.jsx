@@ -1,6 +1,6 @@
 import React from 'react';
 import R from 'ramda';
-import Rosette from '../components/rosette-component';
+import * as RSVG from 'rsvg-rosette';
 import ControlPanel from './control-panel-component';
 import style from './style'
 import rosetteStore from '../stores/rosette.store';
@@ -30,7 +30,7 @@ export default class RosetteGenerator extends React.Component {
     return (
       <div>
         <svg viewBox="0 0 100 100" preserveAspectRatio="xMidYMid slice">
-          <Rosette cx={this.state.center.x} cy={this.state.center.y}
+          <RSVG.Rosette cx={this.state.center.x} cy={this.state.center.y}
             guideRadius={this.state.guideRadius}
             radius={this.state.radius}
             samples={this.state.numSamples}

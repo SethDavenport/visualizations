@@ -1,9 +1,9 @@
 import React from 'react';
 import R from 'ramda';
+import * as RSVG from 'rsvg-rosette';
 import NumberInput from './number-input-component';
 import SelectInput from './select-input-component';
 import * as RosetteActions from '../actions/rosette.actions';
-import { ConstructionModes } from '../stores/rosette.constants';
 
 export default class ControlPanel extends React.Component {
   render () {
@@ -15,7 +15,7 @@ export default class ControlPanel extends React.Component {
       R.toPairs,
       R.map(_toSelectItem));
 
-    var constructionModes = _generateSelectItems(ConstructionModes);
+    var constructionModes = _generateSelectItems(RSVG.ConstructionModes);
 
     return (
       <form className="control-panel">
