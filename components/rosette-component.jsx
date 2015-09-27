@@ -1,7 +1,7 @@
 import React from 'react';
 import R from 'ramda';
 import fgeo from 'fgeo';
-import Path from './path-component';
+import RSVGPath from 'rsvg-path';
 import { ConstructionModes } from '../stores/rosette.constants';
 
 export default class Rosette extends React.Component {
@@ -82,9 +82,9 @@ export default class Rosette extends React.Component {
             r={fgeo.path.computeMinDistance(path2, centroid)}/>);
         }
         else {
-          result.push(<Path geometry={path}
+          result.push(<RSVGPath geometry={path}
             className={cssClass + ' ' + positionalCssClassPrefix + i + '-' + j}
-            constructionMode={constructionMode}
+            segmentType={_toSegmentType(constructionMode)}
             arcRadius={rosette.radius}/>);
         }
       }
@@ -92,4 +92,13 @@ export default class Rosette extends React.Component {
 
     return result;
   }
+}
+
+function _toSegmentType(constructionMode) {
+  switch (constructionMode) {
+    case ConstructionModes.ARC_CELLS: return 'arc';
+    case ConstructionModes.Q_BEZIER_CELLS: return 'q-bezier';
+  }
+
+  return 'linear';
 }
